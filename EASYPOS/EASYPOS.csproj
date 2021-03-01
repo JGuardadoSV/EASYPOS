@@ -70,7 +70,21 @@
   <ItemGroup>
     <Compile Include="Controladores\CCaja.cs" />
     <Compile Include="Controladores\CCategoria.cs" />
+    <Compile Include="Controladores\CCliente.cs" />
+    <Compile Include="Controladores\CCorrelativo.cs" />
+    <Compile Include="Controladores\CDetallesInventario.cs" />
+    <Compile Include="Controladores\CDetallesListaDePrecio.cs" />
+    <Compile Include="Controladores\CDetallesVenta.cs" />
+    <Compile Include="Controladores\CEmpleado.cs" />
+    <Compile Include="Controladores\CInventario.cs" />
+    <Compile Include="Controladores\CListasDePrecio.cs" />
+    <Compile Include="Controladores\CPresentacion.cs" />
+    <Compile Include="Controladores\CProducto.cs" />
+    <Compile Include="Controladores\CProducto_Presentacion.cs" />
     <Compile Include="Controladores\CProveedor.cs" />
+    <Compile Include="Controladores\CRol.cs" />
+    <Compile Include="Controladores\CSucursal.cs" />
+    <Compile Include="Controladores\CVenta.cs" />
     <Compile Include="Entidades\Caja.cs" />
     <Compile Include="Entidades\Categoria.cs" />
     <Compile Include="Entidades\Cliente.cs" />
