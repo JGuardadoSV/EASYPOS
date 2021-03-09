@@ -15,7 +15,15 @@ namespace EASYPOS.Controladores
         //*********************************************************
         public void Insertar(Proveedor proveedor)
         {
-            mProveedor.Insertar(proveedor);
+            if (proveedor.IdProveedor==0)
+            {
+                mProveedor.Insertar(proveedor);
+            }
+            else
+            {
+                this.Actualizar(proveedor);
+            }
+           
         }
         public void Actualizar(Proveedor proveedor)
         {

@@ -15,6 +15,7 @@ namespace EASYPOS.Entidades
         public int IdProveedor_FK { get; set; }
         public string InformacionAdicional { get; set; }
         public string PrincipioActivo { get; set; }
+        public string Codigo { get; set; }
         public decimal? Precio { get; set; }
     }
 }

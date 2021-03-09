@@ -1,4 +1,6 @@
-﻿using System;
+﻿using EASYPOS.Formularios.Productos;
+using EASYPOS.Formularios.Proveedores;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +18,7 @@ namespace EASYPOS
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FCategorias());
+            Application.Run(new FProveedores());
         }
     }
 }

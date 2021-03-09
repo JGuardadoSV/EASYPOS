@@ -15,7 +15,11 @@ namespace EASYPOS.Controladores
         //*********************************************************
         public void Insertar(Producto producto)
         {
-            mProducto.Insertar(producto);
+            if (producto.IdProducto == 0)
+                mProducto.Insertar(producto);
+            else
+                this.Actualizar(producto);
+            
         }
         public void Actualizar(Producto producto)
         {

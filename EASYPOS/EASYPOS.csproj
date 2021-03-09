@@ -108,6 +108,18 @@
     <Compile Include="FCategorias.Designer.cs">
       <DependentUpon>FCategorias.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\Presentaciones\FPresentaciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Presentaciones\FPresentaciones.Designer.cs">
+      <DependentUpon>FPresentaciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Productos\FProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Productos\FProductos.Designer.cs">
+      <DependentUpon>FProductos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\Proveedores\FProveedores.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -144,6 +156,15 @@
     <EmbeddedResource Include="FCategorias.resx">
       <DependentUpon>FCategorias.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Presentaciones\FPresentaciones.resx">
+      <DependentUpon>FPresentaciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Productos\FProductos.resx">
+      <DependentUpon>FProductos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Proveedores\FProveedores.resx">
+      <DependentUpon>FProveedores.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="fPOS.resx">
       <DependentUpon>fPOS.cs</DependentUpon>
     </EmbeddedResource>
@@ -160,6 +181,9 @@
     <EmbeddedResource Include="Report1.rdlc" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\EASYPOS.Entidades.Categoria.datasource" />
+    <None Include="Properties\DataSources\EASYPOS.Entidades.Presentacion.datasource" />
+    <None Include="Properties\DataSources\EASYPOS.Entidades.Producto.datasource" />
+    <None Include="Properties\DataSources\EASYPOS.Entidades.Proveedor.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
