@@ -10,17 +10,22 @@ namespace EASYPOS.Controladores
 {
     public class CProducto_Presentacion
     {
-        MProducto_Presentacion mProveedor = new MProducto_Presentacion();
+        MProducto_Presentacion mProductoPresentacion = new MProducto_Presentacion();
 
         //*********************************************************
         public void Insertar(Producto_Presentacion producto_Presentacion)
         {
-            mProveedor.Insertar(producto_Presentacion);
+            mProductoPresentacion.Insertar(producto_Presentacion);
         }
        
         public void Eliminar(Producto_Presentacion producto_Presentacion)
         {
-            mProveedor.Eliminar(producto_Presentacion);
+            mProductoPresentacion.Eliminar(producto_Presentacion);
+        }
+
+        public List<Producto_Presentacion> listado(int id)
+        {
+            return mProductoPresentacion.Listado(id);
         }
 
         

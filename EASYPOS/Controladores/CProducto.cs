@@ -39,5 +39,10 @@ namespace EASYPOS.Controladores
         {
             return mProducto.ObtenerUno(id);
         }
+
+        internal int MaximoId()
+        {
+            return mProducto.MaximoId();
+        }
     }
 }

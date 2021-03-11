@@ -1,5 +1,10 @@
-﻿using EASYPOS.Formularios.Productos;
+﻿using EASYPOS.Formularios;
+using EASYPOS.Formularios.Clientes;
+using EASYPOS.Formularios.Correlativos;
+using EASYPOS.Formularios.Presentaciones;
+using EASYPOS.Formularios.Productos;
 using EASYPOS.Formularios.Proveedores;
+using EASYPOS.Formularios.Sucursales;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,7 +23,7 @@ namespace EASYPOS
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FProveedores());
+            Application.Run(new FClientes());
         }
     }
 }

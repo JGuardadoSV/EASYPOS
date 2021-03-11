@@ -1,5 +1,5 @@
 ﻿
-namespace EASYPOS
+namespace EASYPOS.Formularios.Categorias
 {
     partial class FCategorias
     {

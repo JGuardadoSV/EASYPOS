@@ -16,7 +16,14 @@ namespace EASYPOS.Controladores
         //*********************************************************
         public void Insertar(Cliente cliente)
         {
-            mCliente.Insertar(cliente);
+            if (cliente.IdCliente==0)
+            {
+                mCliente.Insertar(cliente);
+            }
+            else{
+                this.Actualizar(cliente);
+            }
+            
         }
         public void Actualizar(Cliente cliente)
         {

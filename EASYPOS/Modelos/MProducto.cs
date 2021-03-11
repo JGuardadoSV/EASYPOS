@@ -91,5 +91,16 @@ namespace EASYPOS.Modelos
 
             return producto;
         }
+
+        public int MaximoId()
+        {
+            string consulta = "SELECT max(IdProducto) FROM Productos";
+            cn.Open();
+            int maximo = cn.QuerySingle<int>(consulta);
+            cn.Close();
+
+            return maximo;
+
+        }
     }
 }

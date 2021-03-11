@@ -15,7 +15,15 @@ namespace EASYPOS.Controladores
         //*********************************************************
         public void Insertar(Correlativo correlativo)
         {
-            mCorrelativo.Insertar(correlativo);
+            if (correlativo.IdCorrelativo==0)
+            {
+                mCorrelativo.Insertar(correlativo);
+            }
+            else
+            {
+                this.Actualizar(correlativo);
+            }
+            
         }
         public void Actualizar(Correlativo correlativo)
         {

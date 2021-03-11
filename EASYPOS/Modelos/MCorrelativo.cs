@@ -19,11 +19,11 @@ namespace EASYPOS.Modelos
         public void Insertar(Correlativo correlativo)
         {
 
-            string consulta = "insert into Correlativos values (@IdTipoDocumento_FK,@FechaCreacion,@Inicio,@Fin,@Autorizacion,@TipoDeDocumento,@FechaDeAutorizacion,@ValorActual,@IdSucursal_FK)";
+            string consulta = "insert into Correlativos values (@FechaCreacion,@Inicio,@Fin,@Autorizacion,@TipoDeDocumento,@FechaDeAutorizacion,@ValorActual,@IdSucursal_FK)";
             DynamicParameters parametros = new DynamicParameters();
 
             
-            parametros.Add("@IdTipoDocumento_FK", correlativo.IdTipoDocumento_FK, DbType.Int32);
+            
             parametros.Add("@FechaCreacion", correlativo.FechaCreacion, DbType.DateTime);
             parametros.Add("@Inicio", correlativo.Inicio, DbType.Int32);
             parametros.Add("@Fin", correlativo.Fin, DbType.Int64);
@@ -41,10 +41,10 @@ namespace EASYPOS.Modelos
         public void Actualizar(Correlativo correlativo)
         {
 
-            string consulta = "Update Correlativos set IdCorrelativo=@IdCorrelativo,IdTipoDocumento_FK=@IdTipoDocumento_FK,FechaCreacion=@FechaCreacion,Inicio=@Inicio,Fin=@Fin,Autorizacion=@Autorizacion,TipoDeDocumento=@TipoDeDocumento,FechaDeAutorizacion=@FechaDeAutorizacion,ValorActual=@ValorActual,IdSucursal_FK=@IdSucursal_FK IdCorrelativo=@id";
+            string consulta = "Update Correlativos set FechaCreacion=@FechaCreacion,Inicio=@Inicio,Fin=@Fin,Autorizacion=@Autorizacion,TipoDeDocumento=@TipoDeDocumento,FechaDeAutorizacion=@FechaDeAutorizacion,ValorActual=@ValorActual,IdSucursal_FK=@IdSucursal_FK where IdCorrelativo=@id";
             DynamicParameters parametros = new DynamicParameters();
 
-            parametros.Add("@IdTipoDocumento_FK", correlativo.IdTipoDocumento_FK, DbType.Int32);
+            
             parametros.Add("@FechaCreacion", correlativo.FechaCreacion, DbType.DateTime);
             parametros.Add("@Inicio", correlativo.Inicio, DbType.Int32);
             parametros.Add("@Fin", correlativo.Fin, DbType.Int32);

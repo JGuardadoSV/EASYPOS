@@ -9,7 +9,6 @@ namespace EASYPOS.Entidades
     public class Correlativo
     {
         public int IdCorrelativo { get; set; }
-        public int? IdTipoDocumento_FK { get; set; }
         public DateTime? FechaCreacion { get; set; }
         public int? Inicio { get; set; }
         public long? Fin { get; set; }

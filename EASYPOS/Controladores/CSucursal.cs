@@ -15,7 +15,15 @@ namespace EASYPOS.Controladores
         //*********************************************************
         public void Insertar(Sucursal sucursal)
         {
-            mSucursal.Insertar(sucursal);
+            if (sucursal.IdSucursal==0)
+            {
+                mSucursal.Insertar(sucursal);
+            }
+            else
+            {
+                this.Actualizar(sucursal);
+            }
+            
         }
         public void Actualizar(Sucursal sucursal)
         {

@@ -8,6 +8,8 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using EASYPOS.Controladores;
+
 namespace EASYPOS.Modelos
 {
    public class MSucursal
@@ -27,6 +29,18 @@ namespace EASYPOS.Modelos
             
             cn.Open();
             cn.Execute(consulta, parametros, commandType: CommandType.Text);
+
+
+            //Creando por el inventario principal
+
+            consulta = "Select max(IdSucursal) from  Sucursales";
+            int id = cn.QuerySingle<int>(consulta);
+
+            CInventario cInventario = new CInventario();
+            Inventario inventario = new Inventario();
+            inventario.IdSucursal_FK = id;
+            inventario.TipoInventario = 1;//1 es inventario principal
+            cInventario.Insertar(inventario);
             cn.Close();
 
         }

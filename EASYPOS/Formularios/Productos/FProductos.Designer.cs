@@ -71,6 +71,13 @@ namespace EASYPOS.Formularios.Productos
             this.eliminarEsteProductoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Registrarbutton = new System.Windows.Forms.Button();
             this.Fpanel = new System.Windows.Forms.Panel();
+            this.PresentacionesgroupBox = new System.Windows.Forms.GroupBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.PresentacionesdataGridView = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.presentacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.eliminarPresentaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.codigoTextBox = new System.Windows.Forms.TextBox();
             this.Cancelarbutton = new System.Windows.Forms.Button();
             this.Guardarbutton = new System.Windows.Forms.Button();
@@ -96,6 +103,9 @@ namespace EASYPOS.Formularios.Productos
             ((System.ComponentModel.ISupportInitialize)(this.proveedorBindingSource)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.Fpanel.SuspendLayout();
+            this.PresentacionesgroupBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PresentacionesdataGridView)).BeginInit();
+            this.contextMenuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
             // informacionAdicionalLabel
@@ -442,6 +452,7 @@ namespace EASYPOS.Formularios.Productos
             // 
             // Fpanel
             // 
+            this.Fpanel.Controls.Add(this.PresentacionesgroupBox);
             this.Fpanel.Controls.Add(codigoLabel);
             this.Fpanel.Controls.Add(this.codigoTextBox);
             this.Fpanel.Controls.Add(this.Cancelarbutton);
@@ -461,9 +472,79 @@ namespace EASYPOS.Formularios.Productos
             this.Fpanel.Controls.Add(this.label1);
             this.Fpanel.Location = new System.Drawing.Point(18, 41);
             this.Fpanel.Name = "Fpanel";
-            this.Fpanel.Size = new System.Drawing.Size(743, 393);
+            this.Fpanel.Size = new System.Drawing.Size(857, 393);
             this.Fpanel.TabIndex = 4;
             this.Fpanel.Visible = false;
+            // 
+            // PresentacionesgroupBox
+            // 
+            this.PresentacionesgroupBox.Controls.Add(this.button1);
+            this.PresentacionesgroupBox.Controls.Add(this.PresentacionesdataGridView);
+            this.PresentacionesgroupBox.Enabled = false;
+            this.PresentacionesgroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PresentacionesgroupBox.Location = new System.Drawing.Point(489, 75);
+            this.PresentacionesgroupBox.Name = "PresentacionesgroupBox";
+            this.PresentacionesgroupBox.Size = new System.Drawing.Size(354, 264);
+            this.PresentacionesgroupBox.TabIndex = 17;
+            this.PresentacionesgroupBox.TabStop = false;
+            this.PresentacionesgroupBox.Text = "Presentaciones de venta";
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(7, 23);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(218, 30);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Agregar presentación";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // PresentacionesdataGridView
+            // 
+            this.PresentacionesdataGridView.AllowUserToAddRows = false;
+            this.PresentacionesdataGridView.AllowUserToDeleteRows = false;
+            this.PresentacionesdataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.PresentacionesdataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ID,
+            this.presentacion});
+            this.PresentacionesdataGridView.ContextMenuStrip = this.contextMenuStrip2;
+            this.PresentacionesdataGridView.Location = new System.Drawing.Point(6, 60);
+            this.PresentacionesdataGridView.Name = "PresentacionesdataGridView";
+            this.PresentacionesdataGridView.ReadOnly = true;
+            this.PresentacionesdataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.PresentacionesdataGridView.Size = new System.Drawing.Size(342, 185);
+            this.PresentacionesdataGridView.TabIndex = 0;
+            this.PresentacionesdataGridView.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.PresentacionesdataGridView_CellMouseDown);
+            // 
+            // ID
+            // 
+            this.ID.HeaderText = "ID";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Visible = false;
+            this.ID.Width = 25;
+            // 
+            // presentacion
+            // 
+            this.presentacion.HeaderText = "Presentación";
+            this.presentacion.Name = "presentacion";
+            this.presentacion.ReadOnly = true;
+            this.presentacion.Width = 200;
+            // 
+            // contextMenuStrip2
+            // 
+            this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.eliminarPresentaciónToolStripMenuItem});
+            this.contextMenuStrip2.Name = "contextMenuStrip2";
+            this.contextMenuStrip2.Size = new System.Drawing.Size(199, 48);
+            // 
+            // eliminarPresentaciónToolStripMenuItem
+            // 
+            this.eliminarPresentaciónToolStripMenuItem.Name = "eliminarPresentaciónToolStripMenuItem";
+            this.eliminarPresentaciónToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
+            this.eliminarPresentaciónToolStripMenuItem.Text = "¿Eliminar presentación?";
+            this.eliminarPresentaciónToolStripMenuItem.Click += new System.EventHandler(this.eliminarPresentaciónToolStripMenuItem_Click);
             // 
             // codigoTextBox
             // 
@@ -528,6 +609,7 @@ namespace EASYPOS.Formularios.Productos
             this.tieneVariasPresentacionesCheckBox.TabIndex = 4;
             this.tieneVariasPresentacionesCheckBox.Text = "Sí";
             this.tieneVariasPresentacionesCheckBox.UseVisualStyleBackColor = true;
+            this.tieneVariasPresentacionesCheckBox.CheckedChanged += new System.EventHandler(this.tieneVariasPresentacionesCheckBox_CheckedChanged);
             // 
             // informacionAdicionalTextBox
             // 
@@ -585,6 +667,9 @@ namespace EASYPOS.Formularios.Productos
             this.contextMenuStrip1.ResumeLayout(false);
             this.Fpanel.ResumeLayout(false);
             this.Fpanel.PerformLayout();
+            this.PresentacionesgroupBox.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.PresentacionesdataGridView)).EndInit();
+            this.contextMenuStrip2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -632,5 +717,12 @@ namespace EASYPOS.Formularios.Productos
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.GroupBox PresentacionesgroupBox;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridView PresentacionesdataGridView;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn presentacion;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
+        private System.Windows.Forms.ToolStripMenuItem eliminarPresentaciónToolStripMenuItem;
     }
 }

@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace EASYPOS
+namespace EASYPOS.Formularios.Categorias
 {
     public partial class FCategorias : Form
     {

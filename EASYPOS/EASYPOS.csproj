@@ -101,18 +101,43 @@
     <Compile Include="Entidades\Proveedor.cs" />
     <Compile Include="Entidades\Rol.cs" />
     <Compile Include="Entidades\Sucursal.cs" />
+    <Compile Include="Entidades\TipoDocumento.cs" />
     <Compile Include="Entidades\Venta.cs" />
-    <Compile Include="FCategorias.cs">
+    <Compile Include="Formularios\Categorias\FCategorias.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FCategorias.Designer.cs">
+    <Compile Include="Formularios\Categorias\FCategorias.Designer.cs">
       <DependentUpon>FCategorias.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Clientes\FClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Clientes\FClientes.Designer.cs">
+      <DependentUpon>FClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Correlativos\FCorrelativos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Correlativos\FCorrelativos.Designer.cs">
+      <DependentUpon>FCorrelativos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Sucursales\FSucursales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Sucursales\FSucursales.Designer.cs">
+      <DependentUpon>FSucursales.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\Presentaciones\FPresentaciones.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\Presentaciones\FPresentaciones.Designer.cs">
       <DependentUpon>FPresentaciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Presentaciones\FSeleccionDePresentaciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Presentaciones\FSeleccionDePresentaciones.Designer.cs">
+      <DependentUpon>FSeleccionDePresentaciones.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\Productos\FProductos.cs">
       <SubType>Form</SubType>
@@ -153,11 +178,23 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
-    <EmbeddedResource Include="FCategorias.resx">
+    <EmbeddedResource Include="Formularios\Categorias\FCategorias.resx">
       <DependentUpon>FCategorias.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Clientes\FClientes.resx">
+      <DependentUpon>FClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Correlativos\FCorrelativos.resx">
+      <DependentUpon>FCorrelativos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Sucursales\FSucursales.resx">
+      <DependentUpon>FSucursales.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Presentaciones\FPresentaciones.resx">
       <DependentUpon>FPresentaciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Presentaciones\FSeleccionDePresentaciones.resx">
+      <DependentUpon>FSeleccionDePresentaciones.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Productos\FProductos.resx">
       <DependentUpon>FProductos.cs</DependentUpon>
@@ -181,9 +218,13 @@
     <EmbeddedResource Include="Report1.rdlc" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\EASYPOS.Entidades.Categoria.datasource" />
+    <None Include="Properties\DataSources\EASYPOS.Entidades.Cliente.datasource" />
+    <None Include="Properties\DataSources\EASYPOS.Entidades.Correlativo.datasource" />
     <None Include="Properties\DataSources\EASYPOS.Entidades.Presentacion.datasource" />
     <None Include="Properties\DataSources\EASYPOS.Entidades.Producto.datasource" />
     <None Include="Properties\DataSources\EASYPOS.Entidades.Proveedor.datasource" />
+    <None Include="Properties\DataSources\EASYPOS.Entidades.Sucursal.datasource" />
+    <None Include="Properties\DataSources\EASYPOS.Entidades.TipoDocumento.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
