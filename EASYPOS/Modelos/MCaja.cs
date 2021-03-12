@@ -43,7 +43,7 @@ namespace EASYPOS.Modelos
         public void Actualizar(Caja caja)
         {
 
-            string consulta = "Update Cajas FechaApertura=@FechaApertura,FechaCierre=@FechaCierre,IdEmpleadoApertura_FK=@IdEmpleadoApertura_FK,MontoInicial=@MontoInicial,SumaEntradas=@SumaEntradas,SumaSalidas=@SumaSalidas,Faltante=@Faltante,Sobrante=@Sobrante,Observaciones=@Observaciones,IdEmpleadoCierre_FK=@IdEmpleadoCierre_FK,IdSucursal=@IdSucursal_FK,Estado=@Estado where IdCaja=@id";
+            string consulta = "Update Cajas set FechaApertura=@FechaApertura,FechaCierre=@FechaCierre,IdEmpleadoApertura_FK=@IdEmpleadoApertura_FK,MontoInicial=@MontoInicial,SumaEntradas=@SumaEntradas,SumaSalidas=@SumaSalidas,Faltante=@Faltante,Sobrante=@Sobrante,Observaciones=@Observaciones,IdEmpleadoCierre_FK=@IdEmpleadoCierre_FK,IdSucursal_FK=@IdSucursal_FK,Estado=@Estado where IdCaja=@id";
             DynamicParameters parametros = new DynamicParameters();
 
             parametros.Add("@FechaApertura", caja.FechaApertura, DbType.String);
@@ -86,7 +86,7 @@ namespace EASYPOS.Modelos
             return listado;
         }
 
-        public Caja ObtenerUno(int id)
+        public Caja ObtenerUna(int id)
         {
             string consulta = "SELECT * FROM Cajas where IdCaja=@id";
             DynamicParameters parametros = new DynamicParameters();

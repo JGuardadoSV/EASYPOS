@@ -103,6 +103,12 @@
     <Compile Include="Entidades\Sucursal.cs" />
     <Compile Include="Entidades\TipoDocumento.cs" />
     <Compile Include="Entidades\Venta.cs" />
+    <Compile Include="Formularios\Cajas\FCajas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Cajas\FCajas.Designer.cs">
+      <DependentUpon>FCajas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\Categorias\FCategorias.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,6 +126,12 @@
     </Compile>
     <Compile Include="Formularios\Correlativos\FCorrelativos.Designer.cs">
       <DependentUpon>FCorrelativos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Empleados\FEmpleados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Empleados\FEmpleados.Designer.cs">
+      <DependentUpon>FEmpleados.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\Sucursales\FSucursales.cs">
       <SubType>Form</SubType>
@@ -178,6 +190,9 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlServerTypes\Loader.cs" />
+    <EmbeddedResource Include="Formularios\Cajas\FCajas.resx">
+      <DependentUpon>FCajas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Categorias\FCategorias.resx">
       <DependentUpon>FCategorias.cs</DependentUpon>
     </EmbeddedResource>
@@ -186,6 +201,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Correlativos\FCorrelativos.resx">
       <DependentUpon>FCorrelativos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Empleados\FEmpleados.resx">
+      <DependentUpon>FEmpleados.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Sucursales\FSucursales.resx">
       <DependentUpon>FSucursales.cs</DependentUpon>
@@ -217,12 +235,15 @@
     </Compile>
     <EmbeddedResource Include="Report1.rdlc" />
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\EASYPOS.Entidades.Caja.datasource" />
     <None Include="Properties\DataSources\EASYPOS.Entidades.Categoria.datasource" />
     <None Include="Properties\DataSources\EASYPOS.Entidades.Cliente.datasource" />
     <None Include="Properties\DataSources\EASYPOS.Entidades.Correlativo.datasource" />
+    <None Include="Properties\DataSources\EASYPOS.Entidades.Empleado.datasource" />
     <None Include="Properties\DataSources\EASYPOS.Entidades.Presentacion.datasource" />
     <None Include="Properties\DataSources\EASYPOS.Entidades.Producto.datasource" />
     <None Include="Properties\DataSources\EASYPOS.Entidades.Proveedor.datasource" />
+    <None Include="Properties\DataSources\EASYPOS.Entidades.Rol.datasource" />
     <None Include="Properties\DataSources\EASYPOS.Entidades.Sucursal.datasource" />
     <None Include="Properties\DataSources\EASYPOS.Entidades.TipoDocumento.datasource" />
     <None Include="Properties\Settings.settings">

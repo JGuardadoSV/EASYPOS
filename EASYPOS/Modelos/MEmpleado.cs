@@ -19,7 +19,7 @@ namespace EASYPOS.Modelos
         public void Insertar(Empleado empleado)
         {
 
-            string consulta = "insert into Empleados values (@NombresEmpleado,@ApellidosEmpleado,@IdRol_FK,@DUI,@NIT,@Telefono,@Email)";
+            string consulta = "insert into Empleados values (@NombresEmpleado,@ApellidosEmpleado,@IdRol_FK,@DUI,@NIT,@Telefono,@Email,@IdSucursal_FK)";
             DynamicParameters parametros = new DynamicParameters();
 
             parametros.Add("@NombresEmpleado", empleado.NombresEmpleado, DbType.String);
@@ -29,7 +29,8 @@ namespace EASYPOS.Modelos
             parametros.Add("@NIT", empleado.NIT, DbType.String);
             parametros.Add("@Telefono", empleado.Telefono, DbType.String);
             parametros.Add("@Email", empleado.Email, DbType.String);
-            
+            parametros.Add("@IdSucursal_FK", empleado.IdSucursal_FK, DbType.Int32);
+
             cn.Open();
             cn.Execute(consulta, parametros, commandType: CommandType.Text);
             cn.Close();
@@ -38,7 +39,7 @@ namespace EASYPOS.Modelos
         public void Actualizar(Empleado empleado)
         {
 
-            string consulta = "Update Empleados set NombresEmpleado=@NombresEmpleado,ApellidosEmpleado=@ApellidosEmpleado,IdRol_FK=@IdRol_FK,DUI=@DUI,NIT=@NIT,Telefono=@Telefono,Email=@Email where IdEmpleado=@id";
+            string consulta = "Update Empleados set NombresEmpleado=@NombresEmpleado,ApellidosEmpleado=@ApellidosEmpleado,IdRol_FK=@IdRol_FK,DUI=@DUI,NIT=@NIT,Telefono=@Telefono,Email=@Email,IdSucursal_FK=@IdSucursal_FK where IdEmpleado=@id";
             DynamicParameters parametros = new DynamicParameters();
 
             parametros.Add("@NombresEmpleado", empleado.NombresEmpleado, DbType.String);
@@ -49,6 +50,8 @@ namespace EASYPOS.Modelos
             parametros.Add("@Telefono", empleado.Telefono, DbType.String);
             parametros.Add("@Email", empleado.Email, DbType.String);
             parametros.Add("@id", empleado.IdEmpleado, DbType.Int32);
+            parametros.Add("@IdSucursal_FK", empleado.IdSucursal_FK, DbType.Int32);
+            
             cn.Open();
             cn.Execute(consulta, parametros, commandType: CommandType.Text);
             cn.Close();

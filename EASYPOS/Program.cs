@@ -1,6 +1,8 @@
 ﻿using EASYPOS.Formularios;
+using EASYPOS.Formularios.Cajas;
 using EASYPOS.Formularios.Clientes;
 using EASYPOS.Formularios.Correlativos;
+using EASYPOS.Formularios.Empleados;
 using EASYPOS.Formularios.Presentaciones;
 using EASYPOS.Formularios.Productos;
 using EASYPOS.Formularios.Proveedores;
@@ -23,7 +25,7 @@ namespace EASYPOS
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FClientes());
+            Application.Run(new FCajas());
         }
     }
 }

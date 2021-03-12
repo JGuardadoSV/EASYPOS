@@ -16,5 +16,6 @@ namespace EASYPOS.Entidades
         public string NIT { get; set; }
         public string Telefono { get; set; }
         public string Email { get; set; }
+        public int IdSucursal_FK { get; set; }
     }
 }

@@ -17,7 +17,15 @@ namespace EASYPOS.Controladores
         //*********************************************************
         public void Insertar(Empleado empleado)
         {
-            mEmpleado.Insertar(empleado);
+            if (empleado.IdEmpleado==0)
+            {
+                mEmpleado.Insertar(empleado);
+            }
+            else
+            {
+                this.Actualizar(empleado);
+            }
+            
         }
         public void Actualizar(Empleado empleado)
         {
