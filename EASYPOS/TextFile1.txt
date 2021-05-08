@@ -1,0 +1,624 @@
+﻿USE [master]
+GO
+/****** Object:  Database [EASYPOS]    Script Date: 8/5/2021 15:24:31 ******/
+CREATE DATABASE [EASYPOS]
+ CONTAINMENT = NONE
+ ON  PRIMARY 
+( NAME = N'EASYPOS', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL15.MSSQLSERVER\MSSQL\DATA\EASYPOS.mdf' , SIZE = 8192KB , MAXSIZE = UNLIMITED, FILEGROWTH = 65536KB )
+ LOG ON 
+( NAME = N'EASYPOS_log', FILENAME = N'C:\Program Files\Microsoft SQL Server\MSSQL15.MSSQLSERVER\MSSQL\DATA\EASYPOS_log.ldf' , SIZE = 8192KB , MAXSIZE = 2048GB , FILEGROWTH = 65536KB )
+ WITH CATALOG_COLLATION = DATABASE_DEFAULT
+GO
+ALTER DATABASE [EASYPOS] SET COMPATIBILITY_LEVEL = 150
+GO
+IF (1 = FULLTEXTSERVICEPROPERTY('IsFullTextInstalled'))
+begin
+EXEC [EASYPOS].[dbo].[sp_fulltext_database] @action = 'enable'
+end
+GO
+ALTER DATABASE [EASYPOS] SET ANSI_NULL_DEFAULT OFF 
+GO
+ALTER DATABASE [EASYPOS] SET ANSI_NULLS OFF 
+GO
+ALTER DATABASE [EASYPOS] SET ANSI_PADDING OFF 
+GO
+ALTER DATABASE [EASYPOS] SET ANSI_WARNINGS OFF 
+GO
+ALTER DATABASE [EASYPOS] SET ARITHABORT OFF 
+GO
+ALTER DATABASE [EASYPOS] SET AUTO_CLOSE OFF 
+GO
+ALTER DATABASE [EASYPOS] SET AUTO_SHRINK OFF 
+GO
+ALTER DATABASE [EASYPOS] SET AUTO_UPDATE_STATISTICS ON 
+GO
+ALTER DATABASE [EASYPOS] SET CURSOR_CLOSE_ON_COMMIT OFF 
+GO
+ALTER DATABASE [EASYPOS] SET CURSOR_DEFAULT  GLOBAL 
+GO
+ALTER DATABASE [EASYPOS] SET CONCAT_NULL_YIELDS_NULL OFF 
+GO
+ALTER DATABASE [EASYPOS] SET NUMERIC_ROUNDABORT OFF 
+GO
+ALTER DATABASE [EASYPOS] SET QUOTED_IDENTIFIER OFF 
+GO
+ALTER DATABASE [EASYPOS] SET RECURSIVE_TRIGGERS OFF 
+GO
+ALTER DATABASE [EASYPOS] SET  DISABLE_BROKER 
+GO
+ALTER DATABASE [EASYPOS] SET AUTO_UPDATE_STATISTICS_ASYNC OFF 
+GO
+ALTER DATABASE [EASYPOS] SET DATE_CORRELATION_OPTIMIZATION OFF 
+GO
+ALTER DATABASE [EASYPOS] SET TRUSTWORTHY OFF 
+GO
+ALTER DATABASE [EASYPOS] SET ALLOW_SNAPSHOT_ISOLATION OFF 
+GO
+ALTER DATABASE [EASYPOS] SET PARAMETERIZATION SIMPLE 
+GO
+ALTER DATABASE [EASYPOS] SET READ_COMMITTED_SNAPSHOT OFF 
+GO
+ALTER DATABASE [EASYPOS] SET HONOR_BROKER_PRIORITY OFF 
+GO
+ALTER DATABASE [EASYPOS] SET RECOVERY FULL 
+GO
+ALTER DATABASE [EASYPOS] SET  MULTI_USER 
+GO
+ALTER DATABASE [EASYPOS] SET PAGE_VERIFY CHECKSUM  
+GO
+ALTER DATABASE [EASYPOS] SET DB_CHAINING OFF 
+GO
+ALTER DATABASE [EASYPOS] SET FILESTREAM( NON_TRANSACTED_ACCESS = OFF ) 
+GO
+ALTER DATABASE [EASYPOS] SET TARGET_RECOVERY_TIME = 60 SECONDS 
+GO
+ALTER DATABASE [EASYPOS] SET DELAYED_DURABILITY = DISABLED 
+GO
+ALTER DATABASE [EASYPOS] SET ACCELERATED_DATABASE_RECOVERY = OFF  
+GO
+EXEC sys.sp_db_vardecimal_storage_format N'EASYPOS', N'ON'
+GO
+ALTER DATABASE [EASYPOS] SET QUERY_STORE = OFF
+GO
+USE [EASYPOS]
+GO
+/****** Object:  Table [dbo].[Cajas]    Script Date: 8/5/2021 15:24:32 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Cajas](
+	[IdCaja] [int] IDENTITY(1,1) NOT NULL,
+	[FechaApertura] [datetime] NULL,
+	[FechaCierre] [datetime] NULL,
+	[IdEmpleadoApertura_FK] [int] NULL,
+	[MontoInicial] [money] NULL,
+	[SumaEntradas] [money] NULL,
+	[SumaSalidas] [money] NULL,
+	[Faltante] [money] NULL,
+	[Sobrante] [money] NULL,
+	[Observaciones] [varchar](200) NULL,
+	[IdEmpleadoCierre_FK] [int] NOT NULL,
+	[IdSucursal_FK] [int] NULL,
+	[Estado] [tinyint] NULL,
+ CONSTRAINT [PK_Cajas] PRIMARY KEY CLUSTERED 
+(
+	[IdCaja] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Categorias]    Script Date: 8/5/2021 15:24:32 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Categorias](
+	[IdCategoria] [int] IDENTITY(1,1) NOT NULL,
+	[NombreCategoria] [varchar](100) NULL,
+ CONSTRAINT [PK_Categorias] PRIMARY KEY CLUSTERED 
+(
+	[IdCategoria] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Clientes]    Script Date: 8/5/2021 15:24:32 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Clientes](
+	[IdCliente] [int] IDENTITY(1,1) NOT NULL,
+	[NombreCliente] [varchar](100) NULL,
+	[DUI] [varchar](50) NULL,
+	[NIT] [varchar](50) NULL,
+	[Giro] [varchar](50) NULL,
+	[NRC] [varchar](50) NULL,
+	[DireccionCliente] [varchar](150) NULL,
+	[Telefono] [varchar](50) NULL,
+ CONSTRAINT [PK_Clientes] PRIMARY KEY CLUSTERED 
+(
+	[IdCliente] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Correlativos]    Script Date: 8/5/2021 15:24:32 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Correlativos](
+	[IdCorrelativo] [int] IDENTITY(1,1) NOT NULL,
+	[FechaCreacion] [date] NULL,
+	[Inicio] [int] NULL,
+	[Fin] [bigint] NULL,
+	[Autorizacion] [varchar](100) NULL,
+	[TipoDeDocumento] [int] NULL,
+	[FechaDeAutorizacion] [date] NULL,
+	[ValorActual] [bigint] NULL,
+	[IdSucursal_FK] [int] NOT NULL,
+ CONSTRAINT [PK_Correlativos] PRIMARY KEY CLUSTERED 
+(
+	[IdCorrelativo] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[DetallesInventario]    Script Date: 8/5/2021 15:24:32 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[DetallesInventario](
+	[IdDetalle] [int] IDENTITY(1,1) NOT NULL,
+	[IdInventario_FK] [int] NOT NULL,
+	[IdProducto_FK] [int] NOT NULL,
+ CONSTRAINT [PK_DetallesInventario] PRIMARY KEY CLUSTERED 
+(
+	[IdDetalle] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[DetallesListaDePrecios]    Script Date: 8/5/2021 15:24:32 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[DetallesListaDePrecios](
+	[IdDetalleLista] [int] IDENTITY(1,1) NOT NULL,
+	[IdLista_FK] [int] NULL,
+	[IdDetalleInventario_FK] [int] NULL,
+ CONSTRAINT [PK_DetallesListaDePrecios] PRIMARY KEY CLUSTERED 
+(
+	[IdDetalleLista] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[DetallesVenta]    Script Date: 8/5/2021 15:24:32 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[DetallesVenta](
+	[IdDetalleVenta] [int] IDENTITY(1,1) NOT NULL,
+	[IdDetalleInventario_FK] [int] NOT NULL,
+	[Cantidad] [int] NULL,
+	[IdPresentacion_FK] [int] NULL,
+	[IdVenta_FK] [int] NULL,
+	[DecuentoAplicado] [decimal](5, 2) NULL,
+	[PrecioVenta] [decimal](6, 2) NULL,
+ CONSTRAINT [PK_DetallesVenta] PRIMARY KEY CLUSTERED 
+(
+	[IdDetalleVenta] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Empleados]    Script Date: 8/5/2021 15:24:32 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Empleados](
+	[IdEmpleado] [int] IDENTITY(1,1) NOT NULL,
+	[NombresEmpleado] [varchar](80) NULL,
+	[ApellidosEmpleado] [varchar](100) NULL,
+	[IdRol_FK] [int] NOT NULL,
+	[DUI] [varchar](11) NULL,
+	[NIT] [varchar](20) NULL,
+	[Telefono] [varchar](10) NULL,
+	[Email] [varchar](80) NULL,
+	[IdSucursal_FK] [int] NULL,
+ CONSTRAINT [PK_Empleados] PRIMARY KEY CLUSTERED 
+(
+	[IdEmpleado] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Inventarios]    Script Date: 8/5/2021 15:24:32 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Inventarios](
+	[IdInventario] [int] IDENTITY(1,1) NOT NULL,
+	[TipoInventario] [int] NULL,
+	[IdSucursal_FK] [int] NOT NULL,
+ CONSTRAINT [PK_Inventarios] PRIMARY KEY CLUSTERED 
+(
+	[IdInventario] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[ListasDePrecios]    Script Date: 8/5/2021 15:24:32 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[ListasDePrecios](
+	[IdLista] [int] IDENTITY(1,1) NOT NULL,
+	[IdInventario_FK] [int] NOT NULL,
+	[Activa] [tinyint] NULL,
+ CONSTRAINT [PK_ListasDePrecios] PRIMARY KEY CLUSTERED 
+(
+	[IdLista] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Presentaciones]    Script Date: 8/5/2021 15:24:32 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Presentaciones](
+	[IdPresentacion] [int] IDENTITY(1,1) NOT NULL,
+	[NombrePresentacion] [varchar](50) NULL,
+	[PresentacionSuperior] [int] NULL,
+	[PresentacionInferior] [int] NULL,
+	[CantidadPresentacion] [nchar](10) NULL,
+ CONSTRAINT [PK_Presentaciones] PRIMARY KEY CLUSTERED 
+(
+	[IdPresentacion] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Producto_Presentaciones]    Script Date: 8/5/2021 15:24:32 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Producto_Presentaciones](
+	[IdProducto_FK] [int] NOT NULL,
+	[IdPresentacion_FK] [int] NULL
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Productos]    Script Date: 8/5/2021 15:24:32 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Productos](
+	[IdProducto] [int] IDENTITY(1,1) NOT NULL,
+	[NombreProducto] [varchar](100) NULL,
+	[TieneVariasPresentaciones] [int] NULL,
+	[IdCategoria_FK] [int] NOT NULL,
+	[IdProveedor_FK] [int] NOT NULL,
+	[InformacionAdicional] [varchar](500) NULL,
+	[PrincipioActivo] [varchar](100) NULL,
+	[Precio] [money] NULL,
+	[Codigo] [varchar](100) NULL,
+ CONSTRAINT [PK_Productos] PRIMARY KEY CLUSTERED 
+(
+	[IdProducto] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Proveedores]    Script Date: 8/5/2021 15:24:32 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Proveedores](
+	[IdProveedor] [int] IDENTITY(1,1) NOT NULL,
+	[NombreProveedor] [varchar](100) NOT NULL,
+	[Email] [varchar](150) NULL,
+	[Telefono] [varchar](10) NULL,
+	[PersonaContacto] [varchar](150) NULL,
+ CONSTRAINT [PK_Proveedores] PRIMARY KEY CLUSTERED 
+(
+	[IdProveedor] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Roles]    Script Date: 8/5/2021 15:24:32 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Roles](
+	[IdRol] [int] IDENTITY(1,1) NOT NULL,
+	[NombreRol] [varchar](50) NULL,
+ CONSTRAINT [PK_Roles] PRIMARY KEY CLUSTERED 
+(
+	[IdRol] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Sucursales]    Script Date: 8/5/2021 15:24:32 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Sucursales](
+	[IdSucursal] [int] IDENTITY(1,1) NOT NULL,
+	[NombreSucursal] [varchar](50) NULL,
+	[Direccion] [varchar](150) NULL,
+	[Telefono] [varchar](10) NULL,
+ CONSTRAINT [PK_Sucursales] PRIMARY KEY CLUSTERED 
+(
+	[IdSucursal] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+/****** Object:  Table [dbo].[Ventas]    Script Date: 8/5/2021 15:24:32 ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[Ventas](
+	[IdVenta] [int] IDENTITY(1,1) NOT NULL,
+	[Fecha] [datetime] NULL,
+	[IdCliente_FK] [int] NULL,
+	[IdEmpleado_FK] [int] NULL,
+	[TipoDocumento] [int] NULL,
+	[Correlativo] [bigint] NULL,
+	[IdCorrelativo_FK] [int] NOT NULL,
+ CONSTRAINT [PK_Ventas] PRIMARY KEY CLUSTERED 
+(
+	[IdVenta] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+SET IDENTITY_INSERT [dbo].[Cajas] ON 
+GO
+INSERT [dbo].[Cajas] ([IdCaja], [FechaApertura], [FechaCierre], [IdEmpleadoApertura_FK], [MontoInicial], [SumaEntradas], [SumaSalidas], [Faltante], [Sobrante], [Observaciones], [IdEmpleadoCierre_FK], [IdSucursal_FK], [Estado]) VALUES (1, CAST(N'2021-03-11T21:54:18.000' AS DateTime), CAST(N'2021-03-11T21:54:18.000' AS DateTime), 1, 350.0000, 100.0000, 100.0000, 0.0000, 1.0000, N'nada', 1, 4, 1)
+GO
+INSERT [dbo].[Cajas] ([IdCaja], [FechaApertura], [FechaCierre], [IdEmpleadoApertura_FK], [MontoInicial], [SumaEntradas], [SumaSalidas], [Faltante], [Sobrante], [Observaciones], [IdEmpleadoCierre_FK], [IdSucursal_FK], [Estado]) VALUES (2, CAST(N'2021-11-03T21:56:20.000' AS DateTime), CAST(N'2021-11-03T21:56:20.000' AS DateTime), 1, 150.0000, 100.0000, 10.0000, 0.0000, 0.0000, N'ninguna', 1, 5, 1)
+GO
+INSERT [dbo].[Cajas] ([IdCaja], [FechaApertura], [FechaCierre], [IdEmpleadoApertura_FK], [MontoInicial], [SumaEntradas], [SumaSalidas], [Faltante], [Sobrante], [Observaciones], [IdEmpleadoCierre_FK], [IdSucursal_FK], [Estado]) VALUES (3, CAST(N'2021-11-03T21:56:20.000' AS DateTime), CAST(N'2021-11-03T21:56:20.000' AS DateTime), 1, 500.0000, 100.0000, 10.0000, 0.0000, 0.0000, N'ninguna', 1, 5, 1)
+GO
+INSERT [dbo].[Cajas] ([IdCaja], [FechaApertura], [FechaCierre], [IdEmpleadoApertura_FK], [MontoInicial], [SumaEntradas], [SumaSalidas], [Faltante], [Sobrante], [Observaciones], [IdEmpleadoCierre_FK], [IdSucursal_FK], [Estado]) VALUES (4, CAST(N'2021-11-03T21:59:21.000' AS DateTime), CAST(N'2021-11-03T21:59:21.000' AS DateTime), 1, 152.0000, 1.0000, 1.0000, 1.0000, 1.0000, N'111', 1, 4, 1)
+GO
+SET IDENTITY_INSERT [dbo].[Cajas] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Categorias] ON 
+GO
+INSERT [dbo].[Categorias] ([IdCategoria], [NombreCategoria]) VALUES (5, N'Nueva categoria')
+GO
+INSERT [dbo].[Categorias] ([IdCategoria], [NombreCategoria]) VALUES (8, N'x1')
+GO
+SET IDENTITY_INSERT [dbo].[Categorias] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Clientes] ON 
+GO
+INSERT [dbo].[Clientes] ([IdCliente], [NombreCliente], [DUI], [NIT], [Giro], [NRC], [DireccionCliente], [Telefono]) VALUES (1, N'Josue Guardado', N'036987788-5', N'0416-254512-215-52', N'Venta de casas y muebles', N'545-5', N'Nueva Concepcion', N'78451236')
+GO
+INSERT [dbo].[Clientes] ([IdCliente], [NombreCliente], [DUI], [NIT], [Giro], [NRC], [DireccionCliente], [Telefono]) VALUES (3, N'Juan Perez', N'0254555-5', NULL, NULL, NULL, NULL, NULL)
+GO
+SET IDENTITY_INSERT [dbo].[Clientes] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Correlativos] ON 
+GO
+INSERT [dbo].[Correlativos] ([IdCorrelativo], [FechaCreacion], [Inicio], [Fin], [Autorizacion], [TipoDeDocumento], [FechaDeAutorizacion], [ValorActual], [IdSucursal_FK]) VALUES (1, CAST(N'2021-03-10' AS Date), 1, 1000000, N'1542', 2, CAST(N'2021-03-09' AS Date), 0, 4)
+GO
+INSERT [dbo].[Correlativos] ([IdCorrelativo], [FechaCreacion], [Inicio], [Fin], [Autorizacion], [TipoDeDocumento], [FechaDeAutorizacion], [ValorActual], [IdSucursal_FK]) VALUES (2, CAST(N'2021-03-10' AS Date), 1, 10000, N'236555', 3, CAST(N'2021-03-10' AS Date), 0, 5)
+GO
+INSERT [dbo].[Correlativos] ([IdCorrelativo], [FechaCreacion], [Inicio], [Fin], [Autorizacion], [TipoDeDocumento], [FechaDeAutorizacion], [ValorActual], [IdSucursal_FK]) VALUES (3, CAST(N'2021-03-10' AS Date), 2, 100000, N'3265', 2, CAST(N'2021-03-08' AS Date), 0, 4)
+GO
+INSERT [dbo].[Correlativos] ([IdCorrelativo], [FechaCreacion], [Inicio], [Fin], [Autorizacion], [TipoDeDocumento], [FechaDeAutorizacion], [ValorActual], [IdSucursal_FK]) VALUES (4, CAST(N'2021-03-10' AS Date), 1, 200, N'5622', 3, CAST(N'2021-03-10' AS Date), 0, 4)
+GO
+INSERT [dbo].[Correlativos] ([IdCorrelativo], [FechaCreacion], [Inicio], [Fin], [Autorizacion], [TipoDeDocumento], [FechaDeAutorizacion], [ValorActual], [IdSucursal_FK]) VALUES (5, CAST(N'2021-03-10' AS Date), 1, 200, N'666', 3, CAST(N'2021-03-10' AS Date), 25, 4)
+GO
+SET IDENTITY_INSERT [dbo].[Correlativos] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Empleados] ON 
+GO
+INSERT [dbo].[Empleados] ([IdEmpleado], [NombresEmpleado], [ApellidosEmpleado], [IdRol_FK], [DUI], [NIT], [Telefono], [Email], [IdSucursal_FK]) VALUES (1, N'Josue', N'Guardado Pereira', 1, N'0987845-9', N'0416-200188-101-3', N'78451236', N'j@gmail.com', 4)
+GO
+SET IDENTITY_INSERT [dbo].[Empleados] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Inventarios] ON 
+GO
+INSERT [dbo].[Inventarios] ([IdInventario], [TipoInventario], [IdSucursal_FK]) VALUES (1, 1, 4)
+GO
+INSERT [dbo].[Inventarios] ([IdInventario], [TipoInventario], [IdSucursal_FK]) VALUES (2, 1, 5)
+GO
+SET IDENTITY_INSERT [dbo].[Inventarios] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Presentaciones] ON 
+GO
+INSERT [dbo].[Presentaciones] ([IdPresentacion], [NombrePresentacion], [PresentacionSuperior], [PresentacionInferior], [CantidadPresentacion]) VALUES (1, N'Unidad', NULL, 2, N'1         ')
+GO
+INSERT [dbo].[Presentaciones] ([IdPresentacion], [NombrePresentacion], [PresentacionSuperior], [PresentacionInferior], [CantidadPresentacion]) VALUES (2, N'Blister', 1, 3, N'10        ')
+GO
+INSERT [dbo].[Presentaciones] ([IdPresentacion], [NombrePresentacion], [PresentacionSuperior], [PresentacionInferior], [CantidadPresentacion]) VALUES (3, N'Tableta', 2, NULL, N'1         ')
+GO
+INSERT [dbo].[Presentaciones] ([IdPresentacion], [NombrePresentacion], [PresentacionSuperior], [PresentacionInferior], [CantidadPresentacion]) VALUES (5, N'Caja', NULL, NULL, N'24        ')
+GO
+SET IDENTITY_INSERT [dbo].[Presentaciones] OFF
+GO
+INSERT [dbo].[Producto_Presentaciones] ([IdProducto_FK], [IdPresentacion_FK]) VALUES (8, 3)
+GO
+INSERT [dbo].[Producto_Presentaciones] ([IdProducto_FK], [IdPresentacion_FK]) VALUES (7, 1)
+GO
+INSERT [dbo].[Producto_Presentaciones] ([IdProducto_FK], [IdPresentacion_FK]) VALUES (8, 5)
+GO
+INSERT [dbo].[Producto_Presentaciones] ([IdProducto_FK], [IdPresentacion_FK]) VALUES (7, 2)
+GO
+INSERT [dbo].[Producto_Presentaciones] ([IdProducto_FK], [IdPresentacion_FK]) VALUES (6, 3)
+GO
+INSERT [dbo].[Producto_Presentaciones] ([IdProducto_FK], [IdPresentacion_FK]) VALUES (5, 2)
+GO
+SET IDENTITY_INSERT [dbo].[Productos] ON 
+GO
+INSERT [dbo].[Productos] ([IdProducto], [NombreProducto], [TieneVariasPresentaciones], [IdCategoria_FK], [IdProveedor_FK], [InformacionAdicional], [PrincipioActivo], [Precio], [Codigo]) VALUES (2, N'Cama matrimonial', 0, 5, 1, N'ninguna', N'-', 256.0000, NULL)
+GO
+INSERT [dbo].[Productos] ([IdProducto], [NombreProducto], [TieneVariasPresentaciones], [IdCategoria_FK], [IdProveedor_FK], [InformacionAdicional], [PrincipioActivo], [Precio], [Codigo]) VALUES (5, N'Mesa de noche', 1, 5, 2, N'Tiene 2 gavetas', NULL, 365.0000, N'555555')
+GO
+INSERT [dbo].[Productos] ([IdProducto], [NombreProducto], [TieneVariasPresentaciones], [IdCategoria_FK], [IdProveedor_FK], [InformacionAdicional], [PrincipioActivo], [Precio], [Codigo]) VALUES (6, N'xxxxx', 1, 5, 2, N'ninguna', NULL, 56.0000, N'4zzzz')
+GO
+INSERT [dbo].[Productos] ([IdProducto], [NombreProducto], [TieneVariasPresentaciones], [IdCategoria_FK], [IdProveedor_FK], [InformacionAdicional], [PrincipioActivo], [Precio], [Codigo]) VALUES (7, N'asdasdasd', 1, 8, 2, N'sdad', NULL, 333.0000, N'15545454')
+GO
+INSERT [dbo].[Productos] ([IdProducto], [NombreProducto], [TieneVariasPresentaciones], [IdCategoria_FK], [IdProveedor_FK], [InformacionAdicional], [PrincipioActivo], [Precio], [Codigo]) VALUES (8, N'Acetaminofen MK', 1, 5, 1, N'nada', NULL, 25.0000, N'025444')
+GO
+SET IDENTITY_INSERT [dbo].[Productos] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Proveedores] ON 
+GO
+INSERT [dbo].[Proveedores] ([IdProveedor], [NombreProveedor], [Email], [Telefono], [PersonaContacto]) VALUES (1, N'Capri SV', N'ventas@capri.com.sv', N'23000000', N'Jaime Perez')
+GO
+INSERT [dbo].[Proveedores] ([IdProveedor], [NombreProveedor], [Email], [Telefono], [PersonaContacto]) VALUES (2, N'Mabe SV', N'mabe@elsalvador.com', N'235645445', N'Jaime Perez')
+GO
+SET IDENTITY_INSERT [dbo].[Proveedores] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Roles] ON 
+GO
+INSERT [dbo].[Roles] ([IdRol], [NombreRol]) VALUES (1, N'Administrador')
+GO
+INSERT [dbo].[Roles] ([IdRol], [NombreRol]) VALUES (2, N'Cajero')
+GO
+INSERT [dbo].[Roles] ([IdRol], [NombreRol]) VALUES (3, N'Dependiente')
+GO
+SET IDENTITY_INSERT [dbo].[Roles] OFF
+GO
+SET IDENTITY_INSERT [dbo].[Sucursales] ON 
+GO
+INSERT [dbo].[Sucursales] ([IdSucursal], [NombreSucursal], [Direccion], [Telefono]) VALUES (4, N'Casa Matriz', N'nueva concepcion', N'23067006')
+GO
+INSERT [dbo].[Sucursales] ([IdSucursal], [NombreSucursal], [Direccion], [Telefono]) VALUES (5, N'Apopa', N'Apopa', N'233568744')
+GO
+SET IDENTITY_INSERT [dbo].[Sucursales] OFF
+GO
+ALTER TABLE [dbo].[Cajas]  WITH CHECK ADD  CONSTRAINT [FK_Cajas_Empleados] FOREIGN KEY([IdEmpleadoApertura_FK])
+REFERENCES [dbo].[Empleados] ([IdEmpleado])
+GO
+ALTER TABLE [dbo].[Cajas] CHECK CONSTRAINT [FK_Cajas_Empleados]
+GO
+ALTER TABLE [dbo].[Cajas]  WITH CHECK ADD  CONSTRAINT [FK_Cajas_Empleados1] FOREIGN KEY([IdEmpleadoCierre_FK])
+REFERENCES [dbo].[Empleados] ([IdEmpleado])
+GO
+ALTER TABLE [dbo].[Cajas] CHECK CONSTRAINT [FK_Cajas_Empleados1]
+GO
+ALTER TABLE [dbo].[Cajas]  WITH CHECK ADD  CONSTRAINT [FK_Cajas_Sucursales] FOREIGN KEY([IdSucursal_FK])
+REFERENCES [dbo].[Sucursales] ([IdSucursal])
+GO
+ALTER TABLE [dbo].[Cajas] CHECK CONSTRAINT [FK_Cajas_Sucursales]
+GO
+ALTER TABLE [dbo].[Correlativos]  WITH CHECK ADD  CONSTRAINT [FK_Correlativos_Sucursales] FOREIGN KEY([IdSucursal_FK])
+REFERENCES [dbo].[Sucursales] ([IdSucursal])
+GO
+ALTER TABLE [dbo].[Correlativos] CHECK CONSTRAINT [FK_Correlativos_Sucursales]
+GO
+ALTER TABLE [dbo].[DetallesInventario]  WITH CHECK ADD  CONSTRAINT [FK_DetallesInventario_Inventarios] FOREIGN KEY([IdInventario_FK])
+REFERENCES [dbo].[Inventarios] ([IdInventario])
+GO
+ALTER TABLE [dbo].[DetallesInventario] CHECK CONSTRAINT [FK_DetallesInventario_Inventarios]
+GO
+ALTER TABLE [dbo].[DetallesInventario]  WITH CHECK ADD  CONSTRAINT [FK_DetallesInventario_Productos] FOREIGN KEY([IdProducto_FK])
+REFERENCES [dbo].[Productos] ([IdProducto])
+GO
+ALTER TABLE [dbo].[DetallesInventario] CHECK CONSTRAINT [FK_DetallesInventario_Productos]
+GO
+ALTER TABLE [dbo].[DetallesListaDePrecios]  WITH CHECK ADD  CONSTRAINT [FK_DetallesListaDePrecios_DetallesInventario] FOREIGN KEY([IdDetalleInventario_FK])
+REFERENCES [dbo].[DetallesInventario] ([IdDetalle])
+GO
+ALTER TABLE [dbo].[DetallesListaDePrecios] CHECK CONSTRAINT [FK_DetallesListaDePrecios_DetallesInventario]
+GO
+ALTER TABLE [dbo].[DetallesListaDePrecios]  WITH CHECK ADD  CONSTRAINT [FK_DetallesListaDePrecios_ListasDePrecios] FOREIGN KEY([IdLista_FK])
+REFERENCES [dbo].[ListasDePrecios] ([IdLista])
+GO
+ALTER TABLE [dbo].[DetallesListaDePrecios] CHECK CONSTRAINT [FK_DetallesListaDePrecios_ListasDePrecios]
+GO
+ALTER TABLE [dbo].[DetallesVenta]  WITH CHECK ADD  CONSTRAINT [FK_DetallesVenta_DetallesInventario] FOREIGN KEY([IdDetalleInventario_FK])
+REFERENCES [dbo].[DetallesInventario] ([IdDetalle])
+GO
+ALTER TABLE [dbo].[DetallesVenta] CHECK CONSTRAINT [FK_DetallesVenta_DetallesInventario]
+GO
+ALTER TABLE [dbo].[DetallesVenta]  WITH CHECK ADD  CONSTRAINT [FK_DetallesVenta_Presentaciones] FOREIGN KEY([IdPresentacion_FK])
+REFERENCES [dbo].[Presentaciones] ([IdPresentacion])
+GO
+ALTER TABLE [dbo].[DetallesVenta] CHECK CONSTRAINT [FK_DetallesVenta_Presentaciones]
+GO
+ALTER TABLE [dbo].[DetallesVenta]  WITH CHECK ADD  CONSTRAINT [FK_DetallesVenta_Ventas] FOREIGN KEY([IdVenta_FK])
+REFERENCES [dbo].[Ventas] ([IdVenta])
+GO
+ALTER TABLE [dbo].[DetallesVenta] CHECK CONSTRAINT [FK_DetallesVenta_Ventas]
+GO
+ALTER TABLE [dbo].[Empleados]  WITH CHECK ADD  CONSTRAINT [FK_Empleados_Roles] FOREIGN KEY([IdRol_FK])
+REFERENCES [dbo].[Roles] ([IdRol])
+GO
+ALTER TABLE [dbo].[Empleados] CHECK CONSTRAINT [FK_Empleados_Roles]
+GO
+ALTER TABLE [dbo].[Empleados]  WITH CHECK ADD  CONSTRAINT [FK_Empleados_Sucursales] FOREIGN KEY([IdSucursal_FK])
+REFERENCES [dbo].[Sucursales] ([IdSucursal])
+GO
+ALTER TABLE [dbo].[Empleados] CHECK CONSTRAINT [FK_Empleados_Sucursales]
+GO
+ALTER TABLE [dbo].[Inventarios]  WITH CHECK ADD  CONSTRAINT [FK_Inventarios_Sucursales1] FOREIGN KEY([IdSucursal_FK])
+REFERENCES [dbo].[Sucursales] ([IdSucursal])
+GO
+ALTER TABLE [dbo].[Inventarios] CHECK CONSTRAINT [FK_Inventarios_Sucursales1]
+GO
+ALTER TABLE [dbo].[ListasDePrecios]  WITH CHECK ADD  CONSTRAINT [FK_ListasDePrecios_Inventarios] FOREIGN KEY([IdInventario_FK])
+REFERENCES [dbo].[Inventarios] ([IdInventario])
+GO
+ALTER TABLE [dbo].[ListasDePrecios] CHECK CONSTRAINT [FK_ListasDePrecios_Inventarios]
+GO
+ALTER TABLE [dbo].[Presentaciones]  WITH CHECK ADD  CONSTRAINT [FK_Presentaciones_Presentaciones] FOREIGN KEY([PresentacionSuperior])
+REFERENCES [dbo].[Presentaciones] ([IdPresentacion])
+GO
+ALTER TABLE [dbo].[Presentaciones] CHECK CONSTRAINT [FK_Presentaciones_Presentaciones]
+GO
+ALTER TABLE [dbo].[Presentaciones]  WITH CHECK ADD  CONSTRAINT [FK_Presentaciones_Presentaciones1] FOREIGN KEY([PresentacionInferior])
+REFERENCES [dbo].[Presentaciones] ([IdPresentacion])
+GO
+ALTER TABLE [dbo].[Presentaciones] CHECK CONSTRAINT [FK_Presentaciones_Presentaciones1]
+GO
+ALTER TABLE [dbo].[Producto_Presentaciones]  WITH CHECK ADD  CONSTRAINT [FK_Producto_Presentaciones_Presentaciones] FOREIGN KEY([IdPresentacion_FK])
+REFERENCES [dbo].[Presentaciones] ([IdPresentacion])
+GO
+ALTER TABLE [dbo].[Producto_Presentaciones] CHECK CONSTRAINT [FK_Producto_Presentaciones_Presentaciones]
+GO
+ALTER TABLE [dbo].[Producto_Presentaciones]  WITH CHECK ADD  CONSTRAINT [FK_Producto_Presentaciones_Productos] FOREIGN KEY([IdProducto_FK])
+REFERENCES [dbo].[Productos] ([IdProducto])
+GO
+ALTER TABLE [dbo].[Producto_Presentaciones] CHECK CONSTRAINT [FK_Producto_Presentaciones_Productos]
+GO
+ALTER TABLE [dbo].[Productos]  WITH CHECK ADD  CONSTRAINT [FK_Productos_Categorias] FOREIGN KEY([IdCategoria_FK])
+REFERENCES [dbo].[Categorias] ([IdCategoria])
+GO
+ALTER TABLE [dbo].[Productos] CHECK CONSTRAINT [FK_Productos_Categorias]
+GO
+ALTER TABLE [dbo].[Productos]  WITH CHECK ADD  CONSTRAINT [FK_Productos_Proveedores] FOREIGN KEY([IdProveedor_FK])
+REFERENCES [dbo].[Proveedores] ([IdProveedor])
+GO
+ALTER TABLE [dbo].[Productos] CHECK CONSTRAINT [FK_Productos_Proveedores]
+GO
+ALTER TABLE [dbo].[Ventas]  WITH CHECK ADD  CONSTRAINT [FK_Ventas_Clientes] FOREIGN KEY([IdCliente_FK])
+REFERENCES [dbo].[Clientes] ([IdCliente])
+GO
+ALTER TABLE [dbo].[Ventas] CHECK CONSTRAINT [FK_Ventas_Clientes]
+GO
+ALTER TABLE [dbo].[Ventas]  WITH CHECK ADD  CONSTRAINT [FK_Ventas_Correlativos] FOREIGN KEY([IdCorrelativo_FK])
+REFERENCES [dbo].[Correlativos] ([IdCorrelativo])
+GO
+ALTER TABLE [dbo].[Ventas] CHECK CONSTRAINT [FK_Ventas_Correlativos]
+GO
+ALTER TABLE [dbo].[Ventas]  WITH CHECK ADD  CONSTRAINT [FK_Ventas_Empleados] FOREIGN KEY([IdEmpleado_FK])
+REFERENCES [dbo].[Empleados] ([IdEmpleado])
+GO
+ALTER TABLE [dbo].[Ventas] CHECK CONSTRAINT [FK_Ventas_Empleados]
+GO
+USE [master]
+GO
+ALTER DATABASE [EASYPOS] SET  READ_WRITE 
+GO
+
+
