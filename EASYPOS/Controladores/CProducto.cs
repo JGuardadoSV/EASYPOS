@@ -13,10 +13,10 @@ namespace EASYPOS.Controladores
         MProducto mProducto = new MProducto();
 
         //*********************************************************
-        public void Insertar(Producto producto)
+        public void Insertar(Producto producto,int existencias)
         {
             if (producto.IdProducto == 0)
-                mProducto.Insertar(producto);
+                mProducto.Insertar(producto, existencias);
             else
                 this.Actualizar(producto);
             

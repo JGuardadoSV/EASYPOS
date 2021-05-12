@@ -16,7 +16,7 @@ namespace EASYPOS.Modelos
         readonly IDbConnection cn = Conexion.conectar();
 
 
-        public void Insertar(Producto producto)
+        public void Insertar(Producto producto, int existencias, int idinventario=1)
         {
 
             string consulta = "insert into Productos values (@NombreProducto,@TieneVariasPresentaciones,@IdCategoria_FK,@IdProveedor_FK,@InformacionAdicional,@PrincipioActivo,@Precio,@Codigo)";
@@ -34,6 +34,22 @@ namespace EASYPOS.Modelos
             cn.Open();
             cn.Execute(consulta, parametros, commandType: CommandType.Text);
             cn.Close();
+
+
+            //registrar en inventario cuando sea una sola sucursal
+            consulta = "Select max(IdProducto) id from Productos";
+            int id;
+            cn.Open();
+            id=cn.QuerySingle<int>(consulta,  commandType: CommandType.Text);
+            cn.Close();
+
+            MDetallesInventario mDetallesInventario = new MDetallesInventario();
+            DetallesInventario det = new DetallesInventario();
+            det.Existencias = 0;
+            det.IdInventario_FK = idinventario;
+            det.IdProducto_FK = id;
+            det.Existencias = existencias;
+            mDetallesInventario.Insertar(det);
 
         }
         public void Actualizar(Producto producto)

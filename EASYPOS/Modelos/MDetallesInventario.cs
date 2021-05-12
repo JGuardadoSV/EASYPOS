@@ -46,6 +46,19 @@ namespace EASYPOS.Modelos
             cn.Close();
 
         }
+
+        internal void ActualizarExistencias(int idactual, string existencias)
+        {
+            string consulta = "Update DetallesInventario set  Existencias=@Existencias where IdDetalle=@id";
+            DynamicParameters parametros = new DynamicParameters();
+
+            parametros.Add("@Existencias", int.Parse(existencias), DbType.Int32);
+            parametros.Add("@id", idactual, DbType.Int32);
+            cn.Open();
+            cn.Execute(consulta, parametros, commandType: CommandType.Text);
+            cn.Close();
+        }
+
         public void Eliminar(DetallesInventario detallesInventario)
         {
             string consulta = "Delete from DetallesInventario where IdDetalle=@id";
@@ -57,31 +70,19 @@ namespace EASYPOS.Modelos
             cn.Close();
         }
 
-        public List<DetallesInventario> Listado()
+        public List<DetallesInventario> Listado(int id)
         {
-            string consulta = "SELECT * FROM DetallesInventario";
+            string consulta = "ListadoDetallesInventario";
             List<DetallesInventario> listado = new List<DetallesInventario>();
-
+            DynamicParameters parametros = new DynamicParameters();
+            parametros.Add("@id", id, DbType.Int32);
             cn.Open();
-            listado = cn.Query<DetallesInventario>(consulta).ToList();
+            listado = cn.Query<DetallesInventario>(consulta, parametros, commandType: CommandType.StoredProcedure).ToList();
             cn.Close();
             return listado;
         }
 
-        public DetallesInventario ObtenerUno(int id)
-        {
-            string consulta = "SELECT * FROM DetallesInventario where IdDetalle=@id";
-            DynamicParameters parametros = new DynamicParameters();
-            DetallesInventario detallesInventario = new DetallesInventario();
-
-            parametros.Add("@id", id, DbType.Int32);
-            cn.Open();
-            detallesInventario = cn.QuerySingle<DetallesInventario>(consulta, parametros);
-            cn.Close();
-
-            return detallesInventario;
-        }
-
+        
 
     }
 }

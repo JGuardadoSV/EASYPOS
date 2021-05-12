@@ -26,14 +26,20 @@ namespace EASYPOS.Controladores
             mDetallesInventario.Eliminar(detallesInventario);
         }
 
-        public List<DetallesInventario> Listado()
+        public List<DetallesInventario> Listado(int id)
         {
-            return mDetallesInventario.Listado();
+            return mDetallesInventario.Listado(id);
         }
 
-        public DetallesInventario ObtenerUna(int id)
+        internal void actualizarExistencias(int idactual, string existencias)
         {
-            return mDetallesInventario.ObtenerUno(id);
+            
+            mDetallesInventario.ActualizarExistencias(idactual, existencias);
         }
+        /*
+public DetallesInventario ObtenerUna(int id)
+{
+ //  return mDetallesInventario.ObtenerUno(id);
+}*/
     }
 }

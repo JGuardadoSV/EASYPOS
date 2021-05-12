@@ -104,8 +104,8 @@ namespace EASYPOS.Formularios.Productos
             //asignando la  cat y el pro elegido
             producto.IdCategoria_FK = ((Categoria)categoriaBindingSource.Current).IdCategoria;
             producto.IdProveedor_FK = ((Proveedor)proveedorBindingSource.Current).IdProveedor;
-
-            cProducto.Insertar(producto);
+            int existencias = int.Parse(txtExistencias.Text);
+            cProducto.Insertar(producto, existencias);
 
 
 

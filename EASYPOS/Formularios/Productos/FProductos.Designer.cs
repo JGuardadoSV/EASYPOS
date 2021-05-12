@@ -38,9 +38,10 @@ namespace EASYPOS.Formularios.Productos
             System.Windows.Forms.Label label3;
             System.Windows.Forms.Label codigoLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FProductos));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.Label label4;
             this.productoBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.productoBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -88,6 +89,7 @@ namespace EASYPOS.Formularios.Productos
             this.nombreProductoTextBox = new System.Windows.Forms.TextBox();
             this.precioTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.txtExistencias = new System.Windows.Forms.TextBox();
             informacionAdicionalLabel = new System.Windows.Forms.Label();
             nombreProductoLabel = new System.Windows.Forms.Label();
             precioLabel = new System.Windows.Forms.Label();
@@ -95,6 +97,7 @@ namespace EASYPOS.Formularios.Productos
             label2 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
             codigoLabel = new System.Windows.Forms.Label();
+            label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.productoBindingNavigator)).BeginInit();
             this.productoBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productoBindingSource)).BeginInit();
@@ -331,9 +334,9 @@ namespace EASYPOS.Formularios.Productos
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "IdProducto";
-            dataGridViewCellStyle1.Format = "N2";
-            dataGridViewCellStyle1.NullValue = null;
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Format = "N2";
+            dataGridViewCellStyle4.NullValue = null;
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridViewTextBoxColumn1.HeaderText = "IdProducto";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
@@ -342,8 +345,8 @@ namespace EASYPOS.Formularios.Productos
             // Codigo
             // 
             this.Codigo.DataPropertyName = "Codigo";
-            dataGridViewCellStyle2.NullValue = "-";
-            this.Codigo.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.NullValue = "-";
+            this.Codigo.DefaultCellStyle = dataGridViewCellStyle5;
             this.Codigo.HeaderText = "Codigo";
             this.Codigo.Name = "Codigo";
             this.Codigo.ReadOnly = true;
@@ -418,9 +421,9 @@ namespace EASYPOS.Formularios.Productos
             // dataGridViewTextBoxColumn8
             // 
             this.dataGridViewTextBoxColumn8.DataPropertyName = "Precio";
-            dataGridViewCellStyle3.Format = "N2";
-            dataGridViewCellStyle3.NullValue = "0";
-            this.dataGridViewTextBoxColumn8.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Format = "N2";
+            dataGridViewCellStyle6.NullValue = "0";
+            this.dataGridViewTextBoxColumn8.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridViewTextBoxColumn8.HeaderText = "Precio";
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             this.dataGridViewTextBoxColumn8.ReadOnly = true;
@@ -452,6 +455,7 @@ namespace EASYPOS.Formularios.Productos
             // 
             // Fpanel
             // 
+            this.Fpanel.Controls.Add(this.txtExistencias);
             this.Fpanel.Controls.Add(this.PresentacionesgroupBox);
             this.Fpanel.Controls.Add(codigoLabel);
             this.Fpanel.Controls.Add(this.codigoTextBox);
@@ -467,6 +471,7 @@ namespace EASYPOS.Formularios.Productos
             this.Fpanel.Controls.Add(this.informacionAdicionalTextBox);
             this.Fpanel.Controls.Add(nombreProductoLabel);
             this.Fpanel.Controls.Add(this.nombreProductoTextBox);
+            this.Fpanel.Controls.Add(label4);
             this.Fpanel.Controls.Add(precioLabel);
             this.Fpanel.Controls.Add(this.precioTextBox);
             this.Fpanel.Controls.Add(this.label1);
@@ -537,7 +542,7 @@ namespace EASYPOS.Formularios.Productos
             this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.eliminarPresentaciónToolStripMenuItem});
             this.contextMenuStrip2.Name = "contextMenuStrip2";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(199, 48);
+            this.contextMenuStrip2.Size = new System.Drawing.Size(199, 26);
             // 
             // eliminarPresentaciónToolStripMenuItem
             // 
@@ -645,6 +650,23 @@ namespace EASYPOS.Formularios.Productos
             this.label1.TabIndex = 0;
             this.label1.Text = "Administración de productos";
             // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new System.Drawing.Point(304, 135);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(63, 13);
+            label4.TabIndex = 5;
+            label4.Text = "Existencias:";
+            // 
+            // txtExistencias
+            // 
+            this.txtExistencias.Location = new System.Drawing.Point(368, 132);
+            this.txtExistencias.Name = "txtExistencias";
+            this.txtExistencias.Size = new System.Drawing.Size(100, 20);
+            this.txtExistencias.TabIndex = 18;
+            this.txtExistencias.Text = "0";
+            // 
             // FProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -724,5 +746,6 @@ namespace EASYPOS.Formularios.Productos
         private System.Windows.Forms.DataGridViewTextBoxColumn presentacion;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
         private System.Windows.Forms.ToolStripMenuItem eliminarPresentaciónToolStripMenuItem;
+        private System.Windows.Forms.TextBox txtExistencias;
     }
 }

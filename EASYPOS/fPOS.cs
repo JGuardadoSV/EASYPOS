@@ -114,6 +114,7 @@ namespace EASYPOS
                 {
                     textBoxNombre.Text = productoActual.Nombre;
                     textBoxPrecio.Text = productoActual.Precio.ToString("c");
+                    
                 }
                 else
                 {
@@ -130,16 +131,26 @@ namespace EASYPOS
         private void buttonAgregar_Click(object sender, EventArgs e)
         {
             int cantidad = int.Parse(textBoxCantidad.Text);
-            productoActual.Total = Math.Round(cantidad * productoActual.Precio, 2);
-            productoActual.Cantidad = cantidad;
-            listadoCompra.Add(productoActual);
+            ProductoPOS producto = new ProductoPOS();
+            producto = productoActual;
+            producto.Total = Math.Round(cantidad * producto.Precio, 2);
+            producto.Cantidad = cantidad;
+
+            listadoCompra.Add(
+                new ProductoPOS { 
+                Cantidad=producto.Cantidad, 
+                Codigo=producto.Codigo, 
+                IdDetalleInventario=producto.IdDetalleInventario, 
+                IdInventario=producto.IdInventario, 
+                IdProducto=producto.IdProducto, 
+                Nombre=producto.Nombre, 
+                Precio=producto.Precio, 
+                Total=producto.Total,
+                Numero=listadoCompra.Count+1
+            });
             productoPOSBindingSource.DataSource = null;
             productoPOSBindingSource.DataSource = listadoCompra;
-            /*
-            productoPOSBindingSource.MoveLast();
-            productoPOSBindingSource.Add(productoActual);
-            productoPOSBindingSource.EdEdit();
-            */
+            
             textBoxBusqueda.Text = "";
             textBoxBusqueda.Focus();
             limpiar();
@@ -153,6 +164,10 @@ namespace EASYPOS
 
         private void calculos()
         {
+            if (listadoCompra.Count>0)
+            {
+
+            
             subtotal = listadoCompra.Sum(x => x.Total)/1.13m;
             iva = Math.Round(subtotal * 0.13m,2);
             total = listadoCompra.Sum(x => x.Total);
@@ -160,7 +175,13 @@ namespace EASYPOS
             textBoxSubtotal.Text = subtotal.ToString("c");
             textBoxIva.Text = iva.ToString("c");
             textBoxTotal.Text = total.ToString("c");
-
+            }
+            else
+            {
+                textBoxSubtotal.Text = "";
+                textBoxIva.Text = "";
+                textBoxTotal.Text = "";
+            }
 
         }
 
@@ -178,6 +199,46 @@ namespace EASYPOS
             formulario.ShowDialog();
             textBoxBusqueda.Text = formulario.productoPos.Codigo;
             Busqueda();
+            textBoxCantidad.Focus();
+        }
+
+        private void buttonCobrar_Click(object sender, EventArgs e)
+        {
+            if (TXTNombre.Text.Equals("Nombre del cliente") )
+            {
+                MessageBox.Show(this,"Introduzca el nombre del cliente","Aviso",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            }else if(listadoCompra.Count == 0)
+            {
+                MessageBox.Show(this, "No hay artículos agregados a la venta", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            if (listadoCompra.Count==0 )
+            {
+                MessageBox.Show(this, "Seleccione un artículo", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else
+            {
+
+            
+                ProductoPOS p = new ProductoPOS();
+                p = (ProductoPOS)productoPOSBindingSource.Current;
+
+                listadoCompra.Remove(p);
+                productoPOSBindingSource.DataSource = null;
+                productoPOSBindingSource.DataSource = listadoCompra;
+                calculos();
+            }
+
+
+
         }
     }
 }

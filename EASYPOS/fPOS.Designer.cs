@@ -30,17 +30,17 @@ namespace EASYPOS
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.textBoxSubtotal = new System.Windows.Forms.TextBox();
             this.textBoxIva = new System.Windows.Forms.TextBox();
             this.textBoxTotal = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.buttonCobrar = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.textBoxBusqueda = new System.Windows.Forms.TextBox();
             this.textBoxNombre = new System.Windows.Forms.TextBox();
@@ -65,7 +65,9 @@ namespace EASYPOS
             this.TXTGiro = new System.Windows.Forms.TextBox();
             this.TXTNrc = new System.Windows.Forms.TextBox();
             this.productoPOSDataGridView = new System.Windows.Forms.DataGridView();
+            this.productoPOSBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Numero = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -73,7 +75,7 @@ namespace EASYPOS
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.productoPOSBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.productoPOSDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productoPOSBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -138,15 +140,16 @@ namespace EASYPOS
             this.textBoxTotal.TabIndex = 25;
             this.textBoxTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
-            // button1
+            // buttonCobrar
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(1076, 484);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(131, 83);
-            this.button1.TabIndex = 26;
-            this.button1.Text = "COBRAR";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonCobrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCobrar.Location = new System.Drawing.Point(1076, 484);
+            this.buttonCobrar.Name = "buttonCobrar";
+            this.buttonCobrar.Size = new System.Drawing.Size(131, 83);
+            this.buttonCobrar.TabIndex = 26;
+            this.buttonCobrar.Text = "COBRAR";
+            this.buttonCobrar.UseVisualStyleBackColor = true;
+            this.buttonCobrar.Click += new System.EventHandler(this.buttonCobrar_Click);
             // 
             // button2
             // 
@@ -378,17 +381,18 @@ namespace EASYPOS
             this.productoPOSDataGridView.AllowUserToAddRows = false;
             this.productoPOSDataGridView.AllowUserToDeleteRows = false;
             this.productoPOSDataGridView.AutoGenerateColumns = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.productoPOSDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.productoPOSDataGridView.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.productoPOSDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.productoPOSDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
+            this.Numero,
             this.dataGridViewTextBoxColumn2,
             this.dataGridViewTextBoxColumn3,
             this.dataGridViewTextBoxColumn4,
@@ -397,20 +401,24 @@ namespace EASYPOS
             this.dataGridViewTextBoxColumn7,
             this.dataGridViewTextBoxColumn8});
             this.productoPOSDataGridView.DataSource = this.productoPOSBindingSource;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.productoPOSDataGridView.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.productoPOSDataGridView.DefaultCellStyle = dataGridViewCellStyle8;
             this.productoPOSDataGridView.Location = new System.Drawing.Point(16, 240);
             this.productoPOSDataGridView.Name = "productoPOSDataGridView";
             this.productoPOSDataGridView.ReadOnly = true;
             this.productoPOSDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.productoPOSDataGridView.Size = new System.Drawing.Size(1191, 220);
             this.productoPOSDataGridView.TabIndex = 31;
+            // 
+            // productoPOSBindingSource
+            // 
+            this.productoPOSBindingSource.DataSource = typeof(EASYPOS.Entidades.ProductoPOS);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -419,6 +427,14 @@ namespace EASYPOS
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
             this.dataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // Numero
+            // 
+            this.Numero.DataPropertyName = "Numero";
+            this.Numero.HeaderText = "Numero";
+            this.Numero.Name = "Numero";
+            this.Numero.ReadOnly = true;
+            this.Numero.Visible = false;
             // 
             // dataGridViewTextBoxColumn2
             // 
@@ -455,9 +471,9 @@ namespace EASYPOS
             // dataGridViewTextBoxColumn6
             // 
             this.dataGridViewTextBoxColumn6.DataPropertyName = "Precio";
-            dataGridViewCellStyle2.Format = "C2";
-            dataGridViewCellStyle2.NullValue = null;
-            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Format = "C2";
+            dataGridViewCellStyle6.NullValue = null;
+            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridViewTextBoxColumn6.HeaderText = "Precio";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.ReadOnly = true;
@@ -472,22 +488,29 @@ namespace EASYPOS
             // dataGridViewTextBoxColumn8
             // 
             this.dataGridViewTextBoxColumn8.DataPropertyName = "Total";
-            dataGridViewCellStyle3.Format = "C2";
-            dataGridViewCellStyle3.NullValue = null;
-            this.dataGridViewTextBoxColumn8.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Format = "C2";
+            dataGridViewCellStyle7.NullValue = null;
+            this.dataGridViewTextBoxColumn8.DefaultCellStyle = dataGridViewCellStyle7;
             this.dataGridViewTextBoxColumn8.HeaderText = "Total";
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             this.dataGridViewTextBoxColumn8.ReadOnly = true;
             // 
-            // productoPOSBindingSource
+            // button1
             // 
-            this.productoPOSBindingSource.DataSource = typeof(EASYPOS.Entidades.ProductoPOS);
+            this.button1.Location = new System.Drawing.Point(16, 467);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(203, 44);
+            this.button1.TabIndex = 32;
+            this.button1.Text = "Eliminar articulo de la orden";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // fPOS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1227, 622);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.productoPOSDataGridView);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label9);
@@ -512,7 +535,7 @@ namespace EASYPOS
             this.Controls.Add(this.textBoxNombre);
             this.Controls.Add(this.textBoxBusqueda);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.buttonCobrar);
             this.Controls.Add(this.textBoxTotal);
             this.Controls.Add(this.textBoxIva);
             this.Controls.Add(this.textBoxSubtotal);
@@ -520,6 +543,7 @@ namespace EASYPOS
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "fPOS";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Formulario de venta";
             this.Load += new System.EventHandler(this.fPOS_Load);
             ((System.ComponentModel.ISupportInitialize)(this.productoPOSDataGridView)).EndInit();
@@ -536,7 +560,7 @@ namespace EASYPOS
         private System.Windows.Forms.TextBox textBoxSubtotal;
         private System.Windows.Forms.TextBox textBoxIva;
         private System.Windows.Forms.TextBox textBoxTotal;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonCobrar;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox textBoxBusqueda;
         private System.Windows.Forms.TextBox textBoxNombre;
@@ -563,6 +587,7 @@ namespace EASYPOS
         private System.Windows.Forms.BindingSource productoPOSBindingSource;
         private System.Windows.Forms.DataGridView productoPOSDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Numero;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
@@ -570,5 +595,6 @@ namespace EASYPOS
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.Button button1;
     }
 }
