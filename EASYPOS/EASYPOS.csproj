@@ -134,6 +134,12 @@
     <Compile Include="Formularios\Empleados\FEmpleados.Designer.cs">
       <DependentUpon>FEmpleados.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\POS\FListadoProductosPOS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\POS\FListadoProductosPOS.Designer.cs">
+      <DependentUpon>FListadoProductosPOS.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\Sucursales\FSucursales.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -206,6 +212,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Empleados\FEmpleados.resx">
       <DependentUpon>FEmpleados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\POS\FListadoProductosPOS.resx">
+      <DependentUpon>FListadoProductosPOS.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Sucursales\FSucursales.resx">
       <DependentUpon>FSucursales.cs</DependentUpon>

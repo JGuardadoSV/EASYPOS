@@ -1,5 +1,6 @@
 ﻿using EASYPOS.Controladores;
 using EASYPOS.Entidades;
+using EASYPOS.Formularios.POS;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -98,15 +99,23 @@ namespace EASYPOS
 
         private void textBoxBusqueda_TextChanged(object sender, EventArgs e)
         {
+           Busqueda();
+            
+
+        }
+
+        private void Busqueda()
+        {
             try
             {
                 string busqueda = textBoxBusqueda.Text.Trim();
-                productoActual = listado.Where(x => x.Codigo == busqueda || x.Nombre==busqueda).FirstOrDefault();
-                if (productoActual!=null)
+                productoActual = listado.Where(x => x.Codigo == busqueda || x.Nombre == busqueda).FirstOrDefault();
+                if (productoActual != null)
                 {
                     textBoxNombre.Text = productoActual.Nombre;
                     textBoxPrecio.Text = productoActual.Precio.ToString("c");
-                }  else
+                }
+                else
                 {
                     limpiar();
                 }
@@ -116,8 +125,6 @@ namespace EASYPOS
 
                 limpiar();
             }
-            
-
         }
 
         private void buttonAgregar_Click(object sender, EventArgs e)
@@ -163,6 +170,14 @@ namespace EASYPOS
             textBoxNombre.Text = "";
             textBoxPrecio.Text = "";
             textBoxCantidad.Text = "";
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            FListadoProductosPOS formulario = new FListadoProductosPOS(1);
+            formulario.ShowDialog();
+            textBoxBusqueda.Text = formulario.productoPos.Codigo;
+            Busqueda();
         }
     }
 }
