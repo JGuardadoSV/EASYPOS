@@ -80,11 +80,11 @@
     <Compile Include="Controladores\CListasDePrecio.cs" />
     <Compile Include="Controladores\CPresentacion.cs" />
     <Compile Include="Controladores\CProducto.cs" />
+    <Compile Include="Controladores\CProductoPOS.cs" />
     <Compile Include="Controladores\CProducto_Presentacion.cs" />
     <Compile Include="Controladores\CProveedor.cs" />
     <Compile Include="Controladores\CRol.cs" />
     <Compile Include="Controladores\CSucursal.cs" />
-    <Compile Include="Controladores\CVenta.cs" />
     <Compile Include="Entidades\Caja.cs" />
     <Compile Include="Entidades\Categoria.cs" />
     <Compile Include="Entidades\Cliente.cs" />
@@ -97,6 +97,7 @@
     <Compile Include="Entidades\ListasDePrecio.cs" />
     <Compile Include="Entidades\Presentacion.cs" />
     <Compile Include="Entidades\Producto.cs" />
+    <Compile Include="Entidades\ProductoPOS.cs" />
     <Compile Include="Entidades\Producto_Presentacion.cs" />
     <Compile Include="Entidades\Proveedor.cs" />
     <Compile Include="Entidades\Rol.cs" />
@@ -182,6 +183,7 @@
     <Compile Include="Modelos\MListasDePrecio.cs" />
     <Compile Include="Modelos\MPresentacion.cs" />
     <Compile Include="Modelos\MProducto.cs" />
+    <Compile Include="Modelos\MProductoPOS.cs" />
     <Compile Include="Modelos\MProducto_Presentacion.cs" />
     <Compile Include="Modelos\MProveedor.cs" />
     <Compile Include="Modelos\MRol.cs" />
@@ -242,6 +244,7 @@
     <None Include="Properties\DataSources\EASYPOS.Entidades.Empleado.datasource" />
     <None Include="Properties\DataSources\EASYPOS.Entidades.Presentacion.datasource" />
     <None Include="Properties\DataSources\EASYPOS.Entidades.Producto.datasource" />
+    <None Include="Properties\DataSources\EASYPOS.Entidades.ProductoPOS.datasource" />
     <None Include="Properties\DataSources\EASYPOS.Entidades.Proveedor.datasource" />
     <None Include="Properties\DataSources\EASYPOS.Entidades.Rol.datasource" />
     <None Include="Properties\DataSources\EASYPOS.Entidades.Sucursal.datasource" />

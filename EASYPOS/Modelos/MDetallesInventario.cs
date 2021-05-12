@@ -19,12 +19,13 @@ namespace EASYPOS.Modelos
         public void Insertar(DetallesInventario detallesInventario)
         {
 
-            string consulta = "insert into DetallesInventario values (@IdInventario_FK,@IdProducto_FK)";
+            string consulta = "insert into DetallesInventario values (@IdInventario_FK,@IdProducto_FK,@Existencias)";
             DynamicParameters parametros = new DynamicParameters();
 
             parametros.Add("@IdInventario_FK", detallesInventario.IdInventario_FK, DbType.Int32);
             parametros.Add("@IdProducto_FK", detallesInventario.IdProducto_FK, DbType.Int32);
-            
+            parametros.Add("@Existencias", detallesInventario.Existencias, DbType.Int32);
+
             cn.Open();
             cn.Execute(consulta, parametros, commandType: CommandType.Text);
             cn.Close();
@@ -33,11 +34,12 @@ namespace EASYPOS.Modelos
         public void Actualizar(DetallesInventario detallesInventario)
         {
 
-            string consulta = "Update DetallesInventario set IdInventario_FK=@IdInventario_FK,IdProducto_FK=@IdProducto_FK where IdDetalle=@id";
+            string consulta = "Update DetallesInventario set IdInventario_FK=@IdInventario_FK,IdProducto_FK=@IdProducto_FK, Existencias=@Existencias where IdDetalle=@id";
             DynamicParameters parametros = new DynamicParameters();
 
             parametros.Add("@IdInventario_FK", detallesInventario.IdInventario_FK, DbType.Int32);
             parametros.Add("@IdProducto_FK", detallesInventario.IdProducto_FK, DbType.Int32);
+            parametros.Add("@Existencias", detallesInventario.Existencias, DbType.Int32);
             parametros.Add("@id", detallesInventario.IdDetalle, DbType.Int32);
             cn.Open();
             cn.Execute(consulta, parametros, commandType: CommandType.Text);
