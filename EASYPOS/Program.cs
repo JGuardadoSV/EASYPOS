@@ -25,7 +25,7 @@ namespace EASYPOS
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FCajas());
+            Application.Run(new fPOS());
         }
     }
 }
