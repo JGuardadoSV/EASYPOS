@@ -8,6 +8,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using EASYPOS.Controladores;
 
 namespace EASYPOS.Modelos
 {
@@ -16,12 +17,12 @@ namespace EASYPOS.Modelos
         readonly IDbConnection cn = Conexion.conectar();
 
 
-        public void Insertar(Venta venta)
+        public int Insertar(Venta venta,List<ProductoPOS> detalles)
         {
 
             string consulta = "insert into Ventas values (@Fecha,@IdCliente_FK,@IdEmpleado_FK,@TipoDocumento,@Correlativo,@IdCorrelativo_FK)";
             DynamicParameters parametros = new DynamicParameters();
-
+            int idventa;
             parametros.Add("@Fecha", venta.Fecha, DbType.DateTime);
             parametros.Add("@IdCliente_FK", venta.IdCliente_FK, DbType.Int32);
             parametros.Add("@IdEmpleado_FK", venta.IdEmpleado_FK, DbType.Int32);
@@ -30,8 +31,25 @@ namespace EASYPOS.Modelos
             parametros.Add("@IdCorrelativo_FK", venta.IdCorrelativo_FK, DbType.Int32);
             cn.Open();
             cn.Execute(consulta, parametros, commandType: CommandType.Text);
+            idventa = cn.QuerySingle<int>("Select max(IdVenta) id from ventas", commandType: CommandType.Text);
             cn.Close();
 
+            CCorrelativo correlativo = new CCorrelativo();
+            correlativo.ActualizarCorrelativo(venta.IdCorrelativo_FK);
+
+            CDetallesVenta detalle = new CDetallesVenta();
+            foreach (ProductoPOS p in detalles)
+            {
+                DetallesVenta det = new DetallesVenta();
+                det.Cantidad = p.Cantidad;
+                det.IdDetalleInventario_FK = p.IdDetalleInventario;
+                det.IdVenta_FK = idventa;
+                det.PrecioVenta = p.Precio;
+
+                detalle.Insertar(det);
+                
+            }
+            return 1;
         }
         public void Actualizar(Venta venta)
         {

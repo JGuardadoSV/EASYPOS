@@ -71,7 +71,9 @@
     <Compile Include="Controladores\CCaja.cs" />
     <Compile Include="Controladores\CCategoria.cs" />
     <Compile Include="Controladores\CCliente.cs" />
+    <Compile Include="Controladores\CContratos.cs" />
     <Compile Include="Controladores\CCorrelativo.cs" />
+    <Compile Include="Controladores\CCuota.cs" />
     <Compile Include="Controladores\CDetallesInventario.cs" />
     <Compile Include="Controladores\CDetallesListaDePrecio.cs" />
     <Compile Include="Controladores\CDetallesVenta.cs" />
@@ -85,10 +87,14 @@
     <Compile Include="Controladores\CProveedor.cs" />
     <Compile Include="Controladores\CRol.cs" />
     <Compile Include="Controladores\CSucursal.cs" />
+    <Compile Include="Controladores\CVenta.cs" />
     <Compile Include="Entidades\Caja.cs" />
     <Compile Include="Entidades\Categoria.cs" />
     <Compile Include="Entidades\Cliente.cs" />
+    <Compile Include="Entidades\Contratos.cs" />
     <Compile Include="Entidades\Correlativo.cs" />
+    <Compile Include="Entidades\Cuotas.cs" />
+    <Compile Include="Entidades\DatosCliente.cs" />
     <Compile Include="Entidades\DetallesInventario.cs" />
     <Compile Include="Entidades\DetallesListaDePrecio.cs" />
     <Compile Include="Entidades\DetallesVenta.cs" />
@@ -122,6 +128,18 @@
     <Compile Include="Formularios\Clientes\FClientes.Designer.cs">
       <DependentUpon>FClientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\Contratos\FContratos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Contratos\FContratos.Designer.cs">
+      <DependentUpon>FContratos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Contratos\FNuevoContrato.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Contratos\FNuevoContrato.Designer.cs">
+      <DependentUpon>FNuevoContrato.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\Correlativos\FCorrelativos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -139,6 +157,12 @@
     </Compile>
     <Compile Include="Formularios\Inventario\FInventario.Designer.cs">
       <DependentUpon>FInventario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\POS\FCobro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\POS\FCobro.Designer.cs">
+      <DependentUpon>FCobro.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\POS\FListadoProductosPOS.cs">
       <SubType>Form</SubType>
@@ -182,6 +206,12 @@
     <Compile Include="fPOS.Designer.cs">
       <DependentUpon>fPOS.cs</DependentUpon>
     </Compile>
+    <Compile Include="fPOSCuota.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fPOSCuota.Designer.cs">
+      <DependentUpon>fPOSCuota.cs</DependentUpon>
+    </Compile>
     <Compile Include="FPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -192,7 +222,9 @@
     <Compile Include="Modelos\MCaja.cs" />
     <Compile Include="Modelos\MCategoria.cs" />
     <Compile Include="Modelos\MCliente.cs" />
+    <Compile Include="Modelos\MContrato.cs" />
     <Compile Include="Modelos\MCorrelativo.cs" />
+    <Compile Include="Modelos\MCuota.cs" />
     <Compile Include="Modelos\MDetallesInventario.cs" />
     <Compile Include="Modelos\MDetallesListaDePrecio.cs" />
     <Compile Include="Modelos\MDetallesVenta.cs" />
@@ -219,6 +251,12 @@
     <EmbeddedResource Include="Formularios\Clientes\FClientes.resx">
       <DependentUpon>FClientes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Contratos\FContratos.resx">
+      <DependentUpon>FContratos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Contratos\FNuevoContrato.resx">
+      <DependentUpon>FNuevoContrato.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Correlativos\FCorrelativos.resx">
       <DependentUpon>FCorrelativos.cs</DependentUpon>
     </EmbeddedResource>
@@ -227,6 +265,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Inventario\FInventario.resx">
       <DependentUpon>FInventario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\POS\FCobro.resx">
+      <DependentUpon>FCobro.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\POS\FListadoProductosPOS.resx">
       <DependentUpon>FListadoProductosPOS.cs</DependentUpon>
@@ -249,6 +290,9 @@
     <EmbeddedResource Include="fPOS.resx">
       <DependentUpon>fPOS.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="fPOSCuota.resx">
+      <DependentUpon>fPOSCuota.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FPrincipal.resx">
       <DependentUpon>FPrincipal.cs</DependentUpon>
     </EmbeddedResource>
@@ -267,7 +311,9 @@
     <None Include="Properties\DataSources\EASYPOS.Entidades.Caja.datasource" />
     <None Include="Properties\DataSources\EASYPOS.Entidades.Categoria.datasource" />
     <None Include="Properties\DataSources\EASYPOS.Entidades.Cliente.datasource" />
+    <None Include="Properties\DataSources\EASYPOS.Entidades.Contratos.datasource" />
     <None Include="Properties\DataSources\EASYPOS.Entidades.Correlativo.datasource" />
+    <None Include="Properties\DataSources\EASYPOS.Entidades.Cuotas.datasource" />
     <None Include="Properties\DataSources\EASYPOS.Entidades.DetallesInventario.datasource" />
     <None Include="Properties\DataSources\EASYPOS.Entidades.Empleado.datasource" />
     <None Include="Properties\DataSources\EASYPOS.Entidades.Presentacion.datasource" />

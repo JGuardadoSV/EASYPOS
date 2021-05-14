@@ -43,5 +43,15 @@ namespace EASYPOS.Controladores
         {
             return mCorrelativo.ObtenerUno(id);
         }
+
+        public int ObtenerCorrelativo(int tipo)
+        {
+            return mCorrelativo.ObtenerCorrelativo(tipo);
+        }
+
+        internal void ActualizarCorrelativo(int id)
+        {
+            mCorrelativo.ActualizarCorrelativo(id);
+        }
     }
 }

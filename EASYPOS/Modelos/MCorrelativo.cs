@@ -38,6 +38,18 @@ namespace EASYPOS.Modelos
             cn.Close();
 
         }
+
+        public int ObtenerCorrelativo(int tipo)
+        {
+            string consulta = "Select ValorActual from Correlativos where Inicio<Fin and TipoDeDocumento=@tipo";
+            DynamicParameters parametros = new DynamicParameters();
+            parametros.Add("@tipo", tipo, DbType.Int32);
+            cn.Open();
+            int numero=cn.QuerySingle<int>(consulta, parametros, commandType: CommandType.Text);
+            cn.Close();
+            return numero;
+        }
+
         public void Actualizar(Correlativo correlativo)
         {
 
@@ -54,6 +66,19 @@ namespace EASYPOS.Modelos
             parametros.Add("@ValorActual", correlativo.ValorActual, DbType.Int64);
             parametros.Add("@IdSucursal_FK", correlativo.IdSucursal_FK, DbType.Int64);
             parametros.Add("@id", correlativo.IdCorrelativo, DbType.Int32);
+            cn.Open();
+            cn.Execute(consulta, parametros, commandType: CommandType.Text);
+            cn.Close();
+
+        }
+
+        public void ActualizarCorrelativo(int id)
+        {
+
+            string consulta = "Update Correlativos set ValorActual=ValorActual+1 where IdCorrelativo=@id";
+            DynamicParameters parametros = new DynamicParameters();
+           
+            parametros.Add("@id", id, DbType.Int32);
             cn.Open();
             cn.Execute(consulta, parametros, commandType: CommandType.Text);
             cn.Close();

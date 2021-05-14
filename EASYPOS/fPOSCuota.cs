@@ -1,5 +1,6 @@
 ﻿using EASYPOS.Controladores;
 using EASYPOS.Entidades;
+using EASYPOS.Formularios.Contratos;
 using EASYPOS.Formularios.POS;
 using EASYPOS.Modelos;
 using System;
@@ -14,26 +15,27 @@ using System.Windows.Forms;
 
 namespace EASYPOS
 {
-    public partial class fPOS : Form
+    public partial class fPOSCuota : Form
     {
-        List<ProductoPOS> listado = new List<ProductoPOS>();
-        List<ProductoPOS> listadoCompra = new List<ProductoPOS>();
-        CProductoPOS cProductoPOS = new CProductoPOS();
-        ProductoPOS productoActual = new ProductoPOS();
+        List<Contratos> listado = new List<Contratos>();
+        List<Contratos> listadoCompra = new List<Contratos>();
+        CContratos cContratos = new CContratos();
+        Contratos contratoActual = new Contratos();
+        int idContrato;
         DatosCliente cliente = new DatosCliente();
         decimal subtotal;
         decimal iva;
         decimal total;
-        public fPOS()
+        public fPOSCuota()
         {
             InitializeComponent();
         }
 
-        private void fPOS_Load(object sender, EventArgs e)
+        private void fPOSCuota_Load(object sender, EventArgs e)
         {
             ObtenerCorrelativo();
             
-            listado = cProductoPOS.Listado(1);
+            listado = cContratos.Listado();
 
 
             TXTNombre.Text = "Nombre del cliente";
@@ -65,7 +67,7 @@ namespace EASYPOS
             TXTDireccion.Leave += new EventHandler(AddText);
 
 
-            productoActual = new ProductoPOS();
+            contratoActual = new Contratos();
 
             //dataGridViewProductos.DataSource = listadoCompra;
 
@@ -118,12 +120,16 @@ namespace EASYPOS
             try
             {
                 string busqueda = textBoxBusqueda.Text.Trim();
-                productoActual = listado.Where(x => x.Codigo == busqueda || x.Nombre == busqueda).FirstOrDefault();
-                if (productoActual != null)
+                contratoActual = listado.Where(x => x.NombreCompleto == busqueda || x.Dui == busqueda).FirstOrDefault();
+                if (contratoActual != null)
                 {
-                    textBoxNombre.Text = productoActual.Nombre;
-                    textBoxPrecio.Text = productoActual.Precio.ToString("c");
-                    
+                    textBoxNombre.Text = contratoActual.NombreCompleto;
+                    textBoxPrecio.Text = "$"+contratoActual.Cuota.ToString();
+                    TXTNombre.Text= contratoActual.NombreCompleto;
+                    TXTDui.Text = contratoActual.Dui;
+                    TXTNit.Text = contratoActual.Nit;
+                    TXTTelefono.Text = contratoActual.Celular;
+                    TXTDireccion.Text = contratoActual.DireccionCasa;
                 }
                 else
                 {
@@ -139,26 +145,22 @@ namespace EASYPOS
 
         private void buttonAgregar_Click(object sender, EventArgs e)
         {
-            int cantidad = int.Parse(textBoxCantidad.Text);
-            ProductoPOS producto = new ProductoPOS();
-            producto = productoActual;
-            producto.Total = Math.Round(cantidad * producto.Precio, 2);
-            producto.Cantidad = cantidad;
-
+            
+            int cantidad = 1;
+            Contratos producto = new Contratos();
+            producto = contratoActual;
+            producto.Cuota = Math.Round(cantidad * contratoActual.Cuota.Value, 2);
+            //producto.Cantidad = cantidad;
+            idContrato = contratoActual.IdContrato;
             listadoCompra.Add(
-                new ProductoPOS { 
-                Cantidad=producto.Cantidad, 
-                Codigo=producto.Codigo, 
-                IdDetalleInventario=producto.IdDetalleInventario, 
-                IdInventario=producto.IdInventario, 
-                IdProducto=producto.IdProducto, 
-                Nombre=producto.Nombre, 
-                Precio=producto.Precio, 
-                Total=producto.Total,
-                Numero=listadoCompra.Count+1
+                new Contratos { 
+                 NombreCompleto=producto.NombreCompleto,
+                 Cuota=producto.Cuota,
+                 Dui=producto.Dui,
+                 Celular=producto.Celular
             });
-            productoPOSBindingSource.DataSource = null;
-            productoPOSBindingSource.DataSource = listadoCompra;
+            contratosBindingSource.DataSource = null;
+            contratosBindingSource.DataSource = listadoCompra;
             
             textBoxBusqueda.Text = "";
             textBoxBusqueda.Focus();
@@ -168,7 +170,7 @@ namespace EASYPOS
             calculos();
             
 
-
+            
         }
 
         private void calculos()
@@ -177,9 +179,9 @@ namespace EASYPOS
             {
 
             
-            subtotal = listadoCompra.Sum(x => x.Total)/1.13m;
+            subtotal = listadoCompra.Sum(x => x.Cuota.Value)/1.13m;
             iva = Math.Round(subtotal * 0.13m,2);
-            total = listadoCompra.Sum(x => x.Total);
+            total = listadoCompra.Sum(x => x.Cuota.Value);
 
             textBoxSubtotal.Text = subtotal.ToString("c");
             textBoxIva.Text = iva.ToString("c");
@@ -191,24 +193,24 @@ namespace EASYPOS
                 textBoxIva.Text = "";
                 textBoxTotal.Text = "";
             }
-
+            
         }
 
         private void limpiar()
         {
-            productoActual = new ProductoPOS();
+            //contratoActual = new Contratos();
             textBoxNombre.Text = "";
             textBoxPrecio.Text = "";
-            textBoxCantidad.Text = "";
+            //textBoxCantidad.Text = "";
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            FListadoProductosPOS formulario = new FListadoProductosPOS(1);
+            FContratos formulario = new FContratos(true);
             formulario.ShowDialog();
-            textBoxBusqueda.Text = formulario.productoPos.Codigo;
+            textBoxBusqueda.Text = formulario.c.Dui;
             Busqueda();
-            textBoxCantidad.Focus();
+            //textBoxCantidad.Focus();
         }
 
         private void buttonCobrar_Click(object sender, EventArgs e)
@@ -235,19 +237,19 @@ namespace EASYPOS
                     if (textBoxDocumento.Text == "C. FISCAL") documento = 3;
                     GenCliente();
 
-                    Venta venta = new Venta();
-                    venta.Fecha = fecha;
-                    venta.IdEmpleado_FK = 1;
-                    venta.TipoDocumento = documento;
-                    venta.IdCliente_FK = 1;
-                    venta.Correlativo = correlativo;
-                    venta.IdCorrelativo_FK = 1;
-                    CVenta cVentas = new CVenta();
-                    int si = cVentas.Insertar(venta, listadoCompra);
+                    Cuotas cuota = new Cuotas();
+                    cuota.Fecha = fecha;
+                    //venta.IdEmpleado_FK = 1;
+                    cuota.Correlativo = correlativo;
+                    cuota.IdCorrelativo_FK = 1;
+                    cuota.IdContrato_FK = idContrato;
+                    cuota.Monto = listadoCompra.First().Cuota.Value;
+                    CCuota cCuota = new CCuota();
+                  int si = cCuota.Insertar(cuota);
 
                     if (si == 1)
                     {
-                        MessageBox.Show(this, "Venta realizada con éxito", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show(this, "Cuota registrada con éxito", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         this.Close();
                     }
                 }
@@ -266,23 +268,7 @@ namespace EASYPOS
         private void button1_Click(object sender, EventArgs e)
         {
 
-            if (listadoCompra.Count==0 )
-            {
-                MessageBox.Show(this, "Seleccione un artículo", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }
-            else
-            {
-
             
-                ProductoPOS p = new ProductoPOS();
-                p = (ProductoPOS)productoPOSBindingSource.Current;
-
-                listadoCompra.Remove(p);
-                productoPOSBindingSource.DataSource = null;
-                productoPOSBindingSource.DataSource = listadoCompra;
-                calculos();
-            }
-
 
 
         }

@@ -13,9 +13,9 @@ namespace EASYPOS.Controladores
         MVenta mVenta = new MVenta();
 
         //*********************************************************
-        public void Insertar(Venta venta)
+        public int Insertar(Venta venta, List<ProductoPOS> detalles)
         {
-            mVenta.Insertar(venta);
+            return mVenta.Insertar(venta,detalles);
         }
         public void Actualizar(Venta venta)
         {

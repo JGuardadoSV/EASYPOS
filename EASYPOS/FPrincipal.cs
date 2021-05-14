@@ -1,4 +1,5 @@
 ﻿using EASYPOS.Formularios.Categorias;
+using EASYPOS.Formularios.Contratos;
 using EASYPOS.Formularios.Inventario;
 using EASYPOS.Formularios.Productos;
 using EASYPOS.Formularios.Proveedores;
@@ -48,6 +49,30 @@ namespace EASYPOS
         {
             FProveedores f = new FProveedores();
             f.Text = "Administración de proveedores";
+            f.StartPosition = FormStartPosition.CenterParent;
+            f.ShowDialog();
+        }
+
+        private void contratosVigentesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FContratos f = new FContratos();
+            
+            f.StartPosition = FormStartPosition.CenterParent;
+            f.ShowDialog();
+        }
+
+        private void nuevoContratoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FNuevoContrato f = new FNuevoContrato();
+
+            f.StartPosition = FormStartPosition.CenterParent;
+            f.ShowDialog();
+        }
+
+        private void pagoDeCuotaToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            fPOSCuota f = new fPOSCuota();
+
             f.StartPosition = FormStartPosition.CenterParent;
             f.ShowDialog();
         }
