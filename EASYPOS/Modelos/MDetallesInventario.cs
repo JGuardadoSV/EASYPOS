@@ -47,12 +47,26 @@ namespace EASYPOS.Modelos
 
         }
 
+
+
         internal void ActualizarExistencias(int idactual, string existencias)
         {
             string consulta = "Update DetallesInventario set  Existencias=@Existencias where IdDetalle=@id";
             DynamicParameters parametros = new DynamicParameters();
 
             parametros.Add("@Existencias", int.Parse(existencias), DbType.Int32);
+            parametros.Add("@id", idactual, DbType.Int32);
+            cn.Open();
+            cn.Execute(consulta, parametros, commandType: CommandType.Text);
+            cn.Close();
+        }
+
+        internal void DisminuirExistencias(int idactual, int cantidad)
+        {
+            string consulta = "Update DetallesInventario set  Existencias=Existencias-@Existencias where IdDetalle=@id";
+            DynamicParameters parametros = new DynamicParameters();
+
+            parametros.Add("@Existencias", cantidad, DbType.Int32);
             parametros.Add("@id", idactual, DbType.Int32);
             cn.Open();
             cn.Execute(consulta, parametros, commandType: CommandType.Text);

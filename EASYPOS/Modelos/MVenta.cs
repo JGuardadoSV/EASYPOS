@@ -38,6 +38,7 @@ namespace EASYPOS.Modelos
             correlativo.ActualizarCorrelativo(venta.IdCorrelativo_FK);
 
             CDetallesVenta detalle = new CDetallesVenta();
+            CDetallesInventario inventario = new CDetallesInventario();
             foreach (ProductoPOS p in detalles)
             {
                 DetallesVenta det = new DetallesVenta();
@@ -47,6 +48,8 @@ namespace EASYPOS.Modelos
                 det.PrecioVenta = p.Precio;
 
                 detalle.Insertar(det);
+
+                inventario.disminuirExistencias(det.IdDetalleInventario_FK, det.Cantidad.Value);
                 
             }
             return 1;

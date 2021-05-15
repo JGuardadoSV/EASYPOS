@@ -39,5 +39,7 @@ namespace EASYPOS.Entidades
         public string DuiReferencia { get; set; }
         public string NitReferencia { get; set; }
         public int Meses { get; set; }
+        public int Estado { get; set; }
+        public DateTime? FechaInicio { get; set; }
     }
 }

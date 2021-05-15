@@ -2,6 +2,7 @@
 using EASYPOS.Entidades;
 using EASYPOS.Formularios.POS;
 using EASYPOS.Modelos;
+using ESC_POS_USB_NET.Printer;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -248,6 +249,7 @@ namespace EASYPOS
                     if (si == 1)
                     {
                         MessageBox.Show(this, "Venta realizada con éxito", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        imprimirTicket();
                         this.Close();
                     }
                 }
@@ -302,6 +304,59 @@ namespace EASYPOS
             cliente.Telefono = TXTTelefono.Text;
             cliente.Direccion = TXTDireccion.Text;
             cliente.Giro = TXTGiro.Text;
+        }
+
+        void imprimirTicket()
+        {
+
+            Printer printer = new Printer("SLK-TS100 (copy 1)");
+
+            printer.AlignCenter();
+            printer.Append("                                        ");
+            printer.Append("                                        ");
+            printer.Append("                                        ");
+            printer.BoldMode("Motos SG");
+            //Bitmap image = new Bitmap(Bitmap.FromFile("Icon.bmp"));
+            //printer.Image(image);
+            printer.Append("Sucursal Nueva Concepción");
+            printer.Append("NIT:0416-200155-101-3");
+            printer.Append("NRC: 214545");
+            printer.Append("Fecha:20/10/2021 08:00 am");
+            printer.Append("Ticket #1");
+            printer.Append("--------------------------------------");
+            
+            printer.AlignLeft();
+            printer.Append("PRODUCTO     CANT.    PRECIO    TOTAL");
+            foreach (ProductoPOS ps in listadoCompra)
+            {
+                printer.Append(ps.Nombre);
+                printer.Append("                " + ps.Cantidad + "        $" + ps.Precio.ToString("F") + "   $" + ps.Total.ToString("F"));
+            }
+            printer.AlignCenter();
+            printer.Append("--------------------------------------");
+            printer.AlignLeft();
+            printer.Append("Ventas Afectas:" + textBoxTotal.Text);
+            printer.Append("Ventas Exentas:" + textBoxTotal.Text);
+            printer.Append("Ventas afectas:" + textBoxTotal.Text);
+            printer.AlignCenter();
+            printer.Append("                                        ");
+            printer.Append("                                        ");
+            printer.Append("                                        ");
+            printer.Append("Gracias por su compra");
+            printer.Append("                                        ");
+            printer.Append("                                        ");
+            printer.Append("                                        ");
+
+            printer.Append("Resolución: ADF5464654654");
+            printer.Append("Del 000001 al 100000");
+            printer.Append("Autorización: ADF5464654654");
+            printer.Append("                                        ");
+            printer.Append("                                        ");
+            printer.Append("                                        ");
+            printer.FullPaperCut();
+            printer.PrintDocument();
+
+
         }
     }
 }

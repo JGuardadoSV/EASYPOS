@@ -63,7 +63,6 @@ namespace EASYPOS
             this.TXTGiro = new System.Windows.Forms.TextBox();
             this.TXTNrc = new System.Windows.Forms.TextBox();
             this.contratosDataGridView = new System.Windows.Forms.DataGridView();
-            this.contratosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -95,6 +94,7 @@ namespace EASYPOS
             this.dataGridViewTextBoxColumn29 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn30 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn31 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contratosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.contratosDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.contratosBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -103,27 +103,29 @@ namespace EASYPOS
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(768, 487);
+            this.label1.Location = new System.Drawing.Point(294, 496);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(114, 24);
             this.label1.TabIndex = 17;
             this.label1.Text = "SUB TOTAL";
+            this.label1.Visible = false;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(842, 532);
+            this.label2.Location = new System.Drawing.Point(368, 541);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(40, 24);
             this.label2.TabIndex = 19;
             this.label2.Text = "IVA";
+            this.label2.Visible = false;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(810, 576);
+            this.label3.Location = new System.Drawing.Point(810, 487);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(72, 24);
             this.label3.TabIndex = 21;
@@ -132,27 +134,29 @@ namespace EASYPOS
             // textBoxSubtotal
             // 
             this.textBoxSubtotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxSubtotal.Location = new System.Drawing.Point(891, 484);
+            this.textBoxSubtotal.Location = new System.Drawing.Point(417, 493);
             this.textBoxSubtotal.Name = "textBoxSubtotal";
             this.textBoxSubtotal.ReadOnly = true;
             this.textBoxSubtotal.Size = new System.Drawing.Size(179, 29);
             this.textBoxSubtotal.TabIndex = 23;
             this.textBoxSubtotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBoxSubtotal.Visible = false;
             // 
             // textBoxIva
             // 
             this.textBoxIva.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxIva.Location = new System.Drawing.Point(891, 529);
+            this.textBoxIva.Location = new System.Drawing.Point(417, 538);
             this.textBoxIva.Name = "textBoxIva";
             this.textBoxIva.ReadOnly = true;
             this.textBoxIva.Size = new System.Drawing.Size(179, 29);
             this.textBoxIva.TabIndex = 24;
             this.textBoxIva.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.textBoxIva.Visible = false;
             // 
             // textBoxTotal
             // 
             this.textBoxTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxTotal.Location = new System.Drawing.Point(891, 573);
+            this.textBoxTotal.Location = new System.Drawing.Point(891, 484);
             this.textBoxTotal.Name = "textBoxTotal";
             this.textBoxTotal.ReadOnly = true;
             this.textBoxTotal.Size = new System.Drawing.Size(179, 29);
@@ -447,10 +451,6 @@ namespace EASYPOS
             this.contratosDataGridView.Size = new System.Drawing.Size(1190, 220);
             this.contratosDataGridView.TabIndex = 33;
             // 
-            // contratosBindingSource
-            // 
-            this.contratosBindingSource.DataSource = typeof(EASYPOS.Entidades.Contratos);
-            // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "IdContrato";
@@ -701,6 +701,10 @@ namespace EASYPOS
             this.dataGridViewTextBoxColumn31.Name = "dataGridViewTextBoxColumn31";
             this.dataGridViewTextBoxColumn31.ReadOnly = true;
             this.dataGridViewTextBoxColumn31.Visible = false;
+            // 
+            // contratosBindingSource
+            // 
+            this.contratosBindingSource.DataSource = typeof(EASYPOS.Entidades.Contratos);
             // 
             // fPOSCuota
             // 

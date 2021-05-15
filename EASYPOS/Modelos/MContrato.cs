@@ -17,7 +17,7 @@ namespace EASYPOS.Modelos
         public void Insertar(Contratos contrato)
         {
 
-            string consulta = "insert into Contratos values (@NombreCompleto,@Dui,@Nit,@TelefonoFijo,@Celular,@DireccionCasa,@DireccionTrabajo,@TelefonoTrabajo,@Referencia1,@DireccionReferencia1,@TelefonoReferencia1,@Referencia2,@DireccionReferencia2,@TelefonoReferencia2,@Precio,@Prima,@Financiamiento,@Cuota,@GastosEscritura,@PrimaNeta,@PrimaInicial,@DescripcionProducto,@Marca,@Modelo,@Chasis,@Anio,@Fecha,@DuiReferencia,@NitReferencia,@Meses)";            
+            string consulta = "insert into Contratos values (@NombreCompleto,@Dui,@Nit,@TelefonoFijo,@Celular,@DireccionCasa,@DireccionTrabajo,@TelefonoTrabajo,@Referencia1,@DireccionReferencia1,@TelefonoReferencia1,@Referencia2,@DireccionReferencia2,@TelefonoReferencia2,@Precio,@Prima,@Financiamiento,@Cuota,@GastosEscritura,@PrimaNeta,@PrimaInicial,@DescripcionProducto,@Marca,@Modelo,@Chasis,@Anio,@Fecha,@DuiReferencia,@NitReferencia,@Meses,@Estado,@FechaInicio)";            
             DynamicParameters parametros = new DynamicParameters();
 
             //parametros.Add("@IdContrato", contrato.IdContrato, DbType.Int32);
@@ -48,9 +48,11 @@ namespace EASYPOS.Modelos
             parametros.Add("@Chasis", contrato.Chasis, DbType.String);
             parametros.Add("@Anio", contrato.Anio, DbType.Int32);
             parametros.Add("@Fecha", contrato.Fecha, DbType.DateTime);
+            parametros.Add("@FechaInicio", contrato.FechaInicio, DbType.DateTime);
             parametros.Add("@DuiReferencia", contrato.DuiReferencia, DbType.String);
             parametros.Add("@NitReferencia", contrato.NitReferencia, DbType.String);
             parametros.Add("@Meses", contrato.Meses, DbType.Int32);
+            parametros.Add("@Estado", contrato.Estado, DbType.Int32);
 
             cn.Open();
             cn.Execute(consulta, parametros, commandType: CommandType.Text);
@@ -72,7 +74,7 @@ namespace EASYPOS.Modelos
         public void Actualizar(Contratos contrato)
         {
 
-            string consulta = "Update Contratos set NombreCompleto=@NombreCompleto,Dui=@Dui,Nit=@Nit,TelefonoFijo=@TelefonoFijo,Celular=@Celular,DireccionCasa=@DireccionCasa,DireccionTrabajo=@DireccionTrabajo,TelefonoTrabajo=@TelefonoTrabajo,Referencia1=@Referencia1,DireccionReferencia1=@DireccionReferencia1,TelefonoReferencia1=@TelefonoReferencia1,Referencia2=@Referencia2,DireccionReferencia2=@DireccionReferencia2,TelefonoReferencia2=@TelefonoReferencia2,Precio=@Precio,Prima=@Prima,Financiamiento=@Financiamiento,Cuota=@Cuota,GastosEscritura=@GastosEscritura,PrimaNeta=@PrimaNeta,PrimaInicial=@PrimaInicial,DescripcionProducto=@DescripcionProducto,Marca=@Marca,Modelo=@Modelo,Chasis=@Chasis,Anio=@Anio,Fecha=@Fecha ,DuiReferencia=@DuiReferencia,NitReferencia=@NitReferencia,Meses=@Meses where IdContrato=@IdContrato";
+            string consulta = "Update Contratos set NombreCompleto=@NombreCompleto,Dui=@Dui,Nit=@Nit,TelefonoFijo=@TelefonoFijo,Celular=@Celular,DireccionCasa=@DireccionCasa,DireccionTrabajo=@DireccionTrabajo,TelefonoTrabajo=@TelefonoTrabajo,Referencia1=@Referencia1,DireccionReferencia1=@DireccionReferencia1,TelefonoReferencia1=@TelefonoReferencia1,Referencia2=@Referencia2,DireccionReferencia2=@DireccionReferencia2,TelefonoReferencia2=@TelefonoReferencia2,Precio=@Precio,Prima=@Prima,Financiamiento=@Financiamiento,Cuota=@Cuota,GastosEscritura=@GastosEscritura,PrimaNeta=@PrimaNeta,PrimaInicial=@PrimaInicial,DescripcionProducto=@DescripcionProducto,Marca=@Marca,Modelo=@Modelo,Chasis=@Chasis,Anio=@Anio,Fecha=@Fecha,FechaInicio=@FechaInicio ,DuiReferencia=@DuiReferencia,NitReferencia=@NitReferencia,Meses=@Meses,Estado=@Estado where IdContrato=@IdContrato";
             DynamicParameters parametros = new DynamicParameters();
             
             parametros.Add("@IdContrato", contrato.IdContrato, DbType.Int32);
@@ -106,6 +108,8 @@ namespace EASYPOS.Modelos
             parametros.Add("@DuiReferencia", contrato.DuiReferencia, DbType.String);
             parametros.Add("@NitReferencia", contrato.NitReferencia, DbType.String);
             parametros.Add("@Meses", contrato.Meses, DbType.Int32);
+            parametros.Add("@Estado", contrato.Estado, DbType.Int32);
+            parametros.Add("@FechaInicio", contrato.FechaInicio, DbType.DateTime);
             cn.Open();
             cn.Execute(consulta, parametros, commandType: CommandType.Text);
             cn.Close();
