@@ -36,6 +36,7 @@ namespace EASYPOS.Formularios.Correlativos
             System.Windows.Forms.Label idSucursal_FKLabel;
             System.Windows.Forms.Label inicioLabel;
             System.Windows.Forms.Label valorActualLabel;
+            System.Windows.Forms.Label autorizacionLabel1;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FCorrelativos));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -55,12 +56,23 @@ namespace EASYPOS.Formularios.Correlativos
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.correlativoBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.correlativoDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.sucursalBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.tipoDocumentoBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Resolucion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.deseaEliminarEsteCorrelativoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Registrarbutton = new System.Windows.Forms.Button();
             this.Fpanel = new System.Windows.Forms.Panel();
+            this.autorizacionTextBox1 = new System.Windows.Forms.TextBox();
             this.valorActualTextBox = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -74,21 +86,13 @@ namespace EASYPOS.Formularios.Correlativos
             this.finTextBox = new System.Windows.Forms.TextBox();
             this.inicioTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             autorizacionLabel = new System.Windows.Forms.Label();
             fechaDeAutorizacionLabel = new System.Windows.Forms.Label();
             finLabel = new System.Windows.Forms.Label();
             idSucursal_FKLabel = new System.Windows.Forms.Label();
             inicioLabel = new System.Windows.Forms.Label();
             valorActualLabel = new System.Windows.Forms.Label();
+            autorizacionLabel1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.correlativoBindingNavigator)).BeginInit();
             this.correlativoBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.correlativoBindingSource)).BeginInit();
@@ -106,7 +110,7 @@ namespace EASYPOS.Formularios.Correlativos
             autorizacionLabel.Location = new System.Drawing.Point(84, 91);
             autorizacionLabel.Name = "autorizacionLabel";
             autorizacionLabel.Size = new System.Drawing.Size(68, 13);
-            autorizacionLabel.TabIndex = 0;
+            autorizacionLabel.TabIndex = 1;
             autorizacionLabel.Text = "Autorización:";
             // 
             // fechaDeAutorizacionLabel
@@ -115,7 +119,7 @@ namespace EASYPOS.Formularios.Correlativos
             fechaDeAutorizacionLabel.Location = new System.Drawing.Point(37, 118);
             fechaDeAutorizacionLabel.Name = "fechaDeAutorizacionLabel";
             fechaDeAutorizacionLabel.Size = new System.Drawing.Size(115, 13);
-            fechaDeAutorizacionLabel.TabIndex = 2;
+            fechaDeAutorizacionLabel.TabIndex = 3;
             fechaDeAutorizacionLabel.Text = "Fecha de autorización:";
             // 
             // finLabel
@@ -124,17 +128,17 @@ namespace EASYPOS.Formularios.Correlativos
             finLabel.Location = new System.Drawing.Point(128, 169);
             finLabel.Name = "finLabel";
             finLabel.Size = new System.Drawing.Size(24, 13);
-            finLabel.TabIndex = 6;
+            finLabel.TabIndex = 7;
             finLabel.Text = "Fin:";
             finLabel.Click += new System.EventHandler(this.finLabel_Click);
             // 
             // idSucursal_FKLabel
             // 
             idSucursal_FKLabel.AutoSize = true;
-            idSucursal_FKLabel.Location = new System.Drawing.Point(104, 195);
+            idSucursal_FKLabel.Location = new System.Drawing.Point(104, 227);
             idSucursal_FKLabel.Name = "idSucursal_FKLabel";
             idSucursal_FKLabel.Size = new System.Drawing.Size(48, 13);
-            idSucursal_FKLabel.TabIndex = 8;
+            idSucursal_FKLabel.TabIndex = 11;
             idSucursal_FKLabel.Text = "Sucursal";
             // 
             // inicioLabel
@@ -143,17 +147,26 @@ namespace EASYPOS.Formularios.Correlativos
             inicioLabel.Location = new System.Drawing.Point(117, 143);
             inicioLabel.Name = "inicioLabel";
             inicioLabel.Size = new System.Drawing.Size(35, 13);
-            inicioLabel.TabIndex = 4;
+            inicioLabel.TabIndex = 5;
             inicioLabel.Text = "Inicio:";
             // 
             // valorActualLabel
             // 
             valorActualLabel.AutoSize = true;
-            valorActualLabel.Location = new System.Drawing.Point(85, 287);
+            valorActualLabel.Location = new System.Drawing.Point(85, 316);
             valorActualLabel.Name = "valorActualLabel";
             valorActualLabel.Size = new System.Drawing.Size(67, 13);
             valorActualLabel.TabIndex = 14;
             valorActualLabel.Text = "Valor Actual:";
+            // 
+            // autorizacionLabel1
+            // 
+            autorizacionLabel1.AutoSize = true;
+            autorizacionLabel1.Location = new System.Drawing.Point(84, 193);
+            autorizacionLabel1.Name = "autorizacionLabel1";
+            autorizacionLabel1.Size = new System.Drawing.Size(63, 13);
+            autorizacionLabel1.TabIndex = 9;
+            autorizacionLabel1.Text = "Resolución:";
             // 
             // correlativoBindingNavigator
             // 
@@ -295,6 +308,7 @@ namespace EASYPOS.Formularios.Correlativos
             this.dataGridViewTextBoxColumn10,
             this.dataGridViewTextBoxColumn7,
             this.dataGridViewTextBoxColumn6,
+            this.Resolucion,
             this.dataGridViewTextBoxColumn4,
             this.dataGridViewTextBoxColumn5,
             this.dataGridViewTextBoxColumn9,
@@ -306,19 +320,110 @@ namespace EASYPOS.Formularios.Correlativos
             this.correlativoDataGridView.Name = "correlativoDataGridView";
             this.correlativoDataGridView.ReadOnly = true;
             this.correlativoDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.correlativoDataGridView.Size = new System.Drawing.Size(972, 293);
+            this.correlativoDataGridView.Size = new System.Drawing.Size(1032, 293);
             this.correlativoDataGridView.TabIndex = 1;
             this.correlativoDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.correlativoDataGridView_CellDoubleClick);
             this.correlativoDataGridView.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.correlativoDataGridView_CellMouseDown);
             this.correlativoDataGridView.DataError += new System.Windows.Forms.DataGridViewDataErrorEventHandler(this.correlativoDataGridView_DataError);
             // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "IdCorrelativo";
+            this.dataGridViewTextBoxColumn1.HeaderText = "IdCorrelativo";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "IdSucursal_FK";
+            this.dataGridViewTextBoxColumn10.DataSource = this.sucursalBindingSource;
+            dataGridViewCellStyle1.NullValue = "-";
+            this.dataGridViewTextBoxColumn10.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridViewTextBoxColumn10.DisplayMember = "NombreSucursal";
+            this.dataGridViewTextBoxColumn10.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.dataGridViewTextBoxColumn10.HeaderText = "Sucursal";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.ReadOnly = true;
+            this.dataGridViewTextBoxColumn10.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn10.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dataGridViewTextBoxColumn10.ValueMember = "IdSucursal";
+            this.dataGridViewTextBoxColumn10.Width = 150;
+            // 
             // sucursalBindingSource
             // 
             this.sucursalBindingSource.DataSource = typeof(EASYPOS.Entidades.Sucursal);
             // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "TipoDeDocumento";
+            this.dataGridViewTextBoxColumn7.DataSource = this.tipoDocumentoBindingSource;
+            dataGridViewCellStyle2.NullValue = "-";
+            this.dataGridViewTextBoxColumn7.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridViewTextBoxColumn7.DisplayMember = "nombre";
+            this.dataGridViewTextBoxColumn7.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.dataGridViewTextBoxColumn7.HeaderText = "Documento";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            this.dataGridViewTextBoxColumn7.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn7.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dataGridViewTextBoxColumn7.ValueMember = "numero";
+            // 
             // tipoDocumentoBindingSource
             // 
             this.tipoDocumentoBindingSource.DataSource = typeof(EASYPOS.Entidades.TipoDocumento);
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "Autorizacion";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Autorización";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            // 
+            // Resolucion
+            // 
+            this.Resolucion.DataPropertyName = "Resolucion";
+            this.Resolucion.HeaderText = "Resolucion";
+            this.Resolucion.Name = "Resolucion";
+            this.Resolucion.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "Inicio";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Inicio";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "Fin";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Fin";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "ValorActual";
+            this.dataGridViewTextBoxColumn9.HeaderText = "Correlativo actual";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "FechaDeAutorizacion";
+            dataGridViewCellStyle3.Format = "d";
+            dataGridViewCellStyle3.NullValue = "-";
+            this.dataGridViewTextBoxColumn8.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dataGridViewTextBoxColumn8.HeaderText = "Fecha de autorización";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "FechaCreacion";
+            this.dataGridViewTextBoxColumn3.HeaderText = "F. Registro";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
             // 
             // contextMenuStrip1
             // 
@@ -346,6 +451,8 @@ namespace EASYPOS.Formularios.Correlativos
             // 
             // Fpanel
             // 
+            this.Fpanel.Controls.Add(autorizacionLabel1);
+            this.Fpanel.Controls.Add(this.autorizacionTextBox1);
             this.Fpanel.Controls.Add(valorActualLabel);
             this.Fpanel.Controls.Add(this.valorActualTextBox);
             this.Fpanel.Controls.Add(this.button2);
@@ -364,35 +471,43 @@ namespace EASYPOS.Formularios.Correlativos
             this.Fpanel.Controls.Add(this.label1);
             this.Fpanel.Location = new System.Drawing.Point(249, 35);
             this.Fpanel.Name = "Fpanel";
-            this.Fpanel.Size = new System.Drawing.Size(526, 409);
+            this.Fpanel.Size = new System.Drawing.Size(526, 420);
             this.Fpanel.TabIndex = 4;
             this.Fpanel.Visible = false;
             this.Fpanel.VisibleChanged += new System.EventHandler(this.Fpanel_VisibleChanged);
             // 
+            // autorizacionTextBox1
+            // 
+            this.autorizacionTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.correlativoBindingSource, "Resolucion", true));
+            this.autorizacionTextBox1.Location = new System.Drawing.Point(171, 190);
+            this.autorizacionTextBox1.Name = "autorizacionTextBox1";
+            this.autorizacionTextBox1.Size = new System.Drawing.Size(200, 20);
+            this.autorizacionTextBox1.TabIndex = 10;
+            // 
             // valorActualTextBox
             // 
             this.valorActualTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.correlativoBindingSource, "ValorActual", true));
-            this.valorActualTextBox.Location = new System.Drawing.Point(171, 284);
+            this.valorActualTextBox.Location = new System.Drawing.Point(171, 313);
             this.valorActualTextBox.Name = "valorActualTextBox";
             this.valorActualTextBox.Size = new System.Drawing.Size(100, 20);
             this.valorActualTextBox.TabIndex = 15;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(180, 324);
+            this.button2.Location = new System.Drawing.Point(180, 353);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(124, 47);
-            this.button2.TabIndex = 12;
+            this.button2.TabIndex = 17;
             this.button2.Text = "Cancelar";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(50, 324);
+            this.button1.Location = new System.Drawing.Point(50, 353);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(124, 47);
-            this.button1.TabIndex = 11;
+            this.button1.TabIndex = 16;
             this.button1.Text = "Guardar";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -404,10 +519,10 @@ namespace EASYPOS.Formularios.Correlativos
             this.SucursalcomboBox.DisplayMember = "NombreSucursal";
             this.SucursalcomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.SucursalcomboBox.FormattingEnabled = true;
-            this.SucursalcomboBox.Location = new System.Drawing.Point(171, 192);
+            this.SucursalcomboBox.Location = new System.Drawing.Point(171, 224);
             this.SucursalcomboBox.Name = "SucursalcomboBox";
             this.SucursalcomboBox.Size = new System.Drawing.Size(246, 21);
-            this.SucursalcomboBox.TabIndex = 9;
+            this.SucursalcomboBox.TabIndex = 12;
             this.SucursalcomboBox.ValueMember = "IdSucursal";
             // 
             // groupBox1
@@ -415,10 +530,10 @@ namespace EASYPOS.Formularios.Correlativos
             this.groupBox1.Controls.Add(this.TicketradioButton);
             this.groupBox1.Controls.Add(this.ccfradioButton);
             this.groupBox1.Controls.Add(this.CFradioButton);
-            this.groupBox1.Location = new System.Drawing.Point(50, 222);
+            this.groupBox1.Location = new System.Drawing.Point(50, 251);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(367, 52);
-            this.groupBox1.TabIndex = 10;
+            this.groupBox1.TabIndex = 13;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Tipo  de documento";
             // 
@@ -462,7 +577,7 @@ namespace EASYPOS.Formularios.Correlativos
             this.autorizacionTextBox.Location = new System.Drawing.Point(171, 88);
             this.autorizacionTextBox.Name = "autorizacionTextBox";
             this.autorizacionTextBox.Size = new System.Drawing.Size(200, 20);
-            this.autorizacionTextBox.TabIndex = 1;
+            this.autorizacionTextBox.TabIndex = 2;
             // 
             // fechaDeAutorizacionDateTimePicker
             // 
@@ -470,7 +585,7 @@ namespace EASYPOS.Formularios.Correlativos
             this.fechaDeAutorizacionDateTimePicker.Location = new System.Drawing.Point(171, 114);
             this.fechaDeAutorizacionDateTimePicker.Name = "fechaDeAutorizacionDateTimePicker";
             this.fechaDeAutorizacionDateTimePicker.Size = new System.Drawing.Size(246, 20);
-            this.fechaDeAutorizacionDateTimePicker.TabIndex = 3;
+            this.fechaDeAutorizacionDateTimePicker.TabIndex = 4;
             // 
             // finTextBox
             // 
@@ -478,7 +593,7 @@ namespace EASYPOS.Formularios.Correlativos
             this.finTextBox.Location = new System.Drawing.Point(171, 166);
             this.finTextBox.Name = "finTextBox";
             this.finTextBox.Size = new System.Drawing.Size(200, 20);
-            this.finTextBox.TabIndex = 7;
+            this.finTextBox.TabIndex = 8;
             this.finTextBox.TextChanged += new System.EventHandler(this.finTextBox_TextChanged);
             // 
             // inicioTextBox
@@ -487,7 +602,7 @@ namespace EASYPOS.Formularios.Correlativos
             this.inicioTextBox.Location = new System.Drawing.Point(171, 140);
             this.inicioTextBox.Name = "inicioTextBox";
             this.inicioTextBox.Size = new System.Drawing.Size(200, 20);
-            this.inicioTextBox.TabIndex = 5;
+            this.inicioTextBox.TabIndex = 6;
             // 
             // label1
             // 
@@ -499,95 +614,11 @@ namespace EASYPOS.Formularios.Correlativos
             this.label1.TabIndex = 0;
             this.label1.Text = "Administración de correlativos";
             // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "IdCorrelativo";
-            this.dataGridViewTextBoxColumn1.HeaderText = "IdCorrelativo";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.DataPropertyName = "IdSucursal_FK";
-            this.dataGridViewTextBoxColumn10.DataSource = this.sucursalBindingSource;
-            dataGridViewCellStyle1.NullValue = "-";
-            this.dataGridViewTextBoxColumn10.DefaultCellStyle = dataGridViewCellStyle1;
-            this.dataGridViewTextBoxColumn10.DisplayMember = "NombreSucursal";
-            this.dataGridViewTextBoxColumn10.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.dataGridViewTextBoxColumn10.HeaderText = "Sucursal";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            this.dataGridViewTextBoxColumn10.ReadOnly = true;
-            this.dataGridViewTextBoxColumn10.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn10.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dataGridViewTextBoxColumn10.ValueMember = "IdSucursal";
-            this.dataGridViewTextBoxColumn10.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.DataPropertyName = "TipoDeDocumento";
-            this.dataGridViewTextBoxColumn7.DataSource = this.tipoDocumentoBindingSource;
-            dataGridViewCellStyle2.NullValue = "-";
-            this.dataGridViewTextBoxColumn7.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dataGridViewTextBoxColumn7.DisplayMember = "nombre";
-            this.dataGridViewTextBoxColumn7.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.dataGridViewTextBoxColumn7.HeaderText = "Documento";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.ReadOnly = true;
-            this.dataGridViewTextBoxColumn7.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn7.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dataGridViewTextBoxColumn7.ValueMember = "numero";
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "Autorizacion";
-            this.dataGridViewTextBoxColumn6.HeaderText = "Autorización";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.DataPropertyName = "Inicio";
-            this.dataGridViewTextBoxColumn4.HeaderText = "Inicio";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "Fin";
-            this.dataGridViewTextBoxColumn5.HeaderText = "Fin";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "ValorActual";
-            this.dataGridViewTextBoxColumn9.HeaderText = "Correlativo actual";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "FechaDeAutorizacion";
-            dataGridViewCellStyle3.Format = "d";
-            dataGridViewCellStyle3.NullValue = "-";
-            this.dataGridViewTextBoxColumn8.DefaultCellStyle = dataGridViewCellStyle3;
-            this.dataGridViewTextBoxColumn8.HeaderText = "Fecha de autorización";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.DataPropertyName = "FechaCreacion";
-            this.dataGridViewTextBoxColumn3.HeaderText = "F. Registro";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            // 
             // FCorrelativos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1056, 450);
+            this.ClientSize = new System.Drawing.Size(1056, 455);
             this.Controls.Add(this.Fpanel);
             this.Controls.Add(this.Registrarbutton);
             this.Controls.Add(this.correlativoDataGridView);
@@ -648,10 +679,12 @@ namespace EASYPOS.Formularios.Correlativos
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.BindingSource tipoDocumentoBindingSource;
         private System.Windows.Forms.TextBox valorActualTextBox;
+        private System.Windows.Forms.TextBox autorizacionTextBox1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn10;
         private System.Windows.Forms.DataGridViewComboBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Resolucion;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;

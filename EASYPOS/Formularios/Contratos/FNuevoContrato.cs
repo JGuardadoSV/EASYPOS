@@ -9,11 +9,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using EASYPOS.Entidades;
+using contrato = EASYPOS.Entidades.Contratos;
 namespace EASYPOS.Formularios.Contratos
 {
     public partial class FNuevoContrato : Form
     {
-        EASYPOS.Entidades.Contratos contratoUp;
+        contrato contratoUp,contraton=new contrato();
         public FNuevoContrato(EASYPOS.Entidades.Contratos contrato=null)
         {
             this.contratoUp = contrato;
@@ -24,7 +25,12 @@ namespace EASYPOS.Formularios.Contratos
         {
             if (contratoUp == null)
             {
-                contratosBindingSource.AddNew();
+                contraton.Meses = 18;
+                contraton.GastosEscritura = 0;
+                contraton.PrimaNeta = 0;
+                contraton.PrimaInicial = contraton.PrimaNeta;
+                contratosBindingSource.Add(contraton);
+                
             }
             else
             {
@@ -42,7 +48,7 @@ namespace EASYPOS.Formularios.Contratos
         private void button1_Click(object sender, EventArgs e)
         {
             CContratos cContratos = new CContratos();
-            EASYPOS.Entidades.Contratos contrato = new EASYPOS.Entidades.Contratos();
+            contrato contrato = new contrato();
             contrato = (EASYPOS.Entidades.Contratos)contratosBindingSource.Current;
             if (estadoCheckBox.Checked)
                 contrato.Estado = 1;
@@ -82,6 +88,43 @@ namespace EASYPOS.Formularios.Contratos
 
              FTablaAmortizacion f = new FTablaAmortizacion( monto,  meses,  cuota,  tasa,  fecha);
             f.ShowDialog();
+        }
+
+        private void gastosEscrituraTextBox_TextChanged(object sender, EventArgs e)
+        {
+            decimal gastos = decimal.Parse(gastosEscrituraTextBox.Text);
+            this.contraton.GastosEscritura = gastos;
+            contraton.PrimaNeta = contraton.Prima + contraton.GastosEscritura;
+            contraton.PrimaInicial = contraton.PrimaNeta;
+        }
+
+        private void primaTextBox_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+
+            
+            decimal precio = decimal.Parse(precioTextBox.Text);
+            decimal prima = decimal.Parse(primaTextBox.Text);
+            decimal financiamiento = precio - prima;
+                decimal interes = financiamiento * 0.03M;
+
+                decimal capital = financiamiento / contraton.Meses;
+                decimal cuota = Math.Round(capital + interes, 2);
+                financiamientoTextBox.Text = financiamiento.ToString() ;
+                //            ((contrato)contratosBindingSource.Current).Financiamiento = financiamiento;
+                contraton.Financiamiento = financiamiento;
+                contraton.Cuota = cuota;
+                cuotaTextBox.Text = contraton.Cuota.ToString();
+
+                
+
+            }
+            catch (Exception)
+            {
+
+                MessageBox.Show("ERror");
+            }
         }
     }
 }

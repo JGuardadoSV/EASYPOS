@@ -12,7 +12,7 @@ namespace EASYPOS.Formularios.POS
 {
     public partial class FCobro : Form
     {
-        decimal total, recibe, cambio;
+        public decimal total, recibe, cambio;
         public FCobro(decimal total)
         {
             this.total = total;

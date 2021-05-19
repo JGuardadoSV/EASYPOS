@@ -16,6 +16,11 @@ namespace EASYPOS.Entidades
         public long? Correlativo { get; set; }
         public int IdCorrelativo_FK { get; set; }
 
+        public decimal Total { get; set; }
+        public decimal Efectivo { get; set; }
+        public decimal Cambio { get; set; }
+
+
 
         public List<DetallesVenta> Detalles { get; set; }
     }

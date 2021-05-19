@@ -90,7 +90,10 @@ namespace EASYPOS.Formularios.Contratos
             this.telefonoReferencia2TextBox = new System.Windows.Forms.TextBox();
             this.telefonoTrabajoTextBox = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.estadoCheckBox = new System.Windows.Forms.CheckBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.fechaInicioDateTimePicker = new System.Windows.Forms.DateTimePicker();
+            this.button3 = new System.Windows.Forms.Button();
             this.mesesTextBox = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.nitReferenciaTextBox = new System.Windows.Forms.TextBox();
@@ -98,9 +101,6 @@ namespace EASYPOS.Formularios.Contratos
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.estadoCheckBox = new System.Windows.Forms.CheckBox();
-            this.button3 = new System.Windows.Forms.Button();
-            this.fechaInicioDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.contratosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             anioLabel = new System.Windows.Forms.Label();
             celularLabel = new System.Windows.Forms.Label();
@@ -424,6 +424,24 @@ namespace EASYPOS.Formularios.Contratos
             label4.Text = "COTIZADOR Y CONTRATOS";
             label4.Click += new System.EventHandler(this.label4_Click);
             // 
+            // estadoLabel
+            // 
+            estadoLabel.AutoSize = true;
+            estadoLabel.Location = new System.Drawing.Point(230, 19);
+            estadoLabel.Name = "estadoLabel";
+            estadoLabel.Size = new System.Drawing.Size(130, 19);
+            estadoLabel.TabIndex = 7;
+            estadoLabel.Text = "Es solo cotización:";
+            // 
+            // fechaInicioLabel
+            // 
+            fechaInicioLabel.AutoSize = true;
+            fechaInicioLabel.Location = new System.Drawing.Point(29, 271);
+            fechaInicioLabel.Name = "fechaInicioLabel";
+            fechaInicioLabel.Size = new System.Drawing.Size(90, 19);
+            fechaInicioLabel.TabIndex = 17;
+            fechaInicioLabel.Text = "Fecha Inicio:";
+            // 
             // anioTextBox
             // 
             this.anioTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.contratosBindingSource, "Anio", true));
@@ -519,6 +537,7 @@ namespace EASYPOS.Formularios.Contratos
             this.gastosEscrituraTextBox.Name = "gastosEscrituraTextBox";
             this.gastosEscrituraTextBox.Size = new System.Drawing.Size(117, 27);
             this.gastosEscrituraTextBox.TabIndex = 7;
+            this.gastosEscrituraTextBox.TextChanged += new System.EventHandler(this.gastosEscrituraTextBox_TextChanged);
             // 
             // marcaTextBox
             // 
@@ -567,6 +586,7 @@ namespace EASYPOS.Formularios.Contratos
             this.primaTextBox.Name = "primaTextBox";
             this.primaTextBox.Size = new System.Drawing.Size(117, 27);
             this.primaTextBox.TabIndex = 3;
+            this.primaTextBox.TextChanged += new System.EventHandler(this.primaTextBox_TextChanged);
             // 
             // primaInicialTextBox
             // 
@@ -660,6 +680,16 @@ namespace EASYPOS.Formularios.Contratos
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos personales";
             // 
+            // estadoCheckBox
+            // 
+            this.estadoCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.contratosBindingSource, "Estado", true));
+            this.estadoCheckBox.Location = new System.Drawing.Point(366, 17);
+            this.estadoCheckBox.Name = "estadoCheckBox";
+            this.estadoCheckBox.Size = new System.Drawing.Size(45, 24);
+            this.estadoCheckBox.TabIndex = 8;
+            this.estadoCheckBox.Text = "Si";
+            this.estadoCheckBox.UseVisualStyleBackColor = true;
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(fechaInicioLabel);
@@ -688,6 +718,25 @@ namespace EASYPOS.Formularios.Contratos
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Datos del crédito";
+            // 
+            // fechaInicioDateTimePicker
+            // 
+            this.fechaInicioDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.contratosBindingSource, "FechaInicio", true));
+            this.fechaInicioDateTimePicker.Location = new System.Drawing.Point(125, 269);
+            this.fechaInicioDateTimePicker.Name = "fechaInicioDateTimePicker";
+            this.fechaInicioDateTimePicker.Size = new System.Drawing.Size(200, 27);
+            this.fechaInicioDateTimePicker.TabIndex = 18;
+            // 
+            // button3
+            // 
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(261, 78);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(155, 50);
+            this.button3.TabIndex = 4;
+            this.button3.Text = "Tabla de pagos";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // mesesTextBox
             // 
@@ -781,53 +830,6 @@ namespace EASYPOS.Formularios.Contratos
             this.button2.Text = "Cancelar";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // estadoLabel
-            // 
-            estadoLabel.AutoSize = true;
-            estadoLabel.Location = new System.Drawing.Point(230, 19);
-            estadoLabel.Name = "estadoLabel";
-            estadoLabel.Size = new System.Drawing.Size(130, 19);
-            estadoLabel.TabIndex = 7;
-            estadoLabel.Text = "Es solo cotización:";
-            // 
-            // estadoCheckBox
-            // 
-            this.estadoCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.contratosBindingSource, "Estado", true));
-            this.estadoCheckBox.Location = new System.Drawing.Point(366, 17);
-            this.estadoCheckBox.Name = "estadoCheckBox";
-            this.estadoCheckBox.Size = new System.Drawing.Size(45, 24);
-            this.estadoCheckBox.TabIndex = 8;
-            this.estadoCheckBox.Text = "Si";
-            this.estadoCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(261, 78);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(155, 50);
-            this.button3.TabIndex = 4;
-            this.button3.Text = "Tabla de pagos";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // fechaInicioLabel
-            // 
-            fechaInicioLabel.AutoSize = true;
-            fechaInicioLabel.Location = new System.Drawing.Point(29, 271);
-            fechaInicioLabel.Name = "fechaInicioLabel";
-            fechaInicioLabel.Size = new System.Drawing.Size(90, 19);
-            fechaInicioLabel.TabIndex = 17;
-            fechaInicioLabel.Text = "Fecha Inicio:";
-            // 
-            // fechaInicioDateTimePicker
-            // 
-            this.fechaInicioDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.contratosBindingSource, "FechaInicio", true));
-            this.fechaInicioDateTimePicker.Location = new System.Drawing.Point(125, 269);
-            this.fechaInicioDateTimePicker.Name = "fechaInicioDateTimePicker";
-            this.fechaInicioDateTimePicker.Size = new System.Drawing.Size(200, 27);
-            this.fechaInicioDateTimePicker.TabIndex = 18;
             // 
             // contratosBindingSource
             // 

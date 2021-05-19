@@ -17,5 +17,6 @@ namespace EASYPOS.Entidades
         public DateTime? FechaDeAutorizacion { get; set; }
         public long? ValorActual { get; set; }
         public int IdSucursal_FK { get; set; }
+        public string Resolucion { get; set; }
     }
 }

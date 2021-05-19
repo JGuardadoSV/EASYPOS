@@ -20,7 +20,7 @@ namespace EASYPOS.Modelos
         public int Insertar(Venta venta,List<ProductoPOS> detalles)
         {
 
-            string consulta = "insert into Ventas values (@Fecha,@IdCliente_FK,@IdEmpleado_FK,@TipoDocumento,@Correlativo,@IdCorrelativo_FK)";
+            string consulta = "insert into Ventas values (@Fecha,@IdCliente_FK,@IdEmpleado_FK,@TipoDocumento,@Correlativo,@IdCorrelativo_FK,@Total,@Efectivo,@Cambio)";
             DynamicParameters parametros = new DynamicParameters();
             int idventa;
             parametros.Add("@Fecha", venta.Fecha, DbType.DateTime);
@@ -29,6 +29,9 @@ namespace EASYPOS.Modelos
             parametros.Add("@TipoDocumento", venta.TipoDocumento, DbType.Int32);
             parametros.Add("@Correlativo", venta.Correlativo, DbType.Int64);
             parametros.Add("@IdCorrelativo_FK", venta.IdCorrelativo_FK, DbType.Int32);
+            parametros.Add("@Total", venta.Total, DbType.Decimal);
+            parametros.Add("@Efectivo", venta.Total, DbType.Decimal);
+            parametros.Add("@Cambio", venta.Total, DbType.Decimal);
             cn.Open();
             cn.Execute(consulta, parametros, commandType: CommandType.Text);
             idventa = cn.QuerySingle<int>("Select max(IdVenta) id from ventas", commandType: CommandType.Text);
@@ -52,12 +55,12 @@ namespace EASYPOS.Modelos
                 inventario.disminuirExistencias(det.IdDetalleInventario_FK, det.Cantidad.Value);
                 
             }
-            return 1;
+            return idventa;
         }
         public void Actualizar(Venta venta)
         {
 
-            string consulta = "Update Ventas set Fecha=@Fecha,IdCliente_FK=@IdCliente_FK,IdEmpleado_FK=@IdEmpleado_FK,TipoDocumento=@TipoDocumento,Correlativo=@Corelativo,IdCorrelativo_FK=@IdCorrelativo_FK where IdVenta=@id";
+            string consulta = "Update Ventas set Fecha=@Fecha,IdCliente_FK=@IdCliente_FK,IdEmpleado_FK=@IdEmpleado_FK,TipoDocumento=@TipoDocumento,Correlativo=@Corelativo,IdCorrelativo_FK=@IdCorrelativo_FK,Total=@Total,Efectivo=@Efectivo,Cambio=@Cambio where IdVenta=@id";
             DynamicParameters parametros = new DynamicParameters();
 
             parametros.Add("@Fecha", venta.Fecha, DbType.DateTime);
@@ -67,6 +70,9 @@ namespace EASYPOS.Modelos
             parametros.Add("@Correlativo", venta.Correlativo, DbType.Int64);
             parametros.Add("@IdCorrelativo_FK", venta.IdCorrelativo_FK, DbType.Int32);
             parametros.Add("@id", venta.IdVenta, DbType.Int32);
+            parametros.Add("@Total", venta.Total, DbType.Decimal);
+            parametros.Add("@Efectivo", venta.Total, DbType.Decimal);
+            parametros.Add("@Cambio", venta.Total, DbType.Decimal);
             cn.Open();
             cn.Execute(consulta, parametros, commandType: CommandType.Text);
             cn.Close();

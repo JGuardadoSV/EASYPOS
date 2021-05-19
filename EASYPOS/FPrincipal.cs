@@ -1,5 +1,6 @@
 ﻿using EASYPOS.Formularios.Categorias;
 using EASYPOS.Formularios.Contratos;
+using EASYPOS.Formularios.Correlativos;
 using EASYPOS.Formularios.Inventario;
 using EASYPOS.Formularios.Productos;
 using EASYPOS.Formularios.Proveedores;
@@ -17,8 +18,10 @@ namespace EASYPOS
 {
     public partial class FPrincipal : Form
     {
-        public FPrincipal()
+        string usuario;
+        public FPrincipal(string usuario)
         {
+            this.usuario = usuario;
             InitializeComponent();
         }
 
@@ -75,6 +78,19 @@ namespace EASYPOS
 
             f.StartPosition = FormStartPosition.CenterParent;
             f.ShowDialog();
+        }
+
+        private void correlativosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FCorrelativos f = new FCorrelativos();
+            f.StartPosition = FormStartPosition.CenterParent;
+            f.StartPosition = FormStartPosition.CenterParent;
+            f.ShowDialog();
+        }
+
+        private void FPrincipal_Load(object sender, EventArgs e)
+        {
+            this.labelUsuario.Text = this.labelUsuario.Text + " " + usuario ;
         }
     }
 }

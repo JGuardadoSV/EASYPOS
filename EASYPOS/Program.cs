@@ -25,7 +25,19 @@ namespace EASYPOS
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FPrincipal());
+            FLogin f = new FLogin();
+            f.DialogResult = DialogResult.Cancel;
+
+            while (f.DialogResult == DialogResult.Cancel && f.cancelar == false)
+            {
+                f.ShowDialog();
+            }
+            if (f.cancelar ==false && f.DialogResult==DialogResult.OK)
+            {
+                Application.Run(new FPrincipal(f.user));
+            }
+           
+
         }
     }
 }

@@ -228,6 +228,7 @@ namespace EASYPOS
                 FCobro f = new FCobro(total);
                 f.ShowDialog();
 
+
                 if (f.DialogResult==DialogResult.OK)
                 {
                     int documento = 1, correlativo = int.Parse(textBoxCorrelativo.Text);
@@ -237,6 +238,9 @@ namespace EASYPOS
                     GenCliente();
 
                     Venta venta = new Venta();
+                    venta.Total = f.total;
+                    venta.Efectivo = f.recibe;
+                    venta.Cambio = f.cambio;
                     venta.Fecha = fecha;
                     venta.IdEmpleado_FK = 1;
                     venta.TipoDocumento = documento;
@@ -244,12 +248,12 @@ namespace EASYPOS
                     venta.Correlativo = correlativo;
                     venta.IdCorrelativo_FK = 1;
                     CVenta cVentas = new CVenta();
-                    int si = cVentas.Insertar(venta, listadoCompra);
+                    int id = cVentas.Insertar(venta, listadoCompra);
 
-                    if (si == 1)
+                    if (id >0)
                     {
                         MessageBox.Show(this, "Venta realizada con éxito", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        imprimirTicket();
+                        imprimirTicket(id);
                         this.Close();
                     }
                 }
@@ -306,23 +310,30 @@ namespace EASYPOS
             cliente.Giro = TXTGiro.Text;
         }
 
-        void imprimirTicket()
+        void imprimirTicket(int idventa)
         {
+            CVenta cVenta = new CVenta();
+            Venta venta = new Venta();
+            venta = cVenta.ObtenerUna(idventa);
+            CConfiguracion cConfiguracion = new CConfiguracion();
+            Configuracion config = cConfiguracion.ObtenerConfiguracion();
+            Printer printer = new Printer(config.Impresora);
 
-            Printer printer = new Printer("SLK-TS100 (copy 1)");
+            CCorrelativo ccorrelativo = new CCorrelativo();
+            Correlativo correlativo= ccorrelativo.ObtenerUna(venta.IdCorrelativo_FK);
 
             printer.AlignCenter();
             printer.Append("                                        ");
             printer.Append("                                        ");
             printer.Append("                                        ");
-            printer.BoldMode("Motos SG");
+            printer.BoldMode(config.NombreEmpresa);
             //Bitmap image = new Bitmap(Bitmap.FromFile("Icon.bmp"));
             //printer.Image(image);
-            printer.Append("Sucursal Nueva Concepción");
-            printer.Append("NIT:0416-200155-101-3");
-            printer.Append("NRC: 214545");
-            printer.Append("Fecha:20/10/2021 08:00 am");
-            printer.Append("Ticket #1");
+            printer.Append(config.Direccion);
+            printer.Append("NIT:"+config.NIT);
+            printer.Append("NRC:"+config.NRC);
+            printer.Append("Fecha:"+venta.Fecha);
+            printer.Append("Ticket #"+venta.Correlativo);
             printer.Append("--------------------------------------");
             
             printer.AlignLeft();
@@ -335,9 +346,13 @@ namespace EASYPOS
             printer.AlignCenter();
             printer.Append("--------------------------------------");
             printer.AlignLeft();
-            printer.Append("Ventas Afectas:" + textBoxTotal.Text);
-            printer.Append("Ventas Exentas:" + textBoxTotal.Text);
-            printer.Append("Ventas afectas:" + textBoxTotal.Text);
+            printer.Append("Ventas Afectas:" + venta.Total);
+            printer.Append("Ventas Exentas:" + "0.00");
+            printer.AlignCenter();
+            printer.Append("--------------------------------------");
+            printer.AlignLeft();
+            printer.Append("Recibido:" + venta.Efectivo);
+            printer.Append("Cambio:" + venta.Cambio);
             printer.AlignCenter();
             printer.Append("                                        ");
             printer.Append("                                        ");
@@ -347,10 +362,10 @@ namespace EASYPOS
             printer.Append("                                        ");
             printer.Append("                                        ");
 
-            printer.Append("Resolución: ADF5464654654");
-            printer.Append("Del 000001 al 100000");
-            printer.Append("Autorización: ADF5464654654");
-            printer.Append("                                        ");
+            printer.Append("Resolución: "+ correlativo.Resolucion);
+            printer.Append("Del " + "0000001 al " + correlativo.Fin);
+            printer.Append("Autorización:" + correlativo.Autorizacion);
+            printer.Append("Fecha de resolución:" + correlativo.FechaDeAutorizacion.ToString());
             printer.Append("                                        ");
             printer.Append("                                        ");
             printer.FullPaperCut();
