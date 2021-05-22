@@ -37,13 +37,13 @@ namespace EASYPOS.Formularios.Contratos
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tablaPagosDataGridView = new System.Windows.Forms.DataGridView();
-            this.tablaPagosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tablaPagosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.tablaPagosDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tablaPagosBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -76,10 +76,6 @@ namespace EASYPOS.Formularios.Contratos
             this.tablaPagosDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.tablaPagosDataGridView.Size = new System.Drawing.Size(776, 573);
             this.tablaPagosDataGridView.TabIndex = 1;
-            // 
-            // tablaPagosBindingSource
-            // 
-            this.tablaPagosBindingSource.DataSource = typeof(EASYPOS.Entidades.TablaPagos);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -139,6 +135,10 @@ namespace EASYPOS.Formularios.Contratos
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.ReadOnly = true;
             // 
+            // tablaPagosBindingSource
+            // 
+            this.tablaPagosBindingSource.DataSource = typeof(EASYPOS.Entidades.TablaPagos);
+            // 
             // FTablaAmortizacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -146,6 +146,7 @@ namespace EASYPOS.Formularios.Contratos
             this.ClientSize = new System.Drawing.Size(800, 629);
             this.Controls.Add(this.tablaPagosDataGridView);
             this.Name = "FTablaAmortizacion";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Teorico de pagos";
             this.Load += new System.EventHandler(this.FTablaAmortizacion_Load);
             ((System.ComponentModel.ISupportInitialize)(this.tablaPagosDataGridView)).EndInit();

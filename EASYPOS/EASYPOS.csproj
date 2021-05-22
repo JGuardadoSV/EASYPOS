@@ -143,6 +143,12 @@
     <Compile Include="Formularios\Clientes\FClientes.Designer.cs">
       <DependentUpon>FClientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\Contratos\FCalculos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Contratos\FCalculos.Designer.cs">
+      <DependentUpon>FCalculos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\Contratos\FContratos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -275,6 +281,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Clientes\FClientes.resx">
       <DependentUpon>FClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Contratos\FCalculos.resx">
+      <DependentUpon>FCalculos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Contratos\FContratos.resx">
       <DependentUpon>FContratos.cs</DependentUpon>

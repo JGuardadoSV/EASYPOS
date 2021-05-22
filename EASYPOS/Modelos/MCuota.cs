@@ -20,15 +20,19 @@ namespace EASYPOS.Modelos
         public int Insertar(Cuotas cuota)
         {
 
-            string consulta = "insert into Cuotas values (@Fecha,@Monto,@IdContrato_FK,@Correlativo,@IdCorrelativo_FK)";
+            string consulta = "insert into Cuotas (Fecha,Monto,IdContrato_FK,Capital,Intereses) values (@Fecha,@Monto,@IdContrato_FK,@Capital,@Intereses)";
             DynamicParameters parametros = new DynamicParameters();
-           // int idventa;
-            parametros.Add("@Fecha", cuota.Fecha, DbType.DateTime);
-            parametros.Add("@Monto", cuota.Monto, DbType.Decimal);
+            // int idventa;
+             parametros.Add("@Fecha", cuota.Fecha, DbType.DateTime);
+             parametros.Add("@Monto", cuota.Monto, DbType.Decimal);
+            /* parametros.Add("@IdContrato_FK", cuota.IdContrato_FK, DbType.Int32);
+             //parametros.Add("@TipoDocumento", cuota.TipoDocumento, DbType.Int32);
+             parametros.Add("@Correlativo", cuota.Correlativo, DbType.Int64);
+             parametros.Add("@IdCorrelativo_FK", cuota.IdCorrelativo_FK, DbType.Int32);*/
             parametros.Add("@IdContrato_FK", cuota.IdContrato_FK, DbType.Int32);
-            //parametros.Add("@TipoDocumento", cuota.TipoDocumento, DbType.Int32);
-            parametros.Add("@Correlativo", cuota.Correlativo, DbType.Int64);
-            parametros.Add("@IdCorrelativo_FK", cuota.IdCorrelativo_FK, DbType.Int32);
+            parametros.Add("@Capital", cuota.Capital, DbType.Decimal);
+            parametros.Add("@Intereses", cuota.Intereses, DbType.Decimal);
+            //parametros.Add("@Cancelada", 0);
             cn.Open();
             cn.Execute(consulta, parametros, commandType: CommandType.Text);
             //idventa = cn.QuerySingle<int>("Select max(IdVenta) id from ventas", commandType: CommandType.Text);
@@ -40,7 +44,31 @@ namespace EASYPOS.Modelos
           
             return 1;
         }
-       
+
+        public int Actualizar(Cuotas cuota)
+        {
+
+            string consulta = "Update cuotas set Correlativo=@Correlativo,IdCorrelativo_FK=@IdCorrelativo_FK,FechaDePago=@FechaDePago,Cancelada=@Cancelada where IdCuota=@id";
+            DynamicParameters parametros = new DynamicParameters();
+            // int idventa;
+            parametros.Add("@FechaDePago", DateTime.Now);
+            parametros.Add("@Cancelada", 1);
+            parametros.Add("@id", cuota.IdCuota);
+            //parametros.Add("@TipoDocumento", cuota.TipoDocumento, DbType.Int32);
+            parametros.Add("@Correlativo", cuota.Correlativo, DbType.Int64);
+            parametros.Add("@IdCorrelativo_FK", cuota.IdCorrelativo_FK, DbType.Int32); 
+
+            cn.Open();
+            cn.Execute(consulta, parametros, commandType: CommandType.Text);
+            cn.Close();
+
+           // CCorrelativo correlativo = new CCorrelativo();
+            //correlativo.ActualizarCorrelativo(cuota.IdCorrelativo_FK);
+
+
+            return 1;
+        }
+
         public void Eliminar(Cuotas cuota)
         {
             string consulta = "Delete from Cuotas where IdCuota=@id";

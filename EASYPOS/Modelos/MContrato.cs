@@ -14,7 +14,7 @@ namespace EASYPOS.Modelos
     {
         readonly IDbConnection cn = Conexion.conectar();
 
-        public void Insertar(Contratos contrato)
+        public int Insertar(Contratos contrato)
         {
 
             string consulta = "insert into Contratos values (@NombreCompleto,@Dui,@Nit,@TelefonoFijo,@Celular,@DireccionCasa,@DireccionTrabajo,@TelefonoTrabajo,@Referencia1,@DireccionReferencia1,@TelefonoReferencia1,@Referencia2,@DireccionReferencia2,@TelefonoReferencia2,@Precio,@Prima,@Financiamiento,@Cuota,@GastosEscritura,@PrimaNeta,@PrimaInicial,@DescripcionProducto,@Marca,@Modelo,@Chasis,@Anio,@Fecha,@DuiReferencia,@NitReferencia,@Meses,@Estado,@FechaInicio)";            
@@ -58,6 +58,12 @@ namespace EASYPOS.Modelos
             cn.Execute(consulta, parametros, commandType: CommandType.Text);
             cn.Close();
 
+            int id;
+
+            consulta = "Select Max(IdContrato) id from Contratos";
+            id=cn.QueryFirst<int>(consulta, commandType: CommandType.Text);
+            return id;
+
         }
 
         public List<Contratos> Listado()
@@ -71,7 +77,7 @@ namespace EASYPOS.Modelos
             return listado;
         }
 
-        public void Actualizar(Contratos contrato)
+        public int Actualizar(Contratos contrato)
         {
 
             string consulta = "Update Contratos set NombreCompleto=@NombreCompleto,Dui=@Dui,Nit=@Nit,TelefonoFijo=@TelefonoFijo,Celular=@Celular,DireccionCasa=@DireccionCasa,DireccionTrabajo=@DireccionTrabajo,TelefonoTrabajo=@TelefonoTrabajo,Referencia1=@Referencia1,DireccionReferencia1=@DireccionReferencia1,TelefonoReferencia1=@TelefonoReferencia1,Referencia2=@Referencia2,DireccionReferencia2=@DireccionReferencia2,TelefonoReferencia2=@TelefonoReferencia2,Precio=@Precio,Prima=@Prima,Financiamiento=@Financiamiento,Cuota=@Cuota,GastosEscritura=@GastosEscritura,PrimaNeta=@PrimaNeta,PrimaInicial=@PrimaInicial,DescripcionProducto=@DescripcionProducto,Marca=@Marca,Modelo=@Modelo,Chasis=@Chasis,Anio=@Anio,Fecha=@Fecha,FechaInicio=@FechaInicio ,DuiReferencia=@DuiReferencia,NitReferencia=@NitReferencia,Meses=@Meses,Estado=@Estado where IdContrato=@IdContrato";
@@ -113,6 +119,8 @@ namespace EASYPOS.Modelos
             cn.Open();
             cn.Execute(consulta, parametros, commandType: CommandType.Text);
             cn.Close();
+
+            return 1;
 
         }
 

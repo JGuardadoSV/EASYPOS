@@ -25,10 +25,10 @@ namespace EASYPOS.Formularios.Contratos
         {
             if (contratoUp == null)
             {
-                contraton.Meses = 18;
-                contraton.GastosEscritura = 0;
-                contraton.PrimaNeta = 0;
-                contraton.PrimaInicial = contraton.PrimaNeta;
+                //contraton.Meses = 18;
+                //contraton.GastosEscritura = 0;
+               //// contraton.PrimaNeta = 0;
+               // contraton.PrimaInicial = contraton.PrimaNeta;
                 contratosBindingSource.Add(contraton);
                 
             }
@@ -55,12 +55,18 @@ namespace EASYPOS.Formularios.Contratos
             else
                 contrato.Estado = 0;
 
-            cContratos.Insertar(contrato);
+            int idcontrato=cContratos.Insertar(contrato);
 
-            if (contratoUp==null)
+            if (contratoUp == null) {
+                generarTabla(contrato.Financiamiento.Value, contrato.Meses, contrato.FechaInicio.Value, 0.03M, idcontrato,contrato.Prima.Value);
                 MessageBox.Show(this, "Contrato guardado con éxito", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
             else
+            {
                 MessageBox.Show(this, "Contrato actualizado con éxito", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+                
 
 
             this.Close();
@@ -84,46 +90,194 @@ namespace EASYPOS.Formularios.Contratos
             decimal cuota =  Math.Round(monto/meses,2); 
             decimal tasa = Math.Round(3M /100,2); 
             DateTime fecha = fechaInicioDateTimePicker.Value;
-            
+            decimal prima = decimal.Parse(primaTextBox.Text);
 
-             FTablaAmortizacion f = new FTablaAmortizacion( monto,  meses,  cuota,  tasa,  fecha);
+             FTablaAmortizacion f = new FTablaAmortizacion( monto,  meses,  cuota,  tasa,  fecha,0);
             f.ShowDialog();
         }
 
         private void gastosEscrituraTextBox_TextChanged(object sender, EventArgs e)
         {
-            decimal gastos = decimal.Parse(gastosEscrituraTextBox.Text);
-            this.contraton.GastosEscritura = gastos;
-            contraton.PrimaNeta = contraton.Prima + contraton.GastosEscritura;
-            contraton.PrimaInicial = contraton.PrimaNeta;
+            if (gastosEscrituraTextBox.Text.Length>0)
+            {
+                try
+                {
+                    decimal gastos = decimal.Parse(gastosEscrituraTextBox.Text);
+                    this.contraton.GastosEscritura = gastos;
+                    contraton.PrimaNeta = contraton.Prima + contraton.GastosEscritura;
+                    contraton.PrimaInicial = contraton.PrimaNeta;
+                }
+                catch (Exception)
+                {
+
+                    
+                    ((EASYPOS.Entidades.Contratos)contratosBindingSource.Current).GastosEscritura = 0;
+                }
+                
+            }
+            
         }
 
         private void primaTextBox_TextChanged(object sender, EventArgs e)
         {
+            calcularcuota();
+        }
+
+        private void calcularcuota()
+        {
             try
             {
 
-            
-            decimal precio = decimal.Parse(precioTextBox.Text);
-            decimal prima = decimal.Parse(primaTextBox.Text);
-            decimal financiamiento = precio - prima;
+
+                decimal precio = decimal.Parse(precioTextBox.Text);
+                decimal prima = decimal.Parse(primaTextBox.Text);
+                decimal financiamiento = precio - prima;
                 decimal interes = financiamiento * 0.03M;
 
                 decimal capital = financiamiento / contraton.Meses;
                 decimal cuota = Math.Round(capital + interes, 2);
-                financiamientoTextBox.Text = financiamiento.ToString() ;
+                financiamientoTextBox.Text = financiamiento.ToString();
                 //            ((contrato)contratosBindingSource.Current).Financiamiento = financiamiento;
                 contraton.Financiamiento = financiamiento;
                 contraton.Cuota = cuota;
                 cuotaTextBox.Text = contraton.Cuota.ToString();
 
-                
+
 
             }
             catch (Exception)
             {
 
-                MessageBox.Show("ERror");
+                MessageBox.Show("Error");
+            }
+        }
+
+        private void SoloNumeros(object sender, KeyPressEventArgs e)
+        {
+            if ((e.KeyChar < 48 || e.KeyChar > 57) && e.KeyChar != 46
+                                && e.KeyChar != 8)
+                e.Handled = true;
+        }
+
+        private void precioTextBox_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (precioTextBox.Text.Length==0)
+            {
+                ((EASYPOS.Entidades.Contratos)contratosBindingSource.Current).GastosEscritura = 0;
+                ((EASYPOS.Entidades.Contratos)contratosBindingSource.Current).Prima = 0;
+                ((EASYPOS.Entidades.Contratos)contratosBindingSource.Current).Financiamiento = 0;
+                ((EASYPOS.Entidades.Contratos)contratosBindingSource.Current).PrimaInicial = 0;
+                ((EASYPOS.Entidades.Contratos)contratosBindingSource.Current).PrimaNeta = 0;
+                ((EASYPOS.Entidades.Contratos)contratosBindingSource.Current).Cuota = 0;
+                
+            }
+        }
+
+        private void precioTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (precioTextBox.Text.Length == 0)
+            {
+                ((EASYPOS.Entidades.Contratos)contratosBindingSource.Current).GastosEscritura = 0;
+                ((EASYPOS.Entidades.Contratos)contratosBindingSource.Current).Prima = 0;
+                ((EASYPOS.Entidades.Contratos)contratosBindingSource.Current).Financiamiento = 0;
+                ((EASYPOS.Entidades.Contratos)contratosBindingSource.Current).PrimaInicial = 0;
+                ((EASYPOS.Entidades.Contratos)contratosBindingSource.Current).PrimaNeta = 0;
+                ((EASYPOS.Entidades.Contratos)contratosBindingSource.Current).Cuota = 0;
+
+            }
+        }
+
+        private void mesesTextBox_TextChanged(object sender, EventArgs e)
+        {
+            calcularcuota();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+            
+            FCalculos fCalculos = new FCalculos();
+            fCalculos.StartPosition = FormStartPosition.CenterParent;
+            fCalculos.ShowDialog();
+
+            if (fCalculos.DialogResult==DialogResult.OK)
+            {
+                
+                contraton.Precio = fCalculos.precio;
+                contraton.Meses = fCalculos.meses;
+                contraton.Cuota = fCalculos.cuota;
+                contraton.Financiamiento = fCalculos.financiamiento;
+                contraton.Prima = fCalculos.prima;
+
+                    if (gastosEscrituraTextBox.Text.Length>0)
+                    {
+
+                        decimal gastos = decimal.Parse(gastosEscrituraTextBox.Text);
+                        contraton.GastosEscritura = gastos;
+                        contraton.PrimaInicial = contraton.Prima + gastos;
+                        contraton.PrimaNeta = contraton.PrimaInicial;
+
+                    }
+
+
+
+                
+                contratosBindingSource.DataSource = contraton;
+                contratosBindingSource.ResetBindings(true);
+                
+            }
+
+            }
+            catch (Exception)
+            {
+
+                
+            }
+        }
+
+        private void generarTabla(decimal monto,int meses, DateTime fecha, decimal tasa, int idcontrato, decimal prima)
+        {
+            decimal total = monto-prima;
+            decimal restante = monto;
+            List<TablaPagos> tabla = new List<TablaPagos>();
+
+            for (int i = 1; i <= meses; i++)
+            {
+                restante -= Math.Round(total / meses, 2);
+                fecha = fecha.AddMonths(1);
+                TablaPagos p = new TablaPagos();
+                p.Correlativo = i;
+                p.Fecha = fecha;
+                p.Capital = Math.Round(total / meses, 2);
+                p.Interes = Math.Round(total * tasa, 2);
+                p.Restante = restante;
+                p.Cuota = p.Capital + p.Interes;
+
+                if (p.Restante < 0)
+                {
+                    p.Capital = p.Capital + p.Restante;
+                    p.Restante = 0;
+                }
+
+                tabla.Add(p);
+
+            }
+
+            CCuota cCuota = new CCuota();
+            foreach (TablaPagos p in tabla)
+            {
+                Cuotas cuota = new Cuotas();
+
+                //Fecha,Monto,IdContrato_FK,Capital,Intereses
+                cuota.Fecha = p.Fecha;
+                cuota.Monto = p.Cuota;
+                cuota.IdContrato_FK = idcontrato;
+                cuota.Capital = p.Capital;
+                cuota.Intereses = p.Interes;
+
+                cCuota.Insertar(cuota);
             }
         }
     }

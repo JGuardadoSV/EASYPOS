@@ -101,6 +101,7 @@ namespace EASYPOS.Formularios.Contratos
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             this.contratosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             anioLabel = new System.Windows.Forms.Label();
             celularLabel = new System.Windows.Forms.Label();
@@ -172,10 +173,10 @@ namespace EASYPOS.Formularios.Contratos
             // cuotaLabel
             // 
             cuotaLabel.AutoSize = true;
-            cuotaLabel.Location = new System.Drawing.Point(71, 170);
+            cuotaLabel.Location = new System.Drawing.Point(13, 130);
             cuotaLabel.Name = "cuotaLabel";
             cuotaLabel.Size = new System.Drawing.Size(51, 19);
-            cuotaLabel.TabIndex = 8;
+            cuotaLabel.TabIndex = 10;
             cuotaLabel.Text = "Cuota:";
             // 
             // descripcionProductoLabel
@@ -226,19 +227,19 @@ namespace EASYPOS.Formularios.Contratos
             // financiamientoLabel
             // 
             financiamientoLabel.AutoSize = true;
-            financiamientoLabel.Location = new System.Drawing.Point(9, 101);
+            financiamientoLabel.Location = new System.Drawing.Point(13, 78);
             financiamientoLabel.Name = "financiamientoLabel";
             financiamientoLabel.Size = new System.Drawing.Size(113, 19);
-            financiamientoLabel.TabIndex = 4;
+            financiamientoLabel.TabIndex = 6;
             financiamientoLabel.Text = "Financiamiento:";
             // 
             // gastosEscrituraLabel
             // 
             gastosEscrituraLabel.AutoSize = true;
-            gastosEscrituraLabel.Location = new System.Drawing.Point(6, 134);
+            gastosEscrituraLabel.Location = new System.Drawing.Point(140, 133);
             gastosEscrituraLabel.Name = "gastosEscrituraLabel";
             gastosEscrituraLabel.Size = new System.Drawing.Size(116, 19);
-            gastosEscrituraLabel.TabIndex = 6;
+            gastosEscrituraLabel.TabIndex = 12;
             gastosEscrituraLabel.Text = "Gastos Escritura:";
             // 
             // marcaLabel
@@ -280,7 +281,7 @@ namespace EASYPOS.Formularios.Contratos
             // precioLabel
             // 
             precioLabel.AutoSize = true;
-            precioLabel.Location = new System.Drawing.Point(69, 35);
+            precioLabel.Location = new System.Drawing.Point(13, 21);
             precioLabel.Name = "precioLabel";
             precioLabel.Size = new System.Drawing.Size(53, 19);
             precioLabel.TabIndex = 0;
@@ -289,7 +290,7 @@ namespace EASYPOS.Formularios.Contratos
             // primaLabel
             // 
             primaLabel.AutoSize = true;
-            primaLabel.Location = new System.Drawing.Point(72, 68);
+            primaLabel.Location = new System.Drawing.Point(140, 18);
             primaLabel.Name = "primaLabel";
             primaLabel.Size = new System.Drawing.Size(50, 19);
             primaLabel.TabIndex = 2;
@@ -298,19 +299,19 @@ namespace EASYPOS.Formularios.Contratos
             // primaInicialLabel
             // 
             primaInicialLabel.AutoSize = true;
-            primaInicialLabel.Location = new System.Drawing.Point(29, 203);
+            primaInicialLabel.Location = new System.Drawing.Point(13, 194);
             primaInicialLabel.Name = "primaInicialLabel";
             primaInicialLabel.Size = new System.Drawing.Size(93, 19);
-            primaInicialLabel.TabIndex = 10;
+            primaInicialLabel.TabIndex = 14;
             primaInicialLabel.Text = "Prima Inicial:";
             // 
             // primaNetaLabel
             // 
             primaNetaLabel.AutoSize = true;
-            primaNetaLabel.Location = new System.Drawing.Point(36, 236);
+            primaNetaLabel.Location = new System.Drawing.Point(140, 194);
             primaNetaLabel.Name = "primaNetaLabel";
             primaNetaLabel.Size = new System.Drawing.Size(86, 19);
-            primaNetaLabel.TabIndex = 12;
+            primaNetaLabel.TabIndex = 16;
             primaNetaLabel.Text = "Prima Neta:";
             // 
             // referencia1Label
@@ -407,10 +408,10 @@ namespace EASYPOS.Formularios.Contratos
             // mesesLabel
             // 
             mesesLabel.AutoSize = true;
-            mesesLabel.Location = new System.Drawing.Point(251, 41);
+            mesesLabel.Location = new System.Drawing.Point(266, 21);
             mesesLabel.Name = "mesesLabel";
             mesesLabel.Size = new System.Drawing.Size(53, 19);
-            mesesLabel.TabIndex = 14;
+            mesesLabel.TabIndex = 4;
             mesesLabel.Text = "Meses:";
             // 
             // label4
@@ -436,10 +437,10 @@ namespace EASYPOS.Formularios.Contratos
             // fechaInicioLabel
             // 
             fechaInicioLabel.AutoSize = true;
-            fechaInicioLabel.Location = new System.Drawing.Point(29, 271);
+            fechaInicioLabel.Location = new System.Drawing.Point(140, 78);
             fechaInicioLabel.Name = "fechaInicioLabel";
             fechaInicioLabel.Size = new System.Drawing.Size(90, 19);
-            fechaInicioLabel.TabIndex = 17;
+            fechaInicioLabel.TabIndex = 8;
             fechaInicioLabel.Text = "Fecha Inicio:";
             // 
             // anioTextBox
@@ -449,6 +450,7 @@ namespace EASYPOS.Formularios.Contratos
             this.anioTextBox.Name = "anioTextBox";
             this.anioTextBox.Size = new System.Drawing.Size(160, 27);
             this.anioTextBox.TabIndex = 7;
+            this.anioTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SoloNumeros);
             // 
             // celularTextBox
             // 
@@ -469,10 +471,11 @@ namespace EASYPOS.Formularios.Contratos
             // cuotaTextBox
             // 
             this.cuotaTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.contratosBindingSource, "Cuota", true));
-            this.cuotaTextBox.Location = new System.Drawing.Point(128, 170);
+            this.cuotaTextBox.Location = new System.Drawing.Point(13, 152);
             this.cuotaTextBox.Name = "cuotaTextBox";
             this.cuotaTextBox.Size = new System.Drawing.Size(117, 27);
-            this.cuotaTextBox.TabIndex = 9;
+            this.cuotaTextBox.TabIndex = 11;
+            this.cuotaTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SoloNumeros);
             // 
             // descripcionProductoTextBox
             // 
@@ -525,19 +528,21 @@ namespace EASYPOS.Formularios.Contratos
             // financiamientoTextBox
             // 
             this.financiamientoTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.contratosBindingSource, "Financiamiento", true));
-            this.financiamientoTextBox.Location = new System.Drawing.Point(128, 101);
+            this.financiamientoTextBox.Location = new System.Drawing.Point(13, 100);
             this.financiamientoTextBox.Name = "financiamientoTextBox";
             this.financiamientoTextBox.Size = new System.Drawing.Size(117, 27);
-            this.financiamientoTextBox.TabIndex = 5;
+            this.financiamientoTextBox.TabIndex = 7;
+            this.financiamientoTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SoloNumeros);
             // 
             // gastosEscrituraTextBox
             // 
             this.gastosEscrituraTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.contratosBindingSource, "GastosEscritura", true));
-            this.gastosEscrituraTextBox.Location = new System.Drawing.Point(128, 134);
+            this.gastosEscrituraTextBox.Location = new System.Drawing.Point(140, 155);
             this.gastosEscrituraTextBox.Name = "gastosEscrituraTextBox";
             this.gastosEscrituraTextBox.Size = new System.Drawing.Size(117, 27);
-            this.gastosEscrituraTextBox.TabIndex = 7;
+            this.gastosEscrituraTextBox.TabIndex = 13;
             this.gastosEscrituraTextBox.TextChanged += new System.EventHandler(this.gastosEscrituraTextBox_TextChanged);
+            this.gastosEscrituraTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SoloNumeros);
             // 
             // marcaTextBox
             // 
@@ -574,35 +579,41 @@ namespace EASYPOS.Formularios.Contratos
             // precioTextBox
             // 
             this.precioTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.contratosBindingSource, "Precio", true));
-            this.precioTextBox.Location = new System.Drawing.Point(128, 35);
+            this.precioTextBox.Location = new System.Drawing.Point(13, 43);
             this.precioTextBox.Name = "precioTextBox";
             this.precioTextBox.Size = new System.Drawing.Size(117, 27);
             this.precioTextBox.TabIndex = 1;
+            this.precioTextBox.TextChanged += new System.EventHandler(this.precioTextBox_TextChanged);
+            this.precioTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SoloNumeros);
+            this.precioTextBox.KeyUp += new System.Windows.Forms.KeyEventHandler(this.precioTextBox_KeyUp);
             // 
             // primaTextBox
             // 
             this.primaTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.contratosBindingSource, "Prima", true));
-            this.primaTextBox.Location = new System.Drawing.Point(128, 68);
+            this.primaTextBox.Location = new System.Drawing.Point(140, 43);
             this.primaTextBox.Name = "primaTextBox";
             this.primaTextBox.Size = new System.Drawing.Size(117, 27);
             this.primaTextBox.TabIndex = 3;
             this.primaTextBox.TextChanged += new System.EventHandler(this.primaTextBox_TextChanged);
+            this.primaTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SoloNumeros);
             // 
             // primaInicialTextBox
             // 
             this.primaInicialTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.contratosBindingSource, "PrimaInicial", true));
-            this.primaInicialTextBox.Location = new System.Drawing.Point(128, 203);
+            this.primaInicialTextBox.Location = new System.Drawing.Point(13, 216);
             this.primaInicialTextBox.Name = "primaInicialTextBox";
             this.primaInicialTextBox.Size = new System.Drawing.Size(117, 27);
-            this.primaInicialTextBox.TabIndex = 11;
+            this.primaInicialTextBox.TabIndex = 15;
+            this.primaInicialTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SoloNumeros);
             // 
             // primaNetaTextBox
             // 
             this.primaNetaTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.contratosBindingSource, "PrimaNeta", true));
-            this.primaNetaTextBox.Location = new System.Drawing.Point(128, 236);
+            this.primaNetaTextBox.Location = new System.Drawing.Point(140, 216);
             this.primaNetaTextBox.Name = "primaNetaTextBox";
             this.primaNetaTextBox.Size = new System.Drawing.Size(117, 27);
-            this.primaNetaTextBox.TabIndex = 13;
+            this.primaNetaTextBox.TabIndex = 17;
+            this.primaNetaTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SoloNumeros);
             // 
             // referencia1TextBox
             // 
@@ -675,7 +686,7 @@ namespace EASYPOS.Formularios.Contratos
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(42, 58);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(416, 368);
+            this.groupBox1.Size = new System.Drawing.Size(436, 368);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos personales";
@@ -712,7 +723,7 @@ namespace EASYPOS.Formularios.Contratos
             this.groupBox2.Controls.Add(this.financiamientoTextBox);
             this.groupBox2.Controls.Add(financiamientoLabel);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(42, 441);
+            this.groupBox2.Location = new System.Drawing.Point(42, 507);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(436, 316);
             this.groupBox2.TabIndex = 2;
@@ -722,18 +733,18 @@ namespace EASYPOS.Formularios.Contratos
             // fechaInicioDateTimePicker
             // 
             this.fechaInicioDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.contratosBindingSource, "FechaInicio", true));
-            this.fechaInicioDateTimePicker.Location = new System.Drawing.Point(125, 269);
+            this.fechaInicioDateTimePicker.Location = new System.Drawing.Point(144, 97);
             this.fechaInicioDateTimePicker.Name = "fechaInicioDateTimePicker";
-            this.fechaInicioDateTimePicker.Size = new System.Drawing.Size(200, 27);
-            this.fechaInicioDateTimePicker.TabIndex = 18;
+            this.fechaInicioDateTimePicker.Size = new System.Drawing.Size(267, 27);
+            this.fechaInicioDateTimePicker.TabIndex = 9;
             // 
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(261, 78);
+            this.button3.Location = new System.Drawing.Point(13, 249);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(155, 50);
-            this.button3.TabIndex = 4;
+            this.button3.TabIndex = 18;
             this.button3.Text = "Tabla de pagos";
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
@@ -741,10 +752,12 @@ namespace EASYPOS.Formularios.Contratos
             // mesesTextBox
             // 
             this.mesesTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.contratosBindingSource, "Meses", true));
-            this.mesesTextBox.Location = new System.Drawing.Point(310, 37);
+            this.mesesTextBox.Location = new System.Drawing.Point(266, 43);
             this.mesesTextBox.Name = "mesesTextBox";
-            this.mesesTextBox.Size = new System.Drawing.Size(100, 27);
-            this.mesesTextBox.TabIndex = 15;
+            this.mesesTextBox.Size = new System.Drawing.Size(117, 27);
+            this.mesesTextBox.TabIndex = 5;
+            this.mesesTextBox.TextChanged += new System.EventHandler(this.mesesTextBox_TextChanged);
+            this.mesesTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SoloNumeros);
             // 
             // groupBox3
             // 
@@ -766,7 +779,7 @@ namespace EASYPOS.Formularios.Contratos
             this.groupBox3.Controls.Add(this.direccionReferencia2TextBox);
             this.groupBox3.Controls.Add(referencia1Label);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(475, 58);
+            this.groupBox3.Location = new System.Drawing.Point(555, 58);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(476, 368);
             this.groupBox3.TabIndex = 1;
@@ -802,7 +815,7 @@ namespace EASYPOS.Formularios.Contratos
             this.groupBox4.Controls.Add(this.chasisTextBox);
             this.groupBox4.Controls.Add(chasisLabel);
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.Location = new System.Drawing.Point(488, 441);
+            this.groupBox4.Location = new System.Drawing.Point(552, 441);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(476, 222);
             this.groupBox4.TabIndex = 3;
@@ -812,7 +825,7 @@ namespace EASYPOS.Formularios.Contratos
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(497, 677);
+            this.button1.Location = new System.Drawing.Point(544, 669);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(106, 42);
             this.button1.TabIndex = 4;
@@ -823,13 +836,24 @@ namespace EASYPOS.Formularios.Contratos
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(609, 677);
+            this.button2.Location = new System.Drawing.Point(656, 669);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(114, 42);
             this.button2.TabIndex = 4;
             this.button2.Text = "Cancelar";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button4
+            // 
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Location = new System.Drawing.Point(44, 441);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(155, 46);
+            this.button4.TabIndex = 19;
+            this.button4.Text = "Calcular cuota";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // contratosBindingSource
             // 
@@ -839,7 +863,8 @@ namespace EASYPOS.Formularios.Contratos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(989, 846);
+            this.ClientSize = new System.Drawing.Size(1078, 846);
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox4);
@@ -908,5 +933,6 @@ namespace EASYPOS.Formularios.Contratos
         private System.Windows.Forms.CheckBox estadoCheckBox;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.DateTimePicker fechaInicioDateTimePicker;
+        private System.Windows.Forms.Button button4;
     }
 }

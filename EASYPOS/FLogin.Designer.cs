@@ -55,6 +55,7 @@ namespace EASYPOS
             this.textBoxUsuario.Name = "textBoxUsuario";
             this.textBoxUsuario.Size = new System.Drawing.Size(262, 29);
             this.textBoxUsuario.TabIndex = 2;
+            this.textBoxUsuario.Text = "Administrador";
             this.textBoxUsuario.Click += new System.EventHandler(this.textBoxUsuario_Click);
             this.textBoxUsuario.Enter += new System.EventHandler(this.textBoxUsuario_Click);
             // 
@@ -76,6 +77,7 @@ namespace EASYPOS
             this.textBoxClave.PasswordChar = '*';
             this.textBoxClave.Size = new System.Drawing.Size(262, 29);
             this.textBoxClave.TabIndex = 4;
+            this.textBoxClave.Text = "hola";
             this.textBoxClave.Click += new System.EventHandler(this.textBoxClave_Enter);
             this.textBoxClave.Enter += new System.EventHandler(this.textBoxClave_Enter);
             // 

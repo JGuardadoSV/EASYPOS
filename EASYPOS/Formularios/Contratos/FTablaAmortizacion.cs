@@ -17,9 +17,9 @@ namespace EASYPOS.Formularios.Contratos
         int meses;
         DateTime fecha;
         List<TablaPagos> tabla = new List<TablaPagos>();
-        public FTablaAmortizacion(decimal monto, int meses, decimal cuota, decimal tasa,DateTime fecha)
+        public FTablaAmortizacion(decimal monto, int meses, decimal cuota, decimal tasa,DateTime fecha, decimal prima)
         {
-            this.monto = monto;
+            this.monto = monto-prima;
             this.meses = meses;
             this.cuota = cuota;
             this.fecha = fecha;

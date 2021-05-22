@@ -13,15 +13,15 @@ namespace EASYPOS.Controladores
         MContrato mContratos = new MContrato();
 
 
-        public void Insertar(Contratos contrato)
+        public int Insertar(Contratos contrato)
         {
             if (contrato.IdContrato==0)
             {
-                mContratos.Insertar(contrato);
+                return mContratos.Insertar(contrato);
             }
             else
             {
-                mContratos.Actualizar(contrato);
+                return mContratos.Actualizar(contrato);
             }
             
         }
