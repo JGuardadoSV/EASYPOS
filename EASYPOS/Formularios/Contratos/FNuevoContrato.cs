@@ -10,6 +10,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using EASYPOS.Entidades;
 using contrato = EASYPOS.Entidades.Contratos;
+using EASYPOS.Formularios.Reportes;
+
 namespace EASYPOS.Formularios.Contratos
 {
     public partial class FNuevoContrato : Form
@@ -267,6 +269,13 @@ namespace EASYPOS.Formularios.Contratos
         private void button5_Click(object sender, EventArgs e)
         {
             FCuotasPagar f = new FCuotasPagar(contratoUp.IdContrato);
+            f.StartPosition = FormStartPosition.CenterParent;
+            f.ShowDialog();
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            FReporteDocumentos f = new FReporteDocumentos();
             f.StartPosition = FormStartPosition.CenterParent;
             f.ShowDialog();
         }

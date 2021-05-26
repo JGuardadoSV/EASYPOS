@@ -78,6 +78,7 @@
     <Reference Include="System.Drawing.Common, Version=4.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Drawing.Common.4.6.0\lib\net461\System.Drawing.Common.dll</HintPath>
     </Reference>
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -243,11 +244,23 @@
     <Compile Include="Formularios\Reportes\FReporteContrato.Designer.cs">
       <DependentUpon>FReporteContrato.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\Reportes\FReporteDocumentos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Reportes\FReporteDocumentos.Designer.cs">
+      <DependentUpon>FReporteDocumentos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\Reportes\FReporteVentas.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\Reportes\FReporteVentas.Designer.cs">
       <DependentUpon>FReporteVentas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Reportes\FTablaFinanciamiento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Reportes\FTablaFinanciamiento.Designer.cs">
+      <DependentUpon>FTablaFinanciamiento.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\Sucursales\FSucursales.cs">
       <SubType>Form</SubType>
@@ -388,8 +401,14 @@
     <EmbeddedResource Include="Formularios\Reportes\FReporteContrato.resx">
       <DependentUpon>FReporteContrato.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Reportes\FReporteDocumentos.resx">
+      <DependentUpon>FReporteDocumentos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Reportes\FReporteVentas.resx">
       <DependentUpon>FReporteVentas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Reportes\FTablaFinanciamiento.resx">
+      <DependentUpon>FTablaFinanciamiento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Sucursales\FSucursales.resx">
       <DependentUpon>FSucursales.cs</DependentUpon>
@@ -432,7 +451,10 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Report1.rdlc" />
+    <EmbeddedResource Include="Reportes\amortizacion.rdlc" />
+    <EmbeddedResource Include="Reportes\DocumentoCompra.rdlc" />
     <EmbeddedResource Include="Reportes\rContratosVigentes.rdlc" />
+    <EmbeddedResource Include="Reportes\rTablaAmortizacion.rdlc" />
     <EmbeddedResource Include="Reportes\rVentas.rdlc" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\EASYPOS.Entidades.Caja.datasource" />

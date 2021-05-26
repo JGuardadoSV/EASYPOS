@@ -44,6 +44,7 @@ namespace EASYPOS.Formularios.Contratos
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tablaPagosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.tablaPagosDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tablaPagosBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -139,11 +140,22 @@ namespace EASYPOS.Formularios.Contratos
             // 
             this.tablaPagosBindingSource.DataSource = typeof(EASYPOS.Entidades.TablaPagos);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(13, 15);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(163, 23);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Imprimir reporte";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // FTablaAmortizacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 629);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.tablaPagosDataGridView);
             this.Name = "FTablaAmortizacion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -165,5 +177,6 @@ namespace EASYPOS.Formularios.Contratos
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.Button button1;
     }
 }

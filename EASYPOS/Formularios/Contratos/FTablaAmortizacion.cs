@@ -1,4 +1,5 @@
 ﻿using EASYPOS.Entidades;
+using EASYPOS.Formularios.Reportes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,7 +14,7 @@ namespace EASYPOS.Formularios.Contratos
 {
     public partial class FTablaAmortizacion : Form
     {
-        decimal monto,  tasa, cuota;
+        decimal monto,  tasa, cuota,prima;
         int meses;
         DateTime fecha;
         List<TablaPagos> tabla = new List<TablaPagos>();
@@ -24,7 +25,14 @@ namespace EASYPOS.Formularios.Contratos
             this.cuota = cuota;
             this.fecha = fecha;
             this.tasa = tasa;
+            this.prima = prima;
             InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FTablaFinanciamiento f = new FTablaFinanciamiento(monto,cuota,prima,tabla,meses);
+            f.ShowDialog();
         }
 
         private void FTablaAmortizacion_Load(object sender, EventArgs e)
