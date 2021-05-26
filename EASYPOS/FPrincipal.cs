@@ -1,9 +1,11 @@
 ﻿using EASYPOS.Formularios.Categorias;
+using EASYPOS.Formularios.Config;
 using EASYPOS.Formularios.Contratos;
 using EASYPOS.Formularios.Correlativos;
 using EASYPOS.Formularios.Inventario;
 using EASYPOS.Formularios.Productos;
 using EASYPOS.Formularios.Proveedores;
+using EASYPOS.Formularios.Reportes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -91,6 +93,20 @@ namespace EASYPOS
         private void FPrincipal_Load(object sender, EventArgs e)
         {
             this.labelUsuario.Text = this.labelUsuario.Text + " " + usuario ;
+        }
+
+        private void configuracionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FConfiguraciones f = new FConfiguraciones();
+            f.StartPosition = FormStartPosition.CenterParent;
+            f.ShowDialog();
+        }
+
+        private void reportesDeVentaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FFechas f = new FFechas();
+            f.StartPosition = FormStartPosition.CenterParent;
+            f.ShowDialog();
         }
     }
 }

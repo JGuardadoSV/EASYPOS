@@ -64,6 +64,7 @@ namespace EASYPOS.Formularios.Contratos
             System.Windows.Forms.Label estadoLabel;
             System.Windows.Forms.Label fechaInicioLabel;
             this.anioTextBox = new System.Windows.Forms.TextBox();
+            this.contratosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.celularTextBox = new System.Windows.Forms.TextBox();
             this.chasisTextBox = new System.Windows.Forms.TextBox();
             this.cuotaTextBox = new System.Windows.Forms.TextBox();
@@ -102,7 +103,7 @@ namespace EASYPOS.Formularios.Contratos
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.contratosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.button5 = new System.Windows.Forms.Button();
             anioLabel = new System.Windows.Forms.Label();
             celularLabel = new System.Windows.Forms.Label();
             chasisLabel = new System.Windows.Forms.Label();
@@ -136,11 +137,11 @@ namespace EASYPOS.Formularios.Contratos
             label4 = new System.Windows.Forms.Label();
             estadoLabel = new System.Windows.Forms.Label();
             fechaInicioLabel = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.contratosBindingSource)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.contratosBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // anioLabel
@@ -451,6 +452,10 @@ namespace EASYPOS.Formularios.Contratos
             this.anioTextBox.Size = new System.Drawing.Size(160, 27);
             this.anioTextBox.TabIndex = 7;
             this.anioTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SoloNumeros);
+            // 
+            // contratosBindingSource
+            // 
+            this.contratosBindingSource.DataSource = typeof(EASYPOS.Entidades.Contratos);
             // 
             // celularTextBox
             // 
@@ -855,15 +860,23 @@ namespace EASYPOS.Formularios.Contratos
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
-            // contratosBindingSource
+            // button5
             // 
-            this.contratosBindingSource.DataSource = typeof(EASYPOS.Entidades.Contratos);
+            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.Location = new System.Drawing.Point(340, 15);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(185, 33);
+            this.button5.TabIndex = 20;
+            this.button5.Text = "Historial de cuotas";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // FNuevoContrato
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1078, 846);
+            this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -878,6 +891,7 @@ namespace EASYPOS.Formularios.Contratos
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Creación de contrato";
             this.Load += new System.EventHandler(this.FNuevoContrato_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.contratosBindingSource)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -886,7 +900,6 @@ namespace EASYPOS.Formularios.Contratos
             this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.contratosBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -934,5 +947,6 @@ namespace EASYPOS.Formularios.Contratos
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.DateTimePicker fechaInicioDateTimePicker;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
     }
 }

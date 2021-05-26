@@ -148,7 +148,7 @@ namespace EASYPOS.Formularios.Contratos
             catch (Exception)
             {
 
-                MessageBox.Show("Error");
+            //    MessageBox.Show("Error");
             }
         }
 
@@ -235,6 +235,13 @@ namespace EASYPOS.Formularios.Contratos
 
                 
             }
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            FCuotasPagar f = new FCuotasPagar(contratoUp.IdContrato);
+            f.StartPosition = FormStartPosition.CenterParent;
+            f.ShowDialog();
         }
 
         private void generarTabla(decimal monto,int meses, DateTime fecha, decimal tasa, int idcontrato, decimal prima)

@@ -1,4 +1,5 @@
 ﻿using EASYPOS.Controladores;
+using EASYPOS.Entidades;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,6 +17,7 @@ namespace EASYPOS.Formularios.Contratos
     {
         CContratos cContratos = new CContratos();
        public  Contrato c = new Contrato();
+        public Cuotas cuota = new Cuotas();
         Boolean seleccion = false;
         public FContratos(Boolean seleccion=false)
         {
@@ -40,6 +42,16 @@ namespace EASYPOS.Formularios.Contratos
             if (seleccion)
             {
                 c = (Contrato)contratosBindingSource.Current;
+                
+                FCuotasPagar f = new FCuotasPagar(c.IdContrato);
+                f.StartPosition = FormStartPosition.CenterParent;
+                f.ShowDialog();
+                if (f.DialogResult==DialogResult.OK)
+                {
+                    this.cuota = f.cuota;
+                }
+                
+
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
@@ -65,6 +77,22 @@ namespace EASYPOS.Formularios.Contratos
         {
             this.DialogResult = DialogResult.Cancel;
             this.Close();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            cargar();
+        }
+
+        private void textBoxCliente_TextChanged(object sender, EventArgs e)
+        {
+            filtrado(this.textBoxCliente.Text);
+        }
+
+        private void filtrado(string cliente)
+        {
+
+            contratosBindingSource.DataSource = cContratos.Busqueda(cliente);
         }
     }
 }

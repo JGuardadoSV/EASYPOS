@@ -18,10 +18,13 @@ namespace EASYPOS
     public partial class fPOSCuota : Form
     {
         List<Contratos> listado = new List<Contratos>();
-        List<Contratos> listadoCompra = new List<Contratos>();
+        List<Cuotas> listadoCompra = new List<Cuotas>();
+        List<Cuotas> listadoCuotas = new List<Cuotas>();
         CContratos cContratos = new CContratos();
+        Cuotas cuotaActual = new Cuotas();
         Contratos contratoActual = new Contratos();
         int idContrato;
+        Cuotas cuota;
         DatosCliente cliente = new DatosCliente();
         decimal subtotal;
         decimal iva;
@@ -145,22 +148,25 @@ namespace EASYPOS
 
         private void buttonAgregar_Click(object sender, EventArgs e)
         {
-            
+            if (cuotasBindingSource.Count==0)
+            {
+
+           
             int cantidad = 1;
             Contratos producto = new Contratos();
-            producto = contratoActual;
-            producto.Cuota = Math.Round(cantidad * contratoActual.Cuota.Value, 2);
+          //  producto = contratoActual;
+           // producto.Cuota = Math.Round(cantidad * contratoActual.Cuota.Value, 2);
             //producto.Cantidad = cantidad;
             idContrato = contratoActual.IdContrato;
             listadoCompra.Add(
-                new Contratos { 
-                 NombreCompleto=producto.NombreCompleto,
-                 Cuota=producto.Cuota,
-                 Dui=producto.Dui,
-                 Celular=producto.Celular
+                new Cuotas { 
+                  Monto=cuota.Monto,
+                  Fecha=cuota.Fecha,
+                  IdCuota=cuota.IdCuota
+                  
             });
-            contratosBindingSource.DataSource = null;
-            contratosBindingSource.DataSource = listadoCompra;
+            cuotasBindingSource.DataSource = null;
+            cuotasBindingSource.DataSource = listadoCompra;
             
             textBoxBusqueda.Text = "";
             textBoxBusqueda.Focus();
@@ -168,9 +174,13 @@ namespace EASYPOS
 
 
             calculos();
-            
 
-            
+            }
+            else
+            {
+                MessageBox.Show("Solo se permite agregar una cuota por pago");
+            }
+
         }
 
         private void calculos()
@@ -179,9 +189,9 @@ namespace EASYPOS
             {
 
             
-            subtotal = listadoCompra.Sum(x => x.Cuota.Value)/1.13m;
+            subtotal = listadoCompra.Sum(x => x.Monto.Value)/1.13m;
             iva = Math.Round(subtotal * 0.13m,2);
-            total = listadoCompra.Sum(x => x.Cuota.Value);
+            total = listadoCompra.Sum(x => x.Monto.Value);
 
             textBoxSubtotal.Text = subtotal.ToString("c");
             textBoxIva.Text = iva.ToString("c");
@@ -206,10 +216,30 @@ namespace EASYPOS
 
         private void button4_Click(object sender, EventArgs e)
         {
+
+            if (cuotasBindingSource.Count==0)
+            {
+
+          
             FContratos formulario = new FContratos(true);
             formulario.ShowDialog();
-            textBoxBusqueda.Text = formulario.c.Dui;
-            Busqueda();
+            if (formulario.DialogResult==DialogResult.OK)
+            {
+                
+                if (formulario.cuota != null)
+                {
+                    textBoxBusqueda.Text = formulario.c.Dui;
+                    this.cuota = formulario.cuota;
+                    //cuotasBindingSource.DataSource = cuota;
+                      Busqueda();
+                }
+            }
+
+            }
+            else
+            {
+                MessageBox.Show("Solo se puede procesar una cuota a la vez");
+            }
             //textBoxCantidad.Focus();
         }
 
@@ -237,13 +267,13 @@ namespace EASYPOS
                     if (textBoxDocumento.Text == "C. FISCAL") documento = 3;
                     GenCliente();
 
-                    Cuotas cuota = new Cuotas();
-                    cuota.Fecha = fecha;
+                    Cuotas cuota = this.cuota;
+                    cuota.FechaDePago = fecha;
                     //venta.IdEmpleado_FK = 1;
                     cuota.Correlativo = correlativo;
                     cuota.IdCorrelativo_FK = 1;
-                    cuota.IdContrato_FK = idContrato;
-                    cuota.Monto = listadoCompra.First().Cuota.Value;
+                    //cuota.IdContrato_FK = idContrato;
+                    
                     CCuota cCuota = new CCuota();
                   int si = cCuota.Insertar(cuota);
 
@@ -288,6 +318,12 @@ namespace EASYPOS
             cliente.Telefono = TXTTelefono.Text;
             cliente.Direccion = TXTDireccion.Text;
             cliente.Giro = TXTGiro.Text;
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            this.cuota = null;
+            cuotasBindingSource.DataSource = null;
         }
     }
 }

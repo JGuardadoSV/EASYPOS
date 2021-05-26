@@ -85,9 +85,9 @@ namespace EASYPOS.Modelos
             string consulta = "SELECT * FROM Cuotas where IdContrato_FK=@Id";
             List<Cuotas> listado = new List<Cuotas>();
             DynamicParameters parametros = new DynamicParameters();
-            parametros.Add("@IdContrato_FK", id, DbType.Int32);
+            parametros.Add("@Id", id, DbType.Int32);
             cn.Open();
-            listado = cn.Query<Cuotas>(consulta).ToList();
+            listado = cn.Query<Cuotas>(consulta,parametros).ToList();
             cn.Close();
             return listado;
         }

@@ -40,5 +40,10 @@ namespace EASYPOS.Controladores
         {
             return mContratos.Listado();
         }
+
+        public List<Contratos> Busqueda(string cliente)
+        {
+            return mContratos.Busqueda(cliente);
+        }
     }
 }

@@ -113,5 +113,26 @@ namespace EASYPOS.Modelos
 
             return venta;
         }
+
+
+        /*
+         Select a.fecha,b.NombreCliente,a.Correlativo,a.total  from ventas a
+inner join clientes b on a.IdCliente_FK=b.IdCliente
+where a.Fecha between @fecha1 and @fecha2
+         */
+
+
+        public List<ReporteVentas> Reporte(DateTime f1, DateTime f2)
+        {
+            string consulta = "Select Convert(varchar(10),a.fecha,105) fecha,b.NombreCliente cliente,a.Correlativo ticket,a.total  from ventas a inner join clientes b on a.IdCliente_FK = b.IdCliente where a.Fecha between @fecha1 and @fecha2";
+            List<ReporteVentas> listado = new List<ReporteVentas>();
+            DynamicParameters parametros = new DynamicParameters();
+            parametros.Add("@fecha1", f1, DbType.DateTime);
+            parametros.Add("@fecha2", f2, DbType.DateTime);
+            cn.Open();
+            listado = cn.Query<ReporteVentas>(consulta,parametros,commandType:CommandType.Text).ToList();
+            cn.Close();
+            return listado;
+        }
     }
 }

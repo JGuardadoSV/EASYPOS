@@ -1,4 +1,5 @@
-﻿using EASYPOS.Modelos;
+﻿using EASYPOS.Entidades;
+using EASYPOS.Modelos;
 using System;
 
 namespace EASYPOS
@@ -15,6 +16,11 @@ namespace EASYPOS
         public  Configuracion Autenticacion(string usuario, string clave)
         {
             return mConfiguracion.Autenticacion(usuario,clave);
+        }
+
+        public void Guardar(Configuracion config)
+        {
+            mConfiguracion.Guardar(config);
         }
     }
 }

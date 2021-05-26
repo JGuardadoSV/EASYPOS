@@ -66,6 +66,19 @@ namespace EASYPOS.Modelos
 
         }
 
+        public List<Contratos> Busqueda(string cliente)
+        {
+            string consulta = "select * from Contratos where NombreCompleto like '%'+ @cliente +'%' or DUI  like '%'+ @cliente +'%'";
+            List<Contratos> listado = new List<Contratos>();
+            DynamicParameters parametros = new DynamicParameters();
+
+            parametros.Add("@cliente", cliente, DbType.String);
+            cn.Open();
+            listado = cn.Query<Contratos>(consulta, parametros,commandType:CommandType.Text).ToList();
+            cn.Close();
+            return listado;
+        }
+
         public List<Contratos> Listado()
         {
             string consulta = "SELECT * FROM Contratos";

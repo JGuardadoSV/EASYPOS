@@ -35,5 +35,10 @@ namespace EASYPOS.Controladores
         {
             return mVenta.ObtenerUno(id);
         }
+
+        public List<ReporteVentas> Reporte(DateTime f1, DateTime f2)
+        {
+            return mVenta.Reporte(f1, f2);
+        }
     }
 }

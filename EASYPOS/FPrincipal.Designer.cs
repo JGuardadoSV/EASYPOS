@@ -50,6 +50,8 @@ namespace EASYPOS
             this.correlativosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configuraciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.labelUsuario = new System.Windows.Forms.Label();
+            this.sistemaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.configuracionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -60,7 +62,8 @@ namespace EASYPOS
             this.ventasToolStripMenuItem,
             this.creditosToolStripMenuItem,
             this.inventarioToolStripMenuItem,
-            this.catálogoToolStripMenuItem});
+            this.catálogoToolStripMenuItem,
+            this.sistemaToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 29);
@@ -88,6 +91,7 @@ namespace EASYPOS
             this.reportesDeVentaToolStripMenuItem.Name = "reportesDeVentaToolStripMenuItem";
             this.reportesDeVentaToolStripMenuItem.Size = new System.Drawing.Size(205, 26);
             this.reportesDeVentaToolStripMenuItem.Text = "Reportes de venta";
+            this.reportesDeVentaToolStripMenuItem.Click += new System.EventHandler(this.reportesDeVentaToolStripMenuItem_Click);
             // 
             // creditosToolStripMenuItem
             // 
@@ -219,6 +223,21 @@ namespace EASYPOS
             this.labelUsuario.TabIndex = 1;
             this.labelUsuario.Text = "Bienvenido al sistema, ";
             // 
+            // sistemaToolStripMenuItem
+            // 
+            this.sistemaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.configuracionesToolStripMenuItem});
+            this.sistemaToolStripMenuItem.Name = "sistemaToolStripMenuItem";
+            this.sistemaToolStripMenuItem.Size = new System.Drawing.Size(77, 25);
+            this.sistemaToolStripMenuItem.Text = "Sistema";
+            // 
+            // configuracionesToolStripMenuItem
+            // 
+            this.configuracionesToolStripMenuItem.Name = "configuracionesToolStripMenuItem";
+            this.configuracionesToolStripMenuItem.Size = new System.Drawing.Size(193, 26);
+            this.configuracionesToolStripMenuItem.Text = "Configuraciones";
+            this.configuracionesToolStripMenuItem.Click += new System.EventHandler(this.configuracionesToolStripMenuItem_Click);
+            // 
             // FPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -262,5 +281,7 @@ namespace EASYPOS
         private System.Windows.Forms.ToolStripMenuItem correlativosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem configuraciónToolStripMenuItem;
         private System.Windows.Forms.Label labelUsuario;
+        private System.Windows.Forms.ToolStripMenuItem sistemaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem configuracionesToolStripMenuItem;
     }
 }

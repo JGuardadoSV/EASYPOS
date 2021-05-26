@@ -114,6 +114,7 @@
     <Compile Include="Entidades\ProductoPOS.cs" />
     <Compile Include="Entidades\Producto_Presentacion.cs" />
     <Compile Include="Entidades\Proveedor.cs" />
+    <Compile Include="Entidades\ReporteVentas.cs" />
     <Compile Include="Entidades\Rol.cs" />
     <Compile Include="Entidades\Sucursal.cs" />
     <Compile Include="Entidades\TablaPagos.cs" />
@@ -143,6 +144,12 @@
     <Compile Include="Formularios\Clientes\FClientes.Designer.cs">
       <DependentUpon>FClientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\Config\FConfiguraciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Config\FConfiguraciones.Designer.cs">
+      <DependentUpon>FConfiguraciones.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\Contratos\FCalculos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,6 +161,12 @@
     </Compile>
     <Compile Include="Formularios\Contratos\FContratos.Designer.cs">
       <DependentUpon>FContratos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Contratos\FCuotasPagar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Contratos\FCuotasPagar.Designer.cs">
+      <DependentUpon>FCuotasPagar.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\Contratos\FNuevoContrato.cs">
       <SubType>Form</SubType>
@@ -196,6 +209,18 @@
     </Compile>
     <Compile Include="Formularios\POS\FListadoProductosPOS.Designer.cs">
       <DependentUpon>FListadoProductosPOS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Reportes\FFechas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Reportes\FFechas.Designer.cs">
+      <DependentUpon>FFechas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Reportes\FReporteVentas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Reportes\FReporteVentas.Designer.cs">
+      <DependentUpon>FReporteVentas.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\Sucursales\FSucursales.cs">
       <SubType>Form</SubType>
@@ -282,11 +307,17 @@
     <EmbeddedResource Include="Formularios\Clientes\FClientes.resx">
       <DependentUpon>FClientes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Config\FConfiguraciones.resx">
+      <DependentUpon>FConfiguraciones.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Contratos\FCalculos.resx">
       <DependentUpon>FCalculos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Contratos\FContratos.resx">
       <DependentUpon>FContratos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Contratos\FCuotasPagar.resx">
+      <DependentUpon>FCuotasPagar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Contratos\FNuevoContrato.resx">
       <DependentUpon>FNuevoContrato.cs</DependentUpon>
@@ -308,6 +339,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\POS\FListadoProductosPOS.resx">
       <DependentUpon>FListadoProductosPOS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Reportes\FFechas.resx">
+      <DependentUpon>FFechas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Reportes\FReporteVentas.resx">
+      <DependentUpon>FReporteVentas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Sucursales\FSucursales.resx">
       <DependentUpon>FSucursales.cs</DependentUpon>
@@ -344,10 +381,12 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Report1.rdlc" />
+    <EmbeddedResource Include="Reportes\rVentas.rdlc" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\EASYPOS.Entidades.Caja.datasource" />
     <None Include="Properties\DataSources\EASYPOS.Entidades.Categoria.datasource" />
     <None Include="Properties\DataSources\EASYPOS.Entidades.Cliente.datasource" />
+    <None Include="Properties\DataSources\EASYPOS.Entidades.Configuracion.datasource" />
     <None Include="Properties\DataSources\EASYPOS.Entidades.Contratos.datasource" />
     <None Include="Properties\DataSources\EASYPOS.Entidades.Correlativo.datasource" />
     <None Include="Properties\DataSources\EASYPOS.Entidades.Cuotas.datasource" />
@@ -357,6 +396,7 @@
     <None Include="Properties\DataSources\EASYPOS.Entidades.Producto.datasource" />
     <None Include="Properties\DataSources\EASYPOS.Entidades.ProductoPOS.datasource" />
     <None Include="Properties\DataSources\EASYPOS.Entidades.Proveedor.datasource" />
+    <None Include="Properties\DataSources\EASYPOS.Entidades.ReporteVentas.datasource" />
     <None Include="Properties\DataSources\EASYPOS.Entidades.Rol.datasource" />
     <None Include="Properties\DataSources\EASYPOS.Entidades.Sucursal.datasource" />
     <None Include="Properties\DataSources\EASYPOS.Entidades.TablaPagos.datasource" />
