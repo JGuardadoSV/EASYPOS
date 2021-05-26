@@ -1,5 +1,6 @@
 ﻿using EASYPOS.Controladores;
 using EASYPOS.Entidades;
+using EASYPOS.Formularios.Reportes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -42,7 +43,10 @@ namespace EASYPOS.Formularios.Contratos
         {
             Contrato c = (Contrato)contratosBindingSource.Current;
 
-            FCuotasPagar f = new FCuotasPagar(c.IdContrato);
+
+            FReporteMora f = new FReporteMora(c.IdContrato);
+
+         //   FCuotasPagar f = new FCuotasPagar(c.IdContrato);
             f.StartPosition = FormStartPosition.CenterParent;
             f.ShowDialog();
 

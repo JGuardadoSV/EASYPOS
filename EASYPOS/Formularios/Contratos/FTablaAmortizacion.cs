@@ -17,8 +17,9 @@ namespace EASYPOS.Formularios.Contratos
         decimal monto,  tasa, cuota,prima;
         int meses;
         DateTime fecha;
+        string cliente;
         List<TablaPagos> tabla = new List<TablaPagos>();
-        public FTablaAmortizacion(decimal monto, int meses, decimal cuota, decimal tasa,DateTime fecha, decimal prima)
+        public FTablaAmortizacion(decimal monto, int meses, decimal cuota, decimal tasa,DateTime fecha, decimal prima,string cliente)
         {
             this.monto = monto-prima;
             this.meses = meses;
@@ -26,12 +27,13 @@ namespace EASYPOS.Formularios.Contratos
             this.fecha = fecha;
             this.tasa = tasa;
             this.prima = prima;
+            this.cliente = cliente;
             InitializeComponent();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            FTablaFinanciamiento f = new FTablaFinanciamiento(monto,cuota,prima,tabla,meses);
+            FTablaFinanciamiento f = new FTablaFinanciamiento(monto,cuota,prima,tabla,meses,cliente);
             f.ShowDialog();
         }
 

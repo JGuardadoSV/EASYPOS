@@ -13,8 +13,10 @@ namespace EASYPOS.Formularios.Contratos
     public partial class FCalculos : Form
     {
         public decimal precio, cuota,prima,financiamiento;public int meses;
-        public FCalculos()
+        string nombre;
+        public FCalculos(string nombre)
         {
+            this.nombre=nombre;
             InitializeComponent();
         }
 
@@ -30,7 +32,7 @@ namespace EASYPOS.Formularios.Contratos
 
         private void button3_Click(object sender, EventArgs e)
         {
-            FTablaAmortizacion f = new FTablaAmortizacion(this.precio, this.meses, this.cuota, 0.03M, DateTime.Now,this.prima);
+            FTablaAmortizacion f = new FTablaAmortizacion(this.precio, this.meses, this.cuota, 0.03M, DateTime.Now,this.prima,nombre);
             f.ShowDialog();
         }
 

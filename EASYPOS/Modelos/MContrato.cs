@@ -66,6 +66,16 @@ namespace EASYPOS.Modelos
 
         }
 
+        public  Contratos uno(int id)
+        {
+            string consulta = "select * from contratos where IdContrato="+id;
+            Contratos uno = new Contratos();
+            cn.Open();
+            uno = cn.QuerySingle<Contratos>(consulta);
+            cn.Close();
+            return uno;
+        }
+
         public List<Contratos> Atrasados()
         {
             string consulta = "select a.* from contratos a inner join cuotas b on a.IdContrato = b.IdContrato_FK where DATEDIFF(month, b.FechaDePago, getdate())>= 1";

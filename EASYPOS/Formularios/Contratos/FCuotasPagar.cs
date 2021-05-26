@@ -49,5 +49,12 @@ namespace EASYPOS.Formularios.Contratos
             }
             
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FHojaDePagos f = new FHojaDePagos(id);
+            f.StartPosition = FormStartPosition.CenterParent;
+            f.ShowDialog();
+        }
     }
 }

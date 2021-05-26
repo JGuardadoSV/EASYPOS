@@ -134,6 +134,7 @@
     <Compile Include="Entidades\Rol.cs" />
     <Compile Include="Entidades\Sucursal.cs" />
     <Compile Include="Entidades\TablaPagos.cs" />
+    <Compile Include="Entidades\TablaPagosExtendidos.cs" />
     <Compile Include="Entidades\TipoDocumento.cs" />
     <Compile Include="Entidades\Venta.cs" />
     <Compile Include="FLogin.cs">
@@ -189,6 +190,12 @@
     </Compile>
     <Compile Include="Formularios\Contratos\FCuotasPagar.Designer.cs">
       <DependentUpon>FCuotasPagar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Contratos\FHojaDePagos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Contratos\FHojaDePagos.Designer.cs">
+      <DependentUpon>FHojaDePagos.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\Contratos\FNuevoContrato.cs">
       <SubType>Form</SubType>
@@ -249,6 +256,12 @@
     </Compile>
     <Compile Include="Formularios\Reportes\FReporteDocumentos.Designer.cs">
       <DependentUpon>FReporteDocumentos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Reportes\FReporteMora.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Reportes\FReporteMora.Designer.cs">
+      <DependentUpon>FReporteMora.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\Reportes\FReporteVentas.cs">
       <SubType>Form</SubType>
@@ -374,6 +387,9 @@
     <EmbeddedResource Include="Formularios\Contratos\FCuotasPagar.resx">
       <DependentUpon>FCuotasPagar.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Contratos\FHojaDePagos.resx">
+      <DependentUpon>FHojaDePagos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Contratos\FNuevoContrato.resx">
       <DependentUpon>FNuevoContrato.cs</DependentUpon>
     </EmbeddedResource>
@@ -403,6 +419,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Reportes\FReporteDocumentos.resx">
       <DependentUpon>FReporteDocumentos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Reportes\FReporteMora.resx">
+      <DependentUpon>FReporteMora.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Reportes\FReporteVentas.resx">
       <DependentUpon>FReporteVentas.cs</DependentUpon>
@@ -453,7 +472,9 @@
     <EmbeddedResource Include="Report1.rdlc" />
     <EmbeddedResource Include="Reportes\amortizacion.rdlc" />
     <EmbeddedResource Include="Reportes\DocumentoCompra.rdlc" />
+    <EmbeddedResource Include="Reportes\rContratosPagoCuotas.rdlc" />
     <EmbeddedResource Include="Reportes\rContratosVigentes.rdlc" />
+    <EmbeddedResource Include="Reportes\rContratosVencidos.rdlc" />
     <EmbeddedResource Include="Reportes\rTablaAmortizacion.rdlc" />
     <EmbeddedResource Include="Reportes\rVentas.rdlc" />
     <None Include="packages.config" />
@@ -474,6 +495,7 @@
     <None Include="Properties\DataSources\EASYPOS.Entidades.Rol.datasource" />
     <None Include="Properties\DataSources\EASYPOS.Entidades.Sucursal.datasource" />
     <None Include="Properties\DataSources\EASYPOS.Entidades.TablaPagos.datasource" />
+    <None Include="Properties\DataSources\EASYPOS.Entidades.TablaPagosExtendidos.datasource" />
     <None Include="Properties\DataSources\EASYPOS.Entidades.TipoDocumento.datasource" />
     <None Include="Properties\DataSources\EASYPOS.Entidades.Venta.datasource" />
     <None Include="Properties\Settings.settings">

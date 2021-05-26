@@ -113,8 +113,8 @@ namespace EASYPOS.Formularios.Contratos
                 decimal tasa = Math.Round(3M / 100, 2);
                 DateTime fecha = fechaInicioDateTimePicker.Value;
                 decimal prima = decimal.Parse(primaTextBox.Text);
-
-                FTablaAmortizacion f = new FTablaAmortizacion(monto, meses, cuota, tasa, fecha, 0);
+                
+                FTablaAmortizacion f = new FTablaAmortizacion(monto, meses, cuota, tasa, fecha, 0,nombreCompletoTextBox.Text);
                 f.ShowDialog();
             }
             catch (Exception)
@@ -227,7 +227,7 @@ namespace EASYPOS.Formularios.Contratos
             {
 
             
-            FCalculos fCalculos = new FCalculos();
+            FCalculos fCalculos = new FCalculos(nombreCompletoTextBox.Text);
             fCalculos.StartPosition = FormStartPosition.CenterParent;
             fCalculos.ShowDialog();
 

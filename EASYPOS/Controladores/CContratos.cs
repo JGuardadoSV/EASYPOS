@@ -31,6 +31,11 @@ namespace EASYPOS.Controladores
             mContratos.Actualizar(contrato);
         }
 
+        public Contratos uno(int id)
+        {
+            return mContratos.uno(id);
+        }
+
         public void Eliminar(Contratos contrato)
         {
             mContratos.Eliminar(contrato);

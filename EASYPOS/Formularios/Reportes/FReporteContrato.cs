@@ -1,4 +1,5 @@
 ﻿using EASYPOS.Controladores;
+using EASYPOS.Entidades;
 using Microsoft.Reporting.WinForms;
 using System;
 using System.Collections.Generic;
@@ -27,8 +28,13 @@ namespace EASYPOS.Formularios.Reportes
             CContratos cContratos = new CContratos();
             List<con> listado = new List<con>();
 
-            ReportParameter[] p = new ReportParameter[1];
-
+            ReportParameter[] p = new ReportParameter[2];
+            CConfiguracion cConfiguracion = new CConfiguracion();
+            Configuracion c = new Configuracion();
+            c = cConfiguracion.ObtenerConfiguracion();
+            string informacion = c.NombreEmpresa + " - " + c.Telefono;
+            p[1] = new ReportParameter("informacion", informacion);
+           
             if (tipo==1)
             {
                 p[0] = new ReportParameter("titulo", "Contratos Activos");
