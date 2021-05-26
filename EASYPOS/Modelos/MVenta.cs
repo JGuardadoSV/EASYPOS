@@ -57,6 +57,19 @@ namespace EASYPOS.Modelos
             }
             return idventa;
         }
+
+        public List<ProductoPOS> DetallesVenta(int id)
+        {
+            string consulta = "select c.Codigo codigo, c.NombreProducto Nombre, a.PrecioVenta Precio, a.Cantidad Cantidad, (a.PrecioVenta *a.Cantidad) Total from DetallesVenta a inner join DetallesInventario b on a.IdDetalleInventario_FK = b.IdDetalle inner join Productos c on b.IdProducto_FK = c.IdProducto where a.IdVenta_FK = @id";
+            List<ProductoPOS> listado = new List<ProductoPOS>();
+            DynamicParameters parametros = new DynamicParameters();
+            parametros.Add("@id", id, DbType.Int32);
+            cn.Open();
+            listado = cn.Query<ProductoPOS>(consulta, parametros).ToList();
+            cn.Close();
+            return listado;
+        }
+
         public void Actualizar(Venta venta)
         {
 
@@ -89,13 +102,17 @@ namespace EASYPOS.Modelos
             cn.Close();
         }
 
-        public List<Venta> Listado()
+        public List<Venta> Listado(DateTime f1, DateTime f2)
         {
-            string consulta = "SELECT * FROM Ventas";
+            string consulta = "Select * from Ventas where fecha between @f1 and @f2";
             List<Venta> listado = new List<Venta>();
+            DynamicParameters parametros = new DynamicParameters();
+
+            parametros.Add("@f1", f1, DbType.DateTime);
+            parametros.Add("@f2", f2, DbType.DateTime);
 
             cn.Open();
-            listado = cn.Query<Venta>(consulta).ToList();
+            listado = cn.Query<Venta>(consulta,parametros).ToList();
             cn.Close();
             return listado;
         }

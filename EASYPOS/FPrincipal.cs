@@ -6,6 +6,7 @@ using EASYPOS.Formularios.Inventario;
 using EASYPOS.Formularios.Productos;
 using EASYPOS.Formularios.Proveedores;
 using EASYPOS.Formularios.Reportes;
+using EASYPOS.Formularios.Ventas;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -106,6 +107,39 @@ namespace EASYPOS
         {
             FFechas f = new FFechas();
             f.StartPosition = FormStartPosition.CenterParent;
+            f.ShowDialog();
+        }
+
+        private void historialDeVentasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FHistorialVentas f = new FHistorialVentas();
+            f.StartPosition = FormStartPosition.CenterParent;
+            f.ShowDialog();
+        }
+
+        private void cotizacionesRealizadasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FContratos f = new FContratos(false,true);
+
+            f.StartPosition = FormStartPosition.CenterParent;
+            f.ShowDialog();
+        }
+
+        private void contratosConPagosAtrasadosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FContratosAtrasados f = new FContratosAtrasados();
+            f.ShowDialog();
+        }
+
+        private void creditosVigentesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FReporteContrato f = new FReporteContrato(1); //vigentes
+            f.ShowDialog();
+        }
+
+        private void creditosPendientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FReporteContrato f = new FReporteContrato(2); //atrasados
             f.ShowDialog();
         }
     }

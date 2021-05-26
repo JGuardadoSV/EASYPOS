@@ -66,9 +66,23 @@ namespace EASYPOS.Modelos
 
         }
 
-        public List<Contratos> Busqueda(string cliente)
+        public List<Contratos> Atrasados()
+        {
+            string consulta = "select a.* from contratos a inner join cuotas b on a.IdContrato = b.IdContrato_FK where DATEDIFF(month, b.FechaDePago, getdate())>= 1";
+            List<Contratos> listado = new List<Contratos>();
+            cn.Open();
+            listado = cn.Query<Contratos>(consulta).ToList();
+            cn.Close();
+            return listado;
+        }
+
+        public List<Contratos> Busqueda(string cliente, Boolean atrasados=false)
         {
             string consulta = "select * from Contratos where NombreCompleto like '%'+ @cliente +'%' or DUI  like '%'+ @cliente +'%'";
+            if (atrasados)
+            {
+                consulta = "select a.* from contratos a inner join cuotas b on a.IdContrato = b.IdContrato_FK where (a.NombreCompleto like '%'+ @cliente +'%' or DUI  like '%'+ @cliente +'%') and DATEDIFF(month, b.FechaDePago, getdate())>= 1";
+            }
             List<Contratos> listado = new List<Contratos>();
             DynamicParameters parametros = new DynamicParameters();
 
@@ -79,9 +93,15 @@ namespace EASYPOS.Modelos
             return listado;
         }
 
-        public List<Contratos> Listado()
+        public List<Contratos> Listado(Boolean cotizaciones)
         {
-            string consulta = "SELECT * FROM Contratos";
+            string consulta = "SELECT * FROM Contratos where Estado=0";
+
+            if (cotizaciones)
+            {
+                 consulta = "SELECT * FROM Contratos where Estado=1";
+
+            }
             List<Contratos> listado = new List<Contratos>();
 
             cn.Open();

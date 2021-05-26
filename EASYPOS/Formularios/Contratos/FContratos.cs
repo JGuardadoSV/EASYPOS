@@ -19,9 +19,11 @@ namespace EASYPOS.Formularios.Contratos
        public  Contrato c = new Contrato();
         public Cuotas cuota = new Cuotas();
         Boolean seleccion = false;
-        public FContratos(Boolean seleccion=false)
+        Boolean cotizaciones = false;
+        public FContratos(Boolean seleccion=false,Boolean cotizaciones=false)
         {
             this.seleccion = seleccion;
+            this.cotizaciones = cotizaciones;
             InitializeComponent();
         }
 
@@ -30,11 +32,20 @@ namespace EASYPOS.Formularios.Contratos
             cargar();
             if (seleccion)
                 button2.Visible = false;
+
+            if (cotizaciones)
+            {
+                label1.Text = "Cotizaciones realizadas";
+            }
         }
 
         private void cargar()
         {
-            contratosBindingSource.DataSource = cContratos.Listado();
+            if (cotizaciones)
+                contratosBindingSource.DataSource = cContratos.Listado(true);
+            else
+                contratosBindingSource.DataSource = cContratos.Listado(false);
+
         }
 
         private void contratosDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -92,7 +103,7 @@ namespace EASYPOS.Formularios.Contratos
         private void filtrado(string cliente)
         {
 
-            contratosBindingSource.DataSource = cContratos.Busqueda(cliente);
+            contratosBindingSource.DataSource = cContratos.Busqueda(cliente,false);
         }
     }
 }

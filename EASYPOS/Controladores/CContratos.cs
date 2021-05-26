@@ -36,14 +36,19 @@ namespace EASYPOS.Controladores
             mContratos.Eliminar(contrato);
         }
 
-        public List<Contratos> Listado()
+        public List<Contratos> Listado(Boolean cotizaciones)
         {
-            return mContratos.Listado();
+            return mContratos.Listado(cotizaciones);
         }
 
-        public List<Contratos> Busqueda(string cliente)
+        public List<Contratos> Atrasados()
         {
-            return mContratos.Busqueda(cliente);
+            return mContratos.Atrasados();
+        }
+
+        public List<Contratos> Busqueda(string cliente, Boolean atrasados)
+        {
+            return mContratos.Busqueda(cliente,atrasados);
         }
     }
 }

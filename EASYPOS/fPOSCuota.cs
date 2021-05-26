@@ -38,7 +38,7 @@ namespace EASYPOS
         {
             ObtenerCorrelativo();
             
-            listado = cContratos.Listado();
+            listado = cContratos.Listado(false);
 
 
             TXTNombre.Text = "Nombre del cliente";

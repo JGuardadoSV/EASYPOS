@@ -26,9 +26,9 @@ namespace EASYPOS.Controladores
             mVenta.Eliminar(venta);
         }
 
-        public List<Venta> Listado()
+        public List<Venta> Listado(DateTime f1, DateTime f2)
         {
-            return mVenta.Listado();
+            return mVenta.Listado(f1,f2);
         }
 
         public Venta ObtenerUna(int id)
@@ -39,6 +39,11 @@ namespace EASYPOS.Controladores
         public List<ReporteVentas> Reporte(DateTime f1, DateTime f2)
         {
             return mVenta.Reporte(f1, f2);
+        }
+
+        public List<ProductoPOS> DetallesVenta(int id)
+        {
+            return mVenta.DetallesVenta(id);
         }
     }
 }
