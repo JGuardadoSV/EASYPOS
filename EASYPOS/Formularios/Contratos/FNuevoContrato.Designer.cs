@@ -62,7 +62,18 @@ namespace EASYPOS.Formularios.Contratos
             System.Windows.Forms.Label estadoLabel;
             System.Windows.Forms.Label fechaInicioLabel;
             System.Windows.Forms.Label label5;
+            System.Windows.Forms.Label label6;
+            System.Windows.Forms.Label label7;
+            System.Windows.Forms.Label label8;
+            System.Windows.Forms.Label label9;
+            System.Windows.Forms.Label label10;
+            System.Windows.Forms.Label label11;
+            System.Windows.Forms.Label label12;
+            System.Windows.Forms.Label label13;
+            System.Windows.Forms.Label label14;
+            System.Windows.Forms.Label label15;
             this.anioTextBox = new System.Windows.Forms.TextBox();
+            this.contratosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.celularTextBox = new System.Windows.Forms.TextBox();
             this.chasisTextBox = new System.Windows.Forms.TextBox();
             this.cuotaTextBox = new System.Windows.Forms.TextBox();
@@ -106,7 +117,15 @@ namespace EASYPOS.Formularios.Contratos
             this.Referencias = new System.Windows.Forms.TabPage();
             this.informes = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.contratosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.textBox8 = new System.Windows.Forms.TextBox();
             anioLabel = new System.Windows.Forms.Label();
             celularLabel = new System.Windows.Forms.Label();
             chasisLabel = new System.Windows.Forms.Label();
@@ -139,6 +158,17 @@ namespace EASYPOS.Formularios.Contratos
             estadoLabel = new System.Windows.Forms.Label();
             fechaInicioLabel = new System.Windows.Forms.Label();
             label5 = new System.Windows.Forms.Label();
+            label6 = new System.Windows.Forms.Label();
+            label7 = new System.Windows.Forms.Label();
+            label8 = new System.Windows.Forms.Label();
+            label9 = new System.Windows.Forms.Label();
+            label10 = new System.Windows.Forms.Label();
+            label11 = new System.Windows.Forms.Label();
+            label12 = new System.Windows.Forms.Label();
+            label13 = new System.Windows.Forms.Label();
+            label14 = new System.Windows.Forms.Label();
+            label15 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.contratosBindingSource)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -147,7 +177,7 @@ namespace EASYPOS.Formularios.Contratos
             this.datoscredito.SuspendLayout();
             this.Referencias.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.contratosBindingSource)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // anioLabel
@@ -432,6 +462,16 @@ namespace EASYPOS.Formularios.Contratos
             fechaInicioLabel.TabIndex = 8;
             fechaInicioLabel.Text = "Fecha Inicio:";
             // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label5.Location = new System.Drawing.Point(9, 33);
+            label5.Name = "label5";
+            label5.Size = new System.Drawing.Size(83, 19);
+            label5.TabIndex = 10;
+            label5.Text = "Referencia";
+            // 
             // anioTextBox
             // 
             this.anioTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.contratosBindingSource, "Anio", true));
@@ -440,6 +480,10 @@ namespace EASYPOS.Formularios.Contratos
             this.anioTextBox.Size = new System.Drawing.Size(160, 27);
             this.anioTextBox.TabIndex = 7;
             this.anioTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SoloNumeros);
+            // 
+            // contratosBindingSource
+            // 
+            this.contratosBindingSource.DataSource = typeof(EASYPOS.Entidades.Contratos);
             // 
             // celularTextBox
             // 
@@ -827,7 +871,7 @@ namespace EASYPOS.Formularios.Contratos
             this.tabControl1.Location = new System.Drawing.Point(0, 106);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1217, 398);
+            this.tabControl1.Size = new System.Drawing.Size(1217, 429);
             this.tabControl1.TabIndex = 22;
             // 
             // datosgenerales
@@ -866,17 +910,18 @@ namespace EASYPOS.Formularios.Contratos
             this.datoscredito.Location = new System.Drawing.Point(4, 22);
             this.datoscredito.Name = "datoscredito";
             this.datoscredito.Padding = new System.Windows.Forms.Padding(3);
-            this.datoscredito.Size = new System.Drawing.Size(1209, 372);
+            this.datoscredito.Size = new System.Drawing.Size(1209, 403);
             this.datoscredito.TabIndex = 1;
             this.datoscredito.Text = "Detalles del crédito";
             this.datoscredito.UseVisualStyleBackColor = true;
             // 
             // Referencias
             // 
+            this.Referencias.Controls.Add(this.groupBox1);
             this.Referencias.Controls.Add(this.groupBox3);
             this.Referencias.Location = new System.Drawing.Point(4, 22);
             this.Referencias.Name = "Referencias";
-            this.Referencias.Size = new System.Drawing.Size(1209, 372);
+            this.Referencias.Size = new System.Drawing.Size(1209, 403);
             this.Referencias.TabIndex = 2;
             this.Referencias.Text = "Referencias";
             this.Referencias.UseVisualStyleBackColor = true;
@@ -885,7 +930,7 @@ namespace EASYPOS.Formularios.Contratos
             // 
             this.informes.Location = new System.Drawing.Point(4, 22);
             this.informes.Name = "informes";
-            this.informes.Size = new System.Drawing.Size(1209, 307);
+            this.informes.Size = new System.Drawing.Size(1209, 403);
             this.informes.TabIndex = 3;
             this.informes.Text = "Informes";
             this.informes.UseVisualStyleBackColor = true;
@@ -904,19 +949,189 @@ namespace EASYPOS.Formularios.Contratos
             this.panel1.Size = new System.Drawing.Size(1229, 100);
             this.panel1.TabIndex = 23;
             // 
-            // contratosBindingSource
+            // groupBox1
             // 
-            this.contratosBindingSource.DataSource = typeof(EASYPOS.Entidades.Contratos);
+            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.textBox8);
+            this.groupBox1.Controls.Add(this.textBox7);
+            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.textBox3);
+            this.groupBox1.Controls.Add(label15);
+            this.groupBox1.Controls.Add(label6);
+            this.groupBox1.Controls.Add(label14);
+            this.groupBox1.Controls.Add(label7);
+            this.groupBox1.Controls.Add(label8);
+            this.groupBox1.Controls.Add(label9);
+            this.groupBox1.Controls.Add(this.textBox4);
+            this.groupBox1.Controls.Add(this.textBox5);
+            this.groupBox1.Controls.Add(label10);
+            this.groupBox1.Controls.Add(label11);
+            this.groupBox1.Controls.Add(label12);
+            this.groupBox1.Controls.Add(this.textBox6);
+            this.groupBox1.Controls.Add(label13);
+            this.groupBox1.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Location = new System.Drawing.Point(516, 12);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(476, 370);
+            this.groupBox1.TabIndex = 1;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Datos referencias familiares";
             // 
-            // label5
+            // textBox1
             // 
-            label5.AutoSize = true;
-            label5.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label5.Location = new System.Drawing.Point(9, 33);
-            label5.Name = "label5";
-            label5.Size = new System.Drawing.Size(83, 19);
-            label5.TabIndex = 10;
-            label5.Text = "Referencia";
+            this.textBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.contratosBindingSource, "NombreReferenciaFamiliar1", true));
+            this.textBox1.Location = new System.Drawing.Point(146, 64);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(306, 27);
+            this.textBox1.TabIndex = 1;
+            // 
+            // textBox2
+            // 
+            this.textBox2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.contratosBindingSource, "TelefonoFamiliar2", true));
+            this.textBox2.Location = new System.Drawing.Point(146, 300);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(200, 27);
+            this.textBox2.TabIndex = 16;
+            // 
+            // textBox3
+            // 
+            this.textBox3.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.contratosBindingSource, "TelefonoFamiliar1", true));
+            this.textBox3.Location = new System.Drawing.Point(146, 128);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(200, 27);
+            this.textBox3.TabIndex = 5;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new System.Drawing.Point(47, 268);
+            label6.Name = "label6";
+            label6.Size = new System.Drawing.Size(75, 19);
+            label6.TabIndex = 13;
+            label6.Text = "Direccion:";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new System.Drawing.Point(54, 96);
+            label7.Name = "label7";
+            label7.Size = new System.Drawing.Size(75, 19);
+            label7.TabIndex = 2;
+            label7.Text = "Direccion:";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new System.Drawing.Point(51, 300);
+            label8.Name = "label8";
+            label8.Size = new System.Drawing.Size(71, 19);
+            label8.TabIndex = 15;
+            label8.Text = "Telefono:";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new System.Drawing.Point(58, 128);
+            label9.Name = "label9";
+            label9.Size = new System.Drawing.Size(71, 19);
+            label9.TabIndex = 4;
+            label9.Text = "Telefono:";
+            // 
+            // textBox4
+            // 
+            this.textBox4.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.contratosBindingSource, "DireccionReferenciaFamiliar1", true));
+            this.textBox4.Location = new System.Drawing.Point(146, 96);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(306, 27);
+            this.textBox4.TabIndex = 3;
+            // 
+            // textBox5
+            // 
+            this.textBox5.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.contratosBindingSource, "NombreReferenciaFamiliar2", true));
+            this.textBox5.Location = new System.Drawing.Point(146, 236);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(306, 27);
+            this.textBox5.TabIndex = 12;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label10.Location = new System.Drawing.Point(9, 33);
+            label10.Name = "label10";
+            label10.Size = new System.Drawing.Size(83, 19);
+            label10.TabIndex = 10;
+            label10.Text = "Referencia";
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label11.Location = new System.Drawing.Point(9, 205);
+            label11.Name = "label11";
+            label11.Size = new System.Drawing.Size(83, 19);
+            label11.TabIndex = 10;
+            label11.Text = "Referencia";
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Location = new System.Drawing.Point(51, 236);
+            label12.Name = "label12";
+            label12.Size = new System.Drawing.Size(67, 19);
+            label12.TabIndex = 11;
+            label12.Text = "Nombre:";
+            // 
+            // textBox6
+            // 
+            this.textBox6.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.contratosBindingSource, "DireccionReferenciaFamiliar2", true));
+            this.textBox6.Location = new System.Drawing.Point(146, 268);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(306, 27);
+            this.textBox6.TabIndex = 14;
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Location = new System.Drawing.Point(62, 64);
+            label13.Name = "label13";
+            label13.Size = new System.Drawing.Size(67, 19);
+            label13.TabIndex = 0;
+            label13.Text = "Nombre:";
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Location = new System.Drawing.Point(51, 333);
+            label14.Name = "label14";
+            label14.Size = new System.Drawing.Size(84, 19);
+            label14.TabIndex = 15;
+            label14.Text = "Parentesco:";
+            // 
+            // textBox7
+            // 
+            this.textBox7.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.contratosBindingSource, "ParentescoFamiliar2", true));
+            this.textBox7.Location = new System.Drawing.Point(146, 333);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(200, 27);
+            this.textBox7.TabIndex = 16;
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Location = new System.Drawing.Point(51, 162);
+            label15.Name = "label15";
+            label15.Size = new System.Drawing.Size(84, 19);
+            label15.TabIndex = 15;
+            label15.Text = "Parentesco:";
+            // 
+            // textBox8
+            // 
+            this.textBox8.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.contratosBindingSource, "ParentescoFamiliar1", true));
+            this.textBox8.Location = new System.Drawing.Point(146, 162);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(200, 27);
+            this.textBox8.TabIndex = 16;
             // 
             // FNuevoContrato
             // 
@@ -931,6 +1146,7 @@ namespace EASYPOS.Formularios.Contratos
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Creación de contrato";
             this.Load += new System.EventHandler(this.FNuevoContrato_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.contratosBindingSource)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -944,7 +1160,8 @@ namespace EASYPOS.Formularios.Contratos
             this.Referencias.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.contratosBindingSource)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -996,5 +1213,14 @@ namespace EASYPOS.Formularios.Contratos
         private System.Windows.Forms.TabPage Referencias;
         private System.Windows.Forms.TabPage informes;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox textBox7;
     }
 }
