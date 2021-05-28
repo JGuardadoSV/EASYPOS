@@ -1,6 +1,5 @@
 ﻿using EASYPOS.Controladores;
 using EASYPOS.Entidades;
-using EASYPOS.Formularios.POS;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,30 +18,24 @@ namespace EASYPOS.Formularios.Contratos
         CContratos cContratos = new CContratos();
        public  Contrato c = new Contrato();
         public Cuotas cuota = new Cuotas();
-        Boolean seleccion = false,pago=false;
+        Boolean seleccion = false;
         Boolean cotizaciones = false;
-        public FContratos(Boolean seleccion=false,Boolean cotizaciones=false, Boolean pago=false)
+        public FContratos(Boolean seleccion=false,Boolean cotizaciones=false)
         {
             this.seleccion = seleccion;
             this.cotizaciones = cotizaciones;
-            this.pago = pago;
             InitializeComponent();
         }
 
         private void FContratos_Load(object sender, EventArgs e)
         {
             cargar();
-            if (seleccion )
+            if (seleccion)
                 button2.Visible = false;
 
             if (cotizaciones)
             {
                 label1.Text = "Cotizaciones realizadas";
-            }
-            if (pago)
-            {
-                button1.Enabled = false;
-                label1.Text = "Seleccion un contrato";
             }
         }
 
@@ -72,14 +65,6 @@ namespace EASYPOS.Formularios.Contratos
 
                 this.DialogResult = DialogResult.OK;
                 this.Close();
-            }
-            else if (pago)
-            {
-                c = (Contrato)contratosBindingSource.Current;
-
-                FCobroCuotaMoto f = new FCobroCuotaMoto(c);
-                f.StartPosition = FormStartPosition.CenterParent;
-                f.ShowDialog();
             }
             else
             {

@@ -77,8 +77,8 @@ namespace EASYPOS
 
         private void pagoDeCuotaToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            //fPOSCuota f = new fPOSCuota();
-            FContratos f = new FContratos(pago:true);
+            fPOSCuota f = new fPOSCuota();
+
             f.StartPosition = FormStartPosition.CenterParent;
             f.ShowDialog();
         }
