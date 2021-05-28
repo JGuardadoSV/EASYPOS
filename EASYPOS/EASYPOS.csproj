@@ -233,11 +233,19 @@
     <Compile Include="Formularios\POS\FCobro.Designer.cs">
       <DependentUpon>FCobro.cs</DependentUpon>
     </Compile>
+<<<<<<< HEAD
+    <Compile Include="Formularios\POS\FCobroCuota.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\POS\FCobroCuota.Designer.cs">
+      <DependentUpon>FCobroCuota.cs</DependentUpon>
+=======
     <Compile Include="Formularios\POS\FCobroCuotaMoto.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\POS\FCobroCuotaMoto.Designer.cs">
       <DependentUpon>FCobroCuotaMoto.cs</DependentUpon>
+>>>>>>> 5bdf87e64623ef7a43e45af0b7f574b05e1c9f4e
     </Compile>
     <Compile Include="Formularios\POS\FListadoProductosPOS.cs">
       <SubType>Form</SubType>
@@ -414,8 +422,13 @@
     <EmbeddedResource Include="Formularios\POS\FCobro.resx">
       <DependentUpon>FCobro.cs</DependentUpon>
     </EmbeddedResource>
+<<<<<<< HEAD
+    <EmbeddedResource Include="Formularios\POS\FCobroCuota.resx">
+      <DependentUpon>FCobroCuota.cs</DependentUpon>
+=======
     <EmbeddedResource Include="Formularios\POS\FCobroCuotaMoto.resx">
       <DependentUpon>FCobroCuotaMoto.cs</DependentUpon>
+>>>>>>> 5bdf87e64623ef7a43e45af0b7f574b05e1c9f4e
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\POS\FListadoProductosPOS.resx">
       <DependentUpon>FListadoProductosPOS.cs</DependentUpon>
