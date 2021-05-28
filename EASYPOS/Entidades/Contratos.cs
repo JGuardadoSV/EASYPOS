@@ -41,5 +41,15 @@ namespace EASYPOS.Entidades
         public int Meses { get; set; }
         public int Estado { get; set; }
         public DateTime? FechaInicio { get; set; }
+
+        public string NombreReferenciaFamiliar1 { get; set; }
+        public string DireccionReferenciaFamiliar1 { get; set; }
+        public string TelefonoFamiliar1 { get; set; }
+        public string ParentescoFamiliar1 { get; set; }
+
+        public string NombreReferenciaFamiliar2 { get; set; }
+        public string DireccionReferenciaFamiliar2 { get; set; }
+        public string TelefonoFamiliar2 { get; set; }
+        public string ParentescoFamiliar2 { get; set; }
     }
 }
