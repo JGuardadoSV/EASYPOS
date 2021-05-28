@@ -17,6 +17,7 @@ namespace EASYPOS.Formularios.POS
         {
             this.contrato = id;
             InitializeComponent();
+
         }
 
         private void FCobroCuotaMoto_Load(object sender, EventArgs e)
