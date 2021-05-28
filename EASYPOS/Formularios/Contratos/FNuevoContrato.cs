@@ -275,7 +275,7 @@ namespace EASYPOS.Formularios.Contratos
 
         private void button6_Click(object sender, EventArgs e)
         {
-            FReporteDocumentos f = new FReporteDocumentos();
+            FReporteDocumentos f = new FReporteDocumentos(contratoUp.IdContrato);
             f.StartPosition = FormStartPosition.CenterParent;
             f.ShowDialog();
         }

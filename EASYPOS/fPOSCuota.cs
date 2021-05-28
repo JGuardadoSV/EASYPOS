@@ -3,6 +3,7 @@ using EASYPOS.Entidades;
 using EASYPOS.Formularios.Contratos;
 using EASYPOS.Formularios.POS;
 using EASYPOS.Modelos;
+using ESC_POS_USB_NET.Printer;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -79,7 +80,7 @@ namespace EASYPOS
         private void ObtenerCorrelativo()
         {
             CCorrelativo cCorrelativo = new CCorrelativo();
-            textBoxCorrelativo.Text = cCorrelativo.ObtenerCorrelativo(1).ToString();
+            textBoxCorrelativo.Text = cCorrelativo.ObtenerCorrelativo(3).ToString();
         }
 
         public void RemoveText(object sender, EventArgs e)
@@ -277,9 +278,10 @@ namespace EASYPOS
                     CCuota cCuota = new CCuota();
                   int si = cCuota.Insertar(cuota);
 
-                    if (si == 1)
+                    if (si >=1)
                     {
                         MessageBox.Show(this, "Cuota registrada con éxito", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        imprimirTicket(si);
                         this.Close();
                     }
                 }
@@ -324,6 +326,75 @@ namespace EASYPOS
         {
             this.cuota = null;
             cuotasBindingSource.DataSource = null;
+        }
+
+        void imprimirTicket(int id)
+        {
+            CContratos cContratos = new CContratos();
+            CCuota cCuota = new CCuota();
+            Cuotas c = new Cuotas();
+            c = cCuota.ObtenerUna(id);
+            Contratos contrato = new Contratos();
+            contrato = cContratos.uno(c.IdContrato_FK);
+            
+            
+            CConfiguracion cConfiguracion = new CConfiguracion();
+            Configuracion config = cConfiguracion.ObtenerConfiguracion();
+            Printer printer = new Printer(config.Impresora);
+
+            CCorrelativo ccorrelativo = new CCorrelativo();
+            Correlativo correlativo = ccorrelativo.ObtenerUna(c.IdCorrelativo_FK);
+
+            printer.AlignCenter();
+            printer.Append("                                        ");
+            printer.Append("                                        ");
+            printer.Append("                                        ");
+            printer.BoldMode(config.NombreEmpresa);
+            //Bitmap image = new Bitmap(Bitmap.FromFile("Icon.bmp"));
+            //printer.Image(image);
+            printer.Append(config.Direccion);
+            printer.Append("NIT:" + config.NIT);
+            printer.Append("NRC:" + config.NRC);
+            printer.Append("Fecha:" + c.FechaDePago);
+            printer.Append("Ticket #" + c.Correlativo);
+            printer.Append("Cliente:" + contrato.NombreCompleto);
+            printer.Append("--------------------------------------");
+
+            printer.AlignLeft();
+            printer.Append("PRODUCTO     CANT.    PRECIO    TOTAL");
+            
+                printer.Append("Pago de cuota");
+                printer.Append("                " + 1 + "  $" + c.Monto.Value.ToString("F") + "   $" + c.Monto.Value.ToString("F"));
+            
+            printer.AlignCenter();
+            printer.Append("--------------------------------------");
+            printer.AlignLeft();
+            printer.Append("Ventas Afectas:" + c.Monto);
+            printer.Append("Ventas Exentas:" + "0.00");
+            printer.AlignCenter();
+            printer.Append("--------------------------------------");
+            printer.AlignLeft();
+            //printer.Append("Recibido:" + venta.Efectivo);
+           // printer.Append("Cambio:" + venta.Cambio);
+            printer.AlignCenter();
+            printer.Append("                                        ");
+            printer.Append("                                        ");
+            printer.Append("                                        ");
+            printer.Append("Gracias por su compra");
+            printer.Append("                                        ");
+            printer.Append("                                        ");
+            printer.Append("                                        ");
+
+            printer.Append("Resolución: " + correlativo.Resolucion);
+            printer.Append("Del " + "0000001 al " + correlativo.Fin);
+            printer.Append("Autorización:" + correlativo.Autorizacion);
+            printer.Append("Fecha de resolución:" + correlativo.FechaDeAutorizacion.ToString());
+            printer.Append("                                        ");
+            printer.Append("                                        ");
+            printer.FullPaperCut();
+            printer.PrintDocument();
+
+
         }
     }
 }

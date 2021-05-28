@@ -66,7 +66,7 @@ namespace EASYPOS.Modelos
             //correlativo.ActualizarCorrelativo(cuota.IdCorrelativo_FK);
 
 
-            return 1;
+            return cuota.IdCuota;
         }
 
         public void Eliminar(Cuotas cuota)

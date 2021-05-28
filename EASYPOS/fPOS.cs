@@ -75,7 +75,7 @@ namespace EASYPOS
         private void ObtenerCorrelativo()
         {
             CCorrelativo cCorrelativo = new CCorrelativo();
-            textBoxCorrelativo.Text = cCorrelativo.ObtenerCorrelativo(1).ToString();
+            textBoxCorrelativo.Text = cCorrelativo.ObtenerCorrelativo(3).ToString();
         }
 
         public void RemoveText(object sender, EventArgs e)
@@ -334,6 +334,7 @@ namespace EASYPOS
             printer.Append("NRC:"+config.NRC);
             printer.Append("Fecha:"+venta.Fecha);
             printer.Append("Ticket #"+venta.Correlativo);
+            printer.Append("Clientes Varios");
             printer.Append("--------------------------------------");
             
             printer.AlignLeft();
@@ -341,7 +342,7 @@ namespace EASYPOS
             foreach (ProductoPOS ps in listadoCompra)
             {
                 printer.Append(ps.Nombre);
-                printer.Append("                " + ps.Cantidad + "        $" + ps.Precio.ToString("F") + "   $" + ps.Total.ToString("F"));
+                printer.Append("                " + ps.Cantidad + "  $" + ps.Precio.ToString("F") + "   $" + ps.Total.ToString("F"));
             }
             printer.AlignCenter();
             printer.Append("--------------------------------------");

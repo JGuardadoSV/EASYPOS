@@ -30,8 +30,8 @@ namespace EASYPOS.Modelos
             parametros.Add("@Correlativo", venta.Correlativo, DbType.Int64);
             parametros.Add("@IdCorrelativo_FK", venta.IdCorrelativo_FK, DbType.Int32);
             parametros.Add("@Total", venta.Total, DbType.Decimal);
-            parametros.Add("@Efectivo", venta.Total, DbType.Decimal);
-            parametros.Add("@Cambio", venta.Total, DbType.Decimal);
+            parametros.Add("@Efectivo", venta.Efectivo, DbType.Decimal);
+            parametros.Add("@Cambio", venta.Cambio, DbType.Decimal);
             cn.Open();
             cn.Execute(consulta, parametros, commandType: CommandType.Text);
             idventa = cn.QuerySingle<int>("Select max(IdVenta) id from ventas", commandType: CommandType.Text);
