@@ -233,6 +233,12 @@
     <Compile Include="Formularios\POS\FCobro.Designer.cs">
       <DependentUpon>FCobro.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\POS\FCobroCuotaMoto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\POS\FCobroCuotaMoto.Designer.cs">
+      <DependentUpon>FCobroCuotaMoto.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\POS\FListadoProductosPOS.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -407,6 +413,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\POS\FCobro.resx">
       <DependentUpon>FCobro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\POS\FCobroCuotaMoto.resx">
+      <DependentUpon>FCobroCuotaMoto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\POS\FListadoProductosPOS.resx">
       <DependentUpon>FListadoProductosPOS.cs</DependentUpon>
