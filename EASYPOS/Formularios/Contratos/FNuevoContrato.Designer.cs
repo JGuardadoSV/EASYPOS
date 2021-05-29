@@ -59,7 +59,7 @@ namespace EASYPOS.Formularios.Contratos
             System.Windows.Forms.Label label3;
             System.Windows.Forms.Label mesesLabel;
             System.Windows.Forms.Label label4;
-            System.Windows.Forms.Label estadoLabel;
+            System.Windows.Forms.Label labelestado;
             System.Windows.Forms.Label fechaInicioLabel;
             System.Windows.Forms.Label label5;
             System.Windows.Forms.Label label6;
@@ -73,7 +73,6 @@ namespace EASYPOS.Formularios.Contratos
             System.Windows.Forms.Label label14;
             System.Windows.Forms.Label label15;
             this.anioTextBox = new System.Windows.Forms.TextBox();
-            this.contratosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.celularTextBox = new System.Windows.Forms.TextBox();
             this.chasisTextBox = new System.Windows.Forms.TextBox();
             this.cuotaTextBox = new System.Windows.Forms.TextBox();
@@ -83,7 +82,6 @@ namespace EASYPOS.Formularios.Contratos
             this.direccionReferencia2TextBox = new System.Windows.Forms.TextBox();
             this.direccionTrabajoTextBox = new System.Windows.Forms.TextBox();
             this.duiTextBox = new System.Windows.Forms.TextBox();
-            this.financiamientoTextBox = new System.Windows.Forms.TextBox();
             this.gastosEscrituraTextBox = new System.Windows.Forms.TextBox();
             this.marcaTextBox = new System.Windows.Forms.TextBox();
             this.modeloTextBox = new System.Windows.Forms.TextBox();
@@ -115,17 +113,19 @@ namespace EASYPOS.Formularios.Contratos
             this.datosgenerales = new System.Windows.Forms.TabPage();
             this.datoscredito = new System.Windows.Forms.TabPage();
             this.Referencias = new System.Windows.Forms.TabPage();
-            this.informes = new System.Windows.Forms.TabPage();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.textBox7 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.informes = new System.Windows.Forms.TabPage();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.financiamientoTextBox1 = new System.Windows.Forms.TextBox();
+            this.contratosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             anioLabel = new System.Windows.Forms.Label();
             celularLabel = new System.Windows.Forms.Label();
             chasisLabel = new System.Windows.Forms.Label();
@@ -155,7 +155,7 @@ namespace EASYPOS.Formularios.Contratos
             label3 = new System.Windows.Forms.Label();
             mesesLabel = new System.Windows.Forms.Label();
             label4 = new System.Windows.Forms.Label();
-            estadoLabel = new System.Windows.Forms.Label();
+            labelestado = new System.Windows.Forms.Label();
             fechaInicioLabel = new System.Windows.Forms.Label();
             label5 = new System.Windows.Forms.Label();
             label6 = new System.Windows.Forms.Label();
@@ -168,7 +168,6 @@ namespace EASYPOS.Formularios.Contratos
             label13 = new System.Windows.Forms.Label();
             label14 = new System.Windows.Forms.Label();
             label15 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.contratosBindingSource)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -176,8 +175,9 @@ namespace EASYPOS.Formularios.Contratos
             this.datosgenerales.SuspendLayout();
             this.datoscredito.SuspendLayout();
             this.Referencias.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.contratosBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // anioLabel
@@ -240,7 +240,7 @@ namespace EASYPOS.Formularios.Contratos
             direccionReferencia1Label.Location = new System.Drawing.Point(54, 96);
             direccionReferencia1Label.Name = "direccionReferencia1Label";
             direccionReferencia1Label.Size = new System.Drawing.Size(75, 19);
-            direccionReferencia1Label.TabIndex = 2;
+            direccionReferencia1Label.TabIndex = 3;
             direccionReferencia1Label.Text = "Direccion:";
             // 
             // direccionTrabajoLabel
@@ -357,7 +357,7 @@ namespace EASYPOS.Formularios.Contratos
             referencia1Label.Location = new System.Drawing.Point(62, 64);
             referencia1Label.Name = "referencia1Label";
             referencia1Label.Size = new System.Drawing.Size(67, 19);
-            referencia1Label.TabIndex = 0;
+            referencia1Label.TabIndex = 1;
             referencia1Label.Text = "Nombre:";
             // 
             // referencia2Label
@@ -366,7 +366,7 @@ namespace EASYPOS.Formularios.Contratos
             referencia2Label.Location = new System.Drawing.Point(51, 201);
             referencia2Label.Name = "referencia2Label";
             referencia2Label.Size = new System.Drawing.Size(67, 19);
-            referencia2Label.TabIndex = 11;
+            referencia2Label.TabIndex = 8;
             referencia2Label.Text = "Nombre:";
             // 
             // telefonoFijoLabel
@@ -384,7 +384,7 @@ namespace EASYPOS.Formularios.Contratos
             telefonoReferencia1Label.Location = new System.Drawing.Point(58, 128);
             telefonoReferencia1Label.Name = "telefonoReferencia1Label";
             telefonoReferencia1Label.Size = new System.Drawing.Size(71, 19);
-            telefonoReferencia1Label.TabIndex = 4;
+            telefonoReferencia1Label.TabIndex = 5;
             telefonoReferencia1Label.Text = "Telefono:";
             // 
             // telefonoTrabajoLabel
@@ -402,7 +402,7 @@ namespace EASYPOS.Formularios.Contratos
             label1.Location = new System.Drawing.Point(51, 265);
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(71, 19);
-            label1.TabIndex = 15;
+            label1.TabIndex = 12;
             label1.Text = "Telefono:";
             // 
             // label2
@@ -411,7 +411,7 @@ namespace EASYPOS.Formularios.Contratos
             label2.Location = new System.Drawing.Point(47, 233);
             label2.Name = "label2";
             label2.Size = new System.Drawing.Size(75, 19);
-            label2.TabIndex = 13;
+            label2.TabIndex = 10;
             label2.Text = "Direccion:";
             // 
             // label3
@@ -421,7 +421,7 @@ namespace EASYPOS.Formularios.Contratos
             label3.Location = new System.Drawing.Point(9, 170);
             label3.Name = "label3";
             label3.Size = new System.Drawing.Size(83, 19);
-            label3.TabIndex = 10;
+            label3.TabIndex = 7;
             label3.Text = "Referencia";
             // 
             // mesesLabel
@@ -444,14 +444,16 @@ namespace EASYPOS.Formularios.Contratos
             label4.Text = "COTIZADOR Y CONTRATOS";
             label4.Click += new System.EventHandler(this.label4_Click);
             // 
-            // estadoLabel
+            // labelestado
             // 
-            estadoLabel.AutoSize = true;
-            estadoLabel.Location = new System.Drawing.Point(257, 11);
-            estadoLabel.Name = "estadoLabel";
-            estadoLabel.Size = new System.Drawing.Size(135, 18);
-            estadoLabel.TabIndex = 7;
-            estadoLabel.Text = "Es solo cotización:";
+            labelestado.AutoSize = true;
+            labelestado.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            labelestado.ForeColor = System.Drawing.Color.Red;
+            labelestado.Location = new System.Drawing.Point(217, 11);
+            labelestado.Name = "labelestado";
+            labelestado.Size = new System.Drawing.Size(167, 18);
+            labelestado.TabIndex = 7;
+            labelestado.Text = "¿Es solo cotización?";
             // 
             // fechaInicioLabel
             // 
@@ -469,8 +471,100 @@ namespace EASYPOS.Formularios.Contratos
             label5.Location = new System.Drawing.Point(9, 33);
             label5.Name = "label5";
             label5.Size = new System.Drawing.Size(83, 19);
-            label5.TabIndex = 10;
+            label5.TabIndex = 0;
             label5.Text = "Referencia";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new System.Drawing.Point(47, 268);
+            label6.Name = "label6";
+            label6.Size = new System.Drawing.Size(75, 19);
+            label6.TabIndex = 12;
+            label6.Text = "Direccion:";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new System.Drawing.Point(54, 96);
+            label7.Name = "label7";
+            label7.Size = new System.Drawing.Size(75, 19);
+            label7.TabIndex = 3;
+            label7.Text = "Direccion:";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new System.Drawing.Point(51, 300);
+            label8.Name = "label8";
+            label8.Size = new System.Drawing.Size(71, 19);
+            label8.TabIndex = 14;
+            label8.Text = "Telefono:";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new System.Drawing.Point(58, 128);
+            label9.Name = "label9";
+            label9.Size = new System.Drawing.Size(71, 19);
+            label9.TabIndex = 5;
+            label9.Text = "Telefono:";
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label10.Location = new System.Drawing.Point(9, 33);
+            label10.Name = "label10";
+            label10.Size = new System.Drawing.Size(83, 19);
+            label10.TabIndex = 0;
+            label10.Text = "Referencia";
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label11.Location = new System.Drawing.Point(9, 205);
+            label11.Name = "label11";
+            label11.Size = new System.Drawing.Size(83, 19);
+            label11.TabIndex = 9;
+            label11.Text = "Referencia";
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Location = new System.Drawing.Point(51, 236);
+            label12.Name = "label12";
+            label12.Size = new System.Drawing.Size(67, 19);
+            label12.TabIndex = 10;
+            label12.Text = "Nombre:";
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Location = new System.Drawing.Point(62, 64);
+            label13.Name = "label13";
+            label13.Size = new System.Drawing.Size(67, 19);
+            label13.TabIndex = 1;
+            label13.Text = "Nombre:";
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Location = new System.Drawing.Point(51, 333);
+            label14.Name = "label14";
+            label14.Size = new System.Drawing.Size(84, 19);
+            label14.TabIndex = 16;
+            label14.Text = "Parentesco:";
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Location = new System.Drawing.Point(51, 162);
+            label15.Name = "label15";
+            label15.Size = new System.Drawing.Size(84, 19);
+            label15.TabIndex = 7;
+            label15.Text = "Parentesco:";
             // 
             // anioTextBox
             // 
@@ -480,10 +574,6 @@ namespace EASYPOS.Formularios.Contratos
             this.anioTextBox.Size = new System.Drawing.Size(160, 27);
             this.anioTextBox.TabIndex = 7;
             this.anioTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SoloNumeros);
-            // 
-            // contratosBindingSource
-            // 
-            this.contratosBindingSource.DataSource = typeof(EASYPOS.Entidades.Contratos);
             // 
             // celularTextBox
             // 
@@ -506,6 +596,7 @@ namespace EASYPOS.Formularios.Contratos
             this.cuotaTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.contratosBindingSource, "Cuota", true));
             this.cuotaTextBox.Location = new System.Drawing.Point(13, 152);
             this.cuotaTextBox.Name = "cuotaTextBox";
+            this.cuotaTextBox.ReadOnly = true;
             this.cuotaTextBox.Size = new System.Drawing.Size(117, 27);
             this.cuotaTextBox.TabIndex = 11;
             this.cuotaTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SoloNumeros);
@@ -532,7 +623,7 @@ namespace EASYPOS.Formularios.Contratos
             this.direccionReferencia1TextBox.Location = new System.Drawing.Point(146, 96);
             this.direccionReferencia1TextBox.Name = "direccionReferencia1TextBox";
             this.direccionReferencia1TextBox.Size = new System.Drawing.Size(306, 27);
-            this.direccionReferencia1TextBox.TabIndex = 3;
+            this.direccionReferencia1TextBox.TabIndex = 4;
             // 
             // direccionReferencia2TextBox
             // 
@@ -540,7 +631,7 @@ namespace EASYPOS.Formularios.Contratos
             this.direccionReferencia2TextBox.Location = new System.Drawing.Point(146, 233);
             this.direccionReferencia2TextBox.Name = "direccionReferencia2TextBox";
             this.direccionReferencia2TextBox.Size = new System.Drawing.Size(306, 27);
-            this.direccionReferencia2TextBox.TabIndex = 14;
+            this.direccionReferencia2TextBox.TabIndex = 11;
             // 
             // direccionTrabajoTextBox
             // 
@@ -557,15 +648,6 @@ namespace EASYPOS.Formularios.Contratos
             this.duiTextBox.Name = "duiTextBox";
             this.duiTextBox.Size = new System.Drawing.Size(169, 24);
             this.duiTextBox.TabIndex = 5;
-            // 
-            // financiamientoTextBox
-            // 
-            this.financiamientoTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.contratosBindingSource, "Financiamiento", true));
-            this.financiamientoTextBox.Location = new System.Drawing.Point(13, 100);
-            this.financiamientoTextBox.Name = "financiamientoTextBox";
-            this.financiamientoTextBox.Size = new System.Drawing.Size(117, 27);
-            this.financiamientoTextBox.TabIndex = 7;
-            this.financiamientoTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SoloNumeros);
             // 
             // gastosEscrituraTextBox
             // 
@@ -614,6 +696,7 @@ namespace EASYPOS.Formularios.Contratos
             this.precioTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.contratosBindingSource, "Precio", true));
             this.precioTextBox.Location = new System.Drawing.Point(13, 43);
             this.precioTextBox.Name = "precioTextBox";
+            this.precioTextBox.ReadOnly = true;
             this.precioTextBox.Size = new System.Drawing.Size(117, 27);
             this.precioTextBox.TabIndex = 1;
             this.precioTextBox.TextChanged += new System.EventHandler(this.precioTextBox_TextChanged);
@@ -625,6 +708,7 @@ namespace EASYPOS.Formularios.Contratos
             this.primaTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.contratosBindingSource, "Prima", true));
             this.primaTextBox.Location = new System.Drawing.Point(140, 43);
             this.primaTextBox.Name = "primaTextBox";
+            this.primaTextBox.ReadOnly = true;
             this.primaTextBox.Size = new System.Drawing.Size(117, 27);
             this.primaTextBox.TabIndex = 3;
             this.primaTextBox.TextChanged += new System.EventHandler(this.primaTextBox_TextChanged);
@@ -654,7 +738,7 @@ namespace EASYPOS.Formularios.Contratos
             this.referencia1TextBox.Location = new System.Drawing.Point(146, 64);
             this.referencia1TextBox.Name = "referencia1TextBox";
             this.referencia1TextBox.Size = new System.Drawing.Size(306, 27);
-            this.referencia1TextBox.TabIndex = 1;
+            this.referencia1TextBox.TabIndex = 2;
             // 
             // referencia2TextBox
             // 
@@ -662,7 +746,7 @@ namespace EASYPOS.Formularios.Contratos
             this.referencia2TextBox.Location = new System.Drawing.Point(146, 201);
             this.referencia2TextBox.Name = "referencia2TextBox";
             this.referencia2TextBox.Size = new System.Drawing.Size(306, 27);
-            this.referencia2TextBox.TabIndex = 12;
+            this.referencia2TextBox.TabIndex = 9;
             // 
             // telefonoFijoTextBox
             // 
@@ -678,7 +762,7 @@ namespace EASYPOS.Formularios.Contratos
             this.telefonoReferencia1TextBox.Location = new System.Drawing.Point(146, 128);
             this.telefonoReferencia1TextBox.Name = "telefonoReferencia1TextBox";
             this.telefonoReferencia1TextBox.Size = new System.Drawing.Size(186, 27);
-            this.telefonoReferencia1TextBox.TabIndex = 5;
+            this.telefonoReferencia1TextBox.TabIndex = 6;
             // 
             // telefonoReferencia2TextBox
             // 
@@ -686,7 +770,7 @@ namespace EASYPOS.Formularios.Contratos
             this.telefonoReferencia2TextBox.Location = new System.Drawing.Point(146, 265);
             this.telefonoReferencia2TextBox.Name = "telefonoReferencia2TextBox";
             this.telefonoReferencia2TextBox.Size = new System.Drawing.Size(200, 27);
-            this.telefonoReferencia2TextBox.TabIndex = 16;
+            this.telefonoReferencia2TextBox.TabIndex = 13;
             // 
             // telefonoTrabajoTextBox
             // 
@@ -708,6 +792,7 @@ namespace EASYPOS.Formularios.Contratos
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.financiamientoTextBox1);
             this.groupBox2.Controls.Add(fechaInicioLabel);
             this.groupBox2.Controls.Add(this.fechaInicioDateTimePicker);
             this.groupBox2.Controls.Add(mesesLabel);
@@ -725,12 +810,11 @@ namespace EASYPOS.Formularios.Contratos
             this.groupBox2.Controls.Add(precioLabel);
             this.groupBox2.Controls.Add(this.gastosEscrituraTextBox);
             this.groupBox2.Controls.Add(gastosEscrituraLabel);
-            this.groupBox2.Controls.Add(this.financiamientoTextBox);
             this.groupBox2.Controls.Add(financiamientoLabel);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox2.Location = new System.Drawing.Point(525, 18);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(651, 224);
+            this.groupBox2.Size = new System.Drawing.Size(651, 222);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Datos del crédito";
@@ -759,6 +843,7 @@ namespace EASYPOS.Formularios.Contratos
             this.mesesTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.contratosBindingSource, "Meses", true));
             this.mesesTextBox.Location = new System.Drawing.Point(266, 43);
             this.mesesTextBox.Name = "mesesTextBox";
+            this.mesesTextBox.ReadOnly = true;
             this.mesesTextBox.Size = new System.Drawing.Size(117, 27);
             this.mesesTextBox.TabIndex = 5;
             this.mesesTextBox.TextChanged += new System.EventHandler(this.mesesTextBox_TextChanged);
@@ -783,8 +868,8 @@ namespace EASYPOS.Formularios.Contratos
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox3.Location = new System.Drawing.Point(34, 12);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(476, 334);
-            this.groupBox3.TabIndex = 1;
+            this.groupBox3.Size = new System.Drawing.Size(476, 370);
+            this.groupBox3.TabIndex = 0;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Datos referencias personales";
             // 
@@ -811,9 +896,9 @@ namespace EASYPOS.Formularios.Contratos
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(706, 18);
+            this.button1.Location = new System.Drawing.Point(203, 54);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(106, 42);
+            this.button1.Size = new System.Drawing.Size(106, 33);
             this.button1.TabIndex = 4;
             this.button1.Text = "Guardar";
             this.button1.UseVisualStyleBackColor = true;
@@ -822,9 +907,9 @@ namespace EASYPOS.Formularios.Contratos
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(818, 18);
+            this.button2.Location = new System.Drawing.Point(315, 54);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(114, 42);
+            this.button2.Size = new System.Drawing.Size(114, 33);
             this.button2.TabIndex = 4;
             this.button2.Text = "Cancelar";
             this.button2.UseVisualStyleBackColor = true;
@@ -833,9 +918,9 @@ namespace EASYPOS.Formularios.Contratos
             // button4
             // 
             this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(545, 14);
+            this.button4.Location = new System.Drawing.Point(826, 54);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(155, 46);
+            this.button4.Size = new System.Drawing.Size(155, 31);
             this.button4.TabIndex = 19;
             this.button4.Text = "Calcular cuota";
             this.button4.UseVisualStyleBackColor = true;
@@ -844,7 +929,7 @@ namespace EASYPOS.Formularios.Contratos
             // button5
             // 
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button5.Location = new System.Drawing.Point(304, 10);
+            this.button5.Location = new System.Drawing.Point(12, 54);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(185, 33);
             this.button5.TabIndex = 20;
@@ -854,7 +939,8 @@ namespace EASYPOS.Formularios.Contratos
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(786, 66);
+            this.button6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button6.Location = new System.Drawing.Point(987, 54);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(226, 31);
             this.button6.TabIndex = 21;
@@ -871,12 +957,12 @@ namespace EASYPOS.Formularios.Contratos
             this.tabControl1.Location = new System.Drawing.Point(0, 106);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1217, 429);
+            this.tabControl1.Size = new System.Drawing.Size(1217, 425);
             this.tabControl1.TabIndex = 22;
             // 
             // datosgenerales
             // 
-            this.datosgenerales.Controls.Add(estadoLabel);
+            this.datosgenerales.Controls.Add(labelestado);
             this.datosgenerales.Controls.Add(this.estadoCheckBox);
             this.datosgenerales.Controls.Add(this.nombreCompletoTextBox);
             this.datosgenerales.Controls.Add(direccionTrabajoLabel);
@@ -898,7 +984,7 @@ namespace EASYPOS.Formularios.Contratos
             this.datosgenerales.Location = new System.Drawing.Point(4, 22);
             this.datosgenerales.Name = "datosgenerales";
             this.datosgenerales.Padding = new System.Windows.Forms.Padding(3);
-            this.datosgenerales.Size = new System.Drawing.Size(1209, 372);
+            this.datosgenerales.Size = new System.Drawing.Size(1209, 399);
             this.datosgenerales.TabIndex = 0;
             this.datosgenerales.Text = "Datos generales del cliente";
             this.datosgenerales.UseVisualStyleBackColor = true;
@@ -910,7 +996,7 @@ namespace EASYPOS.Formularios.Contratos
             this.datoscredito.Location = new System.Drawing.Point(4, 22);
             this.datoscredito.Name = "datoscredito";
             this.datoscredito.Padding = new System.Windows.Forms.Padding(3);
-            this.datoscredito.Size = new System.Drawing.Size(1209, 403);
+            this.datoscredito.Size = new System.Drawing.Size(1209, 399);
             this.datoscredito.TabIndex = 1;
             this.datoscredito.Text = "Detalles del crédito";
             this.datoscredito.UseVisualStyleBackColor = true;
@@ -921,33 +1007,10 @@ namespace EASYPOS.Formularios.Contratos
             this.Referencias.Controls.Add(this.groupBox3);
             this.Referencias.Location = new System.Drawing.Point(4, 22);
             this.Referencias.Name = "Referencias";
-            this.Referencias.Size = new System.Drawing.Size(1209, 403);
+            this.Referencias.Size = new System.Drawing.Size(1209, 399);
             this.Referencias.TabIndex = 2;
             this.Referencias.Text = "Referencias";
             this.Referencias.UseVisualStyleBackColor = true;
-            // 
-            // informes
-            // 
-            this.informes.Location = new System.Drawing.Point(4, 22);
-            this.informes.Name = "informes";
-            this.informes.Size = new System.Drawing.Size(1209, 403);
-            this.informes.TabIndex = 3;
-            this.informes.Text = "Informes";
-            this.informes.UseVisualStyleBackColor = true;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(label4);
-            this.panel1.Controls.Add(this.button5);
-            this.panel1.Controls.Add(this.button6);
-            this.panel1.Controls.Add(this.button4);
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1229, 100);
-            this.panel1.TabIndex = 23;
             // 
             // groupBox1
             // 
@@ -983,147 +1046,7 @@ namespace EASYPOS.Formularios.Contratos
             this.textBox1.Location = new System.Drawing.Point(146, 64);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(306, 27);
-            this.textBox1.TabIndex = 1;
-            // 
-            // textBox2
-            // 
-            this.textBox2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.contratosBindingSource, "TelefonoFamiliar2", true));
-            this.textBox2.Location = new System.Drawing.Point(146, 300);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(200, 27);
-            this.textBox2.TabIndex = 16;
-            // 
-            // textBox3
-            // 
-            this.textBox3.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.contratosBindingSource, "TelefonoFamiliar1", true));
-            this.textBox3.Location = new System.Drawing.Point(146, 128);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(200, 27);
-            this.textBox3.TabIndex = 5;
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new System.Drawing.Point(47, 268);
-            label6.Name = "label6";
-            label6.Size = new System.Drawing.Size(75, 19);
-            label6.TabIndex = 13;
-            label6.Text = "Direccion:";
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Location = new System.Drawing.Point(54, 96);
-            label7.Name = "label7";
-            label7.Size = new System.Drawing.Size(75, 19);
-            label7.TabIndex = 2;
-            label7.Text = "Direccion:";
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Location = new System.Drawing.Point(51, 300);
-            label8.Name = "label8";
-            label8.Size = new System.Drawing.Size(71, 19);
-            label8.TabIndex = 15;
-            label8.Text = "Telefono:";
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Location = new System.Drawing.Point(58, 128);
-            label9.Name = "label9";
-            label9.Size = new System.Drawing.Size(71, 19);
-            label9.TabIndex = 4;
-            label9.Text = "Telefono:";
-            // 
-            // textBox4
-            // 
-            this.textBox4.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.contratosBindingSource, "DireccionReferenciaFamiliar1", true));
-            this.textBox4.Location = new System.Drawing.Point(146, 96);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(306, 27);
-            this.textBox4.TabIndex = 3;
-            // 
-            // textBox5
-            // 
-            this.textBox5.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.contratosBindingSource, "NombreReferenciaFamiliar2", true));
-            this.textBox5.Location = new System.Drawing.Point(146, 236);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(306, 27);
-            this.textBox5.TabIndex = 12;
-            // 
-            // label10
-            // 
-            label10.AutoSize = true;
-            label10.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label10.Location = new System.Drawing.Point(9, 33);
-            label10.Name = "label10";
-            label10.Size = new System.Drawing.Size(83, 19);
-            label10.TabIndex = 10;
-            label10.Text = "Referencia";
-            // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label11.Location = new System.Drawing.Point(9, 205);
-            label11.Name = "label11";
-            label11.Size = new System.Drawing.Size(83, 19);
-            label11.TabIndex = 10;
-            label11.Text = "Referencia";
-            // 
-            // label12
-            // 
-            label12.AutoSize = true;
-            label12.Location = new System.Drawing.Point(51, 236);
-            label12.Name = "label12";
-            label12.Size = new System.Drawing.Size(67, 19);
-            label12.TabIndex = 11;
-            label12.Text = "Nombre:";
-            // 
-            // textBox6
-            // 
-            this.textBox6.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.contratosBindingSource, "DireccionReferenciaFamiliar2", true));
-            this.textBox6.Location = new System.Drawing.Point(146, 268);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(306, 27);
-            this.textBox6.TabIndex = 14;
-            // 
-            // label13
-            // 
-            label13.AutoSize = true;
-            label13.Location = new System.Drawing.Point(62, 64);
-            label13.Name = "label13";
-            label13.Size = new System.Drawing.Size(67, 19);
-            label13.TabIndex = 0;
-            label13.Text = "Nombre:";
-            // 
-            // label14
-            // 
-            label14.AutoSize = true;
-            label14.Location = new System.Drawing.Point(51, 333);
-            label14.Name = "label14";
-            label14.Size = new System.Drawing.Size(84, 19);
-            label14.TabIndex = 15;
-            label14.Text = "Parentesco:";
-            // 
-            // textBox7
-            // 
-            this.textBox7.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.contratosBindingSource, "ParentescoFamiliar2", true));
-            this.textBox7.Location = new System.Drawing.Point(146, 333);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(200, 27);
-            this.textBox7.TabIndex = 16;
-            // 
-            // label15
-            // 
-            label15.AutoSize = true;
-            label15.Location = new System.Drawing.Point(51, 162);
-            label15.Name = "label15";
-            label15.Size = new System.Drawing.Size(84, 19);
-            label15.TabIndex = 15;
-            label15.Text = "Parentesco:";
+            this.textBox1.TabIndex = 2;
             // 
             // textBox8
             // 
@@ -1131,7 +1054,91 @@ namespace EASYPOS.Formularios.Contratos
             this.textBox8.Location = new System.Drawing.Point(146, 162);
             this.textBox8.Name = "textBox8";
             this.textBox8.Size = new System.Drawing.Size(200, 27);
-            this.textBox8.TabIndex = 16;
+            this.textBox8.TabIndex = 8;
+            // 
+            // textBox7
+            // 
+            this.textBox7.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.contratosBindingSource, "ParentescoFamiliar2", true));
+            this.textBox7.Location = new System.Drawing.Point(146, 333);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(200, 27);
+            this.textBox7.TabIndex = 17;
+            // 
+            // textBox2
+            // 
+            this.textBox2.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.contratosBindingSource, "TelefonoFamiliar2", true));
+            this.textBox2.Location = new System.Drawing.Point(146, 300);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(200, 27);
+            this.textBox2.TabIndex = 15;
+            // 
+            // textBox3
+            // 
+            this.textBox3.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.contratosBindingSource, "TelefonoFamiliar1", true));
+            this.textBox3.Location = new System.Drawing.Point(146, 128);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(200, 27);
+            this.textBox3.TabIndex = 6;
+            // 
+            // textBox4
+            // 
+            this.textBox4.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.contratosBindingSource, "DireccionReferenciaFamiliar1", true));
+            this.textBox4.Location = new System.Drawing.Point(146, 96);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(306, 27);
+            this.textBox4.TabIndex = 4;
+            // 
+            // textBox5
+            // 
+            this.textBox5.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.contratosBindingSource, "NombreReferenciaFamiliar2", true));
+            this.textBox5.Location = new System.Drawing.Point(146, 236);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(306, 27);
+            this.textBox5.TabIndex = 11;
+            // 
+            // textBox6
+            // 
+            this.textBox6.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.contratosBindingSource, "DireccionReferenciaFamiliar2", true));
+            this.textBox6.Location = new System.Drawing.Point(146, 268);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(306, 27);
+            this.textBox6.TabIndex = 13;
+            // 
+            // informes
+            // 
+            this.informes.Location = new System.Drawing.Point(4, 22);
+            this.informes.Name = "informes";
+            this.informes.Size = new System.Drawing.Size(1209, 399);
+            this.informes.TabIndex = 3;
+            this.informes.Text = "Informes";
+            this.informes.UseVisualStyleBackColor = true;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(label4);
+            this.panel1.Controls.Add(this.button5);
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.button6);
+            this.panel1.Controls.Add(this.button4);
+            this.panel1.Controls.Add(this.button2);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1229, 100);
+            this.panel1.TabIndex = 23;
+            // 
+            // financiamientoTextBox1
+            // 
+            this.financiamientoTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.contratosBindingSource, "Financiamiento", true));
+            this.financiamientoTextBox1.Location = new System.Drawing.Point(17, 100);
+            this.financiamientoTextBox1.Name = "financiamientoTextBox1";
+            this.financiamientoTextBox1.ReadOnly = true;
+            this.financiamientoTextBox1.Size = new System.Drawing.Size(109, 27);
+            this.financiamientoTextBox1.TabIndex = 20;
+            // 
+            // contratosBindingSource
+            // 
+            this.contratosBindingSource.DataSource = typeof(EASYPOS.Entidades.Contratos);
             // 
             // FNuevoContrato
             // 
@@ -1146,7 +1153,6 @@ namespace EASYPOS.Formularios.Contratos
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Creación de contrato";
             this.Load += new System.EventHandler(this.FNuevoContrato_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.contratosBindingSource)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -1158,10 +1164,11 @@ namespace EASYPOS.Formularios.Contratos
             this.datosgenerales.PerformLayout();
             this.datoscredito.ResumeLayout(false);
             this.Referencias.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.contratosBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1179,7 +1186,6 @@ namespace EASYPOS.Formularios.Contratos
         private System.Windows.Forms.TextBox direccionReferencia2TextBox;
         private System.Windows.Forms.TextBox direccionTrabajoTextBox;
         private System.Windows.Forms.TextBox duiTextBox;
-        private System.Windows.Forms.TextBox financiamientoTextBox;
         private System.Windows.Forms.TextBox gastosEscrituraTextBox;
         private System.Windows.Forms.TextBox marcaTextBox;
         private System.Windows.Forms.TextBox modeloTextBox;
@@ -1222,5 +1228,6 @@ namespace EASYPOS.Formularios.Contratos
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox financiamientoTextBox1;
     }
 }

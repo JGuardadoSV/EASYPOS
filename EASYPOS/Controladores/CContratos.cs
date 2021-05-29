@@ -17,6 +17,7 @@ namespace EASYPOS.Controladores
         {
             if (contrato.IdContrato==0)
             {
+                contrato.Restante = contrato.Financiamiento;
                 return mContratos.Insertar(contrato);
             }
             else

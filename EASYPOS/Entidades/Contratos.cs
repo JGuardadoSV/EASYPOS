@@ -51,5 +51,7 @@ namespace EASYPOS.Entidades
         public string DireccionReferenciaFamiliar2 { get; set; }
         public string TelefonoFamiliar2 { get; set; }
         public string ParentescoFamiliar2 { get; set; }
+
+        public decimal? Restante { get; set; }
     }
 }

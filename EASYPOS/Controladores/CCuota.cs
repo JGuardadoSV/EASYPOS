@@ -16,7 +16,15 @@ namespace EASYPOS.Controladores
         //*********************************************************
         public int Insertar(Cuotas cuota)
         {
+            if (cuota.IdCuota==0)
+            {
+                return mCuota.Insertar(cuota);
+            }
+            else
+            {
                 return mCuota.Actualizar(cuota);
+            }
+                
         }
         
         public void Eliminar(Cuotas cuota)

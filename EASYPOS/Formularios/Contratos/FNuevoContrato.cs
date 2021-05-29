@@ -29,19 +29,33 @@ namespace EASYPOS.Formularios.Contratos
             {
                 //contraton.Meses = 18;
                 //contraton.GastosEscritura = 0;
-               //// contraton.PrimaNeta = 0;
-               // contraton.PrimaInicial = contraton.PrimaNeta;
+                //// contraton.PrimaNeta = 0;
+                // contraton.PrimaInicial = contraton.PrimaNeta;
+                contraton.Estado = 1;
                 contratosBindingSource.Add(contraton);
                 button5.Visible = false;
+
                 
             }
             else
             {
+                CContratos c = new CContratos();
+                contratoUp = c.uno(contratoUp.IdContrato);
                 contratosBindingSource.DataSource = contratoUp;
-                if (contratoUp.Estado==1)
-                    estadoCheckBox.Checked=true;
-                else
+                if (contratoUp.Estado == 1)
+                {
+                    estadoCheckBox.Checked = true;
+
+                }
+
+                else {
                     estadoCheckBox.Checked = false;
+                    estadoCheckBox.Visible = false;
+                    datosgenerales.Controls["labelestado"].Visible = false;
+                    button4.Visible = false;
+
+                }
+                   
                 if (contratoUp.Estado==1)
                 {
                     button5.Visible = false;
@@ -58,9 +72,20 @@ namespace EASYPOS.Formularios.Contratos
             contrato contrato = new contrato();
             contrato = (EASYPOS.Entidades.Contratos)contratosBindingSource.Current;
 
+
+            if (contrato.Precio==0 || contrato.Cuota==0 || contrato.Financiamiento==0 || contrato.Prima==0 || contrato.Meses==0)
+            {
+                MessageBox.Show("Para guardar, debe de rellenar los datos del financiamiento");
+                return;
+            }
+
+
+
+
             if (contrato.FechaInicio==null)
             {
-                MessageBox.Show("Seleccione la fecha de inicio");
+                //MessageBox.Show("Seleccione la fecha de inicio");
+                contrato.FechaInicio = DateTime.Now;
             }
             else
             {
@@ -79,6 +104,13 @@ namespace EASYPOS.Formularios.Contratos
 
                 else
                 {
+                    CCuota c = new CCuota();
+                    int cu;
+                    cu = c.Listado(contratoUp.IdContrato).Count;
+                    if (cu==0)
+                    {
+                        generarTabla(contrato.Financiamiento.Value, contrato.Meses, contrato.FechaInicio.Value, 0.03M, idcontrato, contrato.Prima.Value);
+                    }
                     MessageBox.Show(this, "Contrato actualizado con éxito", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
@@ -107,7 +139,7 @@ namespace EASYPOS.Formularios.Contratos
         {
             try
             {
-                decimal monto = decimal.Parse(financiamientoTextBox.Text.Trim());
+                decimal monto = decimal.Parse(financiamientoTextBox1.Text.Trim());
                 int meses = int.Parse(mesesTextBox.Text);
                 decimal cuota = Math.Round(monto / meses, 2);
                 decimal tasa = Math.Round(3M / 100, 2);
@@ -165,11 +197,11 @@ namespace EASYPOS.Formularios.Contratos
 
                 decimal capital = financiamiento / contraton.Meses;
                 decimal cuota = Math.Round(capital + interes, 2);
-                financiamientoTextBox.Text = financiamiento.ToString();
+             //   financiamientoTextBox1.Text = financiamiento.ToString();
                 //            ((contrato)contratosBindingSource.Current).Financiamiento = financiamiento;
                 contraton.Financiamiento = financiamiento;
                 contraton.Cuota = cuota;
-                cuotaTextBox.Text = contraton.Cuota.ToString();
+                //cuotaTextBox.Text = contraton.Cuota.ToString();
 
 
 
@@ -231,14 +263,18 @@ namespace EASYPOS.Formularios.Contratos
             fCalculos.StartPosition = FormStartPosition.CenterParent;
             fCalculos.ShowDialog();
 
-            if (fCalculos.DialogResult==DialogResult.OK)
+            if (fCalculos.DialogResult==DialogResult.OK && contratoUp==null)
             {
-                
-                contraton.Precio = fCalculos.precio;
+                    contraton = new contrato() ;
+                    
+                    // contratosBindingSource.ResetBindings(true);
+                    contraton = (contrato) contratosBindingSource.Current;
+                    contraton.Precio = fCalculos.precio;
                 contraton.Meses = fCalculos.meses;
                 contraton.Cuota = fCalculos.cuota;
-                contraton.Financiamiento = fCalculos.financiamiento;
-                contraton.Prima = fCalculos.prima;
+                    //MessageBox.Show(contraton.Financiamiento.ToString());
+                    contraton.Financiamiento = 0; contraton.Financiamiento= fCalculos.financiamiento;
+                    contraton.Prima = fCalculos.prima;
 
                     if (gastosEscrituraTextBox.Text.Length>0)
                     {
@@ -253,10 +289,41 @@ namespace EASYPOS.Formularios.Contratos
 
 
                 
-                contratosBindingSource.DataSource = contraton;
-                contratosBindingSource.ResetBindings(true);
-                
-            }
+               contratosBindingSource.DataSource = contraton;
+                    contratosBindingSource.ResetBindings(true);
+
+                }
+
+                if (fCalculos.DialogResult == DialogResult.OK && contratoUp != null)
+                {
+                    // contraton = new contrato();
+
+                    // contratosBindingSource.ResetBindings(true);
+                    //contraton = (contrato)contratosBindingSource.Current;
+                    contratoUp.Precio = fCalculos.precio;
+                    contratoUp.Meses = fCalculos.meses;
+                    contratoUp.Cuota = fCalculos.cuota;
+                    //MessageBox.Show(contraton.Financiamiento.ToString());
+                    contratoUp.Financiamiento = 0; contratoUp.Financiamiento = fCalculos.financiamiento;
+                    contratoUp.Prima = fCalculos.prima;
+
+                    if (gastosEscrituraTextBox.Text.Length > 0)
+                    {
+
+                        decimal gastos = decimal.Parse(gastosEscrituraTextBox.Text);
+                        contratoUp.GastosEscritura = gastos;
+                        contratoUp.PrimaInicial = contratoUp.Prima + gastos;
+                        contratoUp.PrimaNeta = contratoUp.PrimaInicial;
+
+                    }
+
+
+
+
+                    contratosBindingSource.DataSource = contratoUp;
+                    contratosBindingSource.ResetBindings(true);
+
+                }
 
             }
             catch (Exception)
@@ -282,7 +349,7 @@ namespace EASYPOS.Formularios.Contratos
 
         private void generarTabla(decimal monto,int meses, DateTime fecha, decimal tasa, int idcontrato, decimal prima)
         {
-            decimal total = monto-prima;
+            decimal total = monto;
             decimal restante = monto;
             List<TablaPagos> tabla = new List<TablaPagos>();
 

@@ -76,10 +76,16 @@ namespace EASYPOS.Formularios.Contratos
             else if (pago)
             {
                 c = (Contrato)contratosBindingSource.Current;
-
-                FCobroCuotaMoto f = new FCobroCuotaMoto(c);
+                FCuotasPagar f = new FCuotasPagar(c.IdContrato, pago);
                 f.StartPosition = FormStartPosition.CenterParent;
                 f.ShowDialog();
+                if (f.DialogResult == DialogResult.OK)
+                {
+                    this.cuota = f.cuota;
+                }
+                //FCobroCuotaMoto f = new FCobroCuotaMoto(c);
+                //f.StartPosition = FormStartPosition.CenterParent;
+                //f.ShowDialog();
             }
             else
             {

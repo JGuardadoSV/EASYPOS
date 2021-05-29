@@ -1,5 +1,6 @@
 ﻿using EASYPOS.Controladores;
 using EASYPOS.Entidades;
+using EASYPOS.Formularios.POS;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,8 +17,10 @@ namespace EASYPOS.Formularios.Contratos
     {
         int id;
         public Cuotas cuota;
-        public FCuotasPagar(int id)
+        Boolean pagar;
+        public FCuotasPagar(int id, Boolean pagar=false)
         {
+            this.pagar = pagar;
             this.id = id;
             InitializeComponent();
         }
@@ -44,7 +47,11 @@ namespace EASYPOS.Formularios.Contratos
             }
             else
             {
-                this.DialogResult = DialogResult.OK;
+
+                //this.DialogResult = DialogResult.OK;
+                FCobroCuotaMoto f = new FCobroCuotaMoto(cuota.IdCuota,cuota.IdContrato_FK);
+                f.StartPosition = FormStartPosition.CenterParent;
+                f.ShowDialog();
                 this.Close();
             }
             
