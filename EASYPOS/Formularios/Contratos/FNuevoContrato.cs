@@ -139,14 +139,14 @@ namespace EASYPOS.Formularios.Contratos
         {
             try
             {
-                decimal monto = decimal.Parse(financiamientoTextBox1.Text.Trim());
+                decimal monto = decimal.Parse(precioTextBox.Text.Trim());
                 int meses = int.Parse(mesesTextBox.Text);
                 decimal cuota = Math.Round(monto / meses, 2);
                 decimal tasa = Math.Round(3M / 100, 2);
                 DateTime fecha = fechaInicioDateTimePicker.Value;
                 decimal prima = decimal.Parse(primaTextBox.Text);
                 
-                FTablaAmortizacion f = new FTablaAmortizacion(monto, meses, cuota, tasa, fecha, 0,nombreCompletoTextBox.Text);
+                FTablaAmortizacion f = new FTablaAmortizacion(monto, meses, cuota, tasa, fecha, prima,nombreCompletoTextBox.Text);
                 f.ShowDialog();
             }
             catch (Exception)

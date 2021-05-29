@@ -72,6 +72,7 @@ namespace EASYPOS.Formularios.Contratos
             System.Windows.Forms.Label label13;
             System.Windows.Forms.Label label14;
             System.Windows.Forms.Label label15;
+            System.Windows.Forms.Label noEsMotoLabel;
             this.anioTextBox = new System.Windows.Forms.TextBox();
             this.celularTextBox = new System.Windows.Forms.TextBox();
             this.chasisTextBox = new System.Windows.Forms.TextBox();
@@ -99,6 +100,7 @@ namespace EASYPOS.Formularios.Contratos
             this.telefonoTrabajoTextBox = new System.Windows.Forms.TextBox();
             this.estadoCheckBox = new System.Windows.Forms.CheckBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.financiamientoTextBox1 = new System.Windows.Forms.TextBox();
             this.fechaInicioDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.button3 = new System.Windows.Forms.Button();
             this.mesesTextBox = new System.Windows.Forms.TextBox();
@@ -124,8 +126,8 @@ namespace EASYPOS.Formularios.Contratos
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.informes = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.financiamientoTextBox1 = new System.Windows.Forms.TextBox();
             this.contratosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.noEsMotoCheckBox = new System.Windows.Forms.CheckBox();
             anioLabel = new System.Windows.Forms.Label();
             celularLabel = new System.Windows.Forms.Label();
             chasisLabel = new System.Windows.Forms.Label();
@@ -168,6 +170,7 @@ namespace EASYPOS.Formularios.Contratos
             label13 = new System.Windows.Forms.Label();
             label14 = new System.Windows.Forms.Label();
             label15 = new System.Windows.Forms.Label();
+            noEsMotoLabel = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -819,6 +822,15 @@ namespace EASYPOS.Formularios.Contratos
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Datos del crédito";
             // 
+            // financiamientoTextBox1
+            // 
+            this.financiamientoTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.contratosBindingSource, "Financiamiento", true));
+            this.financiamientoTextBox1.Location = new System.Drawing.Point(17, 100);
+            this.financiamientoTextBox1.Name = "financiamientoTextBox1";
+            this.financiamientoTextBox1.ReadOnly = true;
+            this.financiamientoTextBox1.Size = new System.Drawing.Size(109, 27);
+            this.financiamientoTextBox1.TabIndex = 20;
+            // 
             // fechaInicioDateTimePicker
             // 
             this.fechaInicioDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.contratosBindingSource, "FechaInicio", true));
@@ -875,6 +887,8 @@ namespace EASYPOS.Formularios.Contratos
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(noEsMotoLabel);
+            this.groupBox4.Controls.Add(this.noEsMotoCheckBox);
             this.groupBox4.Controls.Add(this.anioTextBox);
             this.groupBox4.Controls.Add(this.modeloTextBox);
             this.groupBox4.Controls.Add(modeloLabel);
@@ -888,7 +902,7 @@ namespace EASYPOS.Formularios.Contratos
             this.groupBox4.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox4.Location = new System.Drawing.Point(22, 18);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(476, 222);
+            this.groupBox4.Size = new System.Drawing.Size(476, 271);
             this.groupBox4.TabIndex = 3;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Datos de la motocicleta";
@@ -1127,18 +1141,29 @@ namespace EASYPOS.Formularios.Contratos
             this.panel1.Size = new System.Drawing.Size(1229, 100);
             this.panel1.TabIndex = 23;
             // 
-            // financiamientoTextBox1
-            // 
-            this.financiamientoTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.contratosBindingSource, "Financiamiento", true));
-            this.financiamientoTextBox1.Location = new System.Drawing.Point(17, 100);
-            this.financiamientoTextBox1.Name = "financiamientoTextBox1";
-            this.financiamientoTextBox1.ReadOnly = true;
-            this.financiamientoTextBox1.Size = new System.Drawing.Size(109, 27);
-            this.financiamientoTextBox1.TabIndex = 20;
-            // 
             // contratosBindingSource
             // 
             this.contratosBindingSource.DataSource = typeof(EASYPOS.Entidades.Contratos);
+            // 
+            // noEsMotoLabel
+            // 
+            noEsMotoLabel.AutoSize = true;
+            noEsMotoLabel.Font = new System.Drawing.Font("Microsoft Tai Le", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            noEsMotoLabel.Location = new System.Drawing.Point(23, 226);
+            noEsMotoLabel.Name = "noEsMotoLabel";
+            noEsMotoLabel.Size = new System.Drawing.Size(209, 19);
+            noEsMotoLabel.TabIndex = 10;
+            noEsMotoLabel.Text = "El artículo no es motocicleta:";
+            // 
+            // noEsMotoCheckBox
+            // 
+            this.noEsMotoCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.contratosBindingSource, "NoEsMoto", true));
+            this.noEsMotoCheckBox.Location = new System.Drawing.Point(240, 225);
+            this.noEsMotoCheckBox.Name = "noEsMotoCheckBox";
+            this.noEsMotoCheckBox.Size = new System.Drawing.Size(161, 24);
+            this.noEsMotoCheckBox.TabIndex = 11;
+            this.noEsMotoCheckBox.Text = "No es motocicleta";
+            this.noEsMotoCheckBox.UseVisualStyleBackColor = true;
             // 
             // FNuevoContrato
             // 
@@ -1229,5 +1254,6 @@ namespace EASYPOS.Formularios.Contratos
         private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.TextBox financiamientoTextBox1;
+        private System.Windows.Forms.CheckBox noEsMotoCheckBox;
     }
 }

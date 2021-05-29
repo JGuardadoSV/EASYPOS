@@ -15,5 +15,15 @@ namespace EASYPOS.Entidades
         public decimal? Capital { get; set; }
         public decimal? Intereses { get; set; }
 
+        public decimal? MontoCancelado { get; set; }
+        public decimal? AIntereses { get; set; }
+        public decimal? ACapital { get; set; }
+        public decimal? ACapitalExtra { get; set; }
+        public decimal? CapitalPendiente { get; set; }
+
+        public decimal? EfectivoRecibido { get; set; }
+        public decimal? Cambio { get; set; }
+
+
     }
 }

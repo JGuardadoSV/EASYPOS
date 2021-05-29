@@ -53,5 +53,7 @@ namespace EASYPOS.Entidades
         public string ParentescoFamiliar2 { get; set; }
 
         public decimal? Restante { get; set; }
+
+        public int NoEsMoto { get; set; }
     }
 }

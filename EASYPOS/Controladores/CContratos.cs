@@ -56,5 +56,10 @@ namespace EASYPOS.Controladores
         {
             return mContratos.Busqueda(cliente,atrasados);
         }
+
+        internal void ActualizarRestante(Contratos contrato)
+        {
+            mContratos.ActualizarRestante(contrato);
+        }
     }
 }

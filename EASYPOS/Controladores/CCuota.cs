@@ -41,5 +41,10 @@ namespace EASYPOS.Controladores
         {
             return mCuota.ObtenerUno(id);
         }
+
+        public void actualizarCuotasRestantes(int idContrato)
+        {
+            mCuota.actualizarCuotasRestantes(idContrato);
+        }
     }
 }

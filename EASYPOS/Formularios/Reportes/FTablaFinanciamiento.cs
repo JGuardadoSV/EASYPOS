@@ -19,7 +19,7 @@ namespace EASYPOS.Formularios.Reportes
         List<TablaPagos> lista= new List<TablaPagos>();
         public FTablaFinanciamiento(decimal precio,decimal cuota, decimal prima, List<TablaPagos> listado, int meses,string cliente)
         {
-            this.precio = precio;
+            this.precio = precio+prima;
             this.cuota = cuota;
             this.prima = prima;
             lista = listado;

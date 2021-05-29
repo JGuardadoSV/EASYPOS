@@ -45,10 +45,84 @@ namespace EASYPOS.Modelos
             return 1;
         }
 
+        public void actualizarCuotasRestantes(int idContrato)
+        {
+            List<Cuotas> listado = this.Listado(idContrato);
+            Cuotas ultimapagada = listado.Where(x => x.Cancelada==1).OrderByDescending(x => x.IdCuota).First();
+            List<Cuotas> sinpagar = listado.Where(x => x.Cancelada == 0).ToList();
+            decimal montoextra = ultimapagada.ACapitalExtra.Value;
+            //decimal sumarestante = sinpagar.Sum(x => x.Capital).Value;
+
+            int cuantascrubre =decimal.ToInt32(montoextra / ultimapagada.Capital.Value);
+
+            sinpagar = sinpagar.OrderByDescending(x=>x.IdCuota).ToList();
+
+            foreach (Cuotas item in sinpagar)
+            {
+
+            
+                while (montoextra > 0)
+                {
+                    if (montoextra> ultimapagada.Capital.Value)
+                    {
+                        item.Cancelada = 1;
+                        item.Monto = 0;
+                        item.Capital = 0;
+                        item.Intereses = 0;
+                        int x=ActualizarCancelada(item);
+                        if (item.Capital<ultimapagada.Capital.Value)
+                            montoextra -= item.Capital.Value;
+                        else
+                            montoextra -= ultimapagada.Capital.Value;
+
+                        break;
+                    }
+                    else
+                    {
+                        item.Capital = item.Capital - montoextra;
+                        item.Monto = item.Monto - montoextra;
+                        item.Cancelada = 0;
+                        int x = ActualizarCancelada(item);
+
+                        montoextra -= montoextra;
+                        break;
+                    }
+                    
+                }
+            }
+
+
+
+
+
+        }
+        public int ActualizarCancelada(Cuotas cuota)
+        {
+
+            string consulta = "Update cuotas set Cancelada=@Cancelada,Monto=@Monto,Capital=@Capital,Intereses=@Intereses where IdCuota=@id";
+            DynamicParameters parametros = new DynamicParameters();
+            // int idventa;
+           
+            parametros.Add("@Cancelada", cuota.Cancelada);
+            parametros.Add("@Monto", cuota.Monto);
+            parametros.Add("@Capital", cuota.Capital);
+            parametros.Add("@Intereses", cuota.Intereses);
+            parametros.Add("@id", cuota.IdCuota);
+
+            cn.Open();
+            cn.Execute(consulta, parametros, commandType: CommandType.Text);
+            cn.Close();
+
+            // CCorrelativo correlativo = new CCorrelativo();
+            //correlativo.ActualizarCorrelativo(cuota.IdCorrelativo_FK);
+
+
+            return cuota.IdCuota;
+        }
         public int Actualizar(Cuotas cuota)
         {
 
-            string consulta = "Update cuotas set Correlativo=@Correlativo,IdCorrelativo_FK=@IdCorrelativo_FK,FechaDePago=@FechaDePago,Cancelada=@Cancelada where IdCuota=@id";
+            string consulta = "Update cuotas set Correlativo=@Correlativo,IdCorrelativo_FK=@IdCorrelativo_FK,FechaDePago=@FechaDePago,Cancelada=@Cancelada,MontoCancelado= @MontoCancelado,AIntereses= @AIntereses,ACapital= @ACapital,ACapitalExtra= @ACapitalExtra,CapitalPendiente= @CapitalPendiente,EfectivoRecibido= @EfectivoRecibido,Cambio=@Cambio where IdCuota=@id";
             DynamicParameters parametros = new DynamicParameters();
             // int idventa;
             parametros.Add("@FechaDePago", DateTime.Now);
@@ -56,13 +130,30 @@ namespace EASYPOS.Modelos
             parametros.Add("@id", cuota.IdCuota);
             //parametros.Add("@TipoDocumento", cuota.TipoDocumento, DbType.Int32);
             parametros.Add("@Correlativo", cuota.Correlativo, DbType.Int64);
-            parametros.Add("@IdCorrelativo_FK", cuota.IdCorrelativo_FK, DbType.Int32); 
+            parametros.Add("@IdCorrelativo_FK", cuota.IdCorrelativo_FK, DbType.Int32);
+
+            parametros.Add("@MontoCancelado", cuota.MontoCancelado, DbType.Decimal);
+            parametros.Add("@AIntereses", cuota.AIntereses, DbType.Decimal);
+            parametros.Add("@ACapital", cuota.ACapital, DbType.Decimal);
+            parametros.Add("@ACapitalExtra", cuota.ACapitalExtra, DbType.Decimal);
+            parametros.Add("@CapitalPendiente", cuota.CapitalPendiente, DbType.Decimal);
+            parametros.Add("@EfectivoRecibido", cuota.EfectivoRecibido, DbType.Decimal);
+            parametros.Add("@Cambio", cuota.Cambio, DbType.Decimal);
+            
+
+
+
+
+
 
             cn.Open();
             cn.Execute(consulta, parametros, commandType: CommandType.Text);
             cn.Close();
 
-           // CCorrelativo correlativo = new CCorrelativo();
+            CCorrelativo correlativo = new CCorrelativo();
+            correlativo.ActualizarCorrelativo(cuota.IdCorrelativo_FK);
+
+            // CCorrelativo correlativo = new CCorrelativo();
             //correlativo.ActualizarCorrelativo(cuota.IdCorrelativo_FK);
 
 
