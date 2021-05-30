@@ -23,8 +23,8 @@ namespace EASYPOS.Modelos
             string consulta = "insert into Cuotas (Fecha,Monto,IdContrato_FK,Capital,Intereses) values (@Fecha,@Monto,@IdContrato_FK,@Capital,@Intereses)";
             DynamicParameters parametros = new DynamicParameters();
             // int idventa;
-             parametros.Add("@Fecha", cuota.Fecha, DbType.DateTime);
-             parametros.Add("@Monto", cuota.Monto, DbType.Decimal);
+            parametros.Add("@Fecha", cuota.Fecha, DbType.DateTime);
+            parametros.Add("@Monto", cuota.Monto, DbType.Decimal);
             /* parametros.Add("@IdContrato_FK", cuota.IdContrato_FK, DbType.Int32);
              //parametros.Add("@TipoDocumento", cuota.TipoDocumento, DbType.Int32);
              parametros.Add("@Correlativo", cuota.Correlativo, DbType.Int64);
@@ -41,73 +41,91 @@ namespace EASYPOS.Modelos
             CCorrelativo correlativo = new CCorrelativo();
             correlativo.ActualizarCorrelativo(cuota.IdCorrelativo_FK);
 
-          
+
             return 1;
         }
 
         public void actualizarCuotasRestantes(int idContrato)
         {
             List<Cuotas> listado = this.Listado(idContrato);
-            Cuotas ultimapagada = listado.Where(x => x.Cancelada==1).OrderByDescending(x => x.IdCuota).First();
+            Cuotas ultimapagada = listado.Where(x => x.Cancelada == 1).OrderByDescending(x => x.FechaDePago).First();
             List<Cuotas> sinpagar = listado.Where(x => x.Cancelada == 0).ToList();
             decimal montoextra = ultimapagada.ACapitalExtra.Value;
             //decimal sumarestante = sinpagar.Sum(x => x.Capital).Value;
-
-            int cuantascrubre =decimal.ToInt32(montoextra / ultimapagada.Capital.Value);
-
-            sinpagar = sinpagar.OrderByDescending(x=>x.IdCuota).ToList();
-
-            foreach (Cuotas item in sinpagar)
+            if (montoextra > 0)
             {
 
-            
-                while (montoextra > 0)
+
+                int cuantascrubre = decimal.ToInt32(montoextra / ultimapagada.Capital.Value);
+
+                sinpagar = sinpagar.OrderByDescending(x => x.IdCuota).ToList();
+                int contador = 1;
+                foreach (Cuotas item in sinpagar)
                 {
-                    if (montoextra> ultimapagada.Capital.Value)
+
+                    if (contador <= cuantascrubre)
                     {
                         item.Cancelada = 1;
                         item.Monto = 0;
-                        item.Capital = 0;
+                        //item.Capital = 0;
                         item.Intereses = 0;
-                        int x=ActualizarCancelada(item);
-                        if (item.Capital<ultimapagada.Capital.Value)
+                        item.FechaDePago = DateTime.Now;
+                        
+                        if (item.Capital< ultimapagada.Capital.Value)
+                        {
                             montoextra -= item.Capital.Value;
+                        }
                         else
+                        {
                             montoextra -= ultimapagada.Capital.Value;
+                        }
+                        item.Capital = 0;
+                        int x = ActualizarCancelada(item);
+                        contador++;
 
-                        break;
                     }
                     else
                     {
-                        item.Capital = item.Capital - montoextra;
-                        item.Monto = item.Monto - montoextra;
-                        item.Cancelada = 0;
-                        int x = ActualizarCancelada(item);
+                        if (montoextra > 0)
+                        {
+                            item.Cancelada = 0;
+                            item.Monto = item.Monto - montoextra;
+                            item.Capital = item.Capital - montoextra;
+                            if (item.Capital.Value==0)
+                            {
+                                item.Cancelada = 1;
+                                item.Monto = 0;
+                                item.Capital = 0;
+                                item.Intereses = 0;
+                                item.FechaDePago = DateTime.Now;
+                            }
+                            //item.Intereses = 0;
+                            int x = ActualizarCancelada(item);
 
-                        montoextra -= montoextra;
-                        break;
+                            montoextra -= montoextra;
+                        }
                     }
-                    
+
                 }
+
+
+
             }
-
-
-
-
 
         }
         public int ActualizarCancelada(Cuotas cuota)
         {
 
-            string consulta = "Update cuotas set Cancelada=@Cancelada,Monto=@Monto,Capital=@Capital,Intereses=@Intereses where IdCuota=@id";
+            string consulta = "Update cuotas set Cancelada=@Cancelada,Monto=@Monto,Capital=@Capital,Intereses=@Intereses,FechaDePago=@FechaDePago where IdCuota=@id";
             DynamicParameters parametros = new DynamicParameters();
             // int idventa;
-           
+
             parametros.Add("@Cancelada", cuota.Cancelada);
             parametros.Add("@Monto", cuota.Monto);
             parametros.Add("@Capital", cuota.Capital);
             parametros.Add("@Intereses", cuota.Intereses);
             parametros.Add("@id", cuota.IdCuota);
+            parametros.Add("@FechaDePago", cuota.FechaDePago);
 
             cn.Open();
             cn.Execute(consulta, parametros, commandType: CommandType.Text);
@@ -139,7 +157,7 @@ namespace EASYPOS.Modelos
             parametros.Add("@CapitalPendiente", cuota.CapitalPendiente, DbType.Decimal);
             parametros.Add("@EfectivoRecibido", cuota.EfectivoRecibido, DbType.Decimal);
             parametros.Add("@Cambio", cuota.Cambio, DbType.Decimal);
-            
+
 
 
 
@@ -178,7 +196,7 @@ namespace EASYPOS.Modelos
             DynamicParameters parametros = new DynamicParameters();
             parametros.Add("@Id", id, DbType.Int32);
             cn.Open();
-            listado = cn.Query<Cuotas>(consulta,parametros).ToList();
+            listado = cn.Query<Cuotas>(consulta, parametros).ToList();
             cn.Close();
             return listado;
         }
