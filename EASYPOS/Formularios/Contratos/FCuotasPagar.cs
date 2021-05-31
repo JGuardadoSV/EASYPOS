@@ -35,13 +35,15 @@ namespace EASYPOS.Formularios.Contratos
         {
             CCuota cCuotas = new CCuota();
             cuotasBindingSource.DataSource = cCuotas.Listado(id);
+            CContratos cContratos = new CContratos();
+            contratosBindingSource.DataSource = cContratos.uno(id);
             
         }
 
         private void cuotasDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             cuota = (Cuotas)cuotasBindingSource.Current;
-            if (cuota.FechaDePago.HasValue)
+            if (cuota.FechaDePago.HasValue || cuota.Cancelada==1)
             {
                 MessageBox.Show("Seleccione otra cuota, esta ya esta cancelada");
             }
@@ -62,6 +64,25 @@ namespace EASYPOS.Formularios.Contratos
             FHojaDePagos f = new FHojaDePagos(id);
             f.StartPosition = FormStartPosition.CenterParent;
             f.ShowDialog();
+        }
+
+        private void cuotasDataGridView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            foreach (DataGridViewRow Myrow in cuotasDataGridView.Rows)
+            {            //Here 2 cell is target value and 1 cell is Volume
+                DateTime fecha = Convert.ToDateTime(Myrow.Cells[1].Value);
+
+                if (DateTime.Now > fecha.Date && Convert.ToInt32(Myrow.Cells[6].Value)==0)// Or your condition 
+                {
+                    Myrow.DefaultCellStyle.BackColor = Color.Red;
+                }
+
+                if (Convert.ToInt32(Myrow.Cells[2].Value) == 0 || Convert.ToInt32(Myrow.Cells[6].Value) == 1)
+                {
+                    Myrow.DefaultCellStyle.BackColor = Color.Green;
+                }
+                
+            }
         }
     }
 }

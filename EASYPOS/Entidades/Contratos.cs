@@ -55,5 +55,7 @@ namespace EASYPOS.Entidades
         public decimal? Restante { get; set; }
 
         public int NoEsMoto { get; set; }
+        public int TratoEspecial { get; set; }
+        
     }
 }

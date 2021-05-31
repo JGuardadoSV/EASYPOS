@@ -78,7 +78,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>CREDITO SG DE MOTOCICLETA</Value>
+                        <Value>CREDITO SG</Value>
                         <Style>
                           <FontSize>18pt</FontSize>
                           <FontWeight>Bold</FontWeight>
@@ -910,7 +910,6 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                   </TablixCells>
@@ -1079,6 +1078,7 @@
       </CellDefinitions>
     </GridLayoutDefinition>
   </ReportParametersLayout>
+  <Language>es-US</Language>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
   <rd:ReportID>80019ff1-63e2-41be-99be-6f10fe7ddec8</rd:ReportID>
 </Report>

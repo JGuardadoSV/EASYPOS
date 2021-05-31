@@ -522,7 +522,7 @@
             <Top>1.69016cm</Top>
             <Left>0.7112cm</Left>
             <Height>1.8cm</Height>
-            <Width>14.97417cm</Width>
+            <Width>14.97416cm</Width>
             <ZIndex>1</ZIndex>
             <Style>
               <Border>
@@ -682,6 +682,7 @@
       </CellDefinitions>
     </GridLayoutDefinition>
   </ReportParametersLayout>
+  <Language>es-US</Language>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
   <rd:ReportID>a3c31649-526a-49ae-9d43-6430280c9e4d</rd:ReportID>
 </Report>

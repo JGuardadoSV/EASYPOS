@@ -255,6 +255,7 @@ namespace EASYPOS.Formularios.Contratos
 
         private void button4_Click(object sender, EventArgs e)
         {
+            tabControl1.SelectedTab = datoscredito;
             try
             {
 

@@ -23,23 +23,26 @@ namespace EASYPOS.Formularios.POS
         {
             this.contrato = id;
             this.idcuota = idcuota;
+            CCuota cCuota = new CCuota();
+            this.cuota = cCuota.ObtenerUna(idcuota);
             InitializeComponent();
+            txtpago.Focus();
         }
 
         private void FCobroCuotaMoto_Load(object sender, EventArgs e)
         {
-
+            
             CContratos cContratos = new CContratos();
             //c = new con();
             c = cContratos.uno(contrato);
-            CCuota cCuota = new CCuota();
-            cuota = cCuota.ObtenerUna(idcuota);
+            
 
             txtcliente.Text = c.NombreCompleto;
             txtfecha.Text = c.FechaInicio.ToString();
             txtfinanciamiento.Text = c.Financiamiento.Value.ToString("F");
             txtsaldoactual.Text = c.Restante.Value.ToString("F");
             txtmonto.Text = cuota.Monto.Value.ToString("F");
+            txtpago.Focus();
         }
 
         private void txtpago_TextChanged(object sender, EventArgs e)
@@ -200,6 +203,17 @@ namespace EASYPOS.Formularios.POS
             printer.PrintDocument();
 
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.Cancel;
+            this.Close();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            txtpago.Text = (c.Restante.Value + cuota.Intereses.Value).ToString();
         }
     }
 }
