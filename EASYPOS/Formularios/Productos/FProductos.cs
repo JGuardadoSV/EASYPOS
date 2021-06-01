@@ -56,7 +56,7 @@ namespace EASYPOS.Formularios.Productos
 
                 if (!actualizacion)
                 {
-                    tieneVariasPresentacionesCheckBox.Checked = false;
+                    //tieneVariasPresentacionesCheckBox.Checked = false;
                     
                 }
                     
@@ -81,7 +81,7 @@ namespace EASYPOS.Formularios.Productos
             cargarListado();
             activarcontroles();
 
-            PresentacionesdataGridView.Rows.Clear();
+          //  PresentacionesdataGridView.Rows.Clear();
 
 
         }
@@ -95,12 +95,12 @@ namespace EASYPOS.Formularios.Productos
             productoBindingSource.EndEdit();
             producto = (Producto)productoBindingSource.Current;
 
-
+/*
             if (tieneVariasPresentacionesCheckBox.Checked)
                 producto.TieneVariasPresentaciones = 1;
             else
                 producto.TieneVariasPresentaciones = 0;
-           
+           */
             //asignando la  cat y el pro elegido
             producto.IdCategoria_FK = ((Categoria)categoriaBindingSource.Current).IdCategoria;
             producto.IdProveedor_FK = ((Proveedor)proveedorBindingSource.Current).IdProveedor;
@@ -113,7 +113,7 @@ namespace EASYPOS.Formularios.Productos
 
             // REGISTRO DE PRESENTACIONES
 
-            if (tieneVariasPresentacionesCheckBox.Checked)
+            /*if (tieneVariasPresentacionesCheckBox.Checked)
             {
 
                 int idproducto = producto.IdProducto;
@@ -160,7 +160,7 @@ namespace EASYPOS.Formularios.Productos
 
                 }
 
-            }
+            }*/
             if (actualizacion)
                 MessageBox.Show("Producto actualizado con éxito");
             else
@@ -170,7 +170,7 @@ namespace EASYPOS.Formularios.Productos
             actualizacion = false;
             activarcontroles();
             cargarListado();
-            PresentacionesdataGridView.Rows.Clear();
+          //  PresentacionesdataGridView.Rows.Clear();
 
 
 
@@ -221,13 +221,13 @@ namespace EASYPOS.Formularios.Productos
 
             if (producto.TieneVariasPresentaciones == 1)
             {
-                tieneVariasPresentacionesCheckBox.Checked = true;
-                cargarpresentaciones(producto);
+              //  tieneVariasPresentacionesCheckBox.Checked = true;
+              //  cargarpresentaciones(producto);
             }
                
             else
             {
-                tieneVariasPresentacionesCheckBox.Checked = false;
+              //  tieneVariasPresentacionesCheckBox.Checked = false;
             }
                 
 
@@ -236,7 +236,7 @@ namespace EASYPOS.Formularios.Productos
 
         private void cargarpresentaciones(Producto producto)
         {
-            PresentacionesdataGridView.Rows.Clear();
+           /* PresentacionesdataGridView.Rows.Clear();
             CProducto_Presentacion cpresentaciones = new CProducto_Presentacion();
             List<Producto_Presentacion> listado = new List<Producto_Presentacion>();
             listado = cpresentaciones.listado(producto.IdProducto);
@@ -254,7 +254,7 @@ namespace EASYPOS.Formularios.Productos
                 presentacion = cpresentacion.ObtenerUna((int)item.IdPresentacion_FK);
                 row.Cells[1].Value = presentacion.NombrePresentacion + " X " + presentacion.CantidadPresentacion;
                 PresentacionesdataGridView.Rows.Add(row);
-            }
+            }*/
         }
 
         private void productoDataGridView_DataError(object sender, DataGridViewDataErrorEventArgs e)
@@ -266,7 +266,7 @@ namespace EASYPOS.Formularios.Productos
         {
             //if (((CheckBox) sender).Checked)
             // {
-            PresentacionesgroupBox.Enabled = !PresentacionesgroupBox.Enabled;
+         //   PresentacionesgroupBox.Enabled = !PresentacionesgroupBox.Enabled;
            // }
            // else
             //{
@@ -283,11 +283,11 @@ namespace EASYPOS.Formularios.Productos
 
 
             DataGridViewRow row = new DataGridViewRow();
-            row.CreateCells(PresentacionesdataGridView);
+          /*  row.CreateCells(PresentacionesdataGridView);
 
             row.Cells[0].Value =presentacion.IdPresentacion;
             row.Cells[1].Value = presentacion.NombrePresentacion + " X " + presentacion.CantidadPresentacion;
-            PresentacionesdataGridView.Rows.Add(row);
+            PresentacionesdataGridView.Rows.Add(row);*/
 
         }
 
@@ -297,8 +297,8 @@ namespace EASYPOS.Formularios.Productos
 
             {
                 // para que se seleccione el row donde se hizo clic derecho
-                PresentacionesdataGridView.ClearSelection();
-                PresentacionesdataGridView[e.ColumnIndex, e.RowIndex].Selected = true;
+              //  PresentacionesdataGridView.ClearSelection();
+              //  PresentacionesdataGridView[e.ColumnIndex, e.RowIndex].Selected = true;
                 
 
 
@@ -310,7 +310,7 @@ namespace EASYPOS.Formularios.Productos
             if (!actualizacion)
             {
                // MessageBox.Show("Tiene que guardar el producto, cerrar la ventana y realizar el proceso de actualización antes de eliminar las presentaciones");
-                PresentacionesdataGridView.Rows.Remove(PresentacionesdataGridView.CurrentRow);
+             //   PresentacionesdataGridView.Rows.Remove(PresentacionesdataGridView.CurrentRow);
             }
             else
             {
@@ -318,7 +318,7 @@ namespace EASYPOS.Formularios.Productos
                 CProducto_Presentacion cpresentaciones = new CProducto_Presentacion();
                 Producto_Presentacion producto_Presentacion = new Producto_Presentacion();
                 
-                producto_Presentacion.IdPresentacion_FK = int.Parse(PresentacionesdataGridView.CurrentRow.Cells[0].Value.ToString());
+              //  producto_Presentacion.IdPresentacion_FK = int.Parse(PresentacionesdataGridView.CurrentRow.Cells[0].Value.ToString());
                 producto_Presentacion.IdProducto_FK = ((Producto)productoBindingSource.Current).IdProducto; 
                 cpresentaciones.Eliminar(producto_Presentacion);
 

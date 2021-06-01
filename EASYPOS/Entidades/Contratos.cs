@@ -57,5 +57,7 @@ namespace EASYPOS.Entidades
         public int NoEsMoto { get; set; }
         public int TratoEspecial { get; set; }
         
+
+
     }
 }

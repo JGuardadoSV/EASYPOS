@@ -1,7 +1,7 @@
 ﻿
-namespace EASYPOS.Formularios.Reportes
+namespace EASYPOS.Formularios.Inventario
 {
-    partial class FReporteContrato
+    partial class FReporteInventario
     {
         /// <summary>
         /// Required designer variable.
@@ -35,23 +35,24 @@ namespace EASYPOS.Formularios.Reportes
             // reportViewer1
             // 
             this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "EASYPOS.Reportes.rContratosVigentes.rdlc";
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "EASYPOS.Reportes.rInventario.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
             this.reportViewer1.Size = new System.Drawing.Size(800, 450);
             this.reportViewer1.TabIndex = 0;
             // 
-            // FReporteContrato
+            // FReporteInventario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.reportViewer1);
-            this.Name = "FReporteContrato";
-            this.Text = "Reporte de contratos";
+            this.Name = "FReporteInventario";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Reporte de inventario";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.FReporteContrato_Load);
+            this.Load += new System.EventHandler(this.FReporteInventario_Load);
             this.ResumeLayout(false);
 
         }

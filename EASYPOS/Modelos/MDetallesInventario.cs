@@ -83,7 +83,7 @@ namespace EASYPOS.Modelos
             cn.Execute(consulta, parametros, commandType: CommandType.Text);
             cn.Close();
         }
-
+        
         public List<DetallesInventario> Listado(int id)
         {
             string consulta = "ListadoDetallesInventario";
@@ -96,7 +96,29 @@ namespace EASYPOS.Modelos
             return listado;
         }
 
-        
+        public List<DetallesInventario> ListadoPropio(int id)
+        {
+            string consulta = "ListadoDetallesInventarioPropio";
+            List<DetallesInventario> listado = new List<DetallesInventario>();
+            DynamicParameters parametros = new DynamicParameters();
+            parametros.Add("@id", id, DbType.Int32);
+            cn.Open();
+            listado = cn.Query<DetallesInventario>(consulta, parametros, commandType: CommandType.StoredProcedure).ToList();
+            cn.Close();
+            return listado;
+        }
+        public List<DetallesInventario> ListadoConsignacion(int id)
+        {
+            string consulta = "ListadoDetallesInventarioConsignacion";
+            List<DetallesInventario> listado = new List<DetallesInventario>();
+            DynamicParameters parametros = new DynamicParameters();
+            parametros.Add("@id", id, DbType.Int32);
+            cn.Open();
+            listado = cn.Query<DetallesInventario>(consulta, parametros, commandType: CommandType.StoredProcedure).ToList();
+            cn.Close();
+            return listado;
+        }
+
 
     }
 }

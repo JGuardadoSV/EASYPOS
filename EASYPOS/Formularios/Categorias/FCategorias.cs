@@ -105,6 +105,7 @@ namespace EASYPOS.Formularios.Categorias
             
             textBoxNombre.Enabled = !textBoxNombre.Enabled;
             buttonGuardar.Enabled = !buttonGuardar.Enabled;
+            buttonCancelar.Enabled = !buttonCancelar.Enabled;
             categoriaDataGridView.Enabled = !categoriaDataGridView.Enabled;
         }
 
@@ -152,6 +153,14 @@ namespace EASYPOS.Formularios.Categorias
 
 
             }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            activarControles();
+            categoriaBindingSource.CancelEdit();
+            textBoxNombre.Text = "";
+
         }
     }
 }

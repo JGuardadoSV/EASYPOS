@@ -65,6 +65,7 @@ namespace EASYPOS.Modelos
             parametros.Add("@Restante", contrato.Restante, DbType.Decimal);
             parametros.Add("@NoEsMoto", contrato.NoEsMoto, DbType.Int32);
             parametros.Add("@TratoEspecial", contrato.TratoEspecial, DbType.Int32);
+            
 
             cn.Open();
             cn.Execute(consulta, parametros, commandType: CommandType.Text);

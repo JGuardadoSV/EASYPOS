@@ -30,6 +30,11 @@ namespace EASYPOS
 
         private void nuevaVentaToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            vender();
+        }
+
+        private void vender()
+        {
             fPOS f = new fPOS();
             f.StartPosition = FormStartPosition.CenterParent;
             f.ShowDialog();
@@ -61,13 +66,23 @@ namespace EASYPOS
 
         private void contratosVigentesToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            contratos();
+        }
+
+        private void contratos()
+        {
             FContratos f = new FContratos();
-            
+
             f.StartPosition = FormStartPosition.CenterParent;
             f.ShowDialog();
         }
 
         private void nuevoContratoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            cotizar();
+        }
+
+        private void cotizar()
         {
             FNuevoContrato f = new FNuevoContrato();
 
@@ -78,7 +93,12 @@ namespace EASYPOS
         private void pagoDeCuotaToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             //fPOSCuota f = new fPOSCuota();
-            FContratos f = new FContratos(pago:true);
+            cuotas();
+        }
+
+        private void cuotas()
+        {
+            FContratos f = new FContratos(pago: true);
             f.StartPosition = FormStartPosition.CenterParent;
             f.ShowDialog();
         }
@@ -141,6 +161,26 @@ namespace EASYPOS
         {
             FReporteContrato f = new FReporteContrato(2); //atrasados
             f.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            vender();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            cuotas();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            cotizar();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            contratos();
         }
     }
 }

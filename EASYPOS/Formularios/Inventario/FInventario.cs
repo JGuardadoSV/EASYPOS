@@ -26,13 +26,25 @@ namespace EASYPOS.Formularios.Inventario
 
         private void FInventario_Load(object sender, EventArgs e)
         {
-            cargarDetalle();
+            cargarDetalle(0);
 
         }
 
-        private void cargarDetalle()
+        private void cargarDetalle(int tipo)
         {
-            detallesInventarioBindingSource.DataSource = cDetalles.Listado(idinventario);
+            if (tipo==0)
+            {
+                detallesInventarioBindingSource.DataSource = cDetalles.Listado(idinventario);
+            }
+            if (tipo==1)
+            {
+                detallesInventarioBindingSource.DataSource = cDetalles.ListadoPropio(idinventario);
+            }
+            if (tipo ==2)
+            {
+                detallesInventarioBindingSource.DataSource = cDetalles.ListadoConsignacion(idinventario);
+            }
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -42,7 +54,18 @@ namespace EASYPOS.Formularios.Inventario
             f.Text = "Administración de productos";
             f.ShowDialog();
 
-            cargarDetalle();
+            if (radioButtonTodos.Checked)
+            {
+                cargarDetalle(0);
+            }
+            if (radioButtonPropio.Checked)
+            {
+                cargarDetalle(1);
+            }
+            if (radioButtonConsignacion.Checked)
+            {
+                cargarDetalle(2);
+            }
         }
 
         private void detallesInventarioDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -68,7 +91,50 @@ namespace EASYPOS.Formularios.Inventario
             cDetalles.actualizarExistencias(idactual, textBoxExistencias.Text);
             idactual = 0;
             groupBox1.Visible = false;
-            cargarDetalle();
+            if (radioButtonTodos.Checked)
+            {
+                cargarDetalle(0);
+            }
+            if (radioButtonPropio.Checked)
+            {
+                cargarDetalle(1);
+            }
+            if (radioButtonConsignacion.Checked)
+            {
+                cargarDetalle(2);
+            }
+
+        }
+
+        private void radioButtonPropio_CheckedChanged(object sender, EventArgs e)
+        {
+            cargarDetalle(1);
+        }
+
+        private void radioButtonConsignacion_CheckedChanged(object sender, EventArgs e)
+        {
+            cargarDetalle(2);
+        }
+
+        private void radioButtonTodos_CheckedChanged(object sender, EventArgs e)
+        {
+            cargarDetalle(0);
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            int tipo = 0;
+            if (radioButtonConsignacion.Checked)
+            {
+                tipo = 2;
+            }
+            else if(radioButtonPropio.Checked)
+            {
+                tipo = 1;
+            }
+
+            FReporteInventario f = new FReporteInventario(tipo, idinventario);
+            f.ShowDialog();
         }
     }
 }

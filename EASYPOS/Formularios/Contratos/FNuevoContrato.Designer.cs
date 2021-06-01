@@ -116,6 +116,7 @@ namespace EASYPOS.Formularios.Contratos
             this.button6 = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.datosgenerales = new System.Windows.Forms.TabPage();
+            this.tratoEspecialCheckBox = new System.Windows.Forms.CheckBox();
             this.datoscredito = new System.Windows.Forms.TabPage();
             this.Referencias = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -130,7 +131,6 @@ namespace EASYPOS.Formularios.Contratos
             this.informes = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
             this.contratosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.tratoEspecialCheckBox = new System.Windows.Forms.CheckBox();
             anioLabel = new System.Windows.Forms.Label();
             celularLabel = new System.Windows.Forms.Label();
             chasisLabel = new System.Windows.Forms.Label();
@@ -584,6 +584,28 @@ namespace EASYPOS.Formularios.Contratos
             noEsMotoLabel.TabIndex = 10;
             noEsMotoLabel.Text = "El artículo no es motocicleta:";
             // 
+            // tratoEspecialLabel
+            // 
+            tratoEspecialLabel.AutoSize = true;
+            tratoEspecialLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            tratoEspecialLabel.ForeColor = System.Drawing.Color.Red;
+            tratoEspecialLabel.Location = new System.Drawing.Point(40, 298);
+            tratoEspecialLabel.Name = "tratoEspecialLabel";
+            tratoEspecialLabel.Size = new System.Drawing.Size(435, 18);
+            tratoEspecialLabel.TabIndex = 18;
+            tratoEspecialLabel.Text = "Marcar este contrato para ser tratado de forma especial:";
+            // 
+            // label16
+            // 
+            label16.AutoSize = true;
+            label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label16.Location = new System.Drawing.Point(40, 274);
+            label16.Name = "label16";
+            label16.Size = new System.Drawing.Size(586, 18);
+            label16.TabIndex = 2;
+            label16.Text = "Información: marcar esta opción cuando el contrato se esta pagando de forma irreg" +
+    "ular.";
+            // 
             // anioTextBox
             // 
             this.anioTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.contratosBindingSource, "Anio", true));
@@ -670,8 +692,9 @@ namespace EASYPOS.Formularios.Contratos
             // gastosEscrituraTextBox
             // 
             this.gastosEscrituraTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.contratosBindingSource, "GastosEscritura", true));
-            this.gastosEscrituraTextBox.Location = new System.Drawing.Point(140, 155);
+            this.gastosEscrituraTextBox.Location = new System.Drawing.Point(140, 152);
             this.gastosEscrituraTextBox.Name = "gastosEscrituraTextBox";
+            this.gastosEscrituraTextBox.ReadOnly = true;
             this.gastosEscrituraTextBox.Size = new System.Drawing.Size(117, 27);
             this.gastosEscrituraTextBox.TabIndex = 13;
             this.gastosEscrituraTextBox.TextChanged += new System.EventHandler(this.gastosEscrituraTextBox_TextChanged);
@@ -735,8 +758,9 @@ namespace EASYPOS.Formularios.Contratos
             // primaInicialTextBox
             // 
             this.primaInicialTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.contratosBindingSource, "PrimaInicial", true));
-            this.primaInicialTextBox.Location = new System.Drawing.Point(270, 155);
+            this.primaInicialTextBox.Location = new System.Drawing.Point(270, 152);
             this.primaInicialTextBox.Name = "primaInicialTextBox";
+            this.primaInicialTextBox.ReadOnly = true;
             this.primaInicialTextBox.Size = new System.Drawing.Size(117, 27);
             this.primaInicialTextBox.TabIndex = 15;
             this.primaInicialTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SoloNumeros);
@@ -744,8 +768,9 @@ namespace EASYPOS.Formularios.Contratos
             // primaNetaTextBox
             // 
             this.primaNetaTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.contratosBindingSource, "PrimaNeta", true));
-            this.primaNetaTextBox.Location = new System.Drawing.Point(397, 155);
+            this.primaNetaTextBox.Location = new System.Drawing.Point(397, 152);
             this.primaNetaTextBox.Name = "primaNetaTextBox";
+            this.primaNetaTextBox.ReadOnly = true;
             this.primaNetaTextBox.Size = new System.Drawing.Size(117, 27);
             this.primaNetaTextBox.TabIndex = 17;
             this.primaNetaTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SoloNumeros);
@@ -840,10 +865,10 @@ namespace EASYPOS.Formularios.Contratos
             // financiamientoTextBox1
             // 
             this.financiamientoTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.contratosBindingSource, "Financiamiento", true));
-            this.financiamientoTextBox1.Location = new System.Drawing.Point(17, 100);
+            this.financiamientoTextBox1.Location = new System.Drawing.Point(13, 100);
             this.financiamientoTextBox1.Name = "financiamientoTextBox1";
             this.financiamientoTextBox1.ReadOnly = true;
-            this.financiamientoTextBox1.Size = new System.Drawing.Size(109, 27);
+            this.financiamientoTextBox1.Size = new System.Drawing.Size(117, 27);
             this.financiamientoTextBox1.TabIndex = 7;
             // 
             // fechaInicioDateTimePicker
@@ -1031,6 +1056,16 @@ namespace EASYPOS.Formularios.Contratos
             this.datosgenerales.Text = "Datos generales del cliente";
             this.datosgenerales.UseVisualStyleBackColor = true;
             // 
+            // tratoEspecialCheckBox
+            // 
+            this.tratoEspecialCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.contratosBindingSource, "TratoEspecial", true));
+            this.tratoEspecialCheckBox.Location = new System.Drawing.Point(481, 295);
+            this.tratoEspecialCheckBox.Name = "tratoEspecialCheckBox";
+            this.tratoEspecialCheckBox.Size = new System.Drawing.Size(104, 24);
+            this.tratoEspecialCheckBox.TabIndex = 19;
+            this.tratoEspecialCheckBox.Text = "Sí";
+            this.tratoEspecialCheckBox.UseVisualStyleBackColor = true;
+            // 
             // datoscredito
             // 
             this.datoscredito.Controls.Add(this.groupBox2);
@@ -1172,38 +1207,6 @@ namespace EASYPOS.Formularios.Contratos
             // contratosBindingSource
             // 
             this.contratosBindingSource.DataSource = typeof(EASYPOS.Entidades.Contratos);
-            // 
-            // tratoEspecialLabel
-            // 
-            tratoEspecialLabel.AutoSize = true;
-            tratoEspecialLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            tratoEspecialLabel.ForeColor = System.Drawing.Color.Red;
-            tratoEspecialLabel.Location = new System.Drawing.Point(40, 298);
-            tratoEspecialLabel.Name = "tratoEspecialLabel";
-            tratoEspecialLabel.Size = new System.Drawing.Size(435, 18);
-            tratoEspecialLabel.TabIndex = 18;
-            tratoEspecialLabel.Text = "Marcar este contrato para ser tratado de forma especial:";
-            // 
-            // tratoEspecialCheckBox
-            // 
-            this.tratoEspecialCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.contratosBindingSource, "TratoEspecial", true));
-            this.tratoEspecialCheckBox.Location = new System.Drawing.Point(481, 295);
-            this.tratoEspecialCheckBox.Name = "tratoEspecialCheckBox";
-            this.tratoEspecialCheckBox.Size = new System.Drawing.Size(104, 24);
-            this.tratoEspecialCheckBox.TabIndex = 19;
-            this.tratoEspecialCheckBox.Text = "Sí";
-            this.tratoEspecialCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // label16
-            // 
-            label16.AutoSize = true;
-            label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label16.Location = new System.Drawing.Point(40, 274);
-            label16.Name = "label16";
-            label16.Size = new System.Drawing.Size(586, 18);
-            label16.TabIndex = 2;
-            label16.Text = "Información: marcar esta opción cuando el contrato se esta pagando de forma irreg" +
-    "ular.";
             // 
             // FNuevoContrato
             // 

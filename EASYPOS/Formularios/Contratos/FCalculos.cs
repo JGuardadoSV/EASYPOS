@@ -12,7 +12,7 @@ namespace EASYPOS.Formularios.Contratos
 {
     public partial class FCalculos : Form
     {
-        public decimal precio, cuota,prima,financiamiento;public int meses;
+        public decimal precio, cuota,prima,financiamiento,gastos;public int meses;
         string nombre;
         public FCalculos(string nombre)
         {
@@ -32,7 +32,7 @@ namespace EASYPOS.Formularios.Contratos
 
         private void button3_Click(object sender, EventArgs e)
         {
-            FTablaAmortizacion f = new FTablaAmortizacion(this.precio, this.meses, this.cuota, 0.03M, DateTime.Now,this.prima,nombre);
+            FTablaAmortizacion f = new FTablaAmortizacion(this.precio, this.meses, this.cuota, 0.03M, DateTime.Now,this.prima-this.gastos,nombre);
             f.ShowDialog();
         }
 
@@ -40,6 +40,11 @@ namespace EASYPOS.Formularios.Contratos
         {
             this.DialogResult = DialogResult.OK;
             this.Close();
+        }
+
+        private void FCalculos_Load(object sender, EventArgs e)
+        {
+
         }
 
         private void txtMeses_KeyPress(object sender, KeyPressEventArgs e)
@@ -61,12 +66,15 @@ namespace EASYPOS.Formularios.Contratos
             {
                 this.precio = decimal.Parse(txtPrecio.Text);
                 this.prima = decimal.Parse(txtPrima.Text);
-                this.financiamiento = precio - prima;
+                this.financiamiento = precio - (prima - gastos);
                 decimal interes = financiamiento * 0.03M;
                 this.meses = int.Parse(txtMeses.Text);
                 decimal capital = financiamiento / meses;
                 this.cuota = Math.Round(capital + interes, 2);
                 txtFinanciamiento.Text = financiamiento.ToString();
+                this.gastos = 35.00M;
+                textBoxPrimaNeta.Text = (prima - 35.00M).ToString("F");
+                textBoxgatos.Text = gastos.ToString("F");
 
                 labelCuota.Text = this.cuota.ToString("C");
 

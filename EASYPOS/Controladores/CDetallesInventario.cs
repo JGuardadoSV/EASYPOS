@@ -37,6 +37,16 @@ namespace EASYPOS.Controladores
             mDetallesInventario.ActualizarExistencias(idactual, existencias);
         }
 
+        internal List<DetallesInventario> ListadoPropio(int idinventario)
+        {
+            return mDetallesInventario.ListadoPropio(idinventario);
+        }
+
+        internal List<DetallesInventario> ListadoConsignacion(int idinventario)
+        {
+            return mDetallesInventario.ListadoConsignacion(idinventario);
+        }
+
         public void disminuirExistencias(int idactual, int cantidad)
         {
 

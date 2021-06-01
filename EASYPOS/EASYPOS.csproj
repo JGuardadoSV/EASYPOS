@@ -238,6 +238,12 @@
     <Compile Include="Formularios\Inventario\FInventario.Designer.cs">
       <DependentUpon>FInventario.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\Inventario\FReporteInventario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Inventario\FReporteInventario.Designer.cs">
+      <DependentUpon>FReporteInventario.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\POS\FCobro.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -422,6 +428,9 @@
     <EmbeddedResource Include="Formularios\Inventario\FInventario.resx">
       <DependentUpon>FInventario.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Inventario\FReporteInventario.resx">
+      <DependentUpon>FReporteInventario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\POS\FCobro.resx">
       <DependentUpon>FCobro.cs</DependentUpon>
     </EmbeddedResource>
@@ -495,6 +504,7 @@
     <EmbeddedResource Include="Reportes\rContratosPagoCuotas.rdlc" />
     <EmbeddedResource Include="Reportes\rContratosVigentes.rdlc" />
     <EmbeddedResource Include="Reportes\rContratosVencidos.rdlc" />
+    <EmbeddedResource Include="Reportes\rInventario.rdlc" />
     <EmbeddedResource Include="Reportes\rTablaAmortizacion.rdlc" />
     <EmbeddedResource Include="Reportes\rVentas.rdlc" />
     <None Include="packages.config" />

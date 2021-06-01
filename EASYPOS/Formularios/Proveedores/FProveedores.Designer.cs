@@ -36,9 +36,8 @@ namespace EASYPOS.Formularios.Proveedores
             System.Windows.Forms.Label telefonoLabel;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FProveedores));
             this.proveedorBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
-            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.proveedorBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
-            this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
@@ -47,8 +46,14 @@ namespace EASYPOS.Formularios.Proveedores
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.proveedorBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.proveedorDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.eliminarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Registrarbutton = new System.Windows.Forms.Button();
             this.Fpanel = new System.Windows.Forms.Panel();
             this.Cancelarbutton = new System.Windows.Forms.Button();
@@ -58,68 +63,64 @@ namespace EASYPOS.Formularios.Proveedores
             this.personaContactoTextBox = new System.Windows.Forms.TextBox();
             this.telefonoTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.eliminarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.proveedorBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             emailLabel = new System.Windows.Forms.Label();
             nombreProveedorLabel = new System.Windows.Forms.Label();
             personaContactoLabel = new System.Windows.Forms.Label();
             telefonoLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.proveedorBindingNavigator)).BeginInit();
             this.proveedorBindingNavigator.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.proveedorDataGridView)).BeginInit();
-            this.Fpanel.SuspendLayout();
-            this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.proveedorBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.proveedorDataGridView)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
+            this.Fpanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // emailLabel
             // 
             emailLabel.AutoSize = true;
-            emailLabel.Location = new System.Drawing.Point(121, 195);
+            emailLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            emailLabel.Location = new System.Drawing.Point(123, 191);
             emailLabel.Name = "emailLabel";
-            emailLabel.Size = new System.Drawing.Size(35, 13);
+            emailLabel.Size = new System.Drawing.Size(45, 16);
             emailLabel.TabIndex = 7;
             emailLabel.Text = "Email:";
             // 
             // nombreProveedorLabel
             // 
             nombreProveedorLabel.AutoSize = true;
-            nombreProveedorLabel.Location = new System.Drawing.Point(57, 117);
+            nombreProveedorLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            nombreProveedorLabel.Location = new System.Drawing.Point(41, 95);
             nombreProveedorLabel.Name = "nombreProveedorLabel";
-            nombreProveedorLabel.Size = new System.Drawing.Size(99, 13);
+            nombreProveedorLabel.Size = new System.Drawing.Size(127, 16);
             nombreProveedorLabel.TabIndex = 1;
             nombreProveedorLabel.Text = "Nombre Proveedor:";
             // 
             // personaContactoLabel
             // 
             personaContactoLabel.AutoSize = true;
-            personaContactoLabel.Location = new System.Drawing.Point(61, 143);
+            personaContactoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            personaContactoLabel.Location = new System.Drawing.Point(50, 127);
             personaContactoLabel.Name = "personaContactoLabel";
-            personaContactoLabel.Size = new System.Drawing.Size(95, 13);
+            personaContactoLabel.Size = new System.Drawing.Size(118, 16);
             personaContactoLabel.TabIndex = 3;
             personaContactoLabel.Text = "Persona Contacto:";
             // 
             // telefonoLabel
             // 
             telefonoLabel.AutoSize = true;
-            telefonoLabel.Location = new System.Drawing.Point(104, 169);
+            telefonoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            telefonoLabel.Location = new System.Drawing.Point(103, 159);
             telefonoLabel.Name = "telefonoLabel";
-            telefonoLabel.Size = new System.Drawing.Size(52, 13);
+            telefonoLabel.Size = new System.Drawing.Size(65, 16);
             telefonoLabel.TabIndex = 5;
             telefonoLabel.Text = "Telefono:";
             // 
             // proveedorBindingNavigator
             // 
-            this.proveedorBindingNavigator.AddNewItem = this.bindingNavigatorAddNewItem;
+            this.proveedorBindingNavigator.AddNewItem = null;
             this.proveedorBindingNavigator.BindingSource = this.proveedorBindingSource;
             this.proveedorBindingNavigator.CountItem = this.bindingNavigatorCountItem;
-            this.proveedorBindingNavigator.DeleteItem = this.bindingNavigatorDeleteItem;
+            this.proveedorBindingNavigator.DeleteItem = null;
             this.proveedorBindingNavigator.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.bindingNavigatorMoveFirstItem,
             this.bindingNavigatorMovePreviousItem,
@@ -129,10 +130,7 @@ namespace EASYPOS.Formularios.Proveedores
             this.bindingNavigatorSeparator1,
             this.bindingNavigatorMoveNextItem,
             this.bindingNavigatorMoveLastItem,
-            this.bindingNavigatorSeparator2,
-            this.bindingNavigatorAddNewItem,
-            this.bindingNavigatorDeleteItem,
-            this.proveedorBindingNavigatorSaveItem});
+            this.bindingNavigatorSeparator2});
             this.proveedorBindingNavigator.Location = new System.Drawing.Point(0, 0);
             this.proveedorBindingNavigator.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.proveedorBindingNavigator.MoveLastItem = this.bindingNavigatorMoveLastItem;
@@ -144,14 +142,9 @@ namespace EASYPOS.Formularios.Proveedores
             this.proveedorBindingNavigator.TabIndex = 0;
             this.proveedorBindingNavigator.Text = "bindingNavigator1";
             // 
-            // bindingNavigatorAddNewItem
+            // proveedorBindingSource
             // 
-            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
-            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorAddNewItem.Text = "Agregar nuevo";
+            this.proveedorBindingSource.DataSource = typeof(EASYPOS.Entidades.Proveedor);
             // 
             // bindingNavigatorCountItem
             // 
@@ -159,15 +152,6 @@ namespace EASYPOS.Formularios.Proveedores
             this.bindingNavigatorCountItem.Size = new System.Drawing.Size(37, 22);
             this.bindingNavigatorCountItem.Text = "de {0}";
             this.bindingNavigatorCountItem.ToolTipText = "Número total de elementos";
-            // 
-            // bindingNavigatorDeleteItem
-            // 
-            this.bindingNavigatorDeleteItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorDeleteItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorDeleteItem.Image")));
-            this.bindingNavigatorDeleteItem.Name = "bindingNavigatorDeleteItem";
-            this.bindingNavigatorDeleteItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorDeleteItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorDeleteItem.Text = "Eliminar";
             // 
             // bindingNavigatorMoveFirstItem
             // 
@@ -230,15 +214,6 @@ namespace EASYPOS.Formularios.Proveedores
             this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
             // 
-            // proveedorBindingNavigatorSaveItem
-            // 
-            this.proveedorBindingNavigatorSaveItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.proveedorBindingNavigatorSaveItem.Enabled = false;
-            this.proveedorBindingNavigatorSaveItem.Image = ((System.Drawing.Image)(resources.GetObject("proveedorBindingNavigatorSaveItem.Image")));
-            this.proveedorBindingNavigatorSaveItem.Name = "proveedorBindingNavigatorSaveItem";
-            this.proveedorBindingNavigatorSaveItem.Size = new System.Drawing.Size(23, 22);
-            this.proveedorBindingNavigatorSaveItem.Text = "Guardar datos";
-            // 
             // proveedorDataGridView
             // 
             this.proveedorDataGridView.AllowUserToAddRows = false;
@@ -261,115 +236,6 @@ namespace EASYPOS.Formularios.Proveedores
             this.proveedorDataGridView.TabIndex = 1;
             this.proveedorDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.proveedorDataGridView_CellDoubleClick);
             this.proveedorDataGridView.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.proveedorDataGridView_CellMouseDown);
-            // 
-            // Registrarbutton
-            // 
-            this.Registrarbutton.Location = new System.Drawing.Point(13, 48);
-            this.Registrarbutton.Name = "Registrarbutton";
-            this.Registrarbutton.Size = new System.Drawing.Size(214, 41);
-            this.Registrarbutton.TabIndex = 2;
-            this.Registrarbutton.Text = "Agregar nuevo proveedor";
-            this.Registrarbutton.UseVisualStyleBackColor = true;
-            this.Registrarbutton.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // Fpanel
-            // 
-            this.Fpanel.Controls.Add(this.Cancelarbutton);
-            this.Fpanel.Controls.Add(this.Guardarbutton);
-            this.Fpanel.Controls.Add(emailLabel);
-            this.Fpanel.Controls.Add(this.emailTextBox);
-            this.Fpanel.Controls.Add(nombreProveedorLabel);
-            this.Fpanel.Controls.Add(this.nombreProveedorTextBox);
-            this.Fpanel.Controls.Add(personaContactoLabel);
-            this.Fpanel.Controls.Add(this.personaContactoTextBox);
-            this.Fpanel.Controls.Add(telefonoLabel);
-            this.Fpanel.Controls.Add(this.telefonoTextBox);
-            this.Fpanel.Controls.Add(this.label1);
-            this.Fpanel.Location = new System.Drawing.Point(168, 48);
-            this.Fpanel.Name = "Fpanel";
-            this.Fpanel.Size = new System.Drawing.Size(509, 364);
-            this.Fpanel.TabIndex = 3;
-            this.Fpanel.Visible = false;
-            // 
-            // Cancelarbutton
-            // 
-            this.Cancelarbutton.Location = new System.Drawing.Point(265, 245);
-            this.Cancelarbutton.Name = "Cancelarbutton";
-            this.Cancelarbutton.Size = new System.Drawing.Size(135, 51);
-            this.Cancelarbutton.TabIndex = 10;
-            this.Cancelarbutton.Text = "Cancelar";
-            this.Cancelarbutton.UseVisualStyleBackColor = true;
-            this.Cancelarbutton.Click += new System.EventHandler(this.Cancelarbutton_Click);
-            // 
-            // Guardarbutton
-            // 
-            this.Guardarbutton.Location = new System.Drawing.Point(127, 245);
-            this.Guardarbutton.Name = "Guardarbutton";
-            this.Guardarbutton.Size = new System.Drawing.Size(135, 51);
-            this.Guardarbutton.TabIndex = 9;
-            this.Guardarbutton.Text = "Guardar";
-            this.Guardarbutton.UseVisualStyleBackColor = true;
-            this.Guardarbutton.Click += new System.EventHandler(this.Guardarbutton_Click);
-            // 
-            // emailTextBox
-            // 
-            this.emailTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.proveedorBindingSource, "Email", true));
-            this.emailTextBox.Location = new System.Drawing.Point(174, 192);
-            this.emailTextBox.Name = "emailTextBox";
-            this.emailTextBox.Size = new System.Drawing.Size(251, 20);
-            this.emailTextBox.TabIndex = 8;
-            // 
-            // nombreProveedorTextBox
-            // 
-            this.nombreProveedorTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.proveedorBindingSource, "NombreProveedor", true));
-            this.nombreProveedorTextBox.Location = new System.Drawing.Point(174, 114);
-            this.nombreProveedorTextBox.Name = "nombreProveedorTextBox";
-            this.nombreProveedorTextBox.Size = new System.Drawing.Size(251, 20);
-            this.nombreProveedorTextBox.TabIndex = 2;
-            // 
-            // personaContactoTextBox
-            // 
-            this.personaContactoTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.proveedorBindingSource, "PersonaContacto", true));
-            this.personaContactoTextBox.Location = new System.Drawing.Point(174, 140);
-            this.personaContactoTextBox.Name = "personaContactoTextBox";
-            this.personaContactoTextBox.Size = new System.Drawing.Size(251, 20);
-            this.personaContactoTextBox.TabIndex = 4;
-            // 
-            // telefonoTextBox
-            // 
-            this.telefonoTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.proveedorBindingSource, "Telefono", true));
-            this.telefonoTextBox.Location = new System.Drawing.Point(174, 166);
-            this.telefonoTextBox.Name = "telefonoTextBox";
-            this.telefonoTextBox.Size = new System.Drawing.Size(251, 20);
-            this.telefonoTextBox.TabIndex = 6;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(110, 16);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(315, 25);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Administración de proveedores ";
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.eliminarToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(209, 26);
-            // 
-            // eliminarToolStripMenuItem
-            // 
-            this.eliminarToolStripMenuItem.Name = "eliminarToolStripMenuItem";
-            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
-            this.eliminarToolStripMenuItem.Text = "¿&Eliminar este proveedor?";
-            this.eliminarToolStripMenuItem.Click += new System.EventHandler(this.eliminarEstaCategoríaToolStripMenuItem_Click_1);
-            // 
-            // proveedorBindingSource
-            // 
-            this.proveedorBindingSource.DataSource = typeof(EASYPOS.Entidades.Proveedor);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -410,6 +276,118 @@ namespace EASYPOS.Formularios.Proveedores
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.eliminarToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(209, 26);
+            // 
+            // eliminarToolStripMenuItem
+            // 
+            this.eliminarToolStripMenuItem.Name = "eliminarToolStripMenuItem";
+            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(208, 22);
+            this.eliminarToolStripMenuItem.Text = "¿&Eliminar este proveedor?";
+            this.eliminarToolStripMenuItem.Click += new System.EventHandler(this.eliminarEstaCategoríaToolStripMenuItem_Click_1);
+            // 
+            // Registrarbutton
+            // 
+            this.Registrarbutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Registrarbutton.Location = new System.Drawing.Point(13, 48);
+            this.Registrarbutton.Name = "Registrarbutton";
+            this.Registrarbutton.Size = new System.Drawing.Size(230, 41);
+            this.Registrarbutton.TabIndex = 2;
+            this.Registrarbutton.Text = "Agregar nuevo proveedor";
+            this.Registrarbutton.UseVisualStyleBackColor = true;
+            this.Registrarbutton.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // Fpanel
+            // 
+            this.Fpanel.Controls.Add(this.Cancelarbutton);
+            this.Fpanel.Controls.Add(this.Guardarbutton);
+            this.Fpanel.Controls.Add(emailLabel);
+            this.Fpanel.Controls.Add(this.emailTextBox);
+            this.Fpanel.Controls.Add(nombreProveedorLabel);
+            this.Fpanel.Controls.Add(this.nombreProveedorTextBox);
+            this.Fpanel.Controls.Add(personaContactoLabel);
+            this.Fpanel.Controls.Add(this.personaContactoTextBox);
+            this.Fpanel.Controls.Add(telefonoLabel);
+            this.Fpanel.Controls.Add(this.telefonoTextBox);
+            this.Fpanel.Controls.Add(this.label1);
+            this.Fpanel.Location = new System.Drawing.Point(168, 48);
+            this.Fpanel.Name = "Fpanel";
+            this.Fpanel.Size = new System.Drawing.Size(509, 364);
+            this.Fpanel.TabIndex = 3;
+            this.Fpanel.Visible = false;
+            // 
+            // Cancelarbutton
+            // 
+            this.Cancelarbutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Cancelarbutton.Location = new System.Drawing.Point(265, 245);
+            this.Cancelarbutton.Name = "Cancelarbutton";
+            this.Cancelarbutton.Size = new System.Drawing.Size(135, 51);
+            this.Cancelarbutton.TabIndex = 10;
+            this.Cancelarbutton.Text = "Cancelar";
+            this.Cancelarbutton.UseVisualStyleBackColor = true;
+            this.Cancelarbutton.Click += new System.EventHandler(this.Cancelarbutton_Click);
+            // 
+            // Guardarbutton
+            // 
+            this.Guardarbutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Guardarbutton.Location = new System.Drawing.Point(127, 245);
+            this.Guardarbutton.Name = "Guardarbutton";
+            this.Guardarbutton.Size = new System.Drawing.Size(135, 51);
+            this.Guardarbutton.TabIndex = 9;
+            this.Guardarbutton.Text = "Guardar";
+            this.Guardarbutton.UseVisualStyleBackColor = true;
+            this.Guardarbutton.Click += new System.EventHandler(this.Guardarbutton_Click);
+            // 
+            // emailTextBox
+            // 
+            this.emailTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.proveedorBindingSource, "Email", true));
+            this.emailTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.emailTextBox.Location = new System.Drawing.Point(174, 191);
+            this.emailTextBox.Name = "emailTextBox";
+            this.emailTextBox.Size = new System.Drawing.Size(251, 22);
+            this.emailTextBox.TabIndex = 8;
+            // 
+            // nombreProveedorTextBox
+            // 
+            this.nombreProveedorTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.proveedorBindingSource, "NombreProveedor", true));
+            this.nombreProveedorTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nombreProveedorTextBox.Location = new System.Drawing.Point(174, 95);
+            this.nombreProveedorTextBox.Name = "nombreProveedorTextBox";
+            this.nombreProveedorTextBox.Size = new System.Drawing.Size(251, 22);
+            this.nombreProveedorTextBox.TabIndex = 2;
+            // 
+            // personaContactoTextBox
+            // 
+            this.personaContactoTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.proveedorBindingSource, "PersonaContacto", true));
+            this.personaContactoTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.personaContactoTextBox.Location = new System.Drawing.Point(174, 127);
+            this.personaContactoTextBox.Name = "personaContactoTextBox";
+            this.personaContactoTextBox.Size = new System.Drawing.Size(251, 22);
+            this.personaContactoTextBox.TabIndex = 4;
+            // 
+            // telefonoTextBox
+            // 
+            this.telefonoTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.proveedorBindingSource, "Telefono", true));
+            this.telefonoTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.telefonoTextBox.Location = new System.Drawing.Point(174, 159);
+            this.telefonoTextBox.Name = "telefonoTextBox";
+            this.telefonoTextBox.Size = new System.Drawing.Size(251, 22);
+            this.telefonoTextBox.TabIndex = 6;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(110, 16);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(315, 25);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Administración de proveedores ";
+            // 
             // FProveedores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -425,11 +403,11 @@ namespace EASYPOS.Formularios.Proveedores
             ((System.ComponentModel.ISupportInitialize)(this.proveedorBindingNavigator)).EndInit();
             this.proveedorBindingNavigator.ResumeLayout(false);
             this.proveedorBindingNavigator.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.proveedorBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.proveedorDataGridView)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.Fpanel.ResumeLayout(false);
             this.Fpanel.PerformLayout();
-            this.contextMenuStrip1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.proveedorBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -439,9 +417,7 @@ namespace EASYPOS.Formularios.Proveedores
 
         private System.Windows.Forms.BindingSource proveedorBindingSource;
         private System.Windows.Forms.BindingNavigator proveedorBindingNavigator;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorAddNewItem;
         private System.Windows.Forms.ToolStripLabel bindingNavigatorCountItem;
-        private System.Windows.Forms.ToolStripButton bindingNavigatorDeleteItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveFirstItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMovePreviousItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator;
@@ -450,7 +426,6 @@ namespace EASYPOS.Formularios.Proveedores
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveNextItem;
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
-        private System.Windows.Forms.ToolStripButton proveedorBindingNavigatorSaveItem;
         private System.Windows.Forms.DataGridView proveedorDataGridView;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;

@@ -127,6 +127,10 @@ namespace EASYPOS.Formularios.POS
                 cuota.AIntereses = decimal.Parse(txtaintereses.Text );
                 cuota.ACapitalExtra = decimal.Parse(txtcapitalextra.Text);
                 cuota.CapitalPendiente = decimal.Parse(txtcapitaldespues.Text);
+                if (otrafecha.Checked)
+                {
+                    cuota.FechaDePago = dateTimePickerFechaPago.Value;
+                }
 
                 CCuota cCuota = new CCuota();
                 int si = cCuota.Insertar(cuota);

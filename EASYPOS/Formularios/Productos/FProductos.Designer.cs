@@ -33,15 +33,15 @@ namespace EASYPOS.Formularios.Productos
             System.Windows.Forms.Label informacionAdicionalLabel;
             System.Windows.Forms.Label nombreProductoLabel;
             System.Windows.Forms.Label precioLabel;
-            System.Windows.Forms.Label tieneVariasPresentacionesLabel1;
             System.Windows.Forms.Label label2;
             System.Windows.Forms.Label label3;
             System.Windows.Forms.Label codigoLabel;
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FProductos));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.Label label4;
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FProductos));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.Label consignacionLabel;
             this.productoBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.productoBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -72,32 +72,27 @@ namespace EASYPOS.Formularios.Productos
             this.eliminarEsteProductoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.Registrarbutton = new System.Windows.Forms.Button();
             this.Fpanel = new System.Windows.Forms.Panel();
-            this.PresentacionesgroupBox = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.PresentacionesdataGridView = new System.Windows.Forms.DataGridView();
-            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.presentacion = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.eliminarPresentaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.txtExistencias = new System.Windows.Forms.TextBox();
             this.codigoTextBox = new System.Windows.Forms.TextBox();
             this.Cancelarbutton = new System.Windows.Forms.Button();
             this.Guardarbutton = new System.Windows.Forms.Button();
             this.ProveedorcomboBox = new System.Windows.Forms.ComboBox();
             this.CategoriacomboBox = new System.Windows.Forms.ComboBox();
-            this.tieneVariasPresentacionesCheckBox = new System.Windows.Forms.CheckBox();
             this.informacionAdicionalTextBox = new System.Windows.Forms.TextBox();
             this.nombreProductoTextBox = new System.Windows.Forms.TextBox();
             this.precioTextBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtExistencias = new System.Windows.Forms.TextBox();
+            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.eliminarPresentaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.consignacionCheckBox = new System.Windows.Forms.CheckBox();
             informacionAdicionalLabel = new System.Windows.Forms.Label();
             nombreProductoLabel = new System.Windows.Forms.Label();
             precioLabel = new System.Windows.Forms.Label();
-            tieneVariasPresentacionesLabel1 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
             label3 = new System.Windows.Forms.Label();
             codigoLabel = new System.Windows.Forms.Label();
             label4 = new System.Windows.Forms.Label();
+            consignacionLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.productoBindingNavigator)).BeginInit();
             this.productoBindingNavigator.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.productoBindingSource)).BeginInit();
@@ -106,73 +101,78 @@ namespace EASYPOS.Formularios.Productos
             ((System.ComponentModel.ISupportInitialize)(this.proveedorBindingSource)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.Fpanel.SuspendLayout();
-            this.PresentacionesgroupBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PresentacionesdataGridView)).BeginInit();
             this.contextMenuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
             // informacionAdicionalLabel
             // 
             informacionAdicionalLabel.AutoSize = true;
-            informacionAdicionalLabel.Location = new System.Drawing.Point(80, 166);
+            informacionAdicionalLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            informacionAdicionalLabel.Location = new System.Drawing.Point(80, 139);
             informacionAdicionalLabel.Name = "informacionAdicionalLabel";
-            informacionAdicionalLabel.Size = new System.Drawing.Size(111, 13);
-            informacionAdicionalLabel.TabIndex = 7;
+            informacionAdicionalLabel.Size = new System.Drawing.Size(139, 16);
+            informacionAdicionalLabel.TabIndex = 6;
             informacionAdicionalLabel.Text = "Informacion Adicional:";
             // 
             // nombreProductoLabel
             // 
             nombreProductoLabel.AutoSize = true;
-            nombreProductoLabel.Location = new System.Drawing.Point(98, 78);
+            nombreProductoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            nombreProductoLabel.Location = new System.Drawing.Point(102, 78);
             nombreProductoLabel.Name = "nombreProductoLabel";
-            nombreProductoLabel.Size = new System.Drawing.Size(93, 13);
-            nombreProductoLabel.TabIndex = 1;
+            nombreProductoLabel.Size = new System.Drawing.Size(117, 16);
+            nombreProductoLabel.TabIndex = 0;
             nombreProductoLabel.Text = "Nombre Producto:";
             // 
             // precioLabel
             // 
             precioLabel.AutoSize = true;
-            precioLabel.Location = new System.Drawing.Point(151, 135);
+            precioLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            precioLabel.Location = new System.Drawing.Point(169, 108);
             precioLabel.Name = "precioLabel";
-            precioLabel.Size = new System.Drawing.Size(40, 13);
-            precioLabel.TabIndex = 5;
+            precioLabel.Size = new System.Drawing.Size(50, 16);
+            precioLabel.TabIndex = 2;
             precioLabel.Text = "Precio:";
-            // 
-            // tieneVariasPresentacionesLabel1
-            // 
-            tieneVariasPresentacionesLabel1.AutoSize = true;
-            tieneVariasPresentacionesLabel1.Location = new System.Drawing.Point(13, 105);
-            tieneVariasPresentacionesLabel1.Name = "tieneVariasPresentacionesLabel1";
-            tieneVariasPresentacionesLabel1.Size = new System.Drawing.Size(178, 13);
-            tieneVariasPresentacionesLabel1.TabIndex = 3;
-            tieneVariasPresentacionesLabel1.Text = "Se vende en varias Presentaciones:";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new System.Drawing.Point(134, 190);
+            label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label2.Location = new System.Drawing.Point(149, 163);
             label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(57, 13);
-            label2.TabIndex = 9;
+            label2.Size = new System.Drawing.Size(70, 16);
+            label2.TabIndex = 8;
             label2.Text = "Categoría:";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new System.Drawing.Point(132, 221);
+            label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label3.Location = new System.Drawing.Point(144, 194);
             label3.Name = "label3";
-            label3.Size = new System.Drawing.Size(59, 13);
-            label3.TabIndex = 11;
+            label3.Size = new System.Drawing.Size(75, 16);
+            label3.TabIndex = 10;
             label3.Text = "Proveedor:";
             // 
             // codigoLabel
             // 
             codigoLabel.AutoSize = true;
-            codigoLabel.Location = new System.Drawing.Point(148, 256);
+            codigoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            codigoLabel.Location = new System.Drawing.Point(164, 229);
             codigoLabel.Name = "codigoLabel";
-            codigoLabel.Size = new System.Drawing.Size(43, 13);
-            codigoLabel.TabIndex = 13;
+            codigoLabel.Size = new System.Drawing.Size(55, 16);
+            codigoLabel.TabIndex = 12;
             codigoLabel.Text = "Codigo:";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label4.Location = new System.Drawing.Point(332, 108);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(79, 16);
+            label4.TabIndex = 4;
+            label4.Text = "Existencias:";
             // 
             // productoBindingNavigator
             // 
@@ -334,9 +334,9 @@ namespace EASYPOS.Formularios.Productos
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "IdProducto";
-            dataGridViewCellStyle4.Format = "N2";
-            dataGridViewCellStyle4.NullValue = null;
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Format = "N2";
+            dataGridViewCellStyle1.NullValue = null;
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewTextBoxColumn1.HeaderText = "IdProducto";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
@@ -345,8 +345,8 @@ namespace EASYPOS.Formularios.Productos
             // Codigo
             // 
             this.Codigo.DataPropertyName = "Codigo";
-            dataGridViewCellStyle5.NullValue = "-";
-            this.Codigo.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.NullValue = "-";
+            this.Codigo.DefaultCellStyle = dataGridViewCellStyle2;
             this.Codigo.HeaderText = "Codigo";
             this.Codigo.Name = "Codigo";
             this.Codigo.ReadOnly = true;
@@ -421,9 +421,9 @@ namespace EASYPOS.Formularios.Productos
             // dataGridViewTextBoxColumn8
             // 
             this.dataGridViewTextBoxColumn8.DataPropertyName = "Precio";
-            dataGridViewCellStyle6.Format = "N2";
-            dataGridViewCellStyle6.NullValue = "0";
-            this.dataGridViewTextBoxColumn8.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Format = "N2";
+            dataGridViewCellStyle3.NullValue = "0";
+            this.dataGridViewTextBoxColumn8.DefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridViewTextBoxColumn8.HeaderText = "Precio";
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             this.dataGridViewTextBoxColumn8.ReadOnly = true;
@@ -455,16 +455,15 @@ namespace EASYPOS.Formularios.Productos
             // 
             // Fpanel
             // 
+            this.Fpanel.Controls.Add(consignacionLabel);
+            this.Fpanel.Controls.Add(this.consignacionCheckBox);
             this.Fpanel.Controls.Add(this.txtExistencias);
-            this.Fpanel.Controls.Add(this.PresentacionesgroupBox);
             this.Fpanel.Controls.Add(codigoLabel);
             this.Fpanel.Controls.Add(this.codigoTextBox);
             this.Fpanel.Controls.Add(this.Cancelarbutton);
             this.Fpanel.Controls.Add(this.Guardarbutton);
             this.Fpanel.Controls.Add(this.ProveedorcomboBox);
             this.Fpanel.Controls.Add(this.CategoriacomboBox);
-            this.Fpanel.Controls.Add(tieneVariasPresentacionesLabel1);
-            this.Fpanel.Controls.Add(this.tieneVariasPresentacionesCheckBox);
             this.Fpanel.Controls.Add(label3);
             this.Fpanel.Controls.Add(label2);
             this.Fpanel.Controls.Add(informacionAdicionalLabel);
@@ -481,61 +480,110 @@ namespace EASYPOS.Formularios.Productos
             this.Fpanel.TabIndex = 4;
             this.Fpanel.Visible = false;
             // 
-            // PresentacionesgroupBox
+            // txtExistencias
             // 
-            this.PresentacionesgroupBox.Controls.Add(this.button1);
-            this.PresentacionesgroupBox.Controls.Add(this.PresentacionesdataGridView);
-            this.PresentacionesgroupBox.Enabled = false;
-            this.PresentacionesgroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PresentacionesgroupBox.Location = new System.Drawing.Point(489, 75);
-            this.PresentacionesgroupBox.Name = "PresentacionesgroupBox";
-            this.PresentacionesgroupBox.Size = new System.Drawing.Size(354, 264);
-            this.PresentacionesgroupBox.TabIndex = 17;
-            this.PresentacionesgroupBox.TabStop = false;
-            this.PresentacionesgroupBox.Text = "Presentaciones de venta";
+            this.txtExistencias.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtExistencias.Location = new System.Drawing.Point(411, 105);
+            this.txtExistencias.Name = "txtExistencias";
+            this.txtExistencias.Size = new System.Drawing.Size(100, 22);
+            this.txtExistencias.TabIndex = 5;
+            this.txtExistencias.Text = "0";
             // 
-            // button1
+            // codigoTextBox
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(7, 23);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(218, 30);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Agregar presentación";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.codigoTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productoBindingSource, "Codigo", true));
+            this.codigoTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.codigoTextBox.Location = new System.Drawing.Point(226, 227);
+            this.codigoTextBox.Name = "codigoTextBox";
+            this.codigoTextBox.Size = new System.Drawing.Size(244, 22);
+            this.codigoTextBox.TabIndex = 13;
             // 
-            // PresentacionesdataGridView
+            // Cancelarbutton
             // 
-            this.PresentacionesdataGridView.AllowUserToAddRows = false;
-            this.PresentacionesdataGridView.AllowUserToDeleteRows = false;
-            this.PresentacionesdataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.PresentacionesdataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.ID,
-            this.presentacion});
-            this.PresentacionesdataGridView.ContextMenuStrip = this.contextMenuStrip2;
-            this.PresentacionesdataGridView.Location = new System.Drawing.Point(6, 60);
-            this.PresentacionesdataGridView.Name = "PresentacionesdataGridView";
-            this.PresentacionesdataGridView.ReadOnly = true;
-            this.PresentacionesdataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.PresentacionesdataGridView.Size = new System.Drawing.Size(342, 185);
-            this.PresentacionesdataGridView.TabIndex = 0;
-            this.PresentacionesdataGridView.CellMouseDown += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.PresentacionesdataGridView_CellMouseDown);
+            this.Cancelarbutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Cancelarbutton.Location = new System.Drawing.Point(386, 283);
+            this.Cancelarbutton.Name = "Cancelarbutton";
+            this.Cancelarbutton.Size = new System.Drawing.Size(147, 59);
+            this.Cancelarbutton.TabIndex = 17;
+            this.Cancelarbutton.Text = "Cancelar";
+            this.Cancelarbutton.UseVisualStyleBackColor = true;
+            this.Cancelarbutton.Click += new System.EventHandler(this.Cancelarbutton_Click);
             // 
-            // ID
+            // Guardarbutton
             // 
-            this.ID.HeaderText = "ID";
-            this.ID.Name = "ID";
-            this.ID.ReadOnly = true;
-            this.ID.Visible = false;
-            this.ID.Width = 25;
+            this.Guardarbutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Guardarbutton.Location = new System.Drawing.Point(233, 283);
+            this.Guardarbutton.Name = "Guardarbutton";
+            this.Guardarbutton.Size = new System.Drawing.Size(147, 59);
+            this.Guardarbutton.TabIndex = 16;
+            this.Guardarbutton.Text = "Guardar";
+            this.Guardarbutton.UseVisualStyleBackColor = true;
+            this.Guardarbutton.Click += new System.EventHandler(this.Guardarbutton_Click);
             // 
-            // presentacion
+            // ProveedorcomboBox
             // 
-            this.presentacion.HeaderText = "Presentación";
-            this.presentacion.Name = "presentacion";
-            this.presentacion.ReadOnly = true;
-            this.presentacion.Width = 200;
+            this.ProveedorcomboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.productoBindingSource, "IdProveedor_FK", true));
+            this.ProveedorcomboBox.DataSource = this.proveedorBindingSource;
+            this.ProveedorcomboBox.DisplayMember = "NombreProveedor";
+            this.ProveedorcomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.ProveedorcomboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ProveedorcomboBox.FormattingEnabled = true;
+            this.ProveedorcomboBox.Location = new System.Drawing.Point(226, 194);
+            this.ProveedorcomboBox.Name = "ProveedorcomboBox";
+            this.ProveedorcomboBox.Size = new System.Drawing.Size(244, 24);
+            this.ProveedorcomboBox.TabIndex = 11;
+            this.ProveedorcomboBox.ValueMember = "IdProveedor";
+            // 
+            // CategoriacomboBox
+            // 
+            this.CategoriacomboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.productoBindingSource, "IdCategoria_FK", true));
+            this.CategoriacomboBox.DataSource = this.categoriaBindingSource;
+            this.CategoriacomboBox.DisplayMember = "NombreCategoria";
+            this.CategoriacomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CategoriacomboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CategoriacomboBox.FormattingEnabled = true;
+            this.CategoriacomboBox.Location = new System.Drawing.Point(226, 163);
+            this.CategoriacomboBox.Name = "CategoriacomboBox";
+            this.CategoriacomboBox.Size = new System.Drawing.Size(244, 24);
+            this.CategoriacomboBox.TabIndex = 9;
+            this.CategoriacomboBox.ValueMember = "IdCategoria";
+            // 
+            // informacionAdicionalTextBox
+            // 
+            this.informacionAdicionalTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productoBindingSource, "InformacionAdicional", true));
+            this.informacionAdicionalTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.informacionAdicionalTextBox.Location = new System.Drawing.Point(226, 136);
+            this.informacionAdicionalTextBox.Name = "informacionAdicionalTextBox";
+            this.informacionAdicionalTextBox.Size = new System.Drawing.Size(496, 22);
+            this.informacionAdicionalTextBox.TabIndex = 7;
+            // 
+            // nombreProductoTextBox
+            // 
+            this.nombreProductoTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productoBindingSource, "NombreProducto", true));
+            this.nombreProductoTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nombreProductoTextBox.Location = new System.Drawing.Point(226, 75);
+            this.nombreProductoTextBox.Name = "nombreProductoTextBox";
+            this.nombreProductoTextBox.Size = new System.Drawing.Size(244, 22);
+            this.nombreProductoTextBox.TabIndex = 1;
+            // 
+            // precioTextBox
+            // 
+            this.precioTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productoBindingSource, "Precio", true));
+            this.precioTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.precioTextBox.Location = new System.Drawing.Point(226, 108);
+            this.precioTextBox.Name = "precioTextBox";
+            this.precioTextBox.Size = new System.Drawing.Size(100, 22);
+            this.precioTextBox.TabIndex = 3;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(13, 20);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(250, 24);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Administración de productos";
             // 
             // contextMenuStrip2
             // 
@@ -551,121 +599,26 @@ namespace EASYPOS.Formularios.Productos
             this.eliminarPresentaciónToolStripMenuItem.Text = "¿Eliminar presentación?";
             this.eliminarPresentaciónToolStripMenuItem.Click += new System.EventHandler(this.eliminarPresentaciónToolStripMenuItem_Click);
             // 
-            // codigoTextBox
+            // consignacionLabel
             // 
-            this.codigoTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productoBindingSource, "Codigo", true));
-            this.codigoTextBox.Location = new System.Drawing.Point(198, 254);
-            this.codigoTextBox.Name = "codigoTextBox";
-            this.codigoTextBox.Size = new System.Drawing.Size(244, 20);
-            this.codigoTextBox.TabIndex = 14;
+            consignacionLabel.AutoSize = true;
+            consignacionLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            consignacionLabel.Location = new System.Drawing.Point(46, 258);
+            consignacionLabel.Name = "consignacionLabel";
+            consignacionLabel.Size = new System.Drawing.Size(173, 16);
+            consignacionLabel.TabIndex = 14;
+            consignacionLabel.Text = "Productos en consignación:";
             // 
-            // Cancelarbutton
+            // consignacionCheckBox
             // 
-            this.Cancelarbutton.Location = new System.Drawing.Point(321, 283);
-            this.Cancelarbutton.Name = "Cancelarbutton";
-            this.Cancelarbutton.Size = new System.Drawing.Size(147, 59);
-            this.Cancelarbutton.TabIndex = 16;
-            this.Cancelarbutton.Text = "Cancelar";
-            this.Cancelarbutton.UseVisualStyleBackColor = true;
-            this.Cancelarbutton.Click += new System.EventHandler(this.Cancelarbutton_Click);
-            // 
-            // Guardarbutton
-            // 
-            this.Guardarbutton.Location = new System.Drawing.Point(168, 283);
-            this.Guardarbutton.Name = "Guardarbutton";
-            this.Guardarbutton.Size = new System.Drawing.Size(147, 59);
-            this.Guardarbutton.TabIndex = 15;
-            this.Guardarbutton.Text = "Guardar";
-            this.Guardarbutton.UseVisualStyleBackColor = true;
-            this.Guardarbutton.Click += new System.EventHandler(this.Guardarbutton_Click);
-            // 
-            // ProveedorcomboBox
-            // 
-            this.ProveedorcomboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.productoBindingSource, "IdProveedor_FK", true));
-            this.ProveedorcomboBox.DataSource = this.proveedorBindingSource;
-            this.ProveedorcomboBox.DisplayMember = "NombreProveedor";
-            this.ProveedorcomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.ProveedorcomboBox.FormattingEnabled = true;
-            this.ProveedorcomboBox.Location = new System.Drawing.Point(198, 221);
-            this.ProveedorcomboBox.Name = "ProveedorcomboBox";
-            this.ProveedorcomboBox.Size = new System.Drawing.Size(244, 21);
-            this.ProveedorcomboBox.TabIndex = 12;
-            this.ProveedorcomboBox.ValueMember = "IdProveedor";
-            // 
-            // CategoriacomboBox
-            // 
-            this.CategoriacomboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.productoBindingSource, "IdCategoria_FK", true));
-            this.CategoriacomboBox.DataSource = this.categoriaBindingSource;
-            this.CategoriacomboBox.DisplayMember = "NombreCategoria";
-            this.CategoriacomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CategoriacomboBox.FormattingEnabled = true;
-            this.CategoriacomboBox.Location = new System.Drawing.Point(198, 190);
-            this.CategoriacomboBox.Name = "CategoriacomboBox";
-            this.CategoriacomboBox.Size = new System.Drawing.Size(244, 21);
-            this.CategoriacomboBox.TabIndex = 10;
-            this.CategoriacomboBox.ValueMember = "IdCategoria";
-            // 
-            // tieneVariasPresentacionesCheckBox
-            // 
-            this.tieneVariasPresentacionesCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.productoBindingSource, "TieneVariasPresentaciones", true));
-            this.tieneVariasPresentacionesCheckBox.Location = new System.Drawing.Point(198, 105);
-            this.tieneVariasPresentacionesCheckBox.Name = "tieneVariasPresentacionesCheckBox";
-            this.tieneVariasPresentacionesCheckBox.Size = new System.Drawing.Size(104, 24);
-            this.tieneVariasPresentacionesCheckBox.TabIndex = 4;
-            this.tieneVariasPresentacionesCheckBox.Text = "Sí";
-            this.tieneVariasPresentacionesCheckBox.UseVisualStyleBackColor = true;
-            this.tieneVariasPresentacionesCheckBox.CheckedChanged += new System.EventHandler(this.tieneVariasPresentacionesCheckBox_CheckedChanged);
-            // 
-            // informacionAdicionalTextBox
-            // 
-            this.informacionAdicionalTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productoBindingSource, "InformacionAdicional", true));
-            this.informacionAdicionalTextBox.Location = new System.Drawing.Point(198, 163);
-            this.informacionAdicionalTextBox.Name = "informacionAdicionalTextBox";
-            this.informacionAdicionalTextBox.Size = new System.Drawing.Size(244, 20);
-            this.informacionAdicionalTextBox.TabIndex = 8;
-            // 
-            // nombreProductoTextBox
-            // 
-            this.nombreProductoTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productoBindingSource, "NombreProducto", true));
-            this.nombreProductoTextBox.Location = new System.Drawing.Point(198, 75);
-            this.nombreProductoTextBox.Name = "nombreProductoTextBox";
-            this.nombreProductoTextBox.Size = new System.Drawing.Size(244, 20);
-            this.nombreProductoTextBox.TabIndex = 2;
-            // 
-            // precioTextBox
-            // 
-            this.precioTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.productoBindingSource, "Precio", true));
-            this.precioTextBox.Location = new System.Drawing.Point(198, 135);
-            this.precioTextBox.Name = "precioTextBox";
-            this.precioTextBox.Size = new System.Drawing.Size(100, 20);
-            this.precioTextBox.TabIndex = 6;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(13, 20);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(250, 24);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Administración de productos";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new System.Drawing.Point(304, 135);
-            label4.Name = "label4";
-            label4.Size = new System.Drawing.Size(63, 13);
-            label4.TabIndex = 5;
-            label4.Text = "Existencias:";
-            // 
-            // txtExistencias
-            // 
-            this.txtExistencias.Location = new System.Drawing.Point(368, 132);
-            this.txtExistencias.Name = "txtExistencias";
-            this.txtExistencias.Size = new System.Drawing.Size(100, 20);
-            this.txtExistencias.TabIndex = 18;
-            this.txtExistencias.Text = "0";
+            this.consignacionCheckBox.DataBindings.Add(new System.Windows.Forms.Binding("CheckState", this.productoBindingSource, "Consignacion", true));
+            this.consignacionCheckBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.consignacionCheckBox.Location = new System.Drawing.Point(225, 255);
+            this.consignacionCheckBox.Name = "consignacionCheckBox";
+            this.consignacionCheckBox.Size = new System.Drawing.Size(104, 24);
+            this.consignacionCheckBox.TabIndex = 15;
+            this.consignacionCheckBox.Text = "Si";
+            this.consignacionCheckBox.UseVisualStyleBackColor = true;
             // 
             // FProductos
             // 
@@ -689,8 +642,6 @@ namespace EASYPOS.Formularios.Productos
             this.contextMenuStrip1.ResumeLayout(false);
             this.Fpanel.ResumeLayout(false);
             this.Fpanel.PerformLayout();
-            this.PresentacionesgroupBox.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.PresentacionesdataGridView)).EndInit();
             this.contextMenuStrip2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -722,7 +673,6 @@ namespace EASYPOS.Formularios.Productos
         private System.Windows.Forms.Button Guardarbutton;
         private System.Windows.Forms.ComboBox ProveedorcomboBox;
         private System.Windows.Forms.ComboBox CategoriacomboBox;
-        private System.Windows.Forms.CheckBox tieneVariasPresentacionesCheckBox;
         private System.Windows.Forms.TextBox informacionAdicionalTextBox;
         private System.Windows.Forms.TextBox nombreProductoTextBox;
         private System.Windows.Forms.TextBox precioTextBox;
@@ -739,13 +689,9 @@ namespace EASYPOS.Formularios.Productos
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private System.Windows.Forms.GroupBox PresentacionesgroupBox;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.DataGridView PresentacionesdataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
-        private System.Windows.Forms.DataGridViewTextBoxColumn presentacion;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
         private System.Windows.Forms.ToolStripMenuItem eliminarPresentaciónToolStripMenuItem;
         private System.Windows.Forms.TextBox txtExistencias;
+        private System.Windows.Forms.CheckBox consignacionCheckBox;
     }
 }

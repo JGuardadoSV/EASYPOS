@@ -50,10 +50,13 @@ namespace EASYPOS
             this.categoriasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.proveedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.correlativosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.configuraciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sistemaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configuracionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.labelUsuario = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -164,7 +167,7 @@ namespace EASYPOS
             // creditosVigentesToolStripMenuItem
             // 
             this.creditosVigentesToolStripMenuItem.Name = "creditosVigentesToolStripMenuItem";
-            this.creditosVigentesToolStripMenuItem.Size = new System.Drawing.Size(218, 26);
+            this.creditosVigentesToolStripMenuItem.Size = new System.Drawing.Size(212, 26);
             this.creditosVigentesToolStripMenuItem.Text = "Creditos vigentes";
             this.creditosVigentesToolStripMenuItem.Click += new System.EventHandler(this.creditosVigentesToolStripMenuItem_Click);
             // 
@@ -178,7 +181,7 @@ namespace EASYPOS
             // reporteFinancieroToolStripMenuItem
             // 
             this.reporteFinancieroToolStripMenuItem.Name = "reporteFinancieroToolStripMenuItem";
-            this.reporteFinancieroToolStripMenuItem.Size = new System.Drawing.Size(218, 26);
+            this.reporteFinancieroToolStripMenuItem.Size = new System.Drawing.Size(212, 26);
             this.reporteFinancieroToolStripMenuItem.Text = "Reporte financiero ";
             // 
             // inventarioToolStripMenuItem
@@ -192,7 +195,7 @@ namespace EASYPOS
             // verInventarioToolStripMenuItem
             // 
             this.verInventarioToolStripMenuItem.Name = "verInventarioToolStripMenuItem";
-            this.verInventarioToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.verInventarioToolStripMenuItem.Size = new System.Drawing.Size(177, 26);
             this.verInventarioToolStripMenuItem.Text = "Ver inventario";
             this.verInventarioToolStripMenuItem.Click += new System.EventHandler(this.verInventarioToolStripMenuItem_Click);
             // 
@@ -201,8 +204,7 @@ namespace EASYPOS
             this.catálogoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.categoriasToolStripMenuItem,
             this.proveedoresToolStripMenuItem,
-            this.correlativosToolStripMenuItem,
-            this.configuraciónToolStripMenuItem});
+            this.correlativosToolStripMenuItem});
             this.catálogoToolStripMenuItem.Name = "catálogoToolStripMenuItem";
             this.catálogoToolStripMenuItem.Size = new System.Drawing.Size(84, 25);
             this.catálogoToolStripMenuItem.Text = "Catálogo";
@@ -210,29 +212,23 @@ namespace EASYPOS
             // categoriasToolStripMenuItem
             // 
             this.categoriasToolStripMenuItem.Name = "categoriasToolStripMenuItem";
-            this.categoriasToolStripMenuItem.Size = new System.Drawing.Size(178, 26);
+            this.categoriasToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
             this.categoriasToolStripMenuItem.Text = "Categorias";
             this.categoriasToolStripMenuItem.Click += new System.EventHandler(this.categoriasToolStripMenuItem_Click);
             // 
             // proveedoresToolStripMenuItem
             // 
             this.proveedoresToolStripMenuItem.Name = "proveedoresToolStripMenuItem";
-            this.proveedoresToolStripMenuItem.Size = new System.Drawing.Size(178, 26);
+            this.proveedoresToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
             this.proveedoresToolStripMenuItem.Text = "Proveedores";
             this.proveedoresToolStripMenuItem.Click += new System.EventHandler(this.proveedoresToolStripMenuItem_Click);
             // 
             // correlativosToolStripMenuItem
             // 
             this.correlativosToolStripMenuItem.Name = "correlativosToolStripMenuItem";
-            this.correlativosToolStripMenuItem.Size = new System.Drawing.Size(178, 26);
+            this.correlativosToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
             this.correlativosToolStripMenuItem.Text = "Correlativos";
             this.correlativosToolStripMenuItem.Click += new System.EventHandler(this.correlativosToolStripMenuItem_Click);
-            // 
-            // configuraciónToolStripMenuItem
-            // 
-            this.configuraciónToolStripMenuItem.Name = "configuraciónToolStripMenuItem";
-            this.configuraciónToolStripMenuItem.Size = new System.Drawing.Size(178, 26);
-            this.configuraciónToolStripMenuItem.Text = "Configuración";
             // 
             // sistemaToolStripMenuItem
             // 
@@ -253,17 +249,65 @@ namespace EASYPOS
             // 
             this.labelUsuario.AutoSize = true;
             this.labelUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelUsuario.Location = new System.Drawing.Point(12, 29);
+            this.labelUsuario.Location = new System.Drawing.Point(12, 40);
             this.labelUsuario.Name = "labelUsuario";
             this.labelUsuario.Size = new System.Drawing.Size(234, 25);
             this.labelUsuario.TabIndex = 1;
             this.labelUsuario.Text = "Bienvenido al sistema, ";
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(17, 93);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(208, 43);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Venta";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(231, 93);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(208, 43);
+            this.button2.TabIndex = 2;
+            this.button2.Text = "Cobro de cuotas";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button3
+            // 
+            this.button3.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.Location = new System.Drawing.Point(17, 142);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(208, 43);
+            this.button3.TabIndex = 2;
+            this.button3.Text = "Crear cotización";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button4
+            // 
+            this.button4.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button4.Location = new System.Drawing.Point(231, 142);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(208, 43);
+            this.button4.TabIndex = 2;
+            this.button4.Text = "Contratos";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // FPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button4);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.labelUsuario);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -299,12 +343,15 @@ namespace EASYPOS
         private System.Windows.Forms.ToolStripMenuItem categoriasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem proveedoresToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem correlativosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem configuraciónToolStripMenuItem;
         private System.Windows.Forms.Label labelUsuario;
         private System.Windows.Forms.ToolStripMenuItem sistemaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem configuracionesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem historialDeVentasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cotizacionesRealizadasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem contratosConPagosAtrasadosToolStripMenuItem;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button4;
     }
 }
