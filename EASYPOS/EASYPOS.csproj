@@ -114,6 +114,7 @@
     <Compile Include="Controladores\CEmpleado.cs" />
     <Compile Include="Controladores\CInventario.cs" />
     <Compile Include="Controladores\CListasDePrecio.cs" />
+    <Compile Include="Controladores\COtroPagos.cs" />
     <Compile Include="Controladores\CPresentacion.cs" />
     <Compile Include="Controladores\CProducto.cs" />
     <Compile Include="Controladores\CProductoPOS.cs" />
@@ -136,6 +137,7 @@
     <Compile Include="Entidades\Empleado.cs" />
     <Compile Include="Entidades\Inventario.cs" />
     <Compile Include="Entidades\ListasDePrecio.cs" />
+    <Compile Include="Entidades\OtrosPagos.cs" />
     <Compile Include="Entidades\Presentacion.cs" />
     <Compile Include="Entidades\Producto.cs" />
     <Compile Include="Entidades\ProductoPOS.cs" />
@@ -372,6 +374,7 @@
     <Compile Include="Modelos\MEmpleado.cs" />
     <Compile Include="Modelos\MInventario.cs" />
     <Compile Include="Modelos\MListasDePrecio.cs" />
+    <Compile Include="Modelos\MOtrosPagos.cs" />
     <Compile Include="Modelos\MPresentacion.cs" />
     <Compile Include="Modelos\MProducto.cs" />
     <Compile Include="Modelos\MProductoPOS.cs" />
@@ -517,6 +520,7 @@
     <None Include="Properties\DataSources\EASYPOS.Entidades.Cuotas.datasource" />
     <None Include="Properties\DataSources\EASYPOS.Entidades.DetallesInventario.datasource" />
     <None Include="Properties\DataSources\EASYPOS.Entidades.Empleado.datasource" />
+    <None Include="Properties\DataSources\EASYPOS.Entidades.OtrosPagos.datasource" />
     <None Include="Properties\DataSources\EASYPOS.Entidades.Presentacion.datasource" />
     <None Include="Properties\DataSources\EASYPOS.Entidades.Producto.datasource" />
     <None Include="Properties\DataSources\EASYPOS.Entidades.ProductoPOS.datasource" />

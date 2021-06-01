@@ -104,12 +104,12 @@ namespace EASYPOS.Modelos
 
         public List<Venta> Listado(DateTime f1, DateTime f2)
         {
-            string consulta = "Select * from Ventas where fecha between @f1 and @f2";
+            string consulta = "Select * from Ventas where cast(fecha as date) between @f1 and @f2";
             List<Venta> listado = new List<Venta>();
             DynamicParameters parametros = new DynamicParameters();
 
-            parametros.Add("@f1", f1, DbType.DateTime);
-            parametros.Add("@f2", f2, DbType.DateTime);
+            parametros.Add("@f1", f1.Date, DbType.DateTime);
+            parametros.Add("@f2", f2.Date, DbType.DateTime);
 
             cn.Open();
             listado = cn.Query<Venta>(consulta,parametros).ToList();
@@ -141,11 +141,11 @@ where a.Fecha between @fecha1 and @fecha2
 
         public List<ReporteVentas> Reporte(DateTime f1, DateTime f2)
         {
-            string consulta = "Select Convert(varchar(10),a.fecha,105) fecha,b.NombreCliente cliente,a.Correlativo ticket,a.total  from ventas a inner join clientes b on a.IdCliente_FK = b.IdCliente where a.Fecha between @fecha1 and @fecha2";
+            string consulta = "Select Convert(varchar(10),a.fecha,105) fecha,b.NombreCliente cliente,a.Correlativo ticket,a.total  from ventas a inner join clientes b on a.IdCliente_FK = b.IdCliente where cast(a.fecha as date) between @fecha1 and @fecha2";
             List<ReporteVentas> listado = new List<ReporteVentas>();
             DynamicParameters parametros = new DynamicParameters();
-            parametros.Add("@fecha1", f1, DbType.DateTime);
-            parametros.Add("@fecha2", f2, DbType.DateTime);
+            parametros.Add("@fecha1", f1.Date, DbType.DateTime);
+            parametros.Add("@fecha2", f2.Date, DbType.DateTime);
             cn.Open();
             listado = cn.Query<ReporteVentas>(consulta,parametros,commandType:CommandType.Text).ToList();
             cn.Close();

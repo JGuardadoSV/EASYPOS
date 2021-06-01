@@ -121,6 +121,22 @@ namespace EASYPOS.Formularios.Contratos
             filtrado(this.textBoxCliente.Text);
         }
 
+        private void contratosDataGridView_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            foreach (DataGridViewRow Myrow in contratosDataGridView.Rows)
+            {            //Here 2 cell is target value and 1 cell is Volume
+                
+                
+                if (Convert.ToInt32(Myrow.Cells["TratoEspecial"].Value) == 1)
+                {
+                    Myrow.DefaultCellStyle.BackColor = Color.Red;
+                    Myrow.DefaultCellStyle.ForeColor = Color.White;
+
+                }
+
+            }
+        }
+
         private void filtrado(string cliente)
         {
 

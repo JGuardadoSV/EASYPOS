@@ -36,9 +36,18 @@ namespace EASYPOS.Formularios.Reportes
            
             string fechas = f1.ToShortDateString() + " al " + f2.ToShortDateString();
 
+            CConfiguracion cConfiguracion = new CConfiguracion();
+            Configuracion c = new Configuracion();
+            c = cConfiguracion.ObtenerConfiguracion();
+            string informacion = c.NombreEmpresa + " - " + c.Telefono;
+
+          
+
             ReportParameter[] p = new ReportParameter[]
        {
-                new ReportParameter("fechas",fechas)
+                new ReportParameter("fechas",fechas),
+                new ReportParameter("informacion",informacion),
+                new ReportParameter("nombrenegocio",c.NombreEmpresa)
 
 
        };

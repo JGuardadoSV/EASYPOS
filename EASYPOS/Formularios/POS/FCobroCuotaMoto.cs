@@ -22,7 +22,7 @@ namespace EASYPOS.Formularios.POS
         Boolean solouna = false;
         List<int> idcuotas= new List<int>();
         decimal cacumulado, iacumulado, mora;
-        public FCobroCuotaMoto(int idcuota, int id, Boolean solouna = false,List<int> idcuotas=null, decimal cacumulado=0M, decimal iacumulado=0M , decimal mora=0M)
+        public FCobroCuotaMoto(int idcuota, int id, List<int> idcuotas=null, decimal cacumulado=0M, decimal iacumulado=0M , decimal mora=0M)
         {
             this.contrato = id;
             this.idcuota = idcuota;
@@ -34,15 +34,29 @@ namespace EASYPOS.Formularios.POS
             this.cacumulado = cacumulado;
             this.iacumulado = iacumulado;
             this.mora = mora;
-            this.solouna = solouna;
+          //  this.solouna = solouna;
             this.idcuotas = idcuotas;
+            InitializeComponent();
+            txtpago.Focus();
+        }
+
+        public FCobroCuotaMoto(int idcuota, int id, Boolean solouna,decimal mora = 0M)
+        {
+           
+            this.contrato = id;
+            this.idcuota = idcuota;
+            CCuota cCuota = new CCuota();
+            this.solouna = solouna;
+            this.cuota = cCuota.ObtenerUna(this.idcuota);
+            this.mora = this.cuota.Capital.Value*0.05M;
+            //  this.solouna = solouna;
             InitializeComponent();
             txtpago.Focus();
         }
 
         private void FCobroCuotaMoto_Load(object sender, EventArgs e)
         {
-            if (idcuota<0)
+            if (idcuota<0 || solouna)
             {
                 button3.Visible = false;
             }

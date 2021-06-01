@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using EASYPOS.Entidades;
 using contrato = EASYPOS.Entidades.Contratos;
 using EASYPOS.Formularios.Reportes;
+using EASYPOS.Formularios.POS;
 
 namespace EASYPOS.Formularios.Contratos
 {
@@ -61,6 +62,11 @@ namespace EASYPOS.Formularios.Contratos
                 {
                     button5.Visible = false;
                 }
+
+                COtrosPagos cOtros = new COtrosPagos();
+                otrosPagosBindingSource.DataSource = cOtros.Listado(contratoUp.IdContrato);
+
+
             }
 
 
@@ -343,6 +349,50 @@ namespace EASYPOS.Formularios.Contratos
             FReporteDocumentos f = new FReporteDocumentos(contratoUp.IdContrato);
             f.StartPosition = FormStartPosition.CenterParent;
             f.ShowDialog();
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            otrosPagosBindingSource.MoveLast();
+            otrosPagosBindingSource.AddNew();
+            groupBoxDatos.Enabled =!groupBoxDatos.Enabled;
+            button7.Enabled = !button7.Enabled;
+            montoTextBox.Focus();
+
+        }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            otrosPagosBindingSource.RemoveCurrent();
+            otrosPagosBindingSource.CancelEdit();
+            groupBoxDatos.Enabled = !groupBoxDatos.Enabled;
+            button7.Enabled = !button7.Enabled;
+        }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            decimal total = decimal.Parse(montoTextBox.Text);
+            FCobro f = new FCobro(total);
+            f.ShowDialog();
+
+            if (f.DialogResult == DialogResult.OK)
+            {
+
+                OtrosPagos otros = new OtrosPagos();
+                COtrosPagos cOtros = new COtrosPagos();
+                otrosPagosBindingSource.EndEdit();
+                otros = (OtrosPagos)otrosPagosBindingSource.Current;
+                otros.fecha = DateTime.Now;
+                otros.efectivo = f.recibe;
+                otros.cambio = f.cambio;
+                otros.IdContrato_FK = contratoUp.IdContrato;
+                cOtros.Insertar(otros);
+                //otrosPagosBindingSource.DataSource = null;
+                otrosPagosBindingSource.DataSource = cOtros.Listado(contratoUp.IdContrato);
+                groupBoxDatos.Enabled = !groupBoxDatos.Enabled;
+                button7.Enabled = !button7.Enabled;
+                MessageBox.Show("Pago registrado con éxito");
+            }
         }
 
         private void generarTabla(decimal monto, int meses, DateTime fecha, decimal tasa, int idcontrato, decimal prima)

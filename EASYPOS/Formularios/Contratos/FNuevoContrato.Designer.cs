@@ -75,6 +75,10 @@ namespace EASYPOS.Formularios.Contratos
             System.Windows.Forms.Label noEsMotoLabel;
             System.Windows.Forms.Label tratoEspecialLabel;
             System.Windows.Forms.Label label16;
+            System.Windows.Forms.Label comentarioLabel;
+            System.Windows.Forms.Label montoLabel;
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.anioTextBox = new System.Windows.Forms.TextBox();
             this.celularTextBox = new System.Windows.Forms.TextBox();
             this.chasisTextBox = new System.Windows.Forms.TextBox();
@@ -130,7 +134,22 @@ namespace EASYPOS.Formularios.Contratos
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.informes = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.otrosPagosDataGridView = new System.Windows.Forms.DataGridView();
+            this.comentarioTextBox = new System.Windows.Forms.TextBox();
+            this.montoTextBox = new System.Windows.Forms.TextBox();
+            this.button7 = new System.Windows.Forms.Button();
+            this.groupBoxDatos = new System.Windows.Forms.GroupBox();
+            this.button8 = new System.Windows.Forms.Button();
+            this.button9 = new System.Windows.Forms.Button();
             this.contratosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.otrosPagosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             anioLabel = new System.Windows.Forms.Label();
             celularLabel = new System.Windows.Forms.Label();
             chasisLabel = new System.Windows.Forms.Label();
@@ -176,6 +195,8 @@ namespace EASYPOS.Formularios.Contratos
             noEsMotoLabel = new System.Windows.Forms.Label();
             tratoEspecialLabel = new System.Windows.Forms.Label();
             label16 = new System.Windows.Forms.Label();
+            comentarioLabel = new System.Windows.Forms.Label();
+            montoLabel = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -184,8 +205,12 @@ namespace EASYPOS.Formularios.Contratos
             this.datoscredito.SuspendLayout();
             this.Referencias.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.informes.SuspendLayout();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.otrosPagosDataGridView)).BeginInit();
+            this.groupBoxDatos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.contratosBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.otrosPagosBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // anioLabel
@@ -1183,11 +1208,15 @@ namespace EASYPOS.Formularios.Contratos
             // 
             // informes
             // 
+            this.informes.AutoScroll = true;
+            this.informes.Controls.Add(this.groupBoxDatos);
+            this.informes.Controls.Add(this.button7);
+            this.informes.Controls.Add(this.otrosPagosDataGridView);
             this.informes.Location = new System.Drawing.Point(4, 22);
             this.informes.Name = "informes";
             this.informes.Size = new System.Drawing.Size(1209, 399);
             this.informes.TabIndex = 3;
-            this.informes.Text = "Informes";
+            this.informes.Text = "Registro de otros pagos";
             this.informes.UseVisualStyleBackColor = true;
             // 
             // panel1
@@ -1204,9 +1233,184 @@ namespace EASYPOS.Formularios.Contratos
             this.panel1.Size = new System.Drawing.Size(1229, 100);
             this.panel1.TabIndex = 23;
             // 
+            // otrosPagosDataGridView
+            // 
+            this.otrosPagosDataGridView.AllowUserToAddRows = false;
+            this.otrosPagosDataGridView.AllowUserToDeleteRows = false;
+            this.otrosPagosDataGridView.AutoGenerateColumns = false;
+            this.otrosPagosDataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.otrosPagosDataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn7});
+            this.otrosPagosDataGridView.DataSource = this.otrosPagosBindingSource;
+            this.otrosPagosDataGridView.Location = new System.Drawing.Point(8, 16);
+            this.otrosPagosDataGridView.Name = "otrosPagosDataGridView";
+            this.otrosPagosDataGridView.ReadOnly = true;
+            this.otrosPagosDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.otrosPagosDataGridView.Size = new System.Drawing.Size(793, 366);
+            this.otrosPagosDataGridView.TabIndex = 0;
+            // 
+            // comentarioLabel
+            // 
+            comentarioLabel.AutoSize = true;
+            comentarioLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            comentarioLabel.Location = new System.Drawing.Point(35, 77);
+            comentarioLabel.Name = "comentarioLabel";
+            comentarioLabel.Size = new System.Drawing.Size(90, 18);
+            comentarioLabel.TabIndex = 3;
+            comentarioLabel.Text = "Comentario:";
+            // 
+            // comentarioTextBox
+            // 
+            this.comentarioTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.otrosPagosBindingSource, "comentario", true));
+            this.comentarioTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comentarioTextBox.Location = new System.Drawing.Point(38, 98);
+            this.comentarioTextBox.Multiline = true;
+            this.comentarioTextBox.Name = "comentarioTextBox";
+            this.comentarioTextBox.Size = new System.Drawing.Size(322, 85);
+            this.comentarioTextBox.TabIndex = 5;
+            // 
+            // montoLabel
+            // 
+            montoLabel.AutoSize = true;
+            montoLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            montoLabel.Location = new System.Drawing.Point(35, 29);
+            montoLabel.Name = "montoLabel";
+            montoLabel.Size = new System.Drawing.Size(111, 18);
+            montoLabel.TabIndex = 1;
+            montoLabel.Text = "Monto a recibir:";
+            // 
+            // montoTextBox
+            // 
+            this.montoTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.otrosPagosBindingSource, "monto", true));
+            this.montoTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.montoTextBox.Location = new System.Drawing.Point(38, 50);
+            this.montoTextBox.Name = "montoTextBox";
+            this.montoTextBox.Size = new System.Drawing.Size(146, 24);
+            this.montoTextBox.TabIndex = 2;
+            // 
+            // button7
+            // 
+            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button7.Location = new System.Drawing.Point(807, 16);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(149, 38);
+            this.button7.TabIndex = 15;
+            this.button7.Text = "Nuevo pago";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // groupBoxDatos
+            // 
+            this.groupBoxDatos.Controls.Add(montoLabel);
+            this.groupBoxDatos.Controls.Add(this.button9);
+            this.groupBoxDatos.Controls.Add(this.button8);
+            this.groupBoxDatos.Controls.Add(this.montoTextBox);
+            this.groupBoxDatos.Controls.Add(comentarioLabel);
+            this.groupBoxDatos.Controls.Add(this.comentarioTextBox);
+            this.groupBoxDatos.Enabled = false;
+            this.groupBoxDatos.Location = new System.Drawing.Point(807, 73);
+            this.groupBoxDatos.Name = "groupBoxDatos";
+            this.groupBoxDatos.Size = new System.Drawing.Size(366, 267);
+            this.groupBoxDatos.TabIndex = 16;
+            this.groupBoxDatos.TabStop = false;
+            this.groupBoxDatos.Text = "Datos del pago";
+            // 
+            // button8
+            // 
+            this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button8.Location = new System.Drawing.Point(38, 189);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(149, 38);
+            this.button8.TabIndex = 0;
+            this.button8.Text = "Guardar";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
+            // 
+            // button9
+            // 
+            this.button9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button9.Location = new System.Drawing.Point(193, 189);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(149, 38);
+            this.button9.TabIndex = 1;
+            this.button9.Text = "Cancelar";
+            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
+            // 
             // contratosBindingSource
             // 
             this.contratosBindingSource.DataSource = typeof(EASYPOS.Entidades.Contratos);
+            // 
+            // otrosPagosBindingSource
+            // 
+            this.otrosPagosBindingSource.DataSource = typeof(EASYPOS.Entidades.OtrosPagos);
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "IdPago";
+            this.dataGridViewTextBoxColumn1.HeaderText = "IdPago";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.DataPropertyName = "fecha";
+            dataGridViewCellStyle1.Format = "d";
+            dataGridViewCellStyle1.NullValue = null;
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridViewTextBoxColumn2.HeaderText = "Fecha";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.DataPropertyName = "monto";
+            dataGridViewCellStyle2.Format = "C2";
+            dataGridViewCellStyle2.NullValue = null;
+            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridViewTextBoxColumn3.HeaderText = "Monto";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Width = 70;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.DataPropertyName = "comentario";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Comentario";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Width = 280;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.DataPropertyName = "efectivo";
+            this.dataGridViewTextBoxColumn5.HeaderText = "Efectivo recibido";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.dataGridViewTextBoxColumn5.Width = 70;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "cambio";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Cambio";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            this.dataGridViewTextBoxColumn6.Width = 70;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.DataPropertyName = "IdContrato_FK";
+            this.dataGridViewTextBoxColumn7.HeaderText = "IdContrato_FK";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            this.dataGridViewTextBoxColumn7.Visible = false;
             // 
             // FNuevoContrato
             // 
@@ -1234,9 +1438,14 @@ namespace EASYPOS.Formularios.Contratos
             this.Referencias.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.informes.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.otrosPagosDataGridView)).EndInit();
+            this.groupBoxDatos.ResumeLayout(false);
+            this.groupBoxDatos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.contratosBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.otrosPagosBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1299,5 +1508,20 @@ namespace EASYPOS.Formularios.Contratos
         private System.Windows.Forms.TextBox financiamientoTextBox1;
         private System.Windows.Forms.CheckBox noEsMotoCheckBox;
         private System.Windows.Forms.CheckBox tratoEspecialCheckBox;
+        private System.Windows.Forms.DataGridView otrosPagosDataGridView;
+        private System.Windows.Forms.BindingSource otrosPagosBindingSource;
+        private System.Windows.Forms.GroupBox groupBoxDatos;
+        private System.Windows.Forms.Button button9;
+        private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.TextBox montoTextBox;
+        private System.Windows.Forms.TextBox comentarioTextBox;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
     }
 }
