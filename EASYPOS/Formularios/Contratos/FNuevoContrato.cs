@@ -371,7 +371,11 @@ namespace EASYPOS.Formularios.Contratos
                     p.Capital = p.Capital + p.Restante;
                     p.Restante = 0;
                 }
-
+                if (p.Restante>0 && p.Restante<=1)
+                {
+                    p.Capital = p.Capital + p.Restante;
+                    p.Cuota = p.Cuota + p.Restante;
+                }
                 tabla.Add(p);
 
             }

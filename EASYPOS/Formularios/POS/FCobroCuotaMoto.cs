@@ -19,12 +19,15 @@ namespace EASYPOS.Formularios.POS
         int idcuota;
         con c;
         Cuotas cuota;
-        public FCobroCuotaMoto(int idcuota,int id)
+        Boolean solouna = false;
+
+        public FCobroCuotaMoto(int idcuota, int id, Boolean solouna = false)
         {
             this.contrato = id;
             this.idcuota = idcuota;
             CCuota cCuota = new CCuota();
             this.cuota = cCuota.ObtenerUna(idcuota);
+            this.solouna = solouna;
             InitializeComponent();
             txtpago.Focus();
         }
@@ -42,6 +45,15 @@ namespace EASYPOS.Formularios.POS
             txtfinanciamiento.Text = c.Financiamiento.Value.ToString("F");
             txtsaldoactual.Text = c.Restante.Value.ToString("F");
             txtmonto.Text = cuota.Monto.Value.ToString("F");
+            txtpago.Text= cuota.Monto.Value.ToString("F");
+            
+
+            if (solouna)
+            {
+                txtpago.Text = cuota.Monto.Value.ToString("F");
+                txtpago.ReadOnly = true;
+                labelAviso.Visible = true;
+            }
             txtpago.Focus();
         }
 

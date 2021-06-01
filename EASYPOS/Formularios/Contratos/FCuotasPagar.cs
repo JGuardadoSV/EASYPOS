@@ -18,6 +18,7 @@ namespace EASYPOS.Formularios.Contratos
         int id;
         public Cuotas cuota;
         Boolean pagar;
+        List<Cuotas> lista = new List<Cuotas>();
         public FCuotasPagar(int id, Boolean pagar=false)
         {
             this.pagar = pagar;
@@ -34,16 +35,38 @@ namespace EASYPOS.Formularios.Contratos
         private void FCuotasPagar_Load(object sender, EventArgs e)
         {
             CCuota cCuotas = new CCuota();
-            cuotasBindingSource.DataSource = cCuotas.Listado(id);
+            lista = cCuotas.Listado(id);
+            cuotasBindingSource.DataSource = lista;
             CContratos cContratos = new CContratos();
             contratosBindingSource.DataSource = cContratos.uno(id);
-            
+            decimal cacumulado=0, iacumulado=0;
+            foreach (Cuotas item in lista)
+            {
+                if (DateTime.Now>=item.Fecha && item.Cancelada==0)
+                {
+                    cacumulado +=item.Capital.Value;
+                    iacumulado+=item.Intereses.Value;
+                }
+            }
+
+            txtCapitalAlaFecha.Text = cacumulado.ToString("F");
+            txtInteresesAlafecha.Text = iacumulado.ToString("F");
+            txtTotal.Text = (cacumulado + iacumulado).ToString("F");
+            txtmora.Text = ((cacumulado + iacumulado)*0.08m).ToString("F");
+
+
         }
 
         private void cuotasDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            cobrar();
+            
+        }
+
+        private void cobrar()
+        {
             cuota = (Cuotas)cuotasBindingSource.Current;
-            if (cuota.FechaDePago.HasValue || cuota.Cancelada==1)
+            if (cuota.FechaDePago.HasValue || cuota.Cancelada == 1)
             {
                 MessageBox.Show("Seleccione otra cuota, esta ya esta cancelada");
             }
@@ -51,12 +74,11 @@ namespace EASYPOS.Formularios.Contratos
             {
 
                 //this.DialogResult = DialogResult.OK;
-                FCobroCuotaMoto f = new FCobroCuotaMoto(cuota.IdCuota,cuota.IdContrato_FK);
+                FCobroCuotaMoto f = new FCobroCuotaMoto(cuota.IdCuota, cuota.IdContrato_FK);
                 f.StartPosition = FormStartPosition.CenterParent;
                 f.ShowDialog();
                 this.Close();
             }
-            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -82,6 +104,21 @@ namespace EASYPOS.Formularios.Contratos
                     Myrow.DefaultCellStyle.BackColor = Color.Green;
                 }
                 
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow Myrow in cuotasDataGridView.Rows)
+            {            //Here 2 cell is target value and 1 cell is Volume
+                if (Convert.ToInt32(Myrow.Cells[6].Value) == 0)
+                {
+                    //cuotasDataGridView.Rows[Myrow.Index].Selected = true;
+                    cuotasBindingSource.Position = Myrow.Index;
+                    cobrar();
+                    break;
+                }
+
             }
         }
     }

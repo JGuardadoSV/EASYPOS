@@ -63,6 +63,14 @@ namespace EASYPOS.Formularios.Contratos
                 if (p.Restante<0)
                 {
                     p.Capital = p.Capital + p.Restante;
+                    p.Cuota = p.Capital + p.Interes;
+                    p.Restante = 0;
+                }
+
+                if (p.Restante > 0 && p.Restante <= 1)
+                {
+                    p.Capital = p.Capital + p.Restante;
+                    p.Cuota = p.Cuota + p.Restante;
                     p.Restante = 0;
                 }
 

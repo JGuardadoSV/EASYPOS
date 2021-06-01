@@ -30,21 +30,29 @@ namespace EASYPOS.Formularios.Contratos
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.Label restanteLabel;
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.Label restanteLabel;
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.Label label1;
+            System.Windows.Forms.Label label2;
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.Label label3;
+            System.Windows.Forms.Label label4;
             this.cuotasDataGridView = new System.Windows.Forms.DataGridView();
+            this.CapitalPendiente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button1 = new System.Windows.Forms.Button();
             this.restanteTextBox = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.txtCapitalAlaFecha = new System.Windows.Forms.TextBox();
+            this.txtInteresesAlafecha = new System.Windows.Forms.TextBox();
+            this.txtTotal = new System.Windows.Forms.TextBox();
             this.contratosBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.cuotasBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,12 +63,27 @@ namespace EASYPOS.Formularios.Contratos
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CapitalPendiente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cuotasBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.txtmora = new System.Windows.Forms.TextBox();
             restanteLabel = new System.Windows.Forms.Label();
+            label1 = new System.Windows.Forms.Label();
+            label2 = new System.Windows.Forms.Label();
+            label3 = new System.Windows.Forms.Label();
+            label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.cuotasDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.contratosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cuotasBindingSource)).BeginInit();
             this.SuspendLayout();
+            // 
+            // restanteLabel
+            // 
+            restanteLabel.AutoSize = true;
+            restanteLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            restanteLabel.Location = new System.Drawing.Point(13, 53);
+            restanteLabel.Name = "restanteLabel";
+            restanteLabel.Size = new System.Drawing.Size(88, 24);
+            restanteLabel.TabIndex = 0;
+            restanteLabel.Text = "Restante:";
             // 
             // cuotasDataGridView
             // 
@@ -97,7 +120,7 @@ namespace EASYPOS.Formularios.Contratos
             dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.cuotasDataGridView.DefaultCellStyle = dataGridViewCellStyle7;
-            this.cuotasDataGridView.Location = new System.Drawing.Point(12, 99);
+            this.cuotasDataGridView.Location = new System.Drawing.Point(12, 152);
             this.cuotasDataGridView.Name = "cuotasDataGridView";
             this.cuotasDataGridView.ReadOnly = true;
             dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -111,10 +134,21 @@ namespace EASYPOS.Formularios.Contratos
             dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cuotasDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle9;
             this.cuotasDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.cuotasDataGridView.Size = new System.Drawing.Size(939, 613);
-            this.cuotasDataGridView.TabIndex = 1;
+            this.cuotasDataGridView.Size = new System.Drawing.Size(939, 560);
+            this.cuotasDataGridView.TabIndex = 3;
             this.cuotasDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.cuotasDataGridView_CellDoubleClick);
             this.cuotasDataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.cuotasDataGridView_CellFormatting);
+            // 
+            // CapitalPendiente
+            // 
+            this.CapitalPendiente.DataPropertyName = "CapitalPendiente";
+            dataGridViewCellStyle6.Format = "C2";
+            dataGridViewCellStyle6.NullValue = null;
+            this.CapitalPendiente.DefaultCellStyle = dataGridViewCellStyle6;
+            this.CapitalPendiente.HeaderText = "Capital restante";
+            this.CapitalPendiente.Name = "CapitalPendiente";
+            this.CapitalPendiente.ReadOnly = true;
+            this.CapitalPendiente.Width = 150;
             // 
             // button1
             // 
@@ -122,20 +156,10 @@ namespace EASYPOS.Formularios.Contratos
             this.button1.Location = new System.Drawing.Point(12, 12);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(186, 32);
-            this.button1.TabIndex = 2;
+            this.button1.TabIndex = 4;
             this.button1.Text = "Imprimir reporte";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // restanteLabel
-            // 
-            restanteLabel.AutoSize = true;
-            restanteLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            restanteLabel.Location = new System.Drawing.Point(13, 53);
-            restanteLabel.Name = "restanteLabel";
-            restanteLabel.Size = new System.Drawing.Size(88, 24);
-            restanteLabel.TabIndex = 2;
-            restanteLabel.Text = "Restante:";
             // 
             // restanteTextBox
             // 
@@ -145,15 +169,72 @@ namespace EASYPOS.Formularios.Contratos
             this.restanteTextBox.Name = "restanteTextBox";
             this.restanteTextBox.ReadOnly = true;
             this.restanteTextBox.Size = new System.Drawing.Size(138, 29);
-            this.restanteTextBox.TabIndex = 3;
+            this.restanteTextBox.TabIndex = 1;
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(268, 50);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(110, 29);
+            this.button2.TabIndex = 2;
+            this.button2.Text = "COBRAR";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label1.Location = new System.Drawing.Point(440, 6);
+            label1.Name = "label1";
+            label1.Size = new System.Drawing.Size(280, 24);
+            label1.TabIndex = 0;
+            label1.Text = "Capital pendiente hasta la fecha:";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label2.Location = new System.Drawing.Point(441, 38);
+            label2.Name = "label2";
+            label2.Size = new System.Drawing.Size(280, 24);
+            label2.TabIndex = 0;
+            label2.Text = "Interes pendiente hasta la fecha:";
+            // 
+            // txtCapitalAlaFecha
+            // 
+            this.txtCapitalAlaFecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCapitalAlaFecha.Location = new System.Drawing.Point(727, 6);
+            this.txtCapitalAlaFecha.Name = "txtCapitalAlaFecha";
+            this.txtCapitalAlaFecha.ReadOnly = true;
+            this.txtCapitalAlaFecha.Size = new System.Drawing.Size(146, 26);
+            this.txtCapitalAlaFecha.TabIndex = 5;
+            this.txtCapitalAlaFecha.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txtInteresesAlafecha
+            // 
+            this.txtInteresesAlafecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtInteresesAlafecha.Location = new System.Drawing.Point(727, 38);
+            this.txtInteresesAlafecha.Name = "txtInteresesAlafecha";
+            this.txtInteresesAlafecha.ReadOnly = true;
+            this.txtInteresesAlafecha.Size = new System.Drawing.Size(146, 26);
+            this.txtInteresesAlafecha.TabIndex = 5;
+            this.txtInteresesAlafecha.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txtTotal
+            // 
+            this.txtTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTotal.Location = new System.Drawing.Point(727, 67);
+            this.txtTotal.Name = "txtTotal";
+            this.txtTotal.ReadOnly = true;
+            this.txtTotal.Size = new System.Drawing.Size(146, 26);
+            this.txtTotal.TabIndex = 5;
+            this.txtTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // contratosBindingSource
             // 
             this.contratosBindingSource.DataSource = typeof(EASYPOS.Entidades.Contratos);
-            // 
-            // cuotasBindingSource
-            // 
-            this.cuotasBindingSource.DataSource = typeof(EASYPOS.Entidades.Cuotas);
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -244,22 +325,54 @@ namespace EASYPOS.Formularios.Contratos
             this.dataGridViewTextBoxColumn7.ReadOnly = true;
             this.dataGridViewTextBoxColumn7.Width = 200;
             // 
-            // CapitalPendiente
+            // cuotasBindingSource
             // 
-            this.CapitalPendiente.DataPropertyName = "CapitalPendiente";
-            dataGridViewCellStyle6.Format = "C2";
-            dataGridViewCellStyle6.NullValue = null;
-            this.CapitalPendiente.DefaultCellStyle = dataGridViewCellStyle6;
-            this.CapitalPendiente.HeaderText = "Capital restante";
-            this.CapitalPendiente.Name = "CapitalPendiente";
-            this.CapitalPendiente.ReadOnly = true;
-            this.CapitalPendiente.Width = 150;
+            this.cuotasBindingSource.DataSource = typeof(EASYPOS.Entidades.Cuotas);
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label3.Location = new System.Drawing.Point(664, 69);
+            label3.Name = "label3";
+            label3.Size = new System.Drawing.Size(56, 24);
+            label3.TabIndex = 0;
+            label3.Text = "Total:";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label4.Location = new System.Drawing.Point(662, 100);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(58, 24);
+            label4.TabIndex = 0;
+            label4.Text = "Mora:";
+            // 
+            // txtmora
+            // 
+            this.txtmora.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtmora.Location = new System.Drawing.Point(727, 99);
+            this.txtmora.Name = "txtmora";
+            this.txtmora.ReadOnly = true;
+            this.txtmora.Size = new System.Drawing.Size(146, 26);
+            this.txtmora.TabIndex = 5;
+            this.txtmora.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // FCuotasPagar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(963, 732);
+            this.Controls.Add(this.txtmora);
+            this.Controls.Add(this.txtTotal);
+            this.Controls.Add(this.txtInteresesAlafecha);
+            this.Controls.Add(this.txtCapitalAlaFecha);
+            this.Controls.Add(label4);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(label3);
+            this.Controls.Add(label2);
+            this.Controls.Add(label1);
             this.Controls.Add(restanteLabel);
             this.Controls.Add(this.restanteTextBox);
             this.Controls.Add(this.button1);
@@ -293,5 +406,10 @@ namespace EASYPOS.Formularios.Contratos
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewTextBoxColumn CapitalPendiente;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox txtCapitalAlaFecha;
+        private System.Windows.Forms.TextBox txtInteresesAlafecha;
+        private System.Windows.Forms.TextBox txtTotal;
+        private System.Windows.Forms.TextBox txtmora;
     }
 }
