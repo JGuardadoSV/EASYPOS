@@ -38,12 +38,12 @@ namespace EASYPOS.Formularios.Contratos
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.Label label1;
             System.Windows.Forms.Label label2;
+            System.Windows.Forms.Label label3;
+            System.Windows.Forms.Label label4;
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.Label label3;
-            System.Windows.Forms.Label label4;
             this.cuotasDataGridView = new System.Windows.Forms.DataGridView();
             this.CapitalPendiente = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button1 = new System.Windows.Forms.Button();
@@ -52,6 +52,7 @@ namespace EASYPOS.Formularios.Contratos
             this.txtCapitalAlaFecha = new System.Windows.Forms.TextBox();
             this.txtInteresesAlafecha = new System.Windows.Forms.TextBox();
             this.txtTotal = new System.Windows.Forms.TextBox();
+            this.txtmora = new System.Windows.Forms.TextBox();
             this.contratosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -64,7 +65,6 @@ namespace EASYPOS.Formularios.Contratos
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cuotasBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.txtmora = new System.Windows.Forms.TextBox();
             restanteLabel = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
@@ -225,12 +225,42 @@ namespace EASYPOS.Formularios.Contratos
             // txtTotal
             // 
             this.txtTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotal.Location = new System.Drawing.Point(727, 67);
+            this.txtTotal.Location = new System.Drawing.Point(727, 69);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.ReadOnly = true;
             this.txtTotal.Size = new System.Drawing.Size(146, 26);
             this.txtTotal.TabIndex = 5;
             this.txtTotal.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label3.Location = new System.Drawing.Point(664, 69);
+            label3.Name = "label3";
+            label3.Size = new System.Drawing.Size(56, 24);
+            label3.TabIndex = 0;
+            label3.Text = "Total:";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            label4.Location = new System.Drawing.Point(662, 100);
+            label4.Name = "label4";
+            label4.Size = new System.Drawing.Size(58, 24);
+            label4.TabIndex = 0;
+            label4.Text = "Mora:";
+            // 
+            // txtmora
+            // 
+            this.txtmora.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtmora.Location = new System.Drawing.Point(727, 99);
+            this.txtmora.Name = "txtmora";
+            this.txtmora.ReadOnly = true;
+            this.txtmora.Size = new System.Drawing.Size(146, 26);
+            this.txtmora.TabIndex = 5;
+            this.txtmora.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // contratosBindingSource
             // 
@@ -328,36 +358,6 @@ namespace EASYPOS.Formularios.Contratos
             // cuotasBindingSource
             // 
             this.cuotasBindingSource.DataSource = typeof(EASYPOS.Entidades.Cuotas);
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label3.Location = new System.Drawing.Point(664, 69);
-            label3.Name = "label3";
-            label3.Size = new System.Drawing.Size(56, 24);
-            label3.TabIndex = 0;
-            label3.Text = "Total:";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            label4.Location = new System.Drawing.Point(662, 100);
-            label4.Name = "label4";
-            label4.Size = new System.Drawing.Size(58, 24);
-            label4.TabIndex = 0;
-            label4.Text = "Mora:";
-            // 
-            // txtmora
-            // 
-            this.txtmora.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtmora.Location = new System.Drawing.Point(727, 99);
-            this.txtmora.Name = "txtmora";
-            this.txtmora.ReadOnly = true;
-            this.txtmora.Size = new System.Drawing.Size(146, 26);
-            this.txtmora.TabIndex = 5;
-            this.txtmora.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // FCuotasPagar
             // 
