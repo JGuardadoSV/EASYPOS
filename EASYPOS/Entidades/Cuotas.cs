@@ -23,6 +23,8 @@ namespace EASYPOS.Entidades
 
         public decimal? EfectivoRecibido { get; set; }
         public decimal? Cambio { get; set; }
+        public string comentario { get; set; }
+        public decimal? mora { get; set; }
 
 
     }

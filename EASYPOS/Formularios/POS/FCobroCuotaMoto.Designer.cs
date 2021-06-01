@@ -58,6 +58,8 @@ namespace EASYPOS.Formularios.POS
             this.labelAviso = new System.Windows.Forms.Label();
             this.dateTimePickerFechaPago = new System.Windows.Forms.DateTimePicker();
             this.otrafecha = new System.Windows.Forms.CheckBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txtmora = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
@@ -115,7 +117,7 @@ namespace EASYPOS.Formularios.POS
             this.txtfecha.Location = new System.Drawing.Point(133, 106);
             this.txtfecha.Name = "txtfecha";
             this.txtfecha.ReadOnly = true;
-            this.txtfecha.Size = new System.Drawing.Size(108, 24);
+            this.txtfecha.Size = new System.Drawing.Size(224, 24);
             this.txtfecha.TabIndex = 5;
             // 
             // txtfinanciamiento
@@ -149,7 +151,7 @@ namespace EASYPOS.Formularios.POS
             // txtmonto
             // 
             this.txtmonto.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtmonto.Location = new System.Drawing.Point(133, 192);
+            this.txtmonto.Location = new System.Drawing.Point(133, 190);
             this.txtmonto.Name = "txtmonto";
             this.txtmonto.ReadOnly = true;
             this.txtmonto.Size = new System.Drawing.Size(108, 24);
@@ -180,7 +182,7 @@ namespace EASYPOS.Formularios.POS
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(114, 342);
+            this.label7.Location = new System.Drawing.Point(141, 342);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(63, 18);
             this.label7.TabIndex = 17;
@@ -190,7 +192,7 @@ namespace EASYPOS.Formularios.POS
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(105, 367);
+            this.label8.Location = new System.Drawing.Point(132, 367);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(72, 18);
             this.label8.TabIndex = 19;
@@ -200,7 +202,7 @@ namespace EASYPOS.Formularios.POS
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(32, 394);
+            this.label9.Location = new System.Drawing.Point(59, 422);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(145, 18);
             this.label9.TabIndex = 21;
@@ -209,7 +211,7 @@ namespace EASYPOS.Formularios.POS
             // txtacapital
             // 
             this.txtacapital.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtacapital.Location = new System.Drawing.Point(195, 338);
+            this.txtacapital.Location = new System.Drawing.Point(222, 338);
             this.txtacapital.Name = "txtacapital";
             this.txtacapital.ReadOnly = true;
             this.txtacapital.Size = new System.Drawing.Size(100, 24);
@@ -218,7 +220,7 @@ namespace EASYPOS.Formularios.POS
             // txtaintereses
             // 
             this.txtaintereses.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtaintereses.Location = new System.Drawing.Point(195, 364);
+            this.txtaintereses.Location = new System.Drawing.Point(222, 364);
             this.txtaintereses.Name = "txtaintereses";
             this.txtaintereses.ReadOnly = true;
             this.txtaintereses.Size = new System.Drawing.Size(100, 24);
@@ -227,7 +229,7 @@ namespace EASYPOS.Formularios.POS
             // txtcapitalextra
             // 
             this.txtcapitalextra.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtcapitalextra.Location = new System.Drawing.Point(195, 391);
+            this.txtcapitalextra.Location = new System.Drawing.Point(222, 416);
             this.txtcapitalextra.Name = "txtcapitalextra";
             this.txtcapitalextra.ReadOnly = true;
             this.txtcapitalextra.Size = new System.Drawing.Size(100, 24);
@@ -237,7 +239,7 @@ namespace EASYPOS.Formularios.POS
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(184, 314);
+            this.label10.Location = new System.Drawing.Point(185, 314);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(148, 18);
             this.label10.TabIndex = 16;
@@ -246,7 +248,7 @@ namespace EASYPOS.Formularios.POS
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(159, 498);
+            this.button1.Location = new System.Drawing.Point(159, 539);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(105, 45);
             this.button1.TabIndex = 27;
@@ -257,7 +259,7 @@ namespace EASYPOS.Formularios.POS
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(271, 498);
+            this.button2.Location = new System.Drawing.Point(271, 539);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(111, 44);
             this.button2.TabIndex = 28;
@@ -269,7 +271,7 @@ namespace EASYPOS.Formularios.POS
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(4, 420);
+            this.label11.Location = new System.Drawing.Point(31, 448);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(173, 18);
             this.label11.TabIndex = 23;
@@ -278,7 +280,7 @@ namespace EASYPOS.Formularios.POS
             // txtcapitaldespues
             // 
             this.txtcapitaldespues.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtcapitaldespues.Location = new System.Drawing.Point(195, 417);
+            this.txtcapitaldespues.Location = new System.Drawing.Point(222, 442);
             this.txtcapitaldespues.Name = "txtcapitaldespues";
             this.txtcapitaldespues.ReadOnly = true;
             this.txtcapitaldespues.Size = new System.Drawing.Size(100, 24);
@@ -330,7 +332,7 @@ namespace EASYPOS.Formularios.POS
             // dateTimePickerFechaPago
             // 
             this.dateTimePickerFechaPago.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerFechaPago.Location = new System.Drawing.Point(163, 472);
+            this.dateTimePickerFechaPago.Location = new System.Drawing.Point(163, 513);
             this.dateTimePickerFechaPago.Name = "dateTimePickerFechaPago";
             this.dateTimePickerFechaPago.Size = new System.Drawing.Size(169, 20);
             this.dateTimePickerFechaPago.TabIndex = 26;
@@ -338,18 +340,37 @@ namespace EASYPOS.Formularios.POS
             // otrafecha
             // 
             this.otrafecha.AutoSize = true;
-            this.otrafecha.Location = new System.Drawing.Point(163, 448);
+            this.otrafecha.Location = new System.Drawing.Point(163, 489);
             this.otrafecha.Name = "otrafecha";
             this.otrafecha.Size = new System.Drawing.Size(169, 17);
             this.otrafecha.TabIndex = 25;
             this.otrafecha.Text = "Registrar pago con esta fecha";
             this.otrafecha.UseVisualStyleBackColor = true;
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(156, 394);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(47, 18);
+            this.label13.TabIndex = 19;
+            this.label13.Text = "Mora:";
+            // 
+            // txtmora
+            // 
+            this.txtmora.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtmora.Location = new System.Drawing.Point(222, 390);
+            this.txtmora.Name = "txtmora";
+            this.txtmora.ReadOnly = true;
+            this.txtmora.Size = new System.Drawing.Size(100, 24);
+            this.txtmora.TabIndex = 20;
+            // 
             // FCobroCuotaMoto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(528, 554);
+            this.ClientSize = new System.Drawing.Size(528, 588);
             this.ControlBox = false;
             this.Controls.Add(this.otrafecha);
             this.Controls.Add(this.dateTimePickerFechaPago);
@@ -363,6 +384,7 @@ namespace EASYPOS.Formularios.POS
             this.Controls.Add(this.txtcapitaldespues);
             this.Controls.Add(this.txtcapitalextra);
             this.Controls.Add(this.txtfinanciamiento);
+            this.Controls.Add(this.txtmora);
             this.Controls.Add(this.txtaintereses);
             this.Controls.Add(this.txtfecha);
             this.Controls.Add(this.aviso);
@@ -373,6 +395,7 @@ namespace EASYPOS.Formularios.POS
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label9);
+            this.Controls.Add(this.label13);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label3);
@@ -419,5 +442,7 @@ namespace EASYPOS.Formularios.POS
         private System.Windows.Forms.Label labelAviso;
         private System.Windows.Forms.DateTimePicker dateTimePickerFechaPago;
         private System.Windows.Forms.CheckBox otrafecha;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox txtmora;
     }
 }

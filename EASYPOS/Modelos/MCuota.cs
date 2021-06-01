@@ -140,7 +140,7 @@ namespace EASYPOS.Modelos
         public int Actualizar(Cuotas cuota)
         {
 
-            string consulta = "Update cuotas set Correlativo=@Correlativo,IdCorrelativo_FK=@IdCorrelativo_FK,FechaDePago=@FechaDePago,Cancelada=@Cancelada,MontoCancelado= @MontoCancelado,AIntereses= @AIntereses,ACapital= @ACapital,ACapitalExtra= @ACapitalExtra,CapitalPendiente= @CapitalPendiente,EfectivoRecibido= @EfectivoRecibido,Cambio=@Cambio where IdCuota=@id";
+            string consulta = "Update cuotas set Correlativo=@Correlativo,IdCorrelativo_FK=@IdCorrelativo_FK,FechaDePago=@FechaDePago,Cancelada=@Cancelada,MontoCancelado= @MontoCancelado,AIntereses= @AIntereses,ACapital= @ACapital,ACapitalExtra= @ACapitalExtra,CapitalPendiente= @CapitalPendiente,EfectivoRecibido= @EfectivoRecibido,Cambio=@Cambio,comentario=@comentario,mora=@mora where IdCuota=@id";
             DynamicParameters parametros = new DynamicParameters();
             // int idventa;
             parametros.Add("@FechaDePago", DateTime.Now);
@@ -157,6 +157,8 @@ namespace EASYPOS.Modelos
             parametros.Add("@CapitalPendiente", cuota.CapitalPendiente, DbType.Decimal);
             parametros.Add("@EfectivoRecibido", cuota.EfectivoRecibido, DbType.Decimal);
             parametros.Add("@Cambio", cuota.Cambio, DbType.Decimal);
+            parametros.Add("@comentario", cuota.comentario, DbType.String);
+            parametros.Add("@mora", cuota.mora, DbType.Decimal);
 
 
 
