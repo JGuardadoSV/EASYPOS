@@ -197,5 +197,17 @@ namespace EASYPOS
             FContratosPaganEsteMes f = new FContratosPaganEsteMes();
             f.ShowDialog();
         }
+
+        private void button8_Click(object sender, EventArgs e)
+        {
+            FContratosAtrasados f = new FContratosAtrasados();
+            f.ShowDialog();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            FContratosPaganEsteMes f = new FContratosPaganEsteMes();
+            f.ShowDialog();
+        }
     }
 }

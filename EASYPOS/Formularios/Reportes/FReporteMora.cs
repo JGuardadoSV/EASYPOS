@@ -17,14 +17,22 @@ namespace EASYPOS.Formularios.Reportes
     {
         int id;
         List<TablaPagos> tabla = new List<TablaPagos>();
-        public FReporteMora(int id)
+        bool mora = false;
+        public FReporteMora(int id, bool mora = false)
         {
             this.id = id;
+            this.mora = mora;
+           
             InitializeComponent();
         }
 
         private void FReporteMora_Load(object sender, EventArgs e)
         {
+            if (mora)
+            {
+                this.Text = "Contratos con pagos para este mes";
+            }
+
             CContratos cContratos = new CContratos();
             con contrato = new con();
             contrato = cContratos.uno(id);

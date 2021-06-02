@@ -44,7 +44,7 @@ namespace EASYPOS.Formularios.Contratos
             Contrato c = (Contrato)contratosBindingSource.Current;
 
 
-            FReporteMora f = new FReporteMora(c.IdContrato);
+            FReporteMora f = new FReporteMora(c.IdContrato,true);
 
          //   FCuotasPagar f = new FCuotasPagar(c.IdContrato);
             f.StartPosition = FormStartPosition.CenterParent;

@@ -298,7 +298,7 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>3.35693cm</Width>
+                  <Width>2.47007cm</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>2.5cm</Width>
@@ -501,12 +501,12 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=FormatDateTime(Fields!Fecha.Value,DateFormat.ShortDate)</Value>
+                                  <Value>=Format(Fields!Fecha.Value,"dd-MM-yyyy")</Value>
                                   <Style />
                                 </TextRun>
                               </TextRuns>
                               <Style>
-                                <TextAlign>Center</TextAlign>
+                                <TextAlign>Left</TextAlign>
                               </Style>
                             </Paragraph>
                           </Paragraphs>
@@ -679,7 +679,7 @@
             <Top>4.78014cm</Top>
             <Left>0.49953cm</Left>
             <Height>1.2cm</Height>
-            <Width>15.13971cm</Width>
+            <Width>14.25285cm</Width>
             <ZIndex>7</ZIndex>
             <Style>
               <Border>
@@ -918,7 +918,11 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>=FormatDateTime(Globals!ExecutionTime,DateFormat.ShortDate)</Value>
+                    <Value>Fecha: </Value>
+                    <Style />
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Format(Globals!ExecutionTime,"dd-MM-yyyy")</Value>
                     <Style />
                   </TextRun>
                 </TextRuns>
@@ -945,7 +949,7 @@
         <Height>2.57997in</Height>
         <Style />
       </Body>
-      <Width>7.03161in</Width>
+      <Width>6.59411in</Width>
       <Page>
         <PageHeader>
           <Height>1.02016cm</Height>

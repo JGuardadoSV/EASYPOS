@@ -50,6 +50,7 @@ namespace EASYPOS.Formularios.Reportes
             this.Controls.Add(this.reportViewer1);
             this.Name = "FReporteMora";
             this.Text = "Informe de contrato en mora";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FReporteMora_Load);
             this.ResumeLayout(false);
 

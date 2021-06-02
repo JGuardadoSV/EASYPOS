@@ -39,6 +39,7 @@ namespace EASYPOS
             this.pagoDeCuotaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.contratosVigentesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cotizacionesRealizadasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contratosConPagosParaEsteMesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contratosConPagosAtrasadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.creditosVigentesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -60,10 +61,14 @@ namespace EASYPOS
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.contratosConPagosParaEsteMesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -153,6 +158,13 @@ namespace EASYPOS
             this.cotizacionesRealizadasToolStripMenuItem.Size = new System.Drawing.Size(323, 26);
             this.cotizacionesRealizadasToolStripMenuItem.Text = "Cotizaciones realizadas";
             this.cotizacionesRealizadasToolStripMenuItem.Click += new System.EventHandler(this.cotizacionesRealizadasToolStripMenuItem_Click);
+            // 
+            // contratosConPagosParaEsteMesToolStripMenuItem
+            // 
+            this.contratosConPagosParaEsteMesToolStripMenuItem.Name = "contratosConPagosParaEsteMesToolStripMenuItem";
+            this.contratosConPagosParaEsteMesToolStripMenuItem.Size = new System.Drawing.Size(323, 26);
+            this.contratosConPagosParaEsteMesToolStripMenuItem.Text = "Contratos con pagos para este mes";
+            this.contratosConPagosParaEsteMesToolStripMenuItem.Click += new System.EventHandler(this.contratosConPagosParaEsteMesToolStripMenuItem_Click);
             // 
             // contratosConPagosAtrasadosToolStripMenuItem
             // 
@@ -336,18 +348,56 @@ namespace EASYPOS
             this.label1.TabIndex = 1;
             this.label1.Text = "Acciones rápidas";
             // 
-            // contratosConPagosParaEsteMesToolStripMenuItem
+            // panel2
             // 
-            this.contratosConPagosParaEsteMesToolStripMenuItem.Name = "contratosConPagosParaEsteMesToolStripMenuItem";
-            this.contratosConPagosParaEsteMesToolStripMenuItem.Size = new System.Drawing.Size(323, 26);
-            this.contratosConPagosParaEsteMesToolStripMenuItem.Text = "Contratos con pagos para este mes";
-            this.contratosConPagosParaEsteMesToolStripMenuItem.Click += new System.EventHandler(this.contratosConPagosParaEsteMesToolStripMenuItem_Click);
+            this.panel2.BackColor = System.Drawing.SystemColors.Highlight;
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Location = new System.Drawing.Point(482, 100);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(422, 51);
+            this.panel2.TabIndex = 9;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.Control;
+            this.label2.Location = new System.Drawing.Point(135, 7);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(157, 37);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Contratos";
+            // 
+            // button5
+            // 
+            this.button5.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.Location = new System.Drawing.Point(696, 157);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(208, 43);
+            this.button5.TabIndex = 5;
+            this.button5.Text = "Con pagos para este mes";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // button8
+            // 
+            this.button8.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button8.Location = new System.Drawing.Point(482, 157);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(208, 43);
+            this.button8.TabIndex = 8;
+            this.button8.Text = "Con pagos atrasados";
+            this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // FPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1207, 559);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.button5);
+            this.Controls.Add(this.button8);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button2);
@@ -367,6 +417,8 @@ namespace EASYPOS
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -406,5 +458,9 @@ namespace EASYPOS
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ToolStripMenuItem contratosConPagosParaEsteMesToolStripMenuItem;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button8;
     }
 }
