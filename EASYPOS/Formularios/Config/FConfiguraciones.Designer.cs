@@ -53,6 +53,7 @@ namespace EASYPOS.Formularios.Config
             this.panel1 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.configuracionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             claveLabel = new System.Windows.Forms.Label();
             direccionLabel = new System.Windows.Forms.Label();
@@ -66,6 +67,7 @@ namespace EASYPOS.Formularios.Config
             label1 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.configuracionBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -79,15 +81,6 @@ namespace EASYPOS.Formularios.Config
             claveLabel.TabIndex = 3;
             claveLabel.Text = "Clave:";
             // 
-            // claveTextBox
-            // 
-            this.claveTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.configuracionBindingSource, "Clave", true));
-            this.claveTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.claveTextBox.Location = new System.Drawing.Point(114, 79);
-            this.claveTextBox.Name = "claveTextBox";
-            this.claveTextBox.Size = new System.Drawing.Size(173, 24);
-            this.claveTextBox.TabIndex = 4;
-            // 
             // direccionLabel
             // 
             direccionLabel.AutoSize = true;
@@ -97,15 +90,6 @@ namespace EASYPOS.Formularios.Config
             direccionLabel.Size = new System.Drawing.Size(75, 18);
             direccionLabel.TabIndex = 11;
             direccionLabel.Text = "Direccion:";
-            // 
-            // direccionTextBox
-            // 
-            this.direccionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.configuracionBindingSource, "Direccion", true));
-            this.direccionTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.direccionTextBox.Location = new System.Drawing.Point(201, 200);
-            this.direccionTextBox.Name = "direccionTextBox";
-            this.direccionTextBox.Size = new System.Drawing.Size(471, 24);
-            this.direccionTextBox.TabIndex = 12;
             // 
             // impresoraLabel
             // 
@@ -117,15 +101,6 @@ namespace EASYPOS.Formularios.Config
             impresoraLabel.TabIndex = 13;
             impresoraLabel.Text = "Nombre impresora ticket:";
             // 
-            // impresoraTextBox
-            // 
-            this.impresoraTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.configuracionBindingSource, "Impresora", true));
-            this.impresoraTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.impresoraTextBox.Location = new System.Drawing.Point(201, 227);
-            this.impresoraTextBox.Name = "impresoraTextBox";
-            this.impresoraTextBox.Size = new System.Drawing.Size(191, 24);
-            this.impresoraTextBox.TabIndex = 14;
-            // 
             // nITLabel
             // 
             nITLabel.AutoSize = true;
@@ -135,15 +110,6 @@ namespace EASYPOS.Formularios.Config
             nITLabel.Size = new System.Drawing.Size(35, 18);
             nITLabel.TabIndex = 7;
             nITLabel.Text = "NIT:";
-            // 
-            // nITTextBox
-            // 
-            this.nITTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.configuracionBindingSource, "NIT", true));
-            this.nITTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nITTextBox.Location = new System.Drawing.Point(201, 146);
-            this.nITTextBox.Name = "nITTextBox";
-            this.nITTextBox.Size = new System.Drawing.Size(191, 24);
-            this.nITTextBox.TabIndex = 8;
             // 
             // nombreEmpresaLabel
             // 
@@ -155,15 +121,6 @@ namespace EASYPOS.Formularios.Config
             nombreEmpresaLabel.TabIndex = 3;
             nombreEmpresaLabel.Text = "Nombre Empresa:";
             // 
-            // nombreEmpresaTextBox
-            // 
-            this.nombreEmpresaTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.configuracionBindingSource, "NombreEmpresa", true));
-            this.nombreEmpresaTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nombreEmpresaTextBox.Location = new System.Drawing.Point(201, 92);
-            this.nombreEmpresaTextBox.Name = "nombreEmpresaTextBox";
-            this.nombreEmpresaTextBox.Size = new System.Drawing.Size(471, 24);
-            this.nombreEmpresaTextBox.TabIndex = 4;
-            // 
             // nRCLabel
             // 
             nRCLabel.AutoSize = true;
@@ -173,15 +130,6 @@ namespace EASYPOS.Formularios.Config
             nRCLabel.Size = new System.Drawing.Size(45, 18);
             nRCLabel.TabIndex = 9;
             nRCLabel.Text = "NRC:";
-            // 
-            // nRCTextBox
-            // 
-            this.nRCTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.configuracionBindingSource, "NRC", true));
-            this.nRCTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.nRCTextBox.Location = new System.Drawing.Point(201, 173);
-            this.nRCTextBox.Name = "nRCTextBox";
-            this.nRCTextBox.Size = new System.Drawing.Size(191, 24);
-            this.nRCTextBox.TabIndex = 10;
             // 
             // propietarioLabel
             // 
@@ -193,15 +141,6 @@ namespace EASYPOS.Formularios.Config
             propietarioLabel.TabIndex = 1;
             propietarioLabel.Text = "Propietario / a :";
             // 
-            // propietarioTextBox
-            // 
-            this.propietarioTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.configuracionBindingSource, "Propietario", true));
-            this.propietarioTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.propietarioTextBox.Location = new System.Drawing.Point(201, 65);
-            this.propietarioTextBox.Name = "propietarioTextBox";
-            this.propietarioTextBox.Size = new System.Drawing.Size(471, 24);
-            this.propietarioTextBox.TabIndex = 2;
-            // 
             // telefonoLabel
             // 
             telefonoLabel.AutoSize = true;
@@ -212,15 +151,6 @@ namespace EASYPOS.Formularios.Config
             telefonoLabel.TabIndex = 5;
             telefonoLabel.Text = "Teléfono:";
             // 
-            // telefonoTextBox
-            // 
-            this.telefonoTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.configuracionBindingSource, "Telefono", true));
-            this.telefonoTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.telefonoTextBox.Location = new System.Drawing.Point(201, 119);
-            this.telefonoTextBox.Name = "telefonoTextBox";
-            this.telefonoTextBox.Size = new System.Drawing.Size(191, 24);
-            this.telefonoTextBox.TabIndex = 6;
-            // 
             // usuarioLabel
             // 
             usuarioLabel.AutoSize = true;
@@ -230,27 +160,6 @@ namespace EASYPOS.Formularios.Config
             usuarioLabel.Size = new System.Drawing.Size(64, 18);
             usuarioLabel.TabIndex = 1;
             usuarioLabel.Text = "Usuario:";
-            // 
-            // usuarioTextBox
-            // 
-            this.usuarioTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.configuracionBindingSource, "Usuario", true));
-            this.usuarioTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.usuarioTextBox.Location = new System.Drawing.Point(114, 53);
-            this.usuarioTextBox.Name = "usuarioTextBox";
-            this.usuarioTextBox.Size = new System.Drawing.Size(173, 24);
-            this.usuarioTextBox.TabIndex = 2;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.claveTextBox);
-            this.panel1.Controls.Add(claveLabel);
-            this.panel1.Controls.Add(this.usuarioTextBox);
-            this.panel1.Controls.Add(label1);
-            this.panel1.Controls.Add(usuarioLabel);
-            this.panel1.Location = new System.Drawing.Point(68, 277);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(311, 151);
-            this.panel1.TabIndex = 15;
             // 
             // label1
             // 
@@ -272,10 +181,103 @@ namespace EASYPOS.Formularios.Config
             label2.TabIndex = 0;
             label2.Text = "Configuraciones del sistema";
             // 
+            // claveTextBox
+            // 
+            this.claveTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.configuracionBindingSource, "Clave", true));
+            this.claveTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.claveTextBox.Location = new System.Drawing.Point(114, 79);
+            this.claveTextBox.Name = "claveTextBox";
+            this.claveTextBox.Size = new System.Drawing.Size(173, 24);
+            this.claveTextBox.TabIndex = 4;
+            // 
+            // direccionTextBox
+            // 
+            this.direccionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.configuracionBindingSource, "Direccion", true));
+            this.direccionTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.direccionTextBox.Location = new System.Drawing.Point(201, 200);
+            this.direccionTextBox.Name = "direccionTextBox";
+            this.direccionTextBox.Size = new System.Drawing.Size(471, 24);
+            this.direccionTextBox.TabIndex = 12;
+            // 
+            // impresoraTextBox
+            // 
+            this.impresoraTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.configuracionBindingSource, "Impresora", true));
+            this.impresoraTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.impresoraTextBox.Location = new System.Drawing.Point(201, 227);
+            this.impresoraTextBox.Name = "impresoraTextBox";
+            this.impresoraTextBox.Size = new System.Drawing.Size(191, 24);
+            this.impresoraTextBox.TabIndex = 14;
+            // 
+            // nITTextBox
+            // 
+            this.nITTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.configuracionBindingSource, "NIT", true));
+            this.nITTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nITTextBox.Location = new System.Drawing.Point(201, 146);
+            this.nITTextBox.Name = "nITTextBox";
+            this.nITTextBox.Size = new System.Drawing.Size(191, 24);
+            this.nITTextBox.TabIndex = 8;
+            // 
+            // nombreEmpresaTextBox
+            // 
+            this.nombreEmpresaTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.configuracionBindingSource, "NombreEmpresa", true));
+            this.nombreEmpresaTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nombreEmpresaTextBox.Location = new System.Drawing.Point(201, 92);
+            this.nombreEmpresaTextBox.Name = "nombreEmpresaTextBox";
+            this.nombreEmpresaTextBox.Size = new System.Drawing.Size(471, 24);
+            this.nombreEmpresaTextBox.TabIndex = 4;
+            // 
+            // nRCTextBox
+            // 
+            this.nRCTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.configuracionBindingSource, "NRC", true));
+            this.nRCTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nRCTextBox.Location = new System.Drawing.Point(201, 173);
+            this.nRCTextBox.Name = "nRCTextBox";
+            this.nRCTextBox.Size = new System.Drawing.Size(191, 24);
+            this.nRCTextBox.TabIndex = 10;
+            // 
+            // propietarioTextBox
+            // 
+            this.propietarioTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.configuracionBindingSource, "Propietario", true));
+            this.propietarioTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.propietarioTextBox.Location = new System.Drawing.Point(201, 65);
+            this.propietarioTextBox.Name = "propietarioTextBox";
+            this.propietarioTextBox.Size = new System.Drawing.Size(471, 24);
+            this.propietarioTextBox.TabIndex = 2;
+            // 
+            // telefonoTextBox
+            // 
+            this.telefonoTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.configuracionBindingSource, "Telefono", true));
+            this.telefonoTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.telefonoTextBox.Location = new System.Drawing.Point(201, 119);
+            this.telefonoTextBox.Name = "telefonoTextBox";
+            this.telefonoTextBox.Size = new System.Drawing.Size(191, 24);
+            this.telefonoTextBox.TabIndex = 6;
+            // 
+            // usuarioTextBox
+            // 
+            this.usuarioTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.configuracionBindingSource, "Usuario", true));
+            this.usuarioTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.usuarioTextBox.Location = new System.Drawing.Point(114, 53);
+            this.usuarioTextBox.Name = "usuarioTextBox";
+            this.usuarioTextBox.Size = new System.Drawing.Size(173, 24);
+            this.usuarioTextBox.TabIndex = 2;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.claveTextBox);
+            this.panel1.Controls.Add(claveLabel);
+            this.panel1.Controls.Add(this.usuarioTextBox);
+            this.panel1.Controls.Add(label1);
+            this.panel1.Controls.Add(usuarioLabel);
+            this.panel1.Location = new System.Drawing.Point(22, 277);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(311, 151);
+            this.panel1.TabIndex = 15;
+            // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(565, 287);
+            this.button1.Location = new System.Drawing.Point(629, 290);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(159, 90);
             this.button1.TabIndex = 16;
@@ -286,13 +288,23 @@ namespace EASYPOS.Formularios.Config
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(565, 384);
+            this.button2.Location = new System.Drawing.Point(629, 387);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(159, 29);
             this.button2.TabIndex = 17;
             this.button2.Text = "Cerrar";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(354, 277);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(244, 151);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 18;
+            this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // configuracionBindingSource
             // 
@@ -302,7 +314,8 @@ namespace EASYPOS.Formularios.Config
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(808, 450);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.panel1);
@@ -327,6 +340,7 @@ namespace EASYPOS.Formularios.Config
             this.Load += new System.EventHandler(this.FConfiguraciones_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.configuracionBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -348,5 +362,6 @@ namespace EASYPOS.Formularios.Config
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }

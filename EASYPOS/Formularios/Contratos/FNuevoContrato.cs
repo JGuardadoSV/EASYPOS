@@ -395,6 +395,16 @@ namespace EASYPOS.Formularios.Contratos
             }
         }
 
+        private void button10_Click(object sender, EventArgs e)
+        {
+            if (contratoUp!=null)
+            {
+                FReportePagosExtras f = new FReportePagosExtras(contratoUp.IdContrato);
+                f.ShowDialog();
+            }
+            
+        }
+
         private void generarTabla(decimal monto, int meses, DateTime fecha, decimal tasa, int idcontrato, decimal prima)
         {
             decimal total = monto;

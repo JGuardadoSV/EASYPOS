@@ -19,6 +19,8 @@ namespace EASYPOS.Entidades
         public string Direccion { get; set; }
         public string Usuario   { get; set; }
         public string Clave { get; set; }
+        public string logo { get; set; }
+
 
 
 

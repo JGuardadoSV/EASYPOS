@@ -114,6 +114,7 @@ namespace EASYPOS
         private void FPrincipal_Load(object sender, EventArgs e)
         {
             this.labelUsuario.Text = this.labelUsuario.Text + " " + usuario ;
+            pictureBox1.ImageLocation = "logo.jpg";
         }
 
         private void configuracionesToolStripMenuItem_Click(object sender, EventArgs e)
@@ -181,6 +182,20 @@ namespace EASYPOS
         private void button4_Click(object sender, EventArgs e)
         {
             contratos();
+        }
+
+        private void reporteFinancieroToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FFechasCuotas f = new FFechasCuotas();
+            f.StartPosition = FormStartPosition.CenterParent;
+            f.ShowDialog();
+        }
+
+        private void contratosConPagosParaEsteMesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            FContratosPaganEsteMes f = new FContratosPaganEsteMes();
+            f.ShowDialog();
         }
     }
 }

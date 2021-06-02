@@ -79,6 +79,40 @@ namespace EASYPOS.Modelos
 
         }
 
+        public List<Contratos> ParaEsteMes()
+        {
+            List<Contratos> listado = new List<Contratos>();
+            List<Contratos> listado2 = new List<Contratos>();
+            listado = this.Listado(false);
+            string consulta = "SP_TocanPagarEsteMes";
+            foreach (Contratos item in listado)
+            {
+                try
+                {
+
+
+                    DynamicParameters parametros = new DynamicParameters();
+                    parametros.Add("@id", item.IdContrato, DbType.String);
+                    cn.Open();
+
+                    int x = cn.Query<Cuotas>(consulta, parametros, commandType: CommandType.StoredProcedure).ToList().Count;
+                    cn.Close();
+
+                    if (x > 0)
+                    {
+                        listado2.Add(item);
+                    }
+                }
+                catch (Exception)
+                {
+
+
+                }
+            }
+
+            return listado2;
+        }
+
         public  Contratos uno(int id)
         {
             string consulta = "select * from contratos where IdContrato="+id;
@@ -91,12 +125,37 @@ namespace EASYPOS.Modelos
 
         public List<Contratos> Atrasados()
         {
-            string consulta = "select a.* from contratos a inner join cuotas b on a.IdContrato = b.IdContrato_FK where DATEDIFF(month, b.FechaDePago, getdate())>= 1";
+            //string consulta = "select a.* from contratos a inner join cuotas b on a.IdContrato = b.IdContrato_FK where DATEDIFF(month, b.FechaDePago, getdate())>= 1";
             List<Contratos> listado = new List<Contratos>();
-            cn.Open();
-            listado = cn.Query<Contratos>(consulta).ToList();
-            cn.Close();
-            return listado;
+            List<Contratos> listado2 = new List<Contratos>();
+            listado = this.Listado(false);
+            string consulta = "SP_VerificarSiEstEnMora";
+            foreach (Contratos item in listado)
+            {
+                try
+                {
+
+          
+                DynamicParameters parametros = new DynamicParameters();
+                parametros.Add("@id", item.IdContrato, DbType.String);
+                cn.Open();
+
+                    int x = cn.Query<Cuotas>(consulta,parametros,commandType:CommandType.StoredProcedure).ToList().Count;
+                cn.Close();
+
+                if (x>0)
+                {
+                    listado2.Add(item);
+                }
+                }
+                catch (Exception)
+                {
+
+
+                }
+            }
+            
+            return listado2;
         }
 
         public List<Contratos> Busqueda(string cliente, Boolean atrasados=false)

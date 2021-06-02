@@ -34,6 +34,20 @@ namespace EASYPOS.Modelos
             cn.Close();
 
         }
+
+        public List<OtrosPagos> ListadoReporte(DateTime f1, DateTime f2)
+        {
+            string consulta = "select Convert(varchar(10),a.fecha,105) fecha,monto,comentario,efectivo,cambio from OtrosPagos a where cast(a.fecha as date) between @fecha1 and @fecha2";
+            List<OtrosPagos> listado = new List<OtrosPagos>();
+            DynamicParameters parametros = new DynamicParameters();
+            parametros.Add("@fecha1", f1.Date, DbType.DateTime);
+            parametros.Add("@fecha2", f2.Date, DbType.DateTime);
+            cn.Open();
+            listado = cn.Query<OtrosPagos>(consulta, parametros, commandType: CommandType.Text).ToList();
+            cn.Close();
+            return listado;
+        }
+
         public void Actualizar(OtrosPagos pago)
         {
 

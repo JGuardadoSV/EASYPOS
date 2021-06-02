@@ -46,5 +46,10 @@ namespace EASYPOS.Controladores
         {
             mCuota.actualizarCuotasRestantes(idContrato);
         }
+
+        internal List<Cuotas> ListadoReporte(DateTime f1, DateTime f2)
+        {
+            return mCuota.ListadoReporte(f1,f2);
+        }
     }
 }

@@ -42,6 +42,11 @@ namespace EASYPOS.Controladores
             mContratos.Eliminar(contrato);
         }
 
+        public List<Contratos> ParaEsteMes()
+        {
+            return mContratos.ParaEsteMes();
+        }
+
         public List<Contratos> Listado(Boolean cotizaciones)
         {
             return mContratos.Listado(cotizaciones);

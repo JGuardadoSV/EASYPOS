@@ -34,5 +34,9 @@ namespace EASYPOS.Controladores
             return mOtros.Listado(id);
         }
 
+        public List<OtrosPagos> ListadoReporte(DateTime f1, DateTime f2)
+        {
+            return mOtros.ListadoReporte(f1,f2);
+        }
     }
 }

@@ -45,6 +45,35 @@ namespace EASYPOS.Modelos
             return 1;
         }
 
+        public List<Cuotas> ListadoReporte(DateTime f1, DateTime f2)
+        {
+            List<Cuotas> listado = new List<Cuotas>();
+            List<Cuotas> listado2 = new List<Cuotas>();
+            // try
+            //    {
+            string consulta = "Select FechaDePago, MontoCancelado,mora,Correlativo  from cuotas where FechaDePago is Not null and MontoCancelado is Not null and cast(FechaDePago as date) between @fecha1 and @fecha2";
+            
+            DynamicParameters parametros = new DynamicParameters();
+            parametros.Add("@fecha1", f1.Date, DbType.DateTime);
+            parametros.Add("@fecha2", f2.Date, DbType.DateTime);
+            cn.Open();
+            listado = cn.Query<Cuotas>(consulta, parametros, commandType: CommandType.Text).ToList();
+            foreach (Cuotas cuota in listado)
+            {
+                cuota.FechaDePago = cuota.FechaDePago.Value.Date;
+                listado2.Add(cuota);
+            }
+            cn.Close();
+         //   }
+         //   catch (Exception ex)
+        //    {
+
+                
+        //    }
+         
+            return listado2;
+        }
+
         public void actualizarCuotasRestantes(int idContrato)
         {
             List<Cuotas> listado = this.Listado(idContrato);

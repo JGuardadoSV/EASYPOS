@@ -123,6 +123,7 @@
     <Compile Include="Controladores\CRol.cs" />
     <Compile Include="Controladores\CSucursal.cs" />
     <Compile Include="Controladores\CVenta.cs" />
+    <Compile Include="Entidades\Atrasados.cs" />
     <Compile Include="Entidades\Caja.cs" />
     <Compile Include="Entidades\Categoria.cs" />
     <Compile Include="Entidades\Cliente.cs" />
@@ -198,6 +199,12 @@
     <Compile Include="Formularios\Contratos\FContratos.Designer.cs">
       <DependentUpon>FContratos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\Contratos\FContratosPaganEsteMes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Contratos\FContratosPaganEsteMes.Designer.cs">
+      <DependentUpon>FContratosPaganEsteMes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\Contratos\FCuotasPagar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -215,6 +222,18 @@
     </Compile>
     <Compile Include="Formularios\Contratos\FNuevoContrato.Designer.cs">
       <DependentUpon>FNuevoContrato.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Contratos\FReportePagosExtras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Contratos\FReportePagosExtras.Designer.cs">
+      <DependentUpon>FReportePagosExtras.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Contratos\FReportePagosExtrasGlobal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Contratos\FReportePagosExtrasGlobal.Designer.cs">
+      <DependentUpon>FReportePagosExtrasGlobal.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\Contratos\FTablaAmortizacion.cs">
       <SubType>Form</SubType>
@@ -270,11 +289,23 @@
     <Compile Include="Formularios\Reportes\FFechas.Designer.cs">
       <DependentUpon>FFechas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\Reportes\FFechasCuotas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Reportes\FFechasCuotas.Designer.cs">
+      <DependentUpon>FFechasCuotas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\Reportes\FReporteContrato.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\Reportes\FReporteContrato.Designer.cs">
       <DependentUpon>FReporteContrato.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Reportes\FReporteCuotas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Reportes\FReporteCuotas.Designer.cs">
+      <DependentUpon>FReporteCuotas.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\Reportes\FReporteDocumentos.cs">
       <SubType>Form</SubType>
@@ -410,6 +441,9 @@
     <EmbeddedResource Include="Formularios\Contratos\FContratos.resx">
       <DependentUpon>FContratos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Contratos\FContratosPaganEsteMes.resx">
+      <DependentUpon>FContratosPaganEsteMes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Contratos\FCuotasPagar.resx">
       <DependentUpon>FCuotasPagar.cs</DependentUpon>
     </EmbeddedResource>
@@ -418,6 +452,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Contratos\FNuevoContrato.resx">
       <DependentUpon>FNuevoContrato.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Contratos\FReportePagosExtras.resx">
+      <DependentUpon>FReportePagosExtras.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Contratos\FReportePagosExtrasGlobal.resx">
+      <DependentUpon>FReportePagosExtrasGlobal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Contratos\FTablaAmortizacion.resx">
       <DependentUpon>FTablaAmortizacion.cs</DependentUpon>
@@ -446,8 +486,14 @@
     <EmbeddedResource Include="Formularios\Reportes\FFechas.resx">
       <DependentUpon>FFechas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Reportes\FFechasCuotas.resx">
+      <DependentUpon>FFechasCuotas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Reportes\FReporteContrato.resx">
       <DependentUpon>FReporteContrato.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Reportes\FReporteCuotas.resx">
+      <DependentUpon>FReporteCuotas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Reportes\FReporteDocumentos.resx">
       <DependentUpon>FReporteDocumentos.cs</DependentUpon>
@@ -507,7 +553,10 @@
     <EmbeddedResource Include="Reportes\rContratosPagoCuotas.rdlc" />
     <EmbeddedResource Include="Reportes\rContratosVigentes.rdlc" />
     <EmbeddedResource Include="Reportes\rContratosVencidos.rdlc" />
+    <EmbeddedResource Include="Reportes\rCuotasPagadas.rdlc" />
     <EmbeddedResource Include="Reportes\rInventario.rdlc" />
+    <EmbeddedResource Include="Reportes\rPagosExtrasGlobal.rdlc" />
+    <EmbeddedResource Include="Reportes\rPagosExtras.rdlc" />
     <EmbeddedResource Include="Reportes\rTablaAmortizacion.rdlc" />
     <EmbeddedResource Include="Reportes\rVentas.rdlc" />
     <None Include="packages.config" />
@@ -570,6 +619,9 @@
     <None Include="Resources\iconfinder_Enter_728934.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\logo.jpg" />
+    <Content Include="bin\Debug\logo.jpg" />
+    <Content Include="logo.jpg" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

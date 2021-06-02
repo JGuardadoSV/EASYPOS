@@ -78,7 +78,7 @@
                   <Paragraph>
                     <TextRuns>
                       <TextRun>
-                        <Value>CREDITO SG DE MOTOCICLETA</Value>
+                        <Value>CREDITO SG</Value>
                         <Style>
                           <FontSize>18pt</FontSize>
                           <FontWeight>Bold</FontWeight>
@@ -124,7 +124,7 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>producto</rd:DefaultName>
-                <Top>0.54166in</Top>
+                <Top>0.66666in</Top>
                 <Left>0.14583in</Left>
                 <Height>0.39583in</Height>
                 <Width>5.86458in</Width>
@@ -158,7 +158,7 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>cliente</rd:DefaultName>
-                <Top>1in</Top>
+                <Top>1.125in</Top>
                 <Left>0.14583in</Left>
                 <Height>0.375in</Height>
                 <Width>5.86458in</Width>
@@ -190,7 +190,7 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>direccion</rd:DefaultName>
-                <Top>1.51042in</Top>
+                <Top>1.63542in</Top>
                 <Left>0.14583in</Left>
                 <Height>0.35417in</Height>
                 <Width>5.86458in</Width>
@@ -224,7 +224,7 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>financiamiento</rd:DefaultName>
-                <Top>2.0625in</Top>
+                <Top>2.1875in</Top>
                 <Left>0.14583in</Left>
                 <Height>0.33333in</Height>
                 <Width>5.86458in</Width>
@@ -256,7 +256,7 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>cuota</rd:DefaultName>
-                <Top>2.55208in</Top>
+                <Top>2.67708in</Top>
                 <Left>0.14583in</Left>
                 <Height>0.39583in</Height>
                 <Width>5.86458in</Width>
@@ -288,7 +288,7 @@
                   </Paragraph>
                 </Paragraphs>
                 <rd:DefaultName>fechacredito</rd:DefaultName>
-                <Top>3.08333in</Top>
+                <Top>3.20833in</Top>
                 <Left>0.14583in</Left>
                 <Height>0.35417in</Height>
                 <Width>5.86458in</Width>
@@ -310,7 +310,7 @@
             <KeepTogether>true</KeepTogether>
             <Top>0.2175in</Top>
             <Left>0.18625in</Left>
-            <Height>3.54167in</Height>
+            <Height>3.6875in</Height>
             <Width>6.14583in</Width>
             <Style>
               <Border>
@@ -1078,6 +1078,7 @@
       </CellDefinitions>
     </GridLayoutDefinition>
   </ReportParametersLayout>
+  <Language>es-US</Language>
   <rd:ReportUnitType>Inch</rd:ReportUnitType>
   <rd:ReportID>80019ff1-63e2-41be-99be-6f10fe7ddec8</rd:ReportID>
 </Report>

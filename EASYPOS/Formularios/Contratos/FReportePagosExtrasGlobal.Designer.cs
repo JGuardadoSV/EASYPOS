@@ -1,7 +1,7 @@
 ﻿
-namespace EASYPOS.Formularios.Reportes
+namespace EASYPOS.Formularios.Contratos
 {
-    partial class FReporteDocumentos
+    partial class FReportePagosExtrasGlobal
     {
         /// <summary>
         /// Required designer variable.
@@ -35,23 +35,23 @@ namespace EASYPOS.Formularios.Reportes
             // reportViewer1
             // 
             this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "EASYPOS.Reportes.DocumentoCompra.rdlc";
+            this.reportViewer1.LocalReport.ReportEmbeddedResource = "EASYPOS.Reportes.rPagosExtrasGlobal.rdlc";
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
             this.reportViewer1.Size = new System.Drawing.Size(800, 450);
             this.reportViewer1.TabIndex = 0;
             // 
-            // FReporteDocumentos
+            // FReportePagosExtrasGlobal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.reportViewer1);
-            this.Name = "FReporteDocumentos";
-            this.Text = "Documentos";
+            this.Name = "FReportePagosExtrasGlobal";
+            this.Text = "Reporte de pagos";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.FReporteDocumentos_Load);
+            this.Load += new System.EventHandler(this.FReportePagosExtras_Load);
             this.ResumeLayout(false);
 
         }
