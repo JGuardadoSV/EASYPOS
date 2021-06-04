@@ -56,6 +56,9 @@ namespace EASYPOS.Formularios.POS
 
         private void FCobroCuotaMoto_Load(object sender, EventArgs e)
         {
+
+            dateTimePickerFechaPago.Value= cuota.Fecha.Value;
+
             if (idcuota<0 || solouna)
             {
                 button3.Visible = false;

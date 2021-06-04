@@ -45,6 +45,17 @@ namespace EASYPOS.Modelos
             return 1;
         }
 
+        internal void EliminarTodas(int idContrato)
+        {
+            string consulta = "Delete from Cuotas where IdContrato_Fk=@id";
+            DynamicParameters parametros = new DynamicParameters();
+
+            parametros.Add("@id", idContrato, DbType.Int32);
+            cn.Open();
+            cn.Execute(consulta, parametros, commandType: CommandType.Text);
+            cn.Close();
+        }
+
         public List<Cuotas> ListadoReporte(DateTime f1, DateTime f2)
         {
             List<Cuotas> listado = new List<Cuotas>();

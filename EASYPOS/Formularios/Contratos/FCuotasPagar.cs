@@ -90,6 +90,20 @@ namespace EASYPOS.Formularios.Contratos
         {
             cuota = (Cuotas)cuotasBindingSource.Current;
 
+
+
+            if (contrato.Historico==1)
+
+
+            {
+                this.DialogResult = DialogResult.OK;
+                FCobroCuotaMoto f = new FCobroCuotaMoto(idcuota: cuota.IdCuota, cuota.IdContrato_FK);
+                f.StartPosition = FormStartPosition.CenterParent;
+                f.ShowDialog();
+                this.Close();
+                return;
+            }
+
             int indice = cuotasDataGridView.CurrentRow.Index;
 
 

@@ -405,6 +405,30 @@ namespace EASYPOS.Formularios.Contratos
             
         }
 
+        private void button11_Click(object sender, EventArgs e)
+        {
+            if (contratoUp!=null)
+            {
+
+            
+            CCuota cCuota = new CCuota();
+            cCuota.EliminarTodas(contratoUp.IdContrato);
+                MessageBox.Show("Cuotas eliminadas, eliga nueva fecha de inicio y luego de clic en guardar");
+            }
+        }
+
+        private void datoscredito_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button12_Click(object sender, EventArgs e)
+        {
+            FCalculos fCalculos = new FCalculos(nombreCompletoTextBox.Text);
+            fCalculos.StartPosition = FormStartPosition.CenterParent;
+            fCalculos.ShowDialog();
+        }
+
         private void generarTabla(decimal monto, int meses, DateTime fecha, decimal tasa, int idcontrato, decimal prima)
         {
             decimal total = monto;
