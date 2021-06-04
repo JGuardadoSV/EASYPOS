@@ -31,7 +31,7 @@ namespace EASYPOS.Modelos
 
         public void Guardar(Configuracion config)
         {
-            string consulta = "Update Configuracion set Impresora=@Impresora,NombreEmpresa=@NombreEmpresa,NIT=@NIT,Telefono=@Telefono,Propietario=@Propietario,NRC=@NRC,Direccion=@Direccion,Usuario=@Usuario,Clave=@Clave logo=@logo where IdConfiguracion=1";
+            string consulta = "Update Configuracion set Impresora=@Impresora,NombreEmpresa=@NombreEmpresa,NIT=@NIT,Telefono=@Telefono,Propietario=@Propietario,NRC=@NRC,Direccion=@Direccion,Usuario=@Usuario,Clave=@Clave ,logo=@logo where IdConfiguracion=1";
             DynamicParameters parametros = new DynamicParameters();
 
             parametros.Add("@Impresora", config.Impresora, DbType.String);
@@ -43,7 +43,7 @@ namespace EASYPOS.Modelos
             parametros.Add("@Direccion", config.Direccion, DbType.String);
             parametros.Add("@Usuario", config.Usuario, DbType.String);
             parametros.Add("@Clave", config.Clave, DbType.String);
-            parametros.Add("@logo", config.Clave, DbType.String);
+            parametros.Add("@logo", config.logo, DbType.String);
 
             cn.Open();
             cn.Execute(consulta, parametros, commandType: CommandType.Text);

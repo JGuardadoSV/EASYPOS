@@ -18,5 +18,7 @@ namespace EASYPOS.Entidades
         public string Codigo { get; set; }
         public decimal? Precio { get; set; }
         public int Consignacion { get; set; }
+        public decimal? Costo { get; set; }
     }
+
 }

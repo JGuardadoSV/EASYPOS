@@ -62,6 +62,7 @@ namespace EASYPOS.Formularios.Reportes
             rds.Value = lista;
             this.reportViewer1.LocalReport.DataSources.Add(rds);
             this.reportViewer1.LocalReport.SetParameters(p);
+            this.reportViewer1.SetDisplayMode(DisplayMode.PrintLayout);
             this.reportViewer1.RefreshReport();
         }
     }

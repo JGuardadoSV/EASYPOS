@@ -19,7 +19,7 @@ namespace EASYPOS.Modelos
         public void Insertar(Producto producto, int existencias, int idinventario=1)
         {
 
-            string consulta = "insert into Productos values (@NombreProducto,@TieneVariasPresentaciones,@IdCategoria_FK,@IdProveedor_FK,@InformacionAdicional,@PrincipioActivo,@Precio,@Codigo,@Consignacion)";
+            string consulta = "insert into Productos values (@NombreProducto,@TieneVariasPresentaciones,@IdCategoria_FK,@IdProveedor_FK,@InformacionAdicional,@PrincipioActivo,@Precio,@Codigo,@Consignacion,@Costo)";
             DynamicParameters parametros = new DynamicParameters();
 
             parametros.Add("@NombreProducto", producto.NombreProducto, DbType.String);
@@ -31,7 +31,8 @@ namespace EASYPOS.Modelos
             parametros.Add("@Precio", producto.Precio, DbType.Decimal);
             parametros.Add("@Codigo", producto.Codigo, DbType.String);
             parametros.Add("@Consignacion", producto.Consignacion, DbType.Int32);
-            
+            parametros.Add("@Costo", producto.Costo, DbType.Decimal);
+
 
             cn.Open();
             cn.Execute(consulta, parametros, commandType: CommandType.Text);
@@ -57,7 +58,7 @@ namespace EASYPOS.Modelos
         public void Actualizar(Producto producto)
         {
 
-            string consulta = "Update Productos set NombreProducto=@NombreProducto,TieneVariasPresentaciones=@TieneVariasPresentaciones,IdCategoria_FK=@IdCategoria_FK,IdProveedor_FK=@IdProveedor_FK,InformacionAdicional=@InformacionAdicional,PrincipioActivo=@PrincipioActivo,Precio=@Precio, Codigo=@Codigo,Consignacion=@Consignacion where IdProducto=@id";
+            string consulta = "Update Productos set NombreProducto=@NombreProducto,TieneVariasPresentaciones=@TieneVariasPresentaciones,IdCategoria_FK=@IdCategoria_FK,IdProveedor_FK=@IdProveedor_FK,InformacionAdicional=@InformacionAdicional,PrincipioActivo=@PrincipioActivo,Precio=@Precio, Codigo=@Codigo,Consignacion=@Consignacion,Costo=@Costo where IdProducto=@id";
             DynamicParameters parametros = new DynamicParameters();
 
             parametros.Add("@NombreProducto", producto.NombreProducto, DbType.String);
@@ -70,6 +71,7 @@ namespace EASYPOS.Modelos
             parametros.Add("@id", producto.IdProducto, DbType.Int32);
             parametros.Add("@Codigo", producto.Codigo, DbType.String);
             parametros.Add("@Consignacion", producto.Consignacion, DbType.Int32);
+            parametros.Add("@Costo", producto.Costo, DbType.Decimal);
             cn.Open();
             cn.Execute(consulta, parametros, commandType: CommandType.Text);
             cn.Close();

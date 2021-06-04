@@ -16,6 +16,7 @@ namespace EASYPOS.Formularios.Config
     {
         Configuracion config;
         CConfiguracion cConfig = new CConfiguracion();
+        string logo="";
         public FConfiguraciones()
         {
             InitializeComponent();
@@ -24,6 +25,7 @@ namespace EASYPOS.Formularios.Config
         private void FConfiguraciones_Load(object sender, EventArgs e)
         {
             pictureBox1.ImageLocation = "logo.jpg";
+            logo= cConfig.ObtenerConfiguracion().logo;
             configuracionBindingSource.DataSource = cConfig.ObtenerConfiguracion(); 
         }
 
@@ -49,6 +51,7 @@ namespace EASYPOS.Formularios.Config
             }
             else
             {
+                config.logo = logo;
                 cConfig.Guardar(config);
                 MessageBox.Show("Cambios guardados correctamente");
             }
@@ -64,6 +67,7 @@ namespace EASYPOS.Formularios.Config
             if (f.FileName.Length>0)
             {
                 File.Copy(f.FileName, carpeta + "\\logo.jpg", true);
+                logo = carpeta + "\\logo.jpg";
             }
             pictureBox1.ImageLocation = "logo.jpg";
 
