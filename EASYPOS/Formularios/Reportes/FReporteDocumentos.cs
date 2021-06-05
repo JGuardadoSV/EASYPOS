@@ -39,13 +39,21 @@ namespace EASYPOS.Formularios.Reportes
                 {
                     titulo = "CREDITO SG";
                 }
+
+                string dir = "-";
+                if (contrato.DireccionCasa!=null)
+                {
+                    dir = contrato.DireccionCasa;
+                }
+               
+
                 ReportParameter[] p = new ReportParameter[]
          {
 
                 new ReportParameter("informacion",informacion),
-                new ReportParameter("producto",contrato.DescripcionProducto.ToString()),
+                new ReportParameter("producto",contrato.DescripcionProducto.ToString().ToUpper()),
                 new ReportParameter("cliente","CLIENTE: "+contrato.NombreCompleto.ToString().ToUpper()),
-                new ReportParameter("direccion","DIRECCIÓN: "+contrato.DireccionCasa.ToString().ToUpper()),
+                new ReportParameter("direccion","DIRECCIÓN: "+dir.ToUpper()),
                 new ReportParameter("financiamiento","FINANCIAMIENTO: $"+contrato.Financiamiento.ToString()),
                 new ReportParameter("financiamiento2",contrato.Financiamiento.ToString()),
                 new ReportParameter("cuota1","CUOTA: $"+contrato.Cuota.ToString()),
@@ -112,7 +120,7 @@ namespace EASYPOS.Formularios.Reportes
                 p.Correlativo = i;
                 p.Fecha = fecha;
                 p.Capital = Math.Round(total / contrato.Meses, 2);
-                p.Interes = Math.Round(total * 0.03m, 2);
+                p.Interes = Math.Round(total * contrato.Tasa, 2);
                 p.Restante = restante;
                 p.Cuota = p.Capital + p.Interes;
 

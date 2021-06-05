@@ -43,7 +43,7 @@ namespace EASYPOS.Modelos
             parametros.Add("@Direccion", config.Direccion, DbType.String);
             parametros.Add("@Usuario", config.Usuario, DbType.String);
             parametros.Add("@Clave", config.Clave, DbType.String);
-            parametros.Add("@logo", config.logo, DbType.String);
+            parametros.Add("@logo", "logo.jpg", DbType.String);
 
             cn.Open();
             cn.Execute(consulta, parametros, commandType: CommandType.Text);

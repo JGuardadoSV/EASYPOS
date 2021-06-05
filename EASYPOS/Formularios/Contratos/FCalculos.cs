@@ -48,7 +48,7 @@ namespace EASYPOS.Formularios.Contratos
 
         private void FCalculos_Load(object sender, EventArgs e)
         {
-            intereses = cIntereses.Obtener();
+           // intereses = cIntereses.Obtener();
         }
 
         private void txtMeses_KeyPress(object sender, KeyPressEventArgs e)

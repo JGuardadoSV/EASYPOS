@@ -21,7 +21,7 @@ namespace EASYPOS.Formularios.POS
         Cuotas cuota;
         Boolean solouna = false;
         List<int> idcuotas= new List<int>();
-        decimal cacumulado, iacumulado, mora;
+        decimal cacumulado, iacumulado, mora=0;
         public FCobroCuotaMoto(int idcuota, int id, List<int> idcuotas=null, decimal cacumulado=0M, decimal iacumulado=0M , decimal mora=0M)
         {
             this.contrato = id;
@@ -74,8 +74,8 @@ namespace EASYPOS.Formularios.POS
             txtsaldoactual.Text = c.Restante.Value.ToString("F");
             if (this.idcuota>0)
             {
-                txtmonto.Text = cuota.Monto.Value.ToString("F");
-                txtpago.Text = cuota.Monto.Value.ToString("F");
+                txtmonto.Text = (mora+cuota.Monto.Value).ToString("F");
+                txtpago.Text = (mora+cuota.Monto.Value).ToString("F");
             }
             else
             {
@@ -198,7 +198,7 @@ namespace EASYPOS.Formularios.POS
                         cuota.CapitalPendiente = pendiente;
                         if (otrafecha.Checked)
                         {
-                           // cuota.FechaDePago = dateTimePickerFechaPago.Value;
+                           cuota.FechaDePago = dateTimePickerFechaPago.Value;
                         }
 
                        // CCuota cCuota = new CCuota();
@@ -279,6 +279,7 @@ namespace EASYPOS.Formularios.POS
             printer.Append("                                        ");
             printer.Append("                                        ");
             printer.BoldMode(config.NombreEmpresa);
+            printer.BoldMode("Nueva Concepción");
             //Bitmap image = new Bitmap(Bitmap.FromFile("Icon.bmp"));
             //printer.Image(image);
             printer.Append(config.Direccion);
@@ -294,6 +295,11 @@ namespace EASYPOS.Formularios.POS
 
             
             printer.Append("Total cancelado = $" + c.MontoCancelado.Value.ToString("F"));
+            if (c.comentario.Length>0)
+            {
+                printer.Append("--------------");
+                printer.Append("Información:" + c.comentario);
+            }
             printer.Append("A intereses = $" + c.AIntereses.Value.ToString("F"));
             printer.Append("A capital = $" + c.ACapital.Value.ToString("F"));
             printer.Append("Abono extra a capital = $" + c.ACapitalExtra.Value.ToString("F"));

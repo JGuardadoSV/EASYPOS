@@ -212,7 +212,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox5</rd:DefaultName>
             <Top>2.09875cm</Top>
-            <Left>8.04016cm</Left>
+            <Left>8.99266cm</Left>
             <Height>0.6cm</Height>
             <Width>2.94979cm</Width>
             <ZIndex>3</ZIndex>
@@ -244,7 +244,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox6</rd:DefaultName>
             <Top>2.09875cm</Top>
-            <Left>13.56995cm</Left>
+            <Left>14.52245cm</Left>
             <Height>0.6cm</Height>
             <Width>1.33583cm</Width>
             <ZIndex>4</ZIndex>
@@ -648,7 +648,7 @@
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value>=FormatDateTime(Fields!Fecha.Value,DateFormat.ShortDate)</Value>
+                                  <Value>=Format(Fields!Fecha.Value,"dd/MM/yyyy")</Value>
                                   <Style />
                                 </TextRun>
                               </TextRuns>
@@ -669,6 +669,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -1017,7 +1018,7 @@
             <Top>2.09875cm</Top>
             <Left>6.46229cm</Left>
             <Height>0.6cm</Height>
-            <Width>1.50731cm</Width>
+            <Width>2.38926cm</Width>
             <ZIndex>10</ZIndex>
             <Style>
               <Border>
@@ -1047,7 +1048,7 @@
             </Paragraphs>
             <rd:DefaultName>financiamiento</rd:DefaultName>
             <Top>2.09875cm</Top>
-            <Left>11.09578cm</Left>
+            <Left>12.04828cm</Left>
             <Height>0.6cm</Height>
             <Width>2.29778cm</Width>
             <ZIndex>11</ZIndex>
@@ -1079,9 +1080,9 @@
             </Paragraphs>
             <rd:DefaultName>meses</rd:DefaultName>
             <Top>2.09875cm</Top>
-            <Left>15.04689cm</Left>
+            <Left>15.99939cm</Left>
             <Height>0.6cm</Height>
-            <Width>2.09811cm</Width>
+            <Width>0.9966cm</Width>
             <ZIndex>12</ZIndex>
             <Style>
               <Border>
@@ -1191,7 +1192,7 @@
         <Height>2.57997in</Height>
         <Style />
       </Body>
-      <Width>7.03161in</Width>
+      <Width>6.83369in</Width>
       <Page>
         <PageHeader>
           <Height>1.02016cm</Height>

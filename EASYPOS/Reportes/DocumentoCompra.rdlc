@@ -464,7 +464,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox5</rd:DefaultName>
             <Top>13.03927cm</Top>
-            <Left>8.35766cm</Left>
+            <Left>9.62766cm</Left>
             <Height>0.6cm</Height>
             <Width>2.94979cm</Width>
             <ZIndex>5</ZIndex>
@@ -661,7 +661,7 @@
             <Top>5.13357in</Top>
             <Left>2.57199in</Left>
             <Height>0.25in</Height>
-            <Width>0.57954in</Width>
+            <Width>1.03787in</Width>
             <ZIndex>11</ZIndex>
             <Style>
               <Border>
@@ -691,7 +691,7 @@
             </Paragraphs>
             <rd:DefaultName>financiamiento1</rd:DefaultName>
             <Top>5.13357in</Top>
-            <Left>4.50255in</Left>
+            <Left>5.00255in</Left>
             <Height>0.25in</Height>
             <Width>1in</Width>
             <ZIndex>12</ZIndex>
