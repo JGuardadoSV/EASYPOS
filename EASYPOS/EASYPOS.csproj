@@ -112,6 +112,7 @@
     <Compile Include="Controladores\CDetallesListaDePrecio.cs" />
     <Compile Include="Controladores\CDetallesVenta.cs" />
     <Compile Include="Controladores\CEmpleado.cs" />
+    <Compile Include="Controladores\CIntereses.cs" />
     <Compile Include="Controladores\CInventario.cs" />
     <Compile Include="Controladores\CListasDePrecio.cs" />
     <Compile Include="Controladores\COtroPagos.cs" />
@@ -136,6 +137,7 @@
     <Compile Include="Entidades\DetallesListaDePrecio.cs" />
     <Compile Include="Entidades\DetallesVenta.cs" />
     <Compile Include="Entidades\Empleado.cs" />
+    <Compile Include="Entidades\intereses.cs" />
     <Compile Include="Entidades\Inventario.cs" />
     <Compile Include="Entidades\ListasDePrecio.cs" />
     <Compile Include="Entidades\OtrosPagos.cs" />
@@ -252,6 +254,12 @@
     </Compile>
     <Compile Include="Formularios\Empleados\FEmpleados.Designer.cs">
       <DependentUpon>FEmpleados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\Intereses_formulario\FIntereses.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Intereses_formulario\FIntereses.Designer.cs">
+      <DependentUpon>FIntereses.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\Inventario\FInventario.cs">
       <SubType>Form</SubType>
@@ -403,6 +411,7 @@
     <Compile Include="Modelos\MDetallesListaDePrecio.cs" />
     <Compile Include="Modelos\MDetallesVenta.cs" />
     <Compile Include="Modelos\MEmpleado.cs" />
+    <Compile Include="Modelos\MIntereses.cs" />
     <Compile Include="Modelos\MInventario.cs" />
     <Compile Include="Modelos\MListasDePrecio.cs" />
     <Compile Include="Modelos\MOtrosPagos.cs" />
@@ -467,6 +476,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Empleados\FEmpleados.resx">
       <DependentUpon>FEmpleados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Intereses_formulario\FIntereses.resx">
+      <DependentUpon>FIntereses.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Inventario\FInventario.resx">
       <DependentUpon>FInventario.cs</DependentUpon>
@@ -569,6 +581,7 @@
     <None Include="Properties\DataSources\EASYPOS.Entidades.Cuotas.datasource" />
     <None Include="Properties\DataSources\EASYPOS.Entidades.DetallesInventario.datasource" />
     <None Include="Properties\DataSources\EASYPOS.Entidades.Empleado.datasource" />
+    <None Include="Properties\DataSources\EASYPOS.Entidades.intereses.datasource" />
     <None Include="Properties\DataSources\EASYPOS.Entidades.OtrosPagos.datasource" />
     <None Include="Properties\DataSources\EASYPOS.Entidades.Presentacion.datasource" />
     <None Include="Properties\DataSources\EASYPOS.Entidades.Producto.datasource" />

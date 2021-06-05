@@ -65,6 +65,7 @@ namespace EASYPOS
             this.label2 = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
+            this.tasasDeInteresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -224,7 +225,8 @@ namespace EASYPOS
             this.catálogoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.categoriasToolStripMenuItem,
             this.proveedoresToolStripMenuItem,
-            this.correlativosToolStripMenuItem});
+            this.correlativosToolStripMenuItem,
+            this.tasasDeInteresToolStripMenuItem});
             this.catálogoToolStripMenuItem.Name = "catálogoToolStripMenuItem";
             this.catálogoToolStripMenuItem.Size = new System.Drawing.Size(84, 25);
             this.catálogoToolStripMenuItem.Text = "Catálogo";
@@ -232,21 +234,21 @@ namespace EASYPOS
             // categoriasToolStripMenuItem
             // 
             this.categoriasToolStripMenuItem.Name = "categoriasToolStripMenuItem";
-            this.categoriasToolStripMenuItem.Size = new System.Drawing.Size(167, 26);
+            this.categoriasToolStripMenuItem.Size = new System.Drawing.Size(188, 26);
             this.categoriasToolStripMenuItem.Text = "Categorias";
             this.categoriasToolStripMenuItem.Click += new System.EventHandler(this.categoriasToolStripMenuItem_Click);
             // 
             // proveedoresToolStripMenuItem
             // 
             this.proveedoresToolStripMenuItem.Name = "proveedoresToolStripMenuItem";
-            this.proveedoresToolStripMenuItem.Size = new System.Drawing.Size(167, 26);
+            this.proveedoresToolStripMenuItem.Size = new System.Drawing.Size(188, 26);
             this.proveedoresToolStripMenuItem.Text = "Proveedores";
             this.proveedoresToolStripMenuItem.Click += new System.EventHandler(this.proveedoresToolStripMenuItem_Click);
             // 
             // correlativosToolStripMenuItem
             // 
             this.correlativosToolStripMenuItem.Name = "correlativosToolStripMenuItem";
-            this.correlativosToolStripMenuItem.Size = new System.Drawing.Size(167, 26);
+            this.correlativosToolStripMenuItem.Size = new System.Drawing.Size(188, 26);
             this.correlativosToolStripMenuItem.Text = "Correlativos";
             this.correlativosToolStripMenuItem.Click += new System.EventHandler(this.correlativosToolStripMenuItem_Click);
             // 
@@ -390,6 +392,13 @@ namespace EASYPOS
             this.button8.UseVisualStyleBackColor = true;
             this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
+            // tasasDeInteresToolStripMenuItem
+            // 
+            this.tasasDeInteresToolStripMenuItem.Name = "tasasDeInteresToolStripMenuItem";
+            this.tasasDeInteresToolStripMenuItem.Size = new System.Drawing.Size(188, 26);
+            this.tasasDeInteresToolStripMenuItem.Text = "Tasas de interes";
+            this.tasasDeInteresToolStripMenuItem.Click += new System.EventHandler(this.tasasDeInteresToolStripMenuItem_Click);
+            // 
             // FPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -462,5 +471,6 @@ namespace EASYPOS
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.ToolStripMenuItem tasasDeInteresToolStripMenuItem;
     }
 }

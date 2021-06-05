@@ -2,6 +2,7 @@
 using EASYPOS.Formularios.Config;
 using EASYPOS.Formularios.Contratos;
 using EASYPOS.Formularios.Correlativos;
+using EASYPOS.Formularios.Intereses_formulario;
 using EASYPOS.Formularios.Inventario;
 using EASYPOS.Formularios.Productos;
 using EASYPOS.Formularios.Proveedores;
@@ -207,6 +208,12 @@ namespace EASYPOS
         private void button5_Click(object sender, EventArgs e)
         {
             FContratosPaganEsteMes f = new FContratosPaganEsteMes();
+            f.ShowDialog();
+        }
+
+        private void tasasDeInteresToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FIntereses f = new FIntereses();
             f.ShowDialog();
         }
     }
