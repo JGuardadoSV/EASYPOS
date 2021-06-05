@@ -51,6 +51,7 @@ namespace EASYPOS
             this.categoriasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.proveedoresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.correlativosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tasasDeInteresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sistemaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.configuracionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.labelUsuario = new System.Windows.Forms.Label();
@@ -65,7 +66,6 @@ namespace EASYPOS
             this.label2 = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
-            this.tasasDeInteresToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -252,6 +252,13 @@ namespace EASYPOS
             this.correlativosToolStripMenuItem.Text = "Correlativos";
             this.correlativosToolStripMenuItem.Click += new System.EventHandler(this.correlativosToolStripMenuItem_Click);
             // 
+            // tasasDeInteresToolStripMenuItem
+            // 
+            this.tasasDeInteresToolStripMenuItem.Name = "tasasDeInteresToolStripMenuItem";
+            this.tasasDeInteresToolStripMenuItem.Size = new System.Drawing.Size(188, 26);
+            this.tasasDeInteresToolStripMenuItem.Text = "Tasas de interes";
+            this.tasasDeInteresToolStripMenuItem.Click += new System.EventHandler(this.tasasDeInteresToolStripMenuItem_Click);
+            // 
             // sistemaToolStripMenuItem
             // 
             this.sistemaToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -356,7 +363,7 @@ namespace EASYPOS
             this.panel2.Controls.Add(this.label2);
             this.panel2.Location = new System.Drawing.Point(482, 100);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(422, 51);
+            this.panel2.Size = new System.Drawing.Size(453, 51);
             this.panel2.TabIndex = 9;
             // 
             // label2
@@ -375,7 +382,7 @@ namespace EASYPOS
             this.button5.Font = new System.Drawing.Font("Arial Narrow", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button5.Location = new System.Drawing.Point(696, 157);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(208, 43);
+            this.button5.Size = new System.Drawing.Size(239, 43);
             this.button5.TabIndex = 5;
             this.button5.Text = "Con pagos para este mes";
             this.button5.UseVisualStyleBackColor = true;
@@ -391,13 +398,6 @@ namespace EASYPOS
             this.button8.Text = "Con pagos atrasados";
             this.button8.UseVisualStyleBackColor = true;
             this.button8.Click += new System.EventHandler(this.button8_Click);
-            // 
-            // tasasDeInteresToolStripMenuItem
-            // 
-            this.tasasDeInteresToolStripMenuItem.Name = "tasasDeInteresToolStripMenuItem";
-            this.tasasDeInteresToolStripMenuItem.Size = new System.Drawing.Size(188, 26);
-            this.tasasDeInteresToolStripMenuItem.Text = "Tasas de interes";
-            this.tasasDeInteresToolStripMenuItem.Click += new System.EventHandler(this.tasasDeInteresToolStripMenuItem_Click);
             // 
             // FPrincipal
             // 

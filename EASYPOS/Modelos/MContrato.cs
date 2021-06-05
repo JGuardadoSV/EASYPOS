@@ -81,6 +81,25 @@ namespace EASYPOS.Modelos
 
         }
 
+        internal void ActualizarRestanteBorrado(Contratos contrato)
+        {
+           
+
+                string consulta = "Update Contratos set Restante=@Restante where IdContrato=@IdContrato";
+                DynamicParameters parametros = new DynamicParameters();
+
+                parametros.Add("@IdContrato", contrato.IdContrato, DbType.Int32);
+                parametros.Add("@Restante", contrato.Financiamiento, DbType.Decimal);
+                cn.Open();
+                cn.Execute(consulta, parametros, commandType: CommandType.Text);
+                cn.Close();
+
+
+
+            
+
+        }
+
         public List<Contratos> ParaEsteMes()
         {
             List<Contratos> listado = new List<Contratos>();

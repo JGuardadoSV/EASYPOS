@@ -415,6 +415,13 @@ namespace EASYPOS.Formularios.Contratos
             CCuota cCuota = new CCuota();
             cCuota.EliminarTodas(contratoUp.IdContrato);
                 MessageBox.Show("Cuotas eliminadas, eliga nueva fecha de inicio y luego de clic en guardar");
+
+                CContratos cContratos = new CContratos();
+                contrato contrato = new contrato();
+                contrato = (EASYPOS.Entidades.Contratos)contratosBindingSource.Current;
+                cContratos.ActualizarRestanteBorrado(contrato);
+
+
             }
         }
 

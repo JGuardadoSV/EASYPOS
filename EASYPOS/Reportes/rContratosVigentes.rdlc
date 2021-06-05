@@ -212,10 +212,10 @@
                   <Width>6.36609cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.5cm</Width>
+                  <Width>1.97083cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>3.02917cm</Width>
+                  <Width>2.71167cm</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>2.84396cm</Width>
@@ -650,7 +650,6 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -919,14 +918,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox4">
+                        <Textbox Name="Financiamiento">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
+                                  <Value>=FormatCurrency(Sum(Fields!Financiamiento.Value),2)</Value>
                                   <Style />
                                 </TextRun>
                               </TextRuns>
@@ -935,7 +934,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox4</rd:DefaultName>
+                          <rd:DefaultName>Financiamiento</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -970,14 +969,14 @@
                     </TablixCell>
                     <TablixCell>
                       <CellContents>
-                        <Textbox Name="Textbox5">
+                        <Textbox Name="Restante">
                           <CanGrow>true</CanGrow>
                           <KeepTogether>true</KeepTogether>
                           <Paragraphs>
                             <Paragraph>
                               <TextRuns>
                                 <TextRun>
-                                  <Value />
+                                  <Value>=FormatCurrency(SUM(Fields!Restante.Value),2)</Value>
                                   <Style />
                                 </TextRun>
                               </TextRuns>
@@ -986,7 +985,7 @@
                               </Style>
                             </Paragraph>
                           </Paragraphs>
-                          <rd:DefaultName>Textbox5</rd:DefaultName>
+                          <rd:DefaultName>Restante</rd:DefaultName>
                           <Style>
                             <Border>
                               <Style>Solid</Style>
@@ -1049,7 +1048,7 @@
             <Top>2.08703cm</Top>
             <Left>0.28787cm</Left>
             <Height>1.8cm</Height>
-            <Width>17.34312cm</Width>
+            <Width>16.49645cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -1110,7 +1109,7 @@
         <Height>1.53033in</Height>
         <Style />
       </Body>
-      <Width>7.08793in</Width>
+      <Width>6.69133in</Width>
       <Page>
         <PageHeader>
           <Height>0.66146cm</Height>
@@ -1176,7 +1175,7 @@
               <Top>0.07621cm</Top>
               <Left>0.28787cm</Left>
               <Height>0.6cm</Height>
-              <Width>17.34312cm</Width>
+              <Width>16.49645cm</Width>
               <Style>
                 <Border>
                   <Style>None</Style>
