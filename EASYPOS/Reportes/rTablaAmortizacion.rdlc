@@ -168,7 +168,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox5</rd:DefaultName>
             <Top>2.09875cm</Top>
-            <Left>8.04016cm</Left>
+            <Left>8.82417cm</Left>
             <Height>0.6cm</Height>
             <Width>2.94979cm</Width>
             <ZIndex>3</ZIndex>
@@ -200,7 +200,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox6</rd:DefaultName>
             <Top>2.09875cm</Top>
-            <Left>12.93495cm</Left>
+            <Left>14.03646cm</Left>
             <Height>0.6cm</Height>
             <Width>1.33583cm</Width>
             <ZIndex>4</ZIndex>
@@ -821,7 +821,7 @@
             <Top>2.09875cm</Top>
             <Left>6.46229cm</Left>
             <Height>0.6cm</Height>
-            <Width>1.50731cm</Width>
+            <Width>2.07084cm</Width>
             <ZIndex>10</ZIndex>
             <Style>
               <Border>
@@ -851,9 +851,9 @@
             </Paragraphs>
             <rd:DefaultName>financiamiento</rd:DefaultName>
             <Top>2.09875cm</Top>
-            <Left>11.09578cm</Left>
+            <Left>11.77078cm</Left>
             <Height>0.6cm</Height>
-            <Width>1.66278cm</Width>
+            <Width>2.12457cm</Width>
             <ZIndex>11</ZIndex>
             <Style>
               <Border>
@@ -883,9 +883,9 @@
             </Paragraphs>
             <rd:DefaultName>meses</rd:DefaultName>
             <Top>2.09875cm</Top>
-            <Left>14.41189cm</Left>
+            <Left>15.5134cm</Left>
             <Height>0.6cm</Height>
-            <Width>2.09811cm</Width>
+            <Width>0.83785cm</Width>
             <ZIndex>12</ZIndex>
             <Style>
               <Border>
@@ -995,7 +995,7 @@
         <Height>2.57997in</Height>
         <Style />
       </Body>
-      <Width>7.03161in</Width>
+      <Width>6.61494in</Width>
       <Page>
         <PageHeader>
           <Height>1.02016cm</Height>

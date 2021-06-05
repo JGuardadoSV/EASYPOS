@@ -66,7 +66,9 @@ namespace EASYPOS.Formularios.Reportes
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.reportViewer1);
             this.Name = "FTablaFinanciamiento";
-            this.Text = "FTablaFinanciamiento";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Tabla de amortización";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FTablaFinanciamiento_Load);
             ((System.ComponentModel.ISupportInitialize)(this.TablaPagosBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CuotasBindingSource)).EndInit();

@@ -78,11 +78,11 @@ namespace EASYPOS.Formularios.Contratos
             System.Windows.Forms.Label comentarioLabel;
             System.Windows.Forms.Label montoLabel;
             System.Windows.Forms.Label historicoLabel;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.Label restanteLabel;
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.Label label17;
             this.anioTextBox = new System.Windows.Forms.TextBox();
-            this.contratosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.celularTextBox = new System.Windows.Forms.TextBox();
             this.chasisTextBox = new System.Windows.Forms.TextBox();
             this.cuotaTextBox = new System.Windows.Forms.TextBox();
@@ -126,6 +126,8 @@ namespace EASYPOS.Formularios.Contratos
             this.historicoCheckBox = new System.Windows.Forms.CheckBox();
             this.tratoEspecialCheckBox = new System.Windows.Forms.CheckBox();
             this.datoscredito = new System.Windows.Forms.TabPage();
+            this.restanteTextBox = new System.Windows.Forms.TextBox();
+            this.button12 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.Referencias = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -143,10 +145,12 @@ namespace EASYPOS.Formularios.Contratos
             this.button9 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.montoTextBox = new System.Windows.Forms.TextBox();
-            this.otrosPagosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.comentarioTextBox = new System.Windows.Forms.TextBox();
             this.button7 = new System.Windows.Forms.Button();
             this.otrosPagosDataGridView = new System.Windows.Forms.DataGridView();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.contratosBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.otrosPagosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -154,9 +158,7 @@ namespace EASYPOS.Formularios.Contratos
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.button12 = new System.Windows.Forms.Button();
-            this.restanteTextBox = new System.Windows.Forms.TextBox();
+            this.textBox9 = new System.Windows.Forms.TextBox();
             anioLabel = new System.Windows.Forms.Label();
             celularLabel = new System.Windows.Forms.Label();
             chasisLabel = new System.Windows.Forms.Label();
@@ -206,7 +208,7 @@ namespace EASYPOS.Formularios.Contratos
             montoLabel = new System.Windows.Forms.Label();
             historicoLabel = new System.Windows.Forms.Label();
             restanteLabel = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.contratosBindingSource)).BeginInit();
+            label17 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -217,9 +219,10 @@ namespace EASYPOS.Formularios.Contratos
             this.groupBox1.SuspendLayout();
             this.informes.SuspendLayout();
             this.groupBoxDatos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.otrosPagosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.otrosPagosDataGridView)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.contratosBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.otrosPagosBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // anioLabel
@@ -671,6 +674,15 @@ namespace EASYPOS.Formularios.Contratos
             historicoLabel.TabIndex = 21;
             historicoLabel.Text = "Es contrato antiguo:";
             // 
+            // restanteLabel
+            // 
+            restanteLabel.AutoSize = true;
+            restanteLabel.Location = new System.Drawing.Point(30, 300);
+            restanteLabel.Name = "restanteLabel";
+            restanteLabel.Size = new System.Drawing.Size(53, 13);
+            restanteLabel.TabIndex = 4;
+            restanteLabel.Text = "Restante:";
+            // 
             // anioTextBox
             // 
             this.anioTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.contratosBindingSource, "Anio", true));
@@ -679,10 +691,6 @@ namespace EASYPOS.Formularios.Contratos
             this.anioTextBox.Size = new System.Drawing.Size(160, 27);
             this.anioTextBox.TabIndex = 7;
             this.anioTextBox.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SoloNumeros);
-            // 
-            // contratosBindingSource
-            // 
-            this.contratosBindingSource.DataSource = typeof(EASYPOS.Entidades.Contratos);
             // 
             // celularTextBox
             // 
@@ -911,7 +919,9 @@ namespace EASYPOS.Formularios.Contratos
             this.groupBox2.Controls.Add(this.button3);
             this.groupBox2.Controls.Add(this.mesesTextBox);
             this.groupBox2.Controls.Add(this.cuotaTextBox);
+            this.groupBox2.Controls.Add(this.textBox9);
             this.groupBox2.Controls.Add(this.primaNetaTextBox);
+            this.groupBox2.Controls.Add(label17);
             this.groupBox2.Controls.Add(primaNetaLabel);
             this.groupBox2.Controls.Add(this.primaInicialTextBox);
             this.groupBox2.Controls.Add(primaInicialLabel);
@@ -1164,6 +1174,24 @@ namespace EASYPOS.Formularios.Contratos
             this.datoscredito.UseVisualStyleBackColor = true;
             this.datoscredito.Click += new System.EventHandler(this.datoscredito_Click);
             // 
+            // restanteTextBox
+            // 
+            this.restanteTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.contratosBindingSource, "Restante", true));
+            this.restanteTextBox.Location = new System.Drawing.Point(89, 297);
+            this.restanteTextBox.Name = "restanteTextBox";
+            this.restanteTextBox.Size = new System.Drawing.Size(100, 20);
+            this.restanteTextBox.TabIndex = 5;
+            // 
+            // button12
+            // 
+            this.button12.Location = new System.Drawing.Point(195, 295);
+            this.button12.Name = "button12";
+            this.button12.Size = new System.Drawing.Size(132, 23);
+            this.button12.TabIndex = 3;
+            this.button12.Text = "Reestructurar crédito";
+            this.button12.UseVisualStyleBackColor = true;
+            this.button12.Click += new System.EventHandler(this.button12_Click);
+            // 
             // button11
             // 
             this.button11.Location = new System.Drawing.Point(525, 243);
@@ -1348,10 +1376,6 @@ namespace EASYPOS.Formularios.Contratos
             this.montoTextBox.Size = new System.Drawing.Size(146, 24);
             this.montoTextBox.TabIndex = 2;
             // 
-            // otrosPagosBindingSource
-            // 
-            this.otrosPagosBindingSource.DataSource = typeof(EASYPOS.Entidades.OtrosPagos);
-            // 
             // comentarioTextBox
             // 
             this.comentarioTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.otrosPagosBindingSource, "comentario", true));
@@ -1395,6 +1419,29 @@ namespace EASYPOS.Formularios.Contratos
             this.otrosPagosDataGridView.Size = new System.Drawing.Size(793, 324);
             this.otrosPagosDataGridView.TabIndex = 0;
             // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(label4);
+            this.panel1.Controls.Add(this.button5);
+            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.button6);
+            this.panel1.Controls.Add(this.button4);
+            this.panel1.Controls.Add(this.button2);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1229, 100);
+            this.panel1.TabIndex = 23;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // contratosBindingSource
+            // 
+            this.contratosBindingSource.DataSource = typeof(EASYPOS.Entidades.Contratos);
+            // 
+            // otrosPagosBindingSource
+            // 
+            this.otrosPagosBindingSource.DataSource = typeof(EASYPOS.Entidades.OtrosPagos);
+            // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.DataPropertyName = "IdPago";
@@ -1406,9 +1453,9 @@ namespace EASYPOS.Formularios.Contratos
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.DataPropertyName = "fecha";
-            dataGridViewCellStyle5.Format = "d";
-            dataGridViewCellStyle5.NullValue = null;
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Format = "d";
+            dataGridViewCellStyle1.NullValue = null;
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewTextBoxColumn2.HeaderText = "Fecha";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
@@ -1416,9 +1463,9 @@ namespace EASYPOS.Formularios.Contratos
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.DataPropertyName = "monto";
-            dataGridViewCellStyle6.Format = "C2";
-            dataGridViewCellStyle6.NullValue = null;
-            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Format = "C2";
+            dataGridViewCellStyle2.NullValue = null;
+            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridViewTextBoxColumn3.HeaderText = "Monto";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
@@ -1456,46 +1503,24 @@ namespace EASYPOS.Formularios.Contratos
             this.dataGridViewTextBoxColumn7.ReadOnly = true;
             this.dataGridViewTextBoxColumn7.Visible = false;
             // 
-            // panel1
+            // label17
             // 
-            this.panel1.Controls.Add(label4);
-            this.panel1.Controls.Add(this.button5);
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.button6);
-            this.panel1.Controls.Add(this.button4);
-            this.panel1.Controls.Add(this.button2);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1229, 100);
-            this.panel1.TabIndex = 23;
+            label17.AutoSize = true;
+            label17.Location = new System.Drawing.Point(520, 133);
+            label17.Name = "label17";
+            label17.Size = new System.Drawing.Size(100, 19);
+            label17.TabIndex = 16;
+            label17.Text = "Tasa aplicada";
             // 
-            // button12
+            // textBox9
             // 
-            this.button12.Location = new System.Drawing.Point(195, 295);
-            this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(132, 23);
-            this.button12.TabIndex = 3;
-            this.button12.Text = "Reestructurar crédito";
-            this.button12.UseVisualStyleBackColor = true;
-            this.button12.Click += new System.EventHandler(this.button12_Click);
-            // 
-            // restanteLabel
-            // 
-            restanteLabel.AutoSize = true;
-            restanteLabel.Location = new System.Drawing.Point(30, 300);
-            restanteLabel.Name = "restanteLabel";
-            restanteLabel.Size = new System.Drawing.Size(53, 13);
-            restanteLabel.TabIndex = 4;
-            restanteLabel.Text = "Restante:";
-            // 
-            // restanteTextBox
-            // 
-            this.restanteTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.contratosBindingSource, "Restante", true));
-            this.restanteTextBox.Location = new System.Drawing.Point(89, 297);
-            this.restanteTextBox.Name = "restanteTextBox";
-            this.restanteTextBox.Size = new System.Drawing.Size(100, 20);
-            this.restanteTextBox.TabIndex = 5;
+            this.textBox9.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.contratosBindingSource, "Tasa", true));
+            this.textBox9.Location = new System.Drawing.Point(520, 152);
+            this.textBox9.Name = "textBox9";
+            this.textBox9.ReadOnly = true;
+            this.textBox9.Size = new System.Drawing.Size(117, 27);
+            this.textBox9.TabIndex = 17;
+            this.textBox9.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.SoloNumeros);
             // 
             // FNuevoContrato
             // 
@@ -1510,7 +1535,6 @@ namespace EASYPOS.Formularios.Contratos
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Creación de contrato";
             this.Load += new System.EventHandler(this.FNuevoContrato_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.contratosBindingSource)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
@@ -1528,10 +1552,11 @@ namespace EASYPOS.Formularios.Contratos
             this.informes.ResumeLayout(false);
             this.groupBoxDatos.ResumeLayout(false);
             this.groupBoxDatos.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.otrosPagosBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.otrosPagosDataGridView)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.contratosBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.otrosPagosBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1614,5 +1639,6 @@ namespace EASYPOS.Formularios.Contratos
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.TextBox restanteTextBox;
         private System.Windows.Forms.Button button12;
+        private System.Windows.Forms.TextBox textBox9;
     }
 }
