@@ -183,7 +183,7 @@ namespace EASYPOS.Modelos
             string consulta = "Update cuotas set Correlativo=@Correlativo,IdCorrelativo_FK=@IdCorrelativo_FK,FechaDePago=@FechaDePago,Cancelada=@Cancelada,MontoCancelado= @MontoCancelado,AIntereses= @AIntereses,ACapital= @ACapital,ACapitalExtra= @ACapitalExtra,CapitalPendiente= @CapitalPendiente,EfectivoRecibido= @EfectivoRecibido,Cambio=@Cambio,comentario=@comentario,mora=@mora where IdCuota=@id";
             DynamicParameters parametros = new DynamicParameters();
             // int idventa;
-            parametros.Add("@FechaDePago", DateTime.Now);
+            parametros.Add("@FechaDePago", cuota.FechaDePago);
             parametros.Add("@Cancelada", 1);
             parametros.Add("@id", cuota.IdCuota);
             //parametros.Add("@TipoDocumento", cuota.TipoDocumento, DbType.Int32);

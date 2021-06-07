@@ -18,7 +18,7 @@ namespace EASYPOS.Modelos
         public int Insertar(Contratos contrato)
         {
 
-            string consulta = "insert into Contratos values (@NombreCompleto,@Dui,@Nit,@TelefonoFijo,@Celular,@DireccionCasa,@DireccionTrabajo,@TelefonoTrabajo,@Referencia1,@DireccionReferencia1,@TelefonoReferencia1,@Referencia2,@DireccionReferencia2,@TelefonoReferencia2,@Precio,@Prima,@Financiamiento,@Cuota,@GastosEscritura,@PrimaNeta,@PrimaInicial,@DescripcionProducto,@Marca,@Modelo,@Chasis,@Anio,@Fecha,@DuiReferencia,@NitReferencia,@Meses,@Estado,@FechaInicio,@NombreReferenciaFamiliar1,@DireccionReferenciaFamiliar1,@TelefonoFamiliar1,@ParentescoFamiliar1,@NombreReferenciaFamiliar2,@DireccionReferenciaFamiliar2,@TelefonoFamiliar2,@ParentescoFamiliar2,@Restante,@NoEsMoto,@TratoEspecial,@Historico,@Tasa)";
+            string consulta = "insert into Contratos values (@NombreCompleto,@Dui,@Nit,@TelefonoFijo,@Celular,@DireccionCasa,@DireccionTrabajo,@TelefonoTrabajo,@Referencia1,@DireccionReferencia1,@TelefonoReferencia1,@Referencia2,@DireccionReferencia2,@TelefonoReferencia2,@Precio,@Prima,@Financiamiento,@Cuota,@GastosEscritura,@PrimaNeta,@PrimaInicial,@DescripcionProducto,@Marca,@Modelo,@Chasis,@Anio,@Fecha,@DuiReferencia,@NitReferencia,@Meses,@Estado,@FechaInicio,@NombreReferenciaFamiliar1,@DireccionReferenciaFamiliar1,@TelefonoFamiliar1,@ParentescoFamiliar1,@NombreReferenciaFamiliar2,@DireccionReferenciaFamiliar2,@TelefonoFamiliar2,@ParentescoFamiliar2,@Restante,@NoEsMoto,@TratoEspecial,@Historico,@Tasa,@Finalizado)";
             DynamicParameters parametros = new DynamicParameters();
 
             //parametros.Add("@IdContrato", contrato.IdContrato, DbType.Int32);
@@ -67,6 +67,7 @@ namespace EASYPOS.Modelos
             parametros.Add("@TratoEspecial", contrato.TratoEspecial, DbType.Int32);
             parametros.Add("@Historico", contrato.Historico, DbType.Int32);
             parametros.Add("@Tasa", contrato.Tasa, DbType.Decimal);
+            parametros.Add("@Finalizado", contrato.Finalizado, DbType.Int32);
 
 
             cn.Open();
@@ -181,10 +182,10 @@ namespace EASYPOS.Modelos
 
         public List<Contratos> Busqueda(string cliente, Boolean atrasados=false)
         {
-            string consulta = "select * from Contratos where NombreCompleto like '%'+ @cliente +'%' or DUI  like '%'+ @cliente +'%'";
+            string consulta = "select * from Contratos where finalizado=0 and NombreCompleto like '%'+ @cliente +'%' or DUI  like '%'+ @cliente +'%'";
             if (atrasados)
             {
-                consulta = "select a.* from contratos a inner join cuotas b on a.IdContrato = b.IdContrato_FK where (a.NombreCompleto like '%'+ @cliente +'%' or DUI  like '%'+ @cliente +'%') and DATEDIFF(month, b.FechaDePago, getdate())>= 1";
+                consulta = "select a.* from contratos a inner join cuotas b on a.IdContrato = b.IdContrato_FK where finalizado=0 and  (a.NombreCompleto like '%'+ @cliente +'%' or DUI  like '%'+ @cliente +'%') and DATEDIFF(month, b.FechaDePago, getdate())>= 1";
             }
             List<Contratos> listado = new List<Contratos>();
             DynamicParameters parametros = new DynamicParameters();
@@ -196,13 +197,15 @@ namespace EASYPOS.Modelos
             return listado;
         }
 
+
+
         public List<Contratos> Listado(Boolean cotizaciones)
         {
-            string consulta = "SELECT * FROM Contratos where Estado=0";
+            string consulta = "SELECT * FROM Contratos where Estado=0 and finalizado=0 ";
 
             if (cotizaciones)
             {
-                 consulta = "SELECT * FROM Contratos where Estado=1";
+                 consulta = "SELECT * FROM Contratos where Estado=1 and finalizado=0";
 
             }
             List<Contratos> listado = new List<Contratos>();
@@ -213,10 +216,22 @@ namespace EASYPOS.Modelos
             return listado;
         }
 
+
+
+        public List<Contratos> ListadoFinalizados()
+        {
+            string consulta = "SELECT * FROM Contratos where finalizado=1";
+            List<Contratos> listado = new List<Contratos>();
+            cn.Open();
+            listado = cn.Query<Contratos>(consulta).ToList();
+            cn.Close();
+            return listado;
+        }
+
         public int Actualizar(Contratos contrato)
         {
 
-            string consulta = "Update Contratos set NombreCompleto=@NombreCompleto,Dui=@Dui,Nit=@Nit,TelefonoFijo=@TelefonoFijo,Celular=@Celular,DireccionCasa=@DireccionCasa,DireccionTrabajo=@DireccionTrabajo,TelefonoTrabajo=@TelefonoTrabajo,Referencia1=@Referencia1,DireccionReferencia1=@DireccionReferencia1,TelefonoReferencia1=@TelefonoReferencia1,Referencia2=@Referencia2,DireccionReferencia2=@DireccionReferencia2,TelefonoReferencia2=@TelefonoReferencia2,Precio=@Precio,Prima=@Prima,Financiamiento=@Financiamiento,Cuota=@Cuota,GastosEscritura=@GastosEscritura,PrimaNeta=@PrimaNeta,PrimaInicial=@PrimaInicial,DescripcionProducto=@DescripcionProducto,Marca=@Marca,Modelo=@Modelo,Chasis=@Chasis,Anio=@Anio,Fecha=@Fecha,FechaInicio=@FechaInicio ,DuiReferencia=@DuiReferencia,NitReferencia=@NitReferencia,Meses=@Meses,Estado=@Estado,NombreReferenciaFamiliar1=@NombreReferenciaFamiliar1,DireccionReferenciaFamiliar1=@DireccionReferenciaFamiliar1,TelefonoFamiliar1=@TelefonoFamiliar1,ParentescoFamiliar1=@ParentescoFamiliar1,NombreReferenciaFamiliar2=@NombreReferenciaFamiliar2,DireccionReferenciaFamiliar2=@DireccionReferenciaFamiliar2,TelefonoFamiliar2=@TelefonoFamiliar2,ParentescoFamiliar2=@ParentescoFamiliar2,Restante=@Restante,NoEsMoto=@NoEsMoto,TratoEspecial=@TratoEspecial,Historico=@Historico,Tasa=@Tasa where IdContrato=@IdContrato";
+            string consulta = "Update Contratos set NombreCompleto=@NombreCompleto,Dui=@Dui,Nit=@Nit,TelefonoFijo=@TelefonoFijo,Celular=@Celular,DireccionCasa=@DireccionCasa,DireccionTrabajo=@DireccionTrabajo,TelefonoTrabajo=@TelefonoTrabajo,Referencia1=@Referencia1,DireccionReferencia1=@DireccionReferencia1,TelefonoReferencia1=@TelefonoReferencia1,Referencia2=@Referencia2,DireccionReferencia2=@DireccionReferencia2,TelefonoReferencia2=@TelefonoReferencia2,Precio=@Precio,Prima=@Prima,Financiamiento=@Financiamiento,Cuota=@Cuota,GastosEscritura=@GastosEscritura,PrimaNeta=@PrimaNeta,PrimaInicial=@PrimaInicial,DescripcionProducto=@DescripcionProducto,Marca=@Marca,Modelo=@Modelo,Chasis=@Chasis,Anio=@Anio,Fecha=@Fecha,FechaInicio=@FechaInicio ,DuiReferencia=@DuiReferencia,NitReferencia=@NitReferencia,Meses=@Meses,Estado=@Estado,NombreReferenciaFamiliar1=@NombreReferenciaFamiliar1,DireccionReferenciaFamiliar1=@DireccionReferenciaFamiliar1,TelefonoFamiliar1=@TelefonoFamiliar1,ParentescoFamiliar1=@ParentescoFamiliar1,NombreReferenciaFamiliar2=@NombreReferenciaFamiliar2,DireccionReferenciaFamiliar2=@DireccionReferenciaFamiliar2,TelefonoFamiliar2=@TelefonoFamiliar2,ParentescoFamiliar2=@ParentescoFamiliar2,Restante=@Restante,NoEsMoto=@NoEsMoto,TratoEspecial=@TratoEspecial,Historico=@Historico,Tasa=@Tasa,finalizado=@Finalizado where IdContrato=@IdContrato";
             DynamicParameters parametros = new DynamicParameters();
             
             parametros.Add("@IdContrato", contrato.IdContrato, DbType.Int32);
@@ -265,6 +280,7 @@ namespace EASYPOS.Modelos
             parametros.Add("@TratoEspecial", contrato.TratoEspecial, DbType.Int32);
             parametros.Add("@Historico", contrato.Historico, DbType.Int32);
             parametros.Add("@Tasa", contrato.Tasa, DbType.Decimal);
+            parametros.Add("@Finalizado", contrato.Finalizado, DbType.Int32);
             cn.Open();
             cn.Execute(consulta, parametros, commandType: CommandType.Text);
             cn.Close();

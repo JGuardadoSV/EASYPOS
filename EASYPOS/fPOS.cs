@@ -327,7 +327,7 @@ namespace EASYPOS
             printer.Append("                                        ");
             printer.Append("                                        ");
             printer.BoldMode(config.NombreEmpresa);
-            printer.BoldMode("Nueva Concepción");
+            printer.BoldMode(config.municipio);
             //Bitmap image = new Bitmap(Bitmap.FromFile("Icon.bmp"));
             //printer.Image(image);
             printer.Append(config.Direccion);

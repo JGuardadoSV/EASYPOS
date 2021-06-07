@@ -66,6 +66,9 @@ namespace EASYPOS
             this.label2 = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
+            this.contratosFinalizadosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
@@ -127,7 +130,10 @@ namespace EASYPOS
             this.cotizacionesRealizadasToolStripMenuItem,
             this.contratosConPagosParaEsteMesToolStripMenuItem,
             this.contratosConPagosAtrasadosToolStripMenuItem,
-            this.reportesToolStripMenuItem});
+            this.toolStripSeparator2,
+            this.reportesToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.contratosFinalizadosToolStripMenuItem});
             this.creditosToolStripMenuItem.Name = "creditosToolStripMenuItem";
             this.creditosToolStripMenuItem.Size = new System.Drawing.Size(80, 25);
             this.creditosToolStripMenuItem.Text = "Creditos";
@@ -399,6 +405,23 @@ namespace EASYPOS
             this.button8.UseVisualStyleBackColor = true;
             this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
+            // contratosFinalizadosToolStripMenuItem
+            // 
+            this.contratosFinalizadosToolStripMenuItem.Name = "contratosFinalizadosToolStripMenuItem";
+            this.contratosFinalizadosToolStripMenuItem.Size = new System.Drawing.Size(323, 26);
+            this.contratosFinalizadosToolStripMenuItem.Text = "Contratos finalizados";
+            this.contratosFinalizadosToolStripMenuItem.Click += new System.EventHandler(this.contratosFinalizadosToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(320, 6);
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(320, 6);
+            // 
             // FPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -472,5 +495,8 @@ namespace EASYPOS
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button8;
         private System.Windows.Forms.ToolStripMenuItem tasasDeInteresToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem contratosFinalizadosToolStripMenuItem;
     }
 }

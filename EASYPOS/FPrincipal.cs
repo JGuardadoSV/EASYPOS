@@ -216,5 +216,11 @@ namespace EASYPOS
             FIntereses f = new FIntereses();
             f.ShowDialog();
         }
+
+        private void contratosFinalizadosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FContratosFinalizados f = new FContratosFinalizados();
+            f.ShowDialog();
+        }
     }
 }

@@ -60,6 +60,7 @@ namespace EASYPOS.Formularios.POS
             this.otrafecha = new System.Windows.Forms.CheckBox();
             this.label13 = new System.Windows.Forms.Label();
             this.txtmora = new System.Windows.Forms.TextBox();
+            this.button4 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -366,12 +367,23 @@ namespace EASYPOS.Formularios.POS
             this.txtmora.Size = new System.Drawing.Size(100, 24);
             this.txtmora.TabIndex = 20;
             // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(328, 391);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(117, 23);
+            this.button4.TabIndex = 29;
+            this.button4.Text = "Aplicar descuento";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
             // FCobroCuotaMoto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(528, 588);
             this.ControlBox = false;
+            this.Controls.Add(this.button4);
             this.Controls.Add(this.otrafecha);
             this.Controls.Add(this.dateTimePickerFechaPago);
             this.Controls.Add(this.labelAviso);
@@ -444,5 +456,6 @@ namespace EASYPOS.Formularios.POS
         private System.Windows.Forms.CheckBox otrafecha;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox txtmora;
+        private System.Windows.Forms.Button button4;
     }
 }

@@ -57,11 +57,15 @@ namespace EASYPOS.Formularios.POS
         private void FCobroCuotaMoto_Load(object sender, EventArgs e)
         {
 
-            dateTimePickerFechaPago.Value= cuota.Fecha.Value;
+            
 
             if (idcuota<0 || solouna)
             {
                 button3.Visible = false;
+            }
+            else
+            {
+                dateTimePickerFechaPago.Value = cuota.Fecha.Value;
             }
             CContratos cContratos = new CContratos();
             //c = new con();
@@ -279,7 +283,7 @@ namespace EASYPOS.Formularios.POS
             printer.Append("                                        ");
             printer.Append("                                        ");
             printer.BoldMode(config.NombreEmpresa);
-            printer.BoldMode("Nueva Concepción");
+            printer.BoldMode(config.municipio);
             //Bitmap image = new Bitmap(Bitmap.FromFile("Icon.bmp"));
             //printer.Image(image);
             printer.Append(config.Direccion);
@@ -322,7 +326,7 @@ namespace EASYPOS.Formularios.POS
             printer.Append("                                        ");
             printer.Append("                                        ");
             printer.Append("                                        ");
-            printer.Append("Gracias por su compra");
+            printer.Append("Gracias por su pago");
             printer.Append("                                        ");
             printer.Append("                                        ");
             printer.Append("                                        ");
@@ -346,6 +350,38 @@ namespace EASYPOS.Formularios.POS
            
 
 
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            if (mora>0)
+            {
+                FDescuentoMora f = new FDescuentoMora(mora);
+                f.ShowDialog();
+
+                if (f.DialogResult==DialogResult.OK)
+                {
+
+                    //this.mora = f.nuevamora;
+                    if (f.nuevamora==0)
+                    {
+                        txtmonto.Text = (decimal.Parse(txtmonto.Text) - mora).ToString();
+                        txtpago.Text = txtmonto.Text;
+                        this.mora = 0;
+                        txtmora.Text = this.mora.ToString("F");
+                    }
+                    else
+                    {
+                        decimal quitar = this.mora - f.nuevamora;
+                        this.mora = f.nuevamora;
+                        txtmonto.Text = (decimal.Parse(txtmonto.Text) - quitar).ToString();
+                        txtpago.Text = txtmonto.Text;
+                        txtmora.Text = this.mora.ToString("F");
+                    }
+                   
+                }
+            }
+           
         }
 
         private void button2_Click(object sender, EventArgs e)

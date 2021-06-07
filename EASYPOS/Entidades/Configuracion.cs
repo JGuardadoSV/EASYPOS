@@ -20,6 +20,7 @@ namespace EASYPOS.Entidades
         public string Usuario   { get; set; }
         public string Clave { get; set; }
         public string logo { get; set; }
+        public string municipio { get; set; }
 
 
 

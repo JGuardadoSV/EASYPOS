@@ -77,11 +77,22 @@ namespace EASYPOS.Formularios.Contratos
             txtmora.Text = (mora).ToString("F");
 
 
+            if (contrato.Finalizado==1)
+            {
+                button2.Visible = false;
+            }
+
+
         }
 
         private void cuotasDataGridView_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            cobrar();
+            if (contrato.Finalizado == 0)
+            {
+                cobrar();
+            }
+            
+            
 
             
         }

@@ -59,6 +59,7 @@ namespace EASYPOS.Entidades
 
         public int Historico { get; set; }
         public decimal Tasa { get; set; }
+        public int Finalizado { get; set; }
 
 
 

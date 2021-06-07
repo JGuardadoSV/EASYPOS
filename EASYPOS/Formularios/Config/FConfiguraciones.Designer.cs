@@ -41,7 +41,9 @@ namespace EASYPOS.Formularios.Config
             System.Windows.Forms.Label usuarioLabel;
             System.Windows.Forms.Label label1;
             System.Windows.Forms.Label label2;
+            System.Windows.Forms.Label municipioLabel;
             this.claveTextBox = new System.Windows.Forms.TextBox();
+            this.configuracionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.direccionTextBox = new System.Windows.Forms.TextBox();
             this.impresoraTextBox = new System.Windows.Forms.TextBox();
             this.nITTextBox = new System.Windows.Forms.TextBox();
@@ -54,7 +56,7 @@ namespace EASYPOS.Formularios.Config
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.configuracionBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.municipioTextBox = new System.Windows.Forms.TextBox();
             claveLabel = new System.Windows.Forms.Label();
             direccionLabel = new System.Windows.Forms.Label();
             impresoraLabel = new System.Windows.Forms.Label();
@@ -66,9 +68,10 @@ namespace EASYPOS.Formularios.Config
             usuarioLabel = new System.Windows.Forms.Label();
             label1 = new System.Windows.Forms.Label();
             label2 = new System.Windows.Forms.Label();
+            municipioLabel = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.configuracionBindingSource)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.configuracionBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // claveLabel
@@ -95,10 +98,10 @@ namespace EASYPOS.Formularios.Config
             // 
             impresoraLabel.AutoSize = true;
             impresoraLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            impresoraLabel.Location = new System.Drawing.Point(19, 232);
+            impresoraLabel.Location = new System.Drawing.Point(19, 261);
             impresoraLabel.Name = "impresoraLabel";
             impresoraLabel.Size = new System.Drawing.Size(176, 18);
-            impresoraLabel.TabIndex = 13;
+            impresoraLabel.TabIndex = 15;
             impresoraLabel.Text = "Nombre impresora ticket:";
             // 
             // nITLabel
@@ -190,6 +193,10 @@ namespace EASYPOS.Formularios.Config
             this.claveTextBox.Size = new System.Drawing.Size(173, 24);
             this.claveTextBox.TabIndex = 4;
             // 
+            // configuracionBindingSource
+            // 
+            this.configuracionBindingSource.DataSource = typeof(EASYPOS.Entidades.Configuracion);
+            // 
             // direccionTextBox
             // 
             this.direccionTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.configuracionBindingSource, "Direccion", true));
@@ -203,10 +210,10 @@ namespace EASYPOS.Formularios.Config
             // 
             this.impresoraTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.configuracionBindingSource, "Impresora", true));
             this.impresoraTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.impresoraTextBox.Location = new System.Drawing.Point(201, 227);
+            this.impresoraTextBox.Location = new System.Drawing.Point(201, 256);
             this.impresoraTextBox.Name = "impresoraTextBox";
             this.impresoraTextBox.Size = new System.Drawing.Size(191, 24);
-            this.impresoraTextBox.TabIndex = 14;
+            this.impresoraTextBox.TabIndex = 16;
             // 
             // nITTextBox
             // 
@@ -269,18 +276,18 @@ namespace EASYPOS.Formularios.Config
             this.panel1.Controls.Add(this.usuarioTextBox);
             this.panel1.Controls.Add(label1);
             this.panel1.Controls.Add(usuarioLabel);
-            this.panel1.Location = new System.Drawing.Point(22, 277);
+            this.panel1.Location = new System.Drawing.Point(22, 313);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(311, 151);
-            this.panel1.TabIndex = 15;
+            this.panel1.TabIndex = 17;
             // 
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(629, 290);
+            this.button1.Location = new System.Drawing.Point(629, 326);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(159, 90);
-            this.button1.TabIndex = 16;
+            this.button1.TabIndex = 18;
             this.button1.Text = "Guardar Cambios";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -288,17 +295,17 @@ namespace EASYPOS.Formularios.Config
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(629, 387);
+            this.button2.Location = new System.Drawing.Point(629, 423);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(159, 29);
-            this.button2.TabIndex = 17;
+            this.button2.TabIndex = 19;
             this.button2.Text = "Cerrar";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(354, 277);
+            this.pictureBox1.Location = new System.Drawing.Point(354, 313);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(244, 151);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -306,15 +313,32 @@ namespace EASYPOS.Formularios.Config
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
-            // configuracionBindingSource
+            // municipioLabel
             // 
-            this.configuracionBindingSource.DataSource = typeof(EASYPOS.Entidades.Configuracion);
+            municipioLabel.AutoSize = true;
+            municipioLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            municipioLabel.Location = new System.Drawing.Point(120, 229);
+            municipioLabel.Name = "municipioLabel";
+            municipioLabel.Size = new System.Drawing.Size(75, 18);
+            municipioLabel.TabIndex = 13;
+            municipioLabel.Text = "Municipio:";
+            // 
+            // municipioTextBox
+            // 
+            this.municipioTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.configuracionBindingSource, "municipio", true));
+            this.municipioTextBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.municipioTextBox.Location = new System.Drawing.Point(201, 228);
+            this.municipioTextBox.Name = "municipioTextBox";
+            this.municipioTextBox.Size = new System.Drawing.Size(316, 24);
+            this.municipioTextBox.TabIndex = 14;
             // 
             // FConfiguraciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(808, 450);
+            this.ClientSize = new System.Drawing.Size(808, 520);
+            this.Controls.Add(municipioLabel);
+            this.Controls.Add(this.municipioTextBox);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -338,10 +362,10 @@ namespace EASYPOS.Formularios.Config
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Configuraciones del sistema";
             this.Load += new System.EventHandler(this.FConfiguraciones_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.configuracionBindingSource)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.configuracionBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -363,5 +387,6 @@ namespace EASYPOS.Formularios.Config
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TextBox municipioTextBox;
     }
 }

@@ -12,6 +12,7 @@ using EASYPOS.Entidades;
 using contrato = EASYPOS.Entidades.Contratos;
 using EASYPOS.Formularios.Reportes;
 using EASYPOS.Formularios.POS;
+using ESC_POS_USB_NET.Printer;
 
 namespace EASYPOS.Formularios.Contratos
 {
@@ -66,7 +67,13 @@ namespace EASYPOS.Formularios.Contratos
                 COtrosPagos cOtros = new COtrosPagos();
                 otrosPagosBindingSource.DataSource = cOtros.Listado(contratoUp.IdContrato);
 
-
+                if (contratoUp.Finalizado==1)
+                {
+                    button1.Visible = false;
+                    button2.Visible = false;
+                    button4.Visible = false;
+                    
+                }
             }
 
 
@@ -393,7 +400,102 @@ namespace EASYPOS.Formularios.Contratos
                 groupBoxDatos.Enabled = !groupBoxDatos.Enabled;
                 button7.Enabled = !button7.Enabled;
                 MessageBox.Show("Pago registrado con éxito");
+
+                ImprimirTicket(otros);
             }
+        }
+
+        private void ImprimirTicket(OtrosPagos otros)
+        {
+            
+                CContratos cContratos = new CContratos();
+               /* CCuota cCuota = new CCuota();
+                Cuotas c = new Cuotas();
+                c = cCuota.ObtenerUna(id);*/
+            contrato contrato = new contrato();
+                contrato = cContratos.uno(otros.IdContrato_FK);
+
+
+                CConfiguracion cConfiguracion = new CConfiguracion();
+                Configuracion config = cConfiguracion.ObtenerConfiguracion();
+                Printer printer = new Printer(config.Impresora);
+
+               // CCorrelativo ccorrelativo = new CCorrelativo();
+              //  Correlativo correlativo = ccorrelativo.ObtenerUna(c.IdCorrelativo_FK);
+
+                printer.AlignCenter();
+                printer.Append("                                        ");
+                printer.Append("                                        ");
+                printer.Append("                                        ");
+                printer.BoldMode(config.NombreEmpresa);
+                printer.BoldMode(config.municipio);
+                //Bitmap image = new Bitmap(Bitmap.FromFile("Icon.bmp"));
+                //printer.Image(image);
+                printer.Append(config.Direccion);
+                printer.Append("NIT:" + config.NIT);
+                printer.Append("NRC:" + config.NRC);
+                printer.Append("Fecha:" + otros.fecha);
+                printer.Append("Comprobante de pago");
+                printer.Append("Cliente:" + contrato.NombreCompleto);
+                printer.Append("--------------------------------------");
+
+                printer.AlignLeft();
+                printer.Append("Descripción del pago");
+
+
+                printer.Append("Total cancelado = $" + otros.monto.Value.ToString("F"));
+                
+                if (otros.comentario.Length > 0)
+                {
+                    printer.Append("--------------");
+                    printer.Append("Información:" + otros.comentario);
+                    printer.Append("--------------");
+                }
+                /*printer.Append("A intereses = $" + c.AIntereses.Value.ToString("F"));
+                printer.Append("A capital = $" + c.ACapital.Value.ToString("F"));
+                printer.Append("Abono extra a capital = $" + c.ACapitalExtra.Value.ToString("F"));
+                printer.Append("--------------");
+                printer.Append("Capital pendiente = $" + c.CapitalPendiente.Value.ToString("F"));*/
+
+                printer.AlignCenter();
+                printer.Append("--------------------------------------");
+                printer.AlignLeft();
+                printer.Append("Ventas Afectas:" + otros.monto);
+                printer.Append("Ventas Exentas:" + "0.00");
+                printer.AlignCenter();
+                printer.Append("--------------------------------------");
+                printer.AlignLeft();
+                printer.Append("Recibido:" + otros.efectivo.Value);
+                printer.Append("Cambio:" + otros.cambio.Value);
+                printer.AlignCenter();
+                printer.Append("                                        ");
+                printer.Append("                                        ");
+                printer.Append("                                        ");
+                printer.Append("Gracias por su pago realizado");
+                printer.Append("                                        ");
+                printer.Append("                                        ");
+                printer.Append("                                        ");
+
+                /*printer.Append("Resolución: " + correlativo.Resolucion);
+                printer.Append("Del " + "0000001 al " + correlativo.Fin);
+                printer.Append("Autorización:" + correlativo.Autorizacion);
+                printer.Append("Fecha de resolución:" + correlativo.FechaDeAutorizacion.ToString());*/
+                printer.Append("                                        ");
+                printer.Append("                                        ");
+                printer.FullPaperCut();
+                try
+                {
+                    printer.PrintDocument();
+                }
+                catch (Exception)
+                {
+
+
+                }
+
+
+
+            
         }
 
         private void button10_Click(object sender, EventArgs e)

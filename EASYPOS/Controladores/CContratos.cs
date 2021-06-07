@@ -67,6 +67,11 @@ namespace EASYPOS.Controladores
             mContratos.ActualizarRestante(contrato);
         }
 
+        internal object ListadoFinalizados()
+        {
+            return mContratos.ListadoFinalizados();
+        }
+
         internal void ActualizarRestanteBorrado(Contratos contrato)
         {
             mContratos.ActualizarRestanteBorrado(contrato);

@@ -201,6 +201,12 @@
     <Compile Include="Formularios\Contratos\FContratos.Designer.cs">
       <DependentUpon>FContratos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\Contratos\FContratosFinalizados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Contratos\FContratosFinalizados.Designer.cs">
+      <DependentUpon>FContratosFinalizados.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\Contratos\FContratosPaganEsteMes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -284,6 +290,12 @@
     </Compile>
     <Compile Include="Formularios\POS\FCobroCuotaMoto.Designer.cs">
       <DependentUpon>FCobroCuotaMoto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\POS\FDescuentoMora.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\POS\FDescuentoMora.Designer.cs">
+      <DependentUpon>FDescuentoMora.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\POS\FListadoProductosPOS.cs">
       <SubType>Form</SubType>
@@ -450,6 +462,9 @@
     <EmbeddedResource Include="Formularios\Contratos\FContratos.resx">
       <DependentUpon>FContratos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Contratos\FContratosFinalizados.resx">
+      <DependentUpon>FContratosFinalizados.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\Contratos\FContratosPaganEsteMes.resx">
       <DependentUpon>FContratosPaganEsteMes.cs</DependentUpon>
     </EmbeddedResource>
@@ -491,6 +506,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\POS\FCobroCuotaMoto.resx">
       <DependentUpon>FCobroCuotaMoto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\POS\FDescuentoMora.resx">
+      <DependentUpon>FDescuentoMora.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\POS\FListadoProductosPOS.resx">
       <DependentUpon>FListadoProductosPOS.cs</DependentUpon>
