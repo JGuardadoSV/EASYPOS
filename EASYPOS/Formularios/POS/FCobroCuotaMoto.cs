@@ -300,7 +300,7 @@ namespace EASYPOS.Formularios.POS
             
             printer.Append("Total cancelado = $" + c.MontoCancelado.Value.ToString("F"));
             printer.Append("Cuota con vencimiento al " + c.Fecha.Value.ToString());
-            if (c.comentario.Length>0)
+            if (c.comentario!=null)
             {
                 printer.Append("--------------");
                 printer.Append("Información:" + c.comentario);

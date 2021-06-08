@@ -445,7 +445,7 @@ namespace EASYPOS.Formularios.Contratos
 
                 printer.Append("Total cancelado = $" + otros.monto.Value.ToString("F"));
                 
-                if (otros.comentario.Length > 0)
+                if (otros.comentario != null)
                 {
                     printer.Append("--------------");
                     printer.Append("Información:" + otros.comentario);
