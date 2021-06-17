@@ -18,7 +18,7 @@ namespace EASYPOS.Modelos
         public int Insertar(Contratos contrato)
         {
 
-            string consulta = "insert into Contratos values (@NombreCompleto,@Dui,@Nit,@TelefonoFijo,@Celular,@DireccionCasa,@DireccionTrabajo,@TelefonoTrabajo,@Referencia1,@DireccionReferencia1,@TelefonoReferencia1,@Referencia2,@DireccionReferencia2,@TelefonoReferencia2,@Precio,@Prima,@Financiamiento,@Cuota,@GastosEscritura,@PrimaNeta,@PrimaInicial,@DescripcionProducto,@Marca,@Modelo,@Chasis,@Anio,@Fecha,@DuiReferencia,@NitReferencia,@Meses,@Estado,@FechaInicio,@NombreReferenciaFamiliar1,@DireccionReferenciaFamiliar1,@TelefonoFamiliar1,@ParentescoFamiliar1,@NombreReferenciaFamiliar2,@DireccionReferenciaFamiliar2,@TelefonoFamiliar2,@ParentescoFamiliar2,@Restante,@NoEsMoto,@TratoEspecial,@Historico,@Tasa,@Finalizado)";
+            string consulta = "insert into Contratos values (@NombreCompleto,@Dui,@Nit,@TelefonoFijo,@Celular,@DireccionCasa,@DireccionTrabajo,@TelefonoTrabajo,@Referencia1,@DireccionReferencia1,@TelefonoReferencia1,@Referencia2,@DireccionReferencia2,@TelefonoReferencia2,@Precio,@Prima,@Financiamiento,@Cuota,@GastosEscritura,@PrimaNeta,@PrimaInicial,@DescripcionProducto,@Marca,@Modelo,@Chasis,@Anio,@Fecha,@DuiReferencia,@NitReferencia,@Meses,@Estado,@FechaInicio,@NombreReferenciaFamiliar1,@DireccionReferenciaFamiliar1,@TelefonoFamiliar1,@ParentescoFamiliar1,@NombreReferenciaFamiliar2,@DireccionReferenciaFamiliar2,@TelefonoFamiliar2,@ParentescoFamiliar2,@Restante,@NoEsMoto,@TratoEspecial,@Historico,@Tasa,@Finalizado,@IdCuenta_FK)";
             DynamicParameters parametros = new DynamicParameters();
 
             //parametros.Add("@IdContrato", contrato.IdContrato, DbType.Int32);
@@ -68,7 +68,8 @@ namespace EASYPOS.Modelos
             parametros.Add("@Historico", contrato.Historico, DbType.Int32);
             parametros.Add("@Tasa", contrato.Tasa, DbType.Decimal);
             parametros.Add("@Finalizado", contrato.Finalizado, DbType.Int32);
-
+            parametros.Add("@IdCuenta_FK", contrato.IdCuenta_FK, DbType.Int32);
+            
 
             cn.Open();
             cn.Execute(consulta, parametros, commandType: CommandType.Text);
@@ -82,7 +83,7 @@ namespace EASYPOS.Modelos
 
         }
 
-        internal void ActualizarRestanteBorrado(Contratos contrato)
+        public  void ActualizarRestanteBorrado(Contratos contrato)
         {
            
 
@@ -231,7 +232,7 @@ namespace EASYPOS.Modelos
         public int Actualizar(Contratos contrato)
         {
 
-            string consulta = "Update Contratos set NombreCompleto=@NombreCompleto,Dui=@Dui,Nit=@Nit,TelefonoFijo=@TelefonoFijo,Celular=@Celular,DireccionCasa=@DireccionCasa,DireccionTrabajo=@DireccionTrabajo,TelefonoTrabajo=@TelefonoTrabajo,Referencia1=@Referencia1,DireccionReferencia1=@DireccionReferencia1,TelefonoReferencia1=@TelefonoReferencia1,Referencia2=@Referencia2,DireccionReferencia2=@DireccionReferencia2,TelefonoReferencia2=@TelefonoReferencia2,Precio=@Precio,Prima=@Prima,Financiamiento=@Financiamiento,Cuota=@Cuota,GastosEscritura=@GastosEscritura,PrimaNeta=@PrimaNeta,PrimaInicial=@PrimaInicial,DescripcionProducto=@DescripcionProducto,Marca=@Marca,Modelo=@Modelo,Chasis=@Chasis,Anio=@Anio,Fecha=@Fecha,FechaInicio=@FechaInicio ,DuiReferencia=@DuiReferencia,NitReferencia=@NitReferencia,Meses=@Meses,Estado=@Estado,NombreReferenciaFamiliar1=@NombreReferenciaFamiliar1,DireccionReferenciaFamiliar1=@DireccionReferenciaFamiliar1,TelefonoFamiliar1=@TelefonoFamiliar1,ParentescoFamiliar1=@ParentescoFamiliar1,NombreReferenciaFamiliar2=@NombreReferenciaFamiliar2,DireccionReferenciaFamiliar2=@DireccionReferenciaFamiliar2,TelefonoFamiliar2=@TelefonoFamiliar2,ParentescoFamiliar2=@ParentescoFamiliar2,Restante=@Restante,NoEsMoto=@NoEsMoto,TratoEspecial=@TratoEspecial,Historico=@Historico,Tasa=@Tasa,finalizado=@Finalizado where IdContrato=@IdContrato";
+            string consulta = "Update Contratos set NombreCompleto=@NombreCompleto,Dui=@Dui,Nit=@Nit,TelefonoFijo=@TelefonoFijo,Celular=@Celular,DireccionCasa=@DireccionCasa,DireccionTrabajo=@DireccionTrabajo,TelefonoTrabajo=@TelefonoTrabajo,Referencia1=@Referencia1,DireccionReferencia1=@DireccionReferencia1,TelefonoReferencia1=@TelefonoReferencia1,Referencia2=@Referencia2,DireccionReferencia2=@DireccionReferencia2,TelefonoReferencia2=@TelefonoReferencia2,Precio=@Precio,Prima=@Prima,Financiamiento=@Financiamiento,Cuota=@Cuota,GastosEscritura=@GastosEscritura,PrimaNeta=@PrimaNeta,PrimaInicial=@PrimaInicial,DescripcionProducto=@DescripcionProducto,Marca=@Marca,Modelo=@Modelo,Chasis=@Chasis,Anio=@Anio,Fecha=@Fecha,FechaInicio=@FechaInicio ,DuiReferencia=@DuiReferencia,NitReferencia=@NitReferencia,Meses=@Meses,Estado=@Estado,NombreReferenciaFamiliar1=@NombreReferenciaFamiliar1,DireccionReferenciaFamiliar1=@DireccionReferenciaFamiliar1,TelefonoFamiliar1=@TelefonoFamiliar1,ParentescoFamiliar1=@ParentescoFamiliar1,NombreReferenciaFamiliar2=@NombreReferenciaFamiliar2,DireccionReferenciaFamiliar2=@DireccionReferenciaFamiliar2,TelefonoFamiliar2=@TelefonoFamiliar2,ParentescoFamiliar2=@ParentescoFamiliar2,Restante=@Restante,NoEsMoto=@NoEsMoto,TratoEspecial=@TratoEspecial,Historico=@Historico,Tasa=@Tasa,finalizado=@Finalizado,IdCuenta_FK=@IdCuenta_FK where IdContrato=@IdContrato";
             DynamicParameters parametros = new DynamicParameters();
             
             parametros.Add("@IdContrato", contrato.IdContrato, DbType.Int32);
@@ -281,6 +282,7 @@ namespace EASYPOS.Modelos
             parametros.Add("@Historico", contrato.Historico, DbType.Int32);
             parametros.Add("@Tasa", contrato.Tasa, DbType.Decimal);
             parametros.Add("@Finalizado", contrato.Finalizado, DbType.Int32);
+            parametros.Add("@IdCuenta_FK", contrato.IdCuenta_FK, DbType.Int32);
             cn.Open();
             cn.Execute(consulta, parametros, commandType: CommandType.Text);
             cn.Close();
@@ -303,8 +305,8 @@ namespace EASYPOS.Modelos
             cn.Close();
 
 
-            CCuota cCuota = new CCuota();
-            cCuota.actualizarCuotasRestantes(contrato.IdContrato);
+           CCuota cCuota = new CCuota();
+           cCuota.actualizarCuotasRestantes(contrato.IdContrato);
 
             return contrato.IdContrato;
 

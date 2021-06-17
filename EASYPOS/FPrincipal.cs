@@ -1,4 +1,5 @@
-﻿using EASYPOS.Formularios.Categorias;
+﻿using EASYPOS.Formularios.Bancos;
+using EASYPOS.Formularios.Categorias;
 using EASYPOS.Formularios.Config;
 using EASYPOS.Formularios.Contratos;
 using EASYPOS.Formularios.Correlativos;
@@ -220,6 +221,23 @@ namespace EASYPOS
         private void contratosFinalizadosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FContratosFinalizados f = new FContratosFinalizados();
+            f.ShowDialog();
+        }
+
+        private void bancosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FBancos f = new FBancos();
+            f.ShowDialog();
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            FCalculos f = new FCalculos("Cliente");
             f.ShowDialog();
         }
     }

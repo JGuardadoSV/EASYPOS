@@ -56,5 +56,10 @@ namespace EASYPOS.Controladores
         {
             mCuota.EliminarTodas(idContrato);
         }
+
+        public Cuotas CuotaAnterior(int idCuota)
+        {
+            return mCuota.CuotaAnterior(idCuota);
+        }
     }
 }

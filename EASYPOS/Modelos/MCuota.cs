@@ -45,12 +45,47 @@ namespace EASYPOS.Modelos
             return 1;
         }
 
+        public  Cuotas CuotaAnterior(int idCuota)
+        {
+            //select top 1 * from cuotas where IdCuota<4817 and IdContrato_FK=4012
+            Cuotas cuota = this.ObtenerUno(idCuota);
+
+            string consulta = "select top 1 * from cuotas where IdCuota<@idcuota and IdContrato_FK=@idcontrato order by FechaDePago desc";
+            DynamicParameters parametros = new DynamicParameters();
+
+            parametros.Add("@idcuota", cuota.IdCuota, DbType.Int32);
+            parametros.Add("@idcontrato", cuota.IdContrato_FK, DbType.Int32);
+            cn.Open();
+            try
+            {
+                cuota = cn.QuerySingle<Cuotas>(consulta, parametros, commandType: CommandType.Text);
+            }
+            catch (Exception)
+            {
+
+                cuota = null;
+            }
+            
+            cn.Close();
+            return cuota;
+        }
+
         internal void EliminarTodas(int idContrato)
         {
-            string consulta = "Delete from Cuotas where IdContrato_Fk=@id";
+
+            string consulta = "DELETE p FROM Pagos p INNER JOIN Cuotas c   ON p.IdCuota_FK=c.IdCuota WHERE  c.IdContrato_FK=@id";
             DynamicParameters parametros = new DynamicParameters();
 
             parametros.Add("@id", idContrato, DbType.Int32);
+            cn.Open();
+            cn.Execute(consulta, parametros, commandType: CommandType.Text);
+            cn.Close();
+
+
+           consulta = "Delete from Cuotas where IdContrato_Fk=@id";
+            //DynamicParameters parametros = new DynamicParameters();
+
+           //parametros.Add("@id", idContrato, DbType.Int32);
             cn.Open();
             cn.Execute(consulta, parametros, commandType: CommandType.Text);
             cn.Close();
@@ -87,16 +122,22 @@ namespace EASYPOS.Modelos
 
         public void actualizarCuotasRestantes(int idContrato)
         {
+            CContratos cContratos = new CContratos();
+            Contratos con = cContratos.uno(idContrato);
+            decimal capital = Math.Round(con.Financiamiento.Value / con.Meses,2);
+            CPagos cPagos = new CPagos();
+
             List<Cuotas> listado = this.Listado(idContrato);
-            Cuotas ultimapagada = listado.Where(x => x.Cancelada == 1).OrderByDescending(x => x.FechaDePago).First();
+           // Cuotas ultimapagada = listado.Where(x => x.Cancelada == 1).OrderByDescending(x => x.FechaDePago).First();
             List<Cuotas> sinpagar = listado.Where(x => x.Cancelada == 0).ToList();
-            decimal montoextra = ultimapagada.ACapitalExtra.Value;
+            //decimal montoextra = ultimapagada.ACapitalExtra.Value;
+            decimal montoextra = cPagos.extra(idContrato);
             //decimal sumarestante = sinpagar.Sum(x => x.Capital).Value;
             if (montoextra > 0)
             {
 
 
-                int cuantascrubre = decimal.ToInt32(montoextra / ultimapagada.Capital.Value);
+                int cuantascrubre = decimal.ToInt32(montoextra / capital);
 
                 sinpagar = sinpagar.OrderByDescending(x => x.IdCuota).ToList();
                 int contador = 1;
@@ -111,13 +152,13 @@ namespace EASYPOS.Modelos
                         item.Intereses = 0;
                         item.FechaDePago = DateTime.Now;
                         
-                        if (item.Capital< ultimapagada.Capital.Value)
+                        if (item.Capital< capital)
                         {
                             montoextra -= item.Capital.Value;
                         }
                         else
                         {
-                            montoextra -= ultimapagada.Capital.Value;
+                            montoextra -= capital;
                         }
                         item.Capital = 0;
                         int x = ActualizarCancelada(item);
@@ -126,7 +167,7 @@ namespace EASYPOS.Modelos
                     }
                     else
                     {
-                        if (montoextra > 0)
+                        if (montoextra > 0 && montoextra<capital)
                         {
                             item.Cancelada = 0;
                             item.Monto = item.Monto - montoextra;
@@ -143,6 +184,29 @@ namespace EASYPOS.Modelos
                             int x = ActualizarCancelada(item);
 
                             montoextra -= montoextra;
+                        }
+                        else
+                        {
+                            if (montoextra>capital)
+                            {
+                                item.Cancelada = 1;
+                                item.Monto = 0;
+                                //item.Capital = 0;
+                                item.Intereses = 0;
+                                item.FechaDePago = DateTime.Now;
+
+                                if (item.Capital < capital)
+                                {
+                                    montoextra -= item.Capital.Value;
+                                }
+                                else
+                                {
+                                    montoextra -= capital;
+                                }
+                                item.Capital = 0;
+                                int x = ActualizarCancelada(item);
+                            }
+
                         }
                     }
 
@@ -180,11 +244,11 @@ namespace EASYPOS.Modelos
         public int Actualizar(Cuotas cuota)
         {
 
-            string consulta = "Update cuotas set Correlativo=@Correlativo,IdCorrelativo_FK=@IdCorrelativo_FK,FechaDePago=@FechaDePago,Cancelada=@Cancelada,MontoCancelado= @MontoCancelado,AIntereses= @AIntereses,ACapital= @ACapital,ACapitalExtra= @ACapitalExtra,CapitalPendiente= @CapitalPendiente,EfectivoRecibido= @EfectivoRecibido,Cambio=@Cambio,comentario=@comentario,mora=@mora where IdCuota=@id";
+            string consulta = "Update cuotas set Monto=@Monto,Capital=@Capital,Intereses=@Intereses,Correlativo=@Correlativo,IdCorrelativo_FK=@IdCorrelativo_FK,FechaDePago=@FechaDePago,Cancelada=@Cancelada,MontoCancelado= @MontoCancelado,AIntereses= @AIntereses,ACapital= @ACapital,ACapitalExtra= @ACapitalExtra,CapitalPendiente= @CapitalPendiente,EfectivoRecibido= @EfectivoRecibido,Cambio=@Cambio,comentario=@comentario,mora=@mora where IdCuota=@id";
             DynamicParameters parametros = new DynamicParameters();
             // int idventa;
             parametros.Add("@FechaDePago", cuota.FechaDePago);
-            parametros.Add("@Cancelada", 1);
+            parametros.Add("@Cancelada", cuota.Cancelada);
             parametros.Add("@id", cuota.IdCuota);
             //parametros.Add("@TipoDocumento", cuota.TipoDocumento, DbType.Int32);
             parametros.Add("@Correlativo", cuota.Correlativo, DbType.Int64);
@@ -201,7 +265,9 @@ namespace EASYPOS.Modelos
             parametros.Add("@mora", cuota.mora, DbType.Decimal);
 
 
-
+            parametros.Add("@Monto", cuota.Monto, DbType.Decimal);
+            parametros.Add("@Capital", cuota.Capital, DbType.Decimal);
+            parametros.Add("@Intereses", cuota.Intereses, DbType.Decimal);
 
 
 

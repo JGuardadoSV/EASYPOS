@@ -61,6 +61,8 @@ namespace EASYPOS.Entidades
         public decimal Tasa { get; set; }
         public int Finalizado { get; set; }
 
+        public int? IdCuenta_FK { get; set; }
+
 
 
     }

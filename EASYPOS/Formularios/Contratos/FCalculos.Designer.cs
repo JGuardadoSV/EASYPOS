@@ -47,6 +47,9 @@ namespace EASYPOS.Formularios.Contratos
             this.textBoxgatos = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.txtTasaAplicada = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.textBoxTasa = new System.Windows.Forms.TextBox();
+            this.checkBoxGastos = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label1
@@ -85,7 +88,7 @@ namespace EASYPOS.Formularios.Contratos
             this.txtPrima.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtPrima.Location = new System.Drawing.Point(156, 80);
             this.txtPrima.Name = "txtPrima";
-            this.txtPrima.Size = new System.Drawing.Size(196, 29);
+            this.txtPrima.Size = new System.Drawing.Size(100, 29);
             this.txtPrima.TabIndex = 3;
             this.txtPrima.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMeses_KeyPress);
             this.txtPrima.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtMeses_KeyUp);
@@ -114,7 +117,7 @@ namespace EASYPOS.Formularios.Contratos
             // 
             this.labelCuota.AutoSize = true;
             this.labelCuota.Font = new System.Drawing.Font("Microsoft Sans Serif", 48F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCuota.Location = new System.Drawing.Point(93, 317);
+            this.labelCuota.Location = new System.Drawing.Point(93, 368);
             this.labelCuota.Name = "labelCuota";
             this.labelCuota.Size = new System.Drawing.Size(230, 73);
             this.labelCuota.TabIndex = 12;
@@ -124,7 +127,7 @@ namespace EASYPOS.Formularios.Contratos
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(94, 456);
+            this.button1.Location = new System.Drawing.Point(94, 507);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(126, 52);
             this.button1.TabIndex = 14;
@@ -135,7 +138,7 @@ namespace EASYPOS.Formularios.Contratos
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(226, 456);
+            this.button2.Location = new System.Drawing.Point(226, 507);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(126, 52);
             this.button2.TabIndex = 15;
@@ -165,7 +168,7 @@ namespace EASYPOS.Formularios.Contratos
             // button3
             // 
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(97, 393);
+            this.button3.Location = new System.Drawing.Point(97, 444);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(246, 39);
             this.button3.TabIndex = 13;
@@ -177,7 +180,7 @@ namespace EASYPOS.Formularios.Contratos
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(14, 200);
+            this.label5.Location = new System.Drawing.Point(14, 251);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(194, 24);
             this.label5.TabIndex = 8;
@@ -186,7 +189,7 @@ namespace EASYPOS.Formularios.Contratos
             // textBoxPrimaNeta
             // 
             this.textBoxPrimaNeta.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxPrimaNeta.Location = new System.Drawing.Point(226, 227);
+            this.textBoxPrimaNeta.Location = new System.Drawing.Point(226, 278);
             this.textBoxPrimaNeta.Name = "textBoxPrimaNeta";
             this.textBoxPrimaNeta.ReadOnly = true;
             this.textBoxPrimaNeta.Size = new System.Drawing.Size(183, 29);
@@ -198,7 +201,7 @@ namespace EASYPOS.Formularios.Contratos
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(271, 200);
+            this.label6.Location = new System.Drawing.Point(271, 251);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(99, 24);
             this.label6.TabIndex = 10;
@@ -207,12 +210,13 @@ namespace EASYPOS.Formularios.Contratos
             // textBoxgatos
             // 
             this.textBoxgatos.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxgatos.Location = new System.Drawing.Point(16, 227);
+            this.textBoxgatos.Location = new System.Drawing.Point(16, 278);
             this.textBoxgatos.Name = "textBoxgatos";
             this.textBoxgatos.ReadOnly = true;
             this.textBoxgatos.Size = new System.Drawing.Size(196, 29);
             this.textBoxgatos.TabIndex = 9;
             this.textBoxgatos.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBoxgatos.TextChanged += new System.EventHandler(this.textBoxgatos_TextChanged);
             this.textBoxgatos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMeses_KeyPress);
             this.textBoxgatos.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtMeses_KeyUp);
             // 
@@ -220,7 +224,7 @@ namespace EASYPOS.Formularios.Contratos
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(18, 260);
+            this.label7.Location = new System.Drawing.Point(18, 311);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(131, 24);
             this.label7.TabIndex = 10;
@@ -229,11 +233,42 @@ namespace EASYPOS.Formularios.Contratos
             // txtTasaAplicada
             // 
             this.txtTasaAplicada.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTasaAplicada.Location = new System.Drawing.Point(156, 260);
+            this.txtTasaAplicada.Location = new System.Drawing.Point(156, 311);
             this.txtTasaAplicada.Name = "txtTasaAplicada";
             this.txtTasaAplicada.ReadOnly = true;
             this.txtTasaAplicada.Size = new System.Drawing.Size(100, 29);
             this.txtTasaAplicada.TabIndex = 16;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(12, 190);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(139, 24);
+            this.label8.TabIndex = 6;
+            this.label8.Text = "Tasa de interés";
+            // 
+            // textBoxTasa
+            // 
+            this.textBoxTasa.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxTasa.Location = new System.Drawing.Point(156, 185);
+            this.textBoxTasa.Name = "textBoxTasa";
+            this.textBoxTasa.Size = new System.Drawing.Size(196, 29);
+            this.textBoxTasa.TabIndex = 7;
+            this.textBoxTasa.TextChanged += new System.EventHandler(this.textBoxTasa_TextChanged);
+            this.textBoxTasa.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMeses_KeyPress);
+            // 
+            // checkBoxGastos
+            // 
+            this.checkBoxGastos.AutoSize = true;
+            this.checkBoxGastos.Location = new System.Drawing.Point(263, 83);
+            this.checkBoxGastos.Name = "checkBoxGastos";
+            this.checkBoxGastos.Size = new System.Drawing.Size(77, 17);
+            this.checkBoxGastos.TabIndex = 18;
+            this.checkBoxGastos.Text = "Sin Gastos";
+            this.checkBoxGastos.UseVisualStyleBackColor = true;
+            this.checkBoxGastos.CheckedChanged += new System.EventHandler(this.checkBoxGastos_CheckedChanged);
             // 
             // FCalculos
             // 
@@ -241,6 +276,7 @@ namespace EASYPOS.Formularios.Contratos
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(421, 595);
             this.ControlBox = false;
+            this.Controls.Add(this.checkBoxGastos);
             this.Controls.Add(this.txtTasaAplicada);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -248,6 +284,8 @@ namespace EASYPOS.Formularios.Contratos
             this.Controls.Add(this.labelCuota);
             this.Controls.Add(this.textBoxPrimaNeta);
             this.Controls.Add(this.label5);
+            this.Controls.Add(this.textBoxTasa);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.txtFinanciamiento);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtMeses);
@@ -260,6 +298,7 @@ namespace EASYPOS.Formularios.Contratos
             this.Controls.Add(this.txtPrecio);
             this.Controls.Add(this.label1);
             this.Name = "FCalculos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Calculo de cuota";
             this.Load += new System.EventHandler(this.FCalculos_Load);
             this.ResumeLayout(false);
@@ -287,5 +326,8 @@ namespace EASYPOS.Formularios.Contratos
         private System.Windows.Forms.TextBox textBoxgatos;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox txtTasaAplicada;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox textBoxTasa;
+        private System.Windows.Forms.CheckBox checkBoxGastos;
     }
 }

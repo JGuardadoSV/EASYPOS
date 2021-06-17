@@ -253,7 +253,16 @@ namespace EASYPOS
                     if (id >0)
                     {
                         MessageBox.Show(this, "Venta realizada con éxito", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        imprimirTicket(id);
+                        try
+                        {
+                            imprimirTicket(id);
+                        }
+                        catch (Exception)
+                        {
+
+                           
+                        }
+                        
                         this.Close();
                     }
                 }
@@ -331,6 +340,7 @@ namespace EASYPOS
             //Bitmap image = new Bitmap(Bitmap.FromFile("Icon.bmp"));
             //printer.Image(image);
             printer.Append(config.Direccion);
+            printer.Append("TELEFONO: " + config.Telefono);
             printer.Append("NIT:"+config.NIT);
             printer.Append("NRC:"+config.NRC);
             printer.Append("Fecha:"+venta.Fecha);

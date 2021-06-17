@@ -52,22 +52,23 @@ namespace EASYPOS.Formularios.POS
             this.button2 = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.txtcapitaldespues = new System.Windows.Forms.TextBox();
-            this.aviso = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
-            this.labelAviso = new System.Windows.Forms.Label();
             this.dateTimePickerFechaPago = new System.Windows.Forms.DateTimePicker();
             this.otrafecha = new System.Windows.Forms.CheckBox();
             this.label13 = new System.Windows.Forms.Label();
             this.txtmora = new System.Windows.Forms.TextBox();
             this.button4 = new System.Windows.Forms.Button();
+            this.label14 = new System.Windows.Forms.Label();
+            this.textBoxMora1 = new System.Windows.Forms.TextBox();
+            this.checkBoxNoTicket = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(65, 79);
+            this.label1.Location = new System.Drawing.Point(65, 62);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(57, 18);
             this.label1.TabIndex = 2;
@@ -77,7 +78,7 @@ namespace EASYPOS.Formularios.POS
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(31, 106);
+            this.label2.Location = new System.Drawing.Point(31, 89);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(91, 18);
             this.label2.TabIndex = 4;
@@ -87,7 +88,7 @@ namespace EASYPOS.Formularios.POS
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(10, 136);
+            this.label3.Location = new System.Drawing.Point(10, 119);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(112, 18);
             this.label3.TabIndex = 6;
@@ -97,7 +98,7 @@ namespace EASYPOS.Formularios.POS
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(29, 163);
+            this.label4.Location = new System.Drawing.Point(29, 146);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(93, 18);
             this.label4.TabIndex = 8;
@@ -106,7 +107,7 @@ namespace EASYPOS.Formularios.POS
             // txtcliente
             // 
             this.txtcliente.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtcliente.Location = new System.Drawing.Point(133, 78);
+            this.txtcliente.Location = new System.Drawing.Point(133, 61);
             this.txtcliente.Name = "txtcliente";
             this.txtcliente.ReadOnly = true;
             this.txtcliente.Size = new System.Drawing.Size(356, 24);
@@ -115,7 +116,7 @@ namespace EASYPOS.Formularios.POS
             // txtfecha
             // 
             this.txtfecha.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtfecha.Location = new System.Drawing.Point(133, 106);
+            this.txtfecha.Location = new System.Drawing.Point(133, 89);
             this.txtfecha.Name = "txtfecha";
             this.txtfecha.ReadOnly = true;
             this.txtfecha.Size = new System.Drawing.Size(224, 24);
@@ -124,7 +125,7 @@ namespace EASYPOS.Formularios.POS
             // txtfinanciamiento
             // 
             this.txtfinanciamiento.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtfinanciamiento.Location = new System.Drawing.Point(133, 134);
+            this.txtfinanciamiento.Location = new System.Drawing.Point(133, 117);
             this.txtfinanciamiento.Name = "txtfinanciamiento";
             this.txtfinanciamiento.ReadOnly = true;
             this.txtfinanciamiento.Size = new System.Drawing.Size(108, 24);
@@ -133,7 +134,7 @@ namespace EASYPOS.Formularios.POS
             // txtsaldoactual
             // 
             this.txtsaldoactual.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtsaldoactual.Location = new System.Drawing.Point(133, 162);
+            this.txtsaldoactual.Location = new System.Drawing.Point(133, 145);
             this.txtsaldoactual.Name = "txtsaldoactual";
             this.txtsaldoactual.ReadOnly = true;
             this.txtsaldoactual.Size = new System.Drawing.Size(108, 24);
@@ -143,7 +144,7 @@ namespace EASYPOS.Formularios.POS
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(23, 191);
+            this.label5.Location = new System.Drawing.Point(23, 174);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(99, 18);
             this.label5.TabIndex = 11;
@@ -152,7 +153,7 @@ namespace EASYPOS.Formularios.POS
             // txtmonto
             // 
             this.txtmonto.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtmonto.Location = new System.Drawing.Point(133, 190);
+            this.txtmonto.Location = new System.Drawing.Point(133, 173);
             this.txtmonto.Name = "txtmonto";
             this.txtmonto.ReadOnly = true;
             this.txtmonto.Size = new System.Drawing.Size(108, 24);
@@ -162,7 +163,7 @@ namespace EASYPOS.Formularios.POS
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(155, 225);
+            this.label6.Location = new System.Drawing.Point(155, 206);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(202, 29);
             this.label6.TabIndex = 13;
@@ -171,7 +172,7 @@ namespace EASYPOS.Formularios.POS
             // txtpago
             // 
             this.txtpago.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtpago.Location = new System.Drawing.Point(160, 276);
+            this.txtpago.Location = new System.Drawing.Point(160, 243);
             this.txtpago.Name = "txtpago";
             this.txtpago.Size = new System.Drawing.Size(187, 35);
             this.txtpago.TabIndex = 15;
@@ -183,7 +184,7 @@ namespace EASYPOS.Formularios.POS
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(141, 342);
+            this.label7.Location = new System.Drawing.Point(141, 374);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(63, 18);
             this.label7.TabIndex = 17;
@@ -193,7 +194,7 @@ namespace EASYPOS.Formularios.POS
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(132, 367);
+            this.label8.Location = new System.Drawing.Point(132, 347);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(72, 18);
             this.label8.TabIndex = 19;
@@ -203,7 +204,7 @@ namespace EASYPOS.Formularios.POS
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(59, 422);
+            this.label9.Location = new System.Drawing.Point(59, 403);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(145, 18);
             this.label9.TabIndex = 21;
@@ -212,7 +213,7 @@ namespace EASYPOS.Formularios.POS
             // txtacapital
             // 
             this.txtacapital.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtacapital.Location = new System.Drawing.Point(222, 338);
+            this.txtacapital.Location = new System.Drawing.Point(222, 370);
             this.txtacapital.Name = "txtacapital";
             this.txtacapital.ReadOnly = true;
             this.txtacapital.Size = new System.Drawing.Size(100, 24);
@@ -221,7 +222,7 @@ namespace EASYPOS.Formularios.POS
             // txtaintereses
             // 
             this.txtaintereses.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtaintereses.Location = new System.Drawing.Point(222, 364);
+            this.txtaintereses.Location = new System.Drawing.Point(222, 344);
             this.txtaintereses.Name = "txtaintereses";
             this.txtaintereses.ReadOnly = true;
             this.txtaintereses.Size = new System.Drawing.Size(100, 24);
@@ -230,7 +231,7 @@ namespace EASYPOS.Formularios.POS
             // txtcapitalextra
             // 
             this.txtcapitalextra.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtcapitalextra.Location = new System.Drawing.Point(222, 416);
+            this.txtcapitalextra.Location = new System.Drawing.Point(222, 397);
             this.txtcapitalextra.Name = "txtcapitalextra";
             this.txtcapitalextra.ReadOnly = true;
             this.txtcapitalextra.Size = new System.Drawing.Size(100, 24);
@@ -240,7 +241,7 @@ namespace EASYPOS.Formularios.POS
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(185, 314);
+            this.label10.Location = new System.Drawing.Point(185, 295);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(148, 18);
             this.label10.TabIndex = 16;
@@ -272,7 +273,7 @@ namespace EASYPOS.Formularios.POS
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(31, 448);
+            this.label11.Location = new System.Drawing.Point(31, 429);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(173, 18);
             this.label11.TabIndex = 23;
@@ -281,26 +282,15 @@ namespace EASYPOS.Formularios.POS
             // txtcapitaldespues
             // 
             this.txtcapitaldespues.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtcapitaldespues.Location = new System.Drawing.Point(222, 442);
+            this.txtcapitaldespues.Location = new System.Drawing.Point(222, 423);
             this.txtcapitaldespues.Name = "txtcapitaldespues";
             this.txtcapitaldespues.ReadOnly = true;
             this.txtcapitaldespues.Size = new System.Drawing.Size(100, 24);
             this.txtcapitaldespues.TabIndex = 24;
             // 
-            // aviso
-            // 
-            this.aviso.AutoSize = true;
-            this.aviso.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.aviso.ForeColor = System.Drawing.Color.Red;
-            this.aviso.Location = new System.Drawing.Point(157, 256);
-            this.aviso.Name = "aviso";
-            this.aviso.Size = new System.Drawing.Size(208, 18);
-            this.aviso.TabIndex = 14;
-            this.aviso.Text = "El Pago es menor al requerido";
-            // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(247, 162);
+            this.button3.Location = new System.Drawing.Point(247, 145);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 10;
@@ -311,29 +301,17 @@ namespace EASYPOS.Formularios.POS
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(163, 9);
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(157, 6);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(190, 29);
+            this.label12.Size = new System.Drawing.Size(213, 31);
             this.label12.TabIndex = 0;
             this.label12.Text = "Cobro de cuotas";
-            // 
-            // labelAviso
-            // 
-            this.labelAviso.AutoSize = true;
-            this.labelAviso.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelAviso.ForeColor = System.Drawing.Color.Red;
-            this.labelAviso.Location = new System.Drawing.Point(103, 45);
-            this.labelAviso.Name = "labelAviso";
-            this.labelAviso.Size = new System.Drawing.Size(290, 16);
-            this.labelAviso.TabIndex = 1;
-            this.labelAviso.Text = "MODO ACTIVO: COBRO DE UNA CUOTA";
-            this.labelAviso.Visible = false;
             // 
             // dateTimePickerFechaPago
             // 
             this.dateTimePickerFechaPago.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePickerFechaPago.Location = new System.Drawing.Point(163, 513);
+            this.dateTimePickerFechaPago.Location = new System.Drawing.Point(163, 485);
             this.dateTimePickerFechaPago.Name = "dateTimePickerFechaPago";
             this.dateTimePickerFechaPago.Size = new System.Drawing.Size(169, 20);
             this.dateTimePickerFechaPago.TabIndex = 26;
@@ -341,7 +319,7 @@ namespace EASYPOS.Formularios.POS
             // otrafecha
             // 
             this.otrafecha.AutoSize = true;
-            this.otrafecha.Location = new System.Drawing.Point(163, 489);
+            this.otrafecha.Location = new System.Drawing.Point(163, 461);
             this.otrafecha.Name = "otrafecha";
             this.otrafecha.Size = new System.Drawing.Size(169, 17);
             this.otrafecha.TabIndex = 25;
@@ -352,7 +330,7 @@ namespace EASYPOS.Formularios.POS
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(156, 394);
+            this.label13.Location = new System.Drawing.Point(156, 320);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(47, 18);
             this.label13.TabIndex = 19;
@@ -361,7 +339,7 @@ namespace EASYPOS.Formularios.POS
             // txtmora
             // 
             this.txtmora.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtmora.Location = new System.Drawing.Point(222, 390);
+            this.txtmora.Location = new System.Drawing.Point(222, 316);
             this.txtmora.Name = "txtmora";
             this.txtmora.ReadOnly = true;
             this.txtmora.Size = new System.Drawing.Size(100, 24);
@@ -369,7 +347,7 @@ namespace EASYPOS.Formularios.POS
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(328, 391);
+            this.button4.Location = new System.Drawing.Point(328, 320);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(117, 23);
             this.button4.TabIndex = 29;
@@ -377,16 +355,45 @@ namespace EASYPOS.Formularios.POS
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(247, 178);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(47, 18);
+            this.label14.TabIndex = 19;
+            this.label14.Text = "Mora:";
+            // 
+            // textBoxMora1
+            // 
+            this.textBoxMora1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxMora1.Location = new System.Drawing.Point(300, 175);
+            this.textBoxMora1.Name = "textBoxMora1";
+            this.textBoxMora1.ReadOnly = true;
+            this.textBoxMora1.Size = new System.Drawing.Size(100, 24);
+            this.textBoxMora1.TabIndex = 20;
+            // 
+            // checkBoxNoTicket
+            // 
+            this.checkBoxNoTicket.AutoSize = true;
+            this.checkBoxNoTicket.Location = new System.Drawing.Point(159, 516);
+            this.checkBoxNoTicket.Name = "checkBoxNoTicket";
+            this.checkBoxNoTicket.Size = new System.Drawing.Size(106, 17);
+            this.checkBoxNoTicket.TabIndex = 30;
+            this.checkBoxNoTicket.Text = "No imprimir ticket";
+            this.checkBoxNoTicket.UseVisualStyleBackColor = true;
+            // 
             // FCobroCuotaMoto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(528, 588);
             this.ControlBox = false;
+            this.Controls.Add(this.checkBoxNoTicket);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.otrafecha);
             this.Controls.Add(this.dateTimePickerFechaPago);
-            this.Controls.Add(this.labelAviso);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -396,10 +403,10 @@ namespace EASYPOS.Formularios.POS
             this.Controls.Add(this.txtcapitaldespues);
             this.Controls.Add(this.txtcapitalextra);
             this.Controls.Add(this.txtfinanciamiento);
+            this.Controls.Add(this.textBoxMora1);
             this.Controls.Add(this.txtmora);
             this.Controls.Add(this.txtaintereses);
             this.Controls.Add(this.txtfecha);
-            this.Controls.Add(this.aviso);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.txtacapital);
@@ -407,6 +414,7 @@ namespace EASYPOS.Formularios.POS
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label9);
+            this.Controls.Add(this.label14);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label8);
@@ -448,14 +456,15 @@ namespace EASYPOS.Formularios.POS
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox txtcapitaldespues;
-        private System.Windows.Forms.Label aviso;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label labelAviso;
         private System.Windows.Forms.DateTimePicker dateTimePickerFechaPago;
         private System.Windows.Forms.CheckBox otrafecha;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox txtmora;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox textBoxMora1;
+        private System.Windows.Forms.CheckBox checkBoxNoTicket;
     }
 }

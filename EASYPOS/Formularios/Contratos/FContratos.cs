@@ -61,7 +61,7 @@ namespace EASYPOS.Formularios.Contratos
             {
                 c = (Contrato)contratosBindingSource.Current;
                 
-                FCuotasPagar f = new FCuotasPagar(c.IdContrato);
+                FCuotasPagarV2 f = new FCuotasPagarV2(c.IdContrato);
                 f.StartPosition = FormStartPosition.CenterParent;
                 f.ShowDialog();
                 if (f.DialogResult==DialogResult.OK)
@@ -74,7 +74,7 @@ namespace EASYPOS.Formularios.Contratos
                 this.Close();
             }
             else if (pago)
-            {
+            { /*
                 c = (Contrato)contratosBindingSource.Current;
                 FCuotasPagar f = new FCuotasPagar(c.IdContrato, pago);
                 f.StartPosition = FormStartPosition.CenterParent;
@@ -82,10 +82,15 @@ namespace EASYPOS.Formularios.Contratos
                 if (f.DialogResult == DialogResult.OK)
                 {
                     this.cuota = f.cuota;
+                }*/
+                c = (Contrato)contratosBindingSource.Current;
+                FCuotasPagarV2 f = new FCuotasPagarV2(c.IdContrato, pago);
+                f.StartPosition = FormStartPosition.CenterParent;
+                f.ShowDialog();
+                if (f.DialogResult == DialogResult.OK)
+                {
+                    this.cuota = f.cuota;
                 }
-                //FCobroCuotaMoto f = new FCobroCuotaMoto(c);
-                //f.StartPosition = FormStartPosition.CenterParent;
-                //f.ShowDialog();
             }
             else
             {

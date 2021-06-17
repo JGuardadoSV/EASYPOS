@@ -50,6 +50,7 @@ namespace EASYPOS.Formularios.Contratos
             this.Controls.Add(this.reportViewer1);
             this.Name = "FHojaDePagos";
             this.Text = "Reporte de pagos";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FHojaDePagos_Load);
             this.ResumeLayout(false);
 

@@ -45,9 +45,9 @@ namespace EASYPOS.Formularios.Reportes
 
 
 
-            List<Cuotas> listado = new List<Cuotas>();
-            CCuota cCuotas = new CCuota();
-            listado = cCuotas.ListadoReporte(f1,f2);
+            List<Pagos> listado = new List<Pagos>();
+            CPagos cPagos = new CPagos();
+            listado = cPagos.ListadoReporte(f1,f2);
 
 
             ReportDataSource rds = new ReportDataSource();

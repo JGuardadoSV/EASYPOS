@@ -45,7 +45,9 @@ namespace EASYPOS.Formularios.Reportes
                 {
                     dir = contrato.DireccionCasa;
                 }
-               
+                string parte1 = "POR MEDIO DE ESTE PAGARÉ SIN PROTESTO ME OBLIGO A PAGAR EN LA CIUDAD DE "+ c.municipio.ToUpper() +", A LA ORDEN DE INVERSIONES SG LA SUMA DE $"+contrato.Financiamiento.Value.ToString("F")+" MÁS INTERESES MENSUALES DISTRIBUIDA EN "+contrato.Meses+" CUOTAS DE $"+contrato.Cuota.Value.ToString("F")+ ", EN CONCEPTO DE COMPRA DE "+ contrato.DescripcionProducto+".";
+                string parte2 = "ENTREGADO ESTE DIA "+contrato.FechaInicio.Value.Date.ToShortDateString()+". LA PRIMERA PRIMA DE $"+ contrato.PrimaNeta.Value.ToString("F")+". EL PAGO MENSUAL SE HARA EN EL LUGAR PACTADO.";
+                string parte3 = "PARA TODOS LOS EFECTOS DE ESTA OBLIGACION MERCANTIL FIJAMOS COMO DOMICILIO LA CIUDAD DE NUEVA CONCEPCION CHALATENANGO, Y EN CASO DE ACCION JUDICIAL RENUNCIO AL DECRETO DE APELAR DE DERECHO DE EMBARGO, SENTENCIA DE REMATE Y TODA OTRA PROVIDENCIA APELABLE QUE SE DICTARE EN EL JUICIO EJECUTIVO O SUS INCIDENCIAS, SIENDO A MI CARGO TODOS LOS GASTOS QUE INVERSIONES SG HICIERE EN EL NOMBRE DE ESTE PAGARÉ, EN CUALQUIER CONCEPTO, INCLUIDOS LOS DE CANCELACION Y DE COBRANZA JUDICIALES Y EXTRAJUDICIALES.";
 
                 ReportParameter[] p = new ReportParameter[]
          {
@@ -61,7 +63,14 @@ namespace EASYPOS.Formularios.Reportes
                 new ReportParameter("precio",contrato.Precio.ToString()),
                 new ReportParameter("prima",contrato.Prima.ToString()),
                 new ReportParameter("meses",contrato.Meses.ToString()),
-                new ReportParameter("titulo",titulo)
+                new ReportParameter("titulo",titulo),
+                new ReportParameter("parte1",parte1),
+                new ReportParameter("parte2",parte2),
+                new ReportParameter("parte3",parte3),
+                new ReportParameter("dui",contrato.Dui),
+                new ReportParameter("telefono",contrato.Celular),
+                new ReportParameter("direccion2",dir),
+                new ReportParameter("cliente2",contrato.NombreCompleto)
 
 
          };

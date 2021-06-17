@@ -59,7 +59,7 @@ namespace EASYPOS.Formularios.Contratos
             {
                 c = (Contrato)contratosBindingSource.Current;
                 
-                FCuotasPagar f = new FCuotasPagar(c.IdContrato);
+                FCuotasPagarV2 f = new FCuotasPagarV2(c.IdContrato);
                 f.StartPosition = FormStartPosition.CenterParent;
                 f.ShowDialog();
                 if (f.DialogResult==DialogResult.OK)
@@ -74,7 +74,7 @@ namespace EASYPOS.Formularios.Contratos
             else if (pago)
             {
                 c = (Contrato)contratosBindingSource.Current;
-                FCuotasPagar f = new FCuotasPagar(c.IdContrato, pago);
+                FCuotasPagarV2 f = new FCuotasPagarV2(c.IdContrato, pago);
                 f.StartPosition = FormStartPosition.CenterParent;
                 f.ShowDialog();
                 if (f.DialogResult == DialogResult.OK)

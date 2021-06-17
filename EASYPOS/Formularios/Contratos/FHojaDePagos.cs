@@ -49,17 +49,19 @@ namespace EASYPOS.Formularios.Contratos
 
 
 
-            List<Cuotas> listado = new List<Cuotas>();
-            Controladores.CCuota cCuota = new Controladores.CCuota();
-            listado = cCuota.Listado(contrato.IdContrato);
+            List<Pagos> listado = new List<Pagos>();
+            Controladores.CPagos cPagos = new Controladores.CPagos();
+            listado = cPagos.Listado(contrato.IdContrato);
 
 
             ReportDataSource rds = new ReportDataSource();
-            rds.Name = "Listadofghfgh";
+            rds.Name = "Listado";
             rds.Value = listado;
 
             this.reportViewer1.LocalReport.DataSources.Add(rds);
             this.reportViewer1.LocalReport.SetParameters(p);
+            this.reportViewer1.SetDisplayMode(DisplayMode.PrintLayout);
+            this.reportViewer1.ZoomPercent = 150;
             this.reportViewer1.RefreshReport();
 
             this.reportViewer1.RefreshReport();

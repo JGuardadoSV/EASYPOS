@@ -35,12 +35,11 @@ namespace EASYPOS.Formularios.Contratos
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.contratosBindingNavigator = new System.Windows.Forms.BindingNavigator(this.components);
             this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
-            this.contratosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
@@ -53,18 +52,18 @@ namespace EASYPOS.Formularios.Contratos
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.contratosBindingNavigatorSaveItem = new System.Windows.Forms.ToolStripButton();
             this.contratosDataGridView = new System.Windows.Forms.DataGridView();
+            this.TratoEspecial = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Restante = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TelefonoFijo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.textBoxCliente = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TratoEspecial = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn28 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Restante = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TelefonoFijo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -88,10 +87,11 @@ namespace EASYPOS.Formularios.Contratos
             this.dataGridViewTextBoxColumn25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn26 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn27 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contratosBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.contratosBindingNavigator)).BeginInit();
             this.contratosBindingNavigator.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.contratosBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.contratosDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.contratosBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -130,7 +130,7 @@ namespace EASYPOS.Formularios.Contratos
             this.contratosBindingNavigator.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.contratosBindingNavigator.Name = "contratosBindingNavigator";
             this.contratosBindingNavigator.PositionItem = this.bindingNavigatorPositionItem;
-            this.contratosBindingNavigator.Size = new System.Drawing.Size(1168, 25);
+            this.contratosBindingNavigator.Size = new System.Drawing.Size(1200, 25);
             this.contratosBindingNavigator.TabIndex = 1;
             this.contratosBindingNavigator.Text = "bindingNavigator1";
             // 
@@ -142,10 +142,6 @@ namespace EASYPOS.Formularios.Contratos
             this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
             this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
             this.bindingNavigatorAddNewItem.Text = "Agregar nuevo";
-            // 
-            // contratosBindingSource
-            // 
-            this.contratosBindingSource.DataSource = typeof(EASYPOS.Entidades.Contratos);
             // 
             // bindingNavigatorCountItem
             // 
@@ -190,6 +186,7 @@ namespace EASYPOS.Formularios.Contratos
             // 
             this.bindingNavigatorPositionItem.AccessibleName = "Posición";
             this.bindingNavigatorPositionItem.AutoSize = false;
+            this.bindingNavigatorPositionItem.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.bindingNavigatorPositionItem.Name = "bindingNavigatorPositionItem";
             this.bindingNavigatorPositionItem.Size = new System.Drawing.Size(50, 23);
             this.bindingNavigatorPositionItem.Text = "0";
@@ -303,10 +300,36 @@ namespace EASYPOS.Formularios.Contratos
             dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.contratosDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.contratosDataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.contratosDataGridView.Size = new System.Drawing.Size(1131, 516);
+            this.contratosDataGridView.Size = new System.Drawing.Size(1163, 516);
             this.contratosDataGridView.TabIndex = 6;
             this.contratosDataGridView.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.contratosDataGridView_CellDoubleClick);
             this.contratosDataGridView.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.contratosDataGridView_CellFormatting);
+            // 
+            // TratoEspecial
+            // 
+            this.TratoEspecial.DataPropertyName = "TratoEspecial";
+            this.TratoEspecial.HeaderText = "TratoEspecial";
+            this.TratoEspecial.Name = "TratoEspecial";
+            this.TratoEspecial.ReadOnly = true;
+            this.TratoEspecial.Visible = false;
+            // 
+            // Restante
+            // 
+            this.Restante.DataPropertyName = "Restante";
+            dataGridViewCellStyle3.Format = "N2";
+            dataGridViewCellStyle3.NullValue = null;
+            this.Restante.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Restante.HeaderText = "Capital restante";
+            this.Restante.Name = "Restante";
+            this.Restante.ReadOnly = true;
+            // 
+            // TelefonoFijo
+            // 
+            this.TelefonoFijo.DataPropertyName = "TelefonoFijo";
+            this.TelefonoFijo.HeaderText = "Telefono fijo";
+            this.TelefonoFijo.Name = "TelefonoFijo";
+            this.TelefonoFijo.ReadOnly = true;
+            this.TelefonoFijo.Width = 150;
             // 
             // button1
             // 
@@ -368,14 +391,6 @@ namespace EASYPOS.Formularios.Contratos
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
             this.dataGridViewTextBoxColumn1.Visible = false;
             // 
-            // TratoEspecial
-            // 
-            this.TratoEspecial.DataPropertyName = "TratoEspecial";
-            this.TratoEspecial.HeaderText = "TratoEspecial";
-            this.TratoEspecial.Name = "TratoEspecial";
-            this.TratoEspecial.ReadOnly = true;
-            this.TratoEspecial.Visible = false;
-            // 
             // dataGridViewTextBoxColumn28
             // 
             this.dataGridViewTextBoxColumn28.DataPropertyName = "Fecha";
@@ -394,30 +409,12 @@ namespace EASYPOS.Formularios.Contratos
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
             this.dataGridViewTextBoxColumn2.Width = 350;
             // 
-            // Restante
-            // 
-            this.Restante.DataPropertyName = "Restante";
-            dataGridViewCellStyle3.Format = "N2";
-            dataGridViewCellStyle3.NullValue = null;
-            this.Restante.DefaultCellStyle = dataGridViewCellStyle3;
-            this.Restante.HeaderText = "Capital restante";
-            this.Restante.Name = "Restante";
-            this.Restante.ReadOnly = true;
-            // 
             // dataGridViewTextBoxColumn6
             // 
             this.dataGridViewTextBoxColumn6.DataPropertyName = "Celular";
             this.dataGridViewTextBoxColumn6.HeaderText = "Celular";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            // 
-            // TelefonoFijo
-            // 
-            this.TelefonoFijo.DataPropertyName = "TelefonoFijo";
-            this.TelefonoFijo.HeaderText = "Telefono fijo";
-            this.TelefonoFijo.Name = "TelefonoFijo";
-            this.TelefonoFijo.ReadOnly = true;
-            this.TelefonoFijo.Width = 150;
             // 
             // dataGridViewTextBoxColumn3
             // 
@@ -603,11 +600,15 @@ namespace EASYPOS.Formularios.Contratos
             this.dataGridViewTextBoxColumn27.ReadOnly = true;
             this.dataGridViewTextBoxColumn27.Visible = false;
             // 
+            // contratosBindingSource
+            // 
+            this.contratosBindingSource.DataSource = typeof(EASYPOS.Entidades.Contratos);
+            // 
             // FContratos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1168, 655);
+            this.ClientSize = new System.Drawing.Size(1200, 655);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.textBoxCliente);
             this.Controls.Add(this.button2);
@@ -623,8 +624,8 @@ namespace EASYPOS.Formularios.Contratos
             ((System.ComponentModel.ISupportInitialize)(this.contratosBindingNavigator)).EndInit();
             this.contratosBindingNavigator.ResumeLayout(false);
             this.contratosBindingNavigator.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.contratosBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.contratosDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.contratosBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

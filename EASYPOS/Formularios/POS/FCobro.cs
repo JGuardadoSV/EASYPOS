@@ -48,6 +48,12 @@ namespace EASYPOS.Formularios.POS
 
         private void button1_Click(object sender, EventArgs e)
         {
+            if (textBoxRecibe.Text.Length==0)
+            {
+                MessageBox.Show(this, "Indique el efectivo recibido", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+
             if (cambio>0)
             {
                 MessageBox.Show(this, "El efectivo recibido no es suficiente", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);

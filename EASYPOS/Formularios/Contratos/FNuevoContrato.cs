@@ -27,6 +27,12 @@ namespace EASYPOS.Formularios.Contratos
 
         private void FNuevoContrato_Load(object sender, EventArgs e)
         {
+
+            CCuenta cCuenta = new CCuenta();
+            cuentasBindingSource.DataSource = cCuenta.Listado();
+
+            
+
             if (contratoUp == null)
             {
                 //contraton.Meses = 18;
@@ -37,10 +43,21 @@ namespace EASYPOS.Formularios.Contratos
                 contratosBindingSource.Add(contraton);
                button5.Visible = false;
 
+                bancoLabel2.Visible = false;
+
 
             }
             else
             {
+                
+                if (contratoUp.IdCuenta_FK !=null)
+                {
+                    bancoLabel2.Visible = true;
+                }
+                else
+                {
+                    bancoLabel2.Visible = false;
+                }
                 CContratos c = new CContratos();
                 contratoUp = c.uno(contratoUp.IdContrato);
                 contratosBindingSource.DataSource = contratoUp;
@@ -82,11 +99,26 @@ namespace EASYPOS.Formularios.Contratos
 
         private void button1_Click(object sender, EventArgs e)
         {
+            guardar();
+
+
+
+
+        }
+
+        private void guardar(bool cerrar=true)
+        {
+            contratosBindingSource.EndEdit();
             CContratos cContratos = new CContratos();
             contrato contrato = new contrato();
             contrato = (EASYPOS.Entidades.Contratos)contratosBindingSource.Current;
 
-
+            if (idCuenta_FKComboBox.SelectedIndex>0)
+            {
+                Cuentas cuentas = new Cuentas();
+                cuentas = (Cuentas)cuentasBindingSource.Current;
+                contrato.IdCuenta_FK = cuentas.IdCuenta;
+            }
             if (contrato.Precio == 0 || contrato.Cuota == 0 || contrato.Financiamiento == 0 || contrato.Prima == 0 || contrato.Meses == 0)
             {
                 MessageBox.Show("Para guardar, debe de rellenar los datos del financiamiento");
@@ -128,15 +160,14 @@ namespace EASYPOS.Formularios.Contratos
                     MessageBox.Show(this, "Contrato actualizado con éxito", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
+                if (cerrar)
+                {
+                    this.Close();
+                }
 
-
-                this.Close();
+               
 
             }
-
-
-
-
         }
 
         private void label4_Click(object sender, EventArgs e)
@@ -347,7 +378,7 @@ namespace EASYPOS.Formularios.Contratos
 
         private void button5_Click(object sender, EventArgs e)
         {
-            FCuotasPagar f = new FCuotasPagar(contratoUp.IdContrato);
+            FCuotasPagarV2 f = new FCuotasPagarV2(contratoUp.IdContrato);
             f.StartPosition = FormStartPosition.CenterParent;
             f.ShowDialog();
         }
@@ -522,7 +553,10 @@ namespace EASYPOS.Formularios.Contratos
                 contrato contrato = new contrato();
                 contrato = (EASYPOS.Entidades.Contratos)contratosBindingSource.Current;
                 cContratos.ActualizarRestanteBorrado(contrato);
+                contratoUp.Restante = contrato.Financiamiento;
+                contratosBindingSource.DataSource = contrato;
 
+                guardar(false);
 
             }
         }
